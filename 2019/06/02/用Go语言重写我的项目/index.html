@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>用Go语言重写我的项目 | Silen&#39;s Blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Silen's Blog</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/handbooks/"
+            
+            
+            id="handbooks">
+            <i class='fas fa-book-open fa-fw'></i>&nbsp;手册
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          Silen's Blog
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/handbooks/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="handbooks">
+									<i class='fas fa-book-open fa-fw'></i>&nbsp;手册
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的基友
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/handbooks/"
+                
+                  rel="nofollow"
+                
+                
+                id="handbooks">
+								<i class='fas fa-book-open fa-fw'></i>&nbsp;我的手册
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/06/02/用Go语言重写我的项目/">
+        用Go语言重写我的项目
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://silenwang.github.io" rel="nofollow">
+      
+        <img src="https://avatars1.githubusercontent.com/u/12797055?s=40&v=4">
+      
+      <p>Silen Wang</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-06-02</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Script/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Script</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>为了学习Go语言, 我把之前工作中一个用的比较多的脚本用Go重写了. 所谓没有对比就没有伤害, 实际写下来的感受是, Python真的简单快捷易懂…好用的第三方模块多…中英文的学习资料更是非常容易找. 要不是为了性能…我真是不想换…</p>
+<!-- 摘要部分 -->
+<a id="more"></a>
+
+<h2 id="一只Python菜鸡眼里的Go"><a href="#一只Python菜鸡眼里的Go" class="headerlink" title="一只Python菜鸡眼里的Go"></a>一只Python菜鸡眼里的Go</h2><p>由于我之前比较大一点的程序都是Python和R写的, 均不属于强类型语言, 对变量的声明和使用的都比较灵活, 所以开发的主要难度集中在第三方模块的使用和处理自己设计中的逻辑bug上.</p>
+<p>Go就不一样了…它是一种强类型的语言, 变量要先声明再使用, 且一旦声明, 后面不可再更改类型, 这在我前期开始上手的时候着实让我难受了好久…</p>
+<p>虽然Go为了一定程度上增加易用性设计了接口这个灵活的类型, 但我毕竟是菜鸡出身, 在Python R Bash内都没有类似概念的情况下…明白这到底是个什么东西着实花了我不少时间.</p>
+<p>在解决了基本的变量使用后, 还有错误处理的方式不同, 第三方模块较少以及缺少Magic写法等种种问题要一点一点解决… 最终导致这个改写拖了整整两个星期才初步完成…</p>
+<p>虽然困难不少, 但是只要体验过它的速度, 相信很多人会和我一样激动异常(虽然本次我重写的时候顺带着对算法也做了优化, 但是那点优化是绝对不足以带来200倍的差距)</p>
+<p>嘛, 世界变化这么快, 多学一样东西总是不会错的~</p>
+<p>附上这个重写项目的地址: <a href="https://github.com/SilenWang/FUEX" target="_blank" rel="noopener">FUEX</a></p>
+<h2 id="以Python为参照快速上手Go"><a href="#以Python为参照快速上手Go" class="headerlink" title="以Python为参照快速上手Go"></a>以Python为参照快速上手Go</h2><p>就像我学英语的时候总是扰不开从中文的角度进行思考, 我写这个练习项目的时候总是不可避免的想要按照Python里面的方式是来进行代码实现. 但是Python和Go毕竟是两种差异很大的语言, 一些Python里用到的东西在Go里只有类似物, 甚至是连类似物都没有, 这里就总结一下本次开发中涉及到的一些替代实现方案.</p>
+<h3 id="变量-数据类型"><a href="#变量-数据类型" class="headerlink" title="变量/数据类型"></a>变量/数据类型</h3><h4 id="变量声明及初始化"><a href="#变量声明及初始化" class="headerlink" title="变量声明及初始化"></a>变量声明及初始化</h4><p>在Python中没有单独的变量声明及初始化的步骤, 想使用的话直接<code>var=value</code>就可以使用, 并且变量的类型可以在后续处理中进行变更. 比如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var1 = <span class="literal">True</span></span><br><span class="line">var2 = <span class="number">1</span></span><br><span class="line">var1 = var2 <span class="keyword">if</span> var2 <span class="keyword">else</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中, var1和var2在赋值的过程中会被自动赋予变量类型(boolean, int), 且两者虽然类型不同, 仍然可以把var2的值传递给var1, 在传递完成后var1会从boolean变成int.</p>
+<p>而Go中, 一个变量首先要被声明才能使用, 且一个变量声明后类型固定, 是无法把<code>var2</code>内的数值赋给<code>var1</code>的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Var var1 <span class="keyword">bool</span> <span class="comment">// 变量声明</span></span><br><span class="line">Var var2 <span class="keyword">int</span>  <span class="comment">// 变量声明</span></span><br><span class="line">var1 = True</span><br><span class="line">var2 = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>当然, 所有变量都要这么些的话确实有点麻烦, Go针对这个给出了简单的写法:<code>var1 := 1</code>, 这种写法在创建变量的同时给变量赋值, 同时变量的类型会自动指定. 不过由于是自动指定的, 如果对类型有什么特殊的需求, 可能还是自己声明比较好.</p>
+<h4 id="Go是强类型的语言"><a href="#Go是强类型的语言" class="headerlink" title="Go是强类型的语言"></a>Go是强类型的语言</h4><p>所谓强类型, 就是对变量的类型有细致的分类, 并且在程序执行过程中对传递和使用的变量类型作严格的限制(个人理解). 比如在Python中, 变量的类型也就数字, 字符串, 逻辑和空(<code>None</code>), 复杂一点的也就只有数字, 因为下面还分为了浮点数和整数. 甚至, Python中连常量都砍掉了, 只有变量, 只是在语言编写建议中推荐使用全大写字母来提示常量(实际上值是可以被更改的).</p>
+<p>Go就不同了…首先是分了常量(<code>Const</code>)和变量(<code>Var</code>)的, 而在变量中, 虽然也是有整数, 浮点数, 逻辑这几类, 但是整数和浮点数下面又细分了不同长度, 比如什么<code>int16</code>, <code>int32</code>, <code>int64</code>, 甚至还有我目前不是很明白的<code>uint</code>…这些变量类型在使用过程中如上一点中所说一样, 是不会自动转换的, 也就是如果某个函数给了你<code>int16</code>, 下一个函数要的是<code>int64</code>, 还得自己手动转换一次…这些类型的转换对我一个习惯了Python的人来说真的非常难受. </p>
+<p>另外需要注意的一点是, Go的字符(<code>byte</code>)和字符串(<code>string</code>)也是两个不同的类型, 字符固定使用单引号(‘), 字符串则固定使用双引号(“).</p>
+<h4 id="复杂数据类型—-数组-切片-集合-结构体"><a href="#复杂数据类型—-数组-切片-集合-结构体" class="headerlink" title="复杂数据类型—-数组/切片/集合/结构体"></a>复杂数据类型—-数组/切片/集合/结构体</h4><p>就像Python有Tuple, List, Dict, Set等存储多个元素/映射的数据类型, Go中也有数据类型满足数据存储和处理需要:</p>
+<p>数组(Array): 数组类似于List或Turple, 单又与它们都不同. 首先Go中数组的长度是固定的, 一单声明即不可更改. 同时, 虽然数组内存储内容是可变的, 但存储物的类型必须是固定的.</p>
+<p>切片(Slice)基本跟数组差不多, 但是其长度是可变的.</p>
+<p>集合(Map)相当于Dict, 同样其Key和Value的类型是固定不可变更的. Map的Key可使用的类型比较丰富, 只要能进行逻辑比较<code>==</code>操作的都可以. 这一点倒是跟Dict的Key只要能Hash化就行非常类似</p>
+<p>最后也是我的项目中最需要的就是结构体了. 它比较类似R中的list或者Python中的嵌套Dict, 其中能存储各式各样的信息.</p>
+<h4 id="强类型下的灵活处理—-接口-interface"><a href="#强类型下的灵活处理—-接口-interface" class="headerlink" title="强类型下的灵活处理—-接口(interface)"></a>强类型下的灵活处理—-接口(interface)</h4><p>接口是我在接触Go时接触到的一个全新概念, 它与我之前听过的API其实是很不一样的东西, 我查了好半天才对它有了一丢丢的了解…这里也记录一下.</p>
+<p>首先根据上一节的内容, 我们知道Go是强类型的. 这个强类型贯穿了整个语言体系, 会在某些时候导致一些不必要的麻烦. 比如我们在写函数的时候, 要定义函数的接收和返回变量, 输入和返回变量是要给定类型的. 而一旦类型确定了, 函数就智能接收/这个类型的变量, 不可以更改. 这就很蛋疼了, 我们写程序的时候, 多少都会有一些函数是要接收一些情况不明的对象, 然后根据对象的情况进行判断后做下一步处理的. 但是强类型的规则规定了接收的东西类型要确定, 这就逼着人写两个重复性很高的函数来接收不同类型的对象然后做类似的处理.</p>
+<p>举一个实际的例子, <code>vcfgo</code>中的<code>Info().Get()</code>函数. 这个函数的作用是将vcf文件中INFO列的对应信息取出然后返回. 每一个INFO项目下可能会有多个值, 如果只有一个值, 则返回对应的字符串, 如果有多个, 则将他们放入一个以字符串为元素的列表返回. 这个看上去很简单, 但是在强类型的规则下是不能直接实现的. 因为在定义函数时, 就必须定义好返回变量的类型. 一个变量的类型如果定义成了字符串, 那它就不能存储字符串列表, 反之毅然. 那为了实现目标功能, 难道要让函数多一个返回值吗? 这种时候就是<code>interface</code>发挥作用的时候了. <code>interface</code>的定义是, 只要一个对象实现了<code>interface</code>中定义的方法, 那它就实现了这个接口, 可以被以这个类型的接口的方式传递. 回到刚才那个问题, 只要定义一个接口, 然后让要返回的东西都实现这个接口, 就可以将他们以接口的方式返回了.</p>
+<p>最后需要注意的是, 由于返回的是接口, 所以他们的类型都是<code>interface</code>, 如果你需要进一步传递他们, 可能还需要用断言的方式将他们从接口中取出成为原来的类型. 比如我的项目里面就有这么一句:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> annObj, ok := anns.(<span class="keyword">string</span>); ok &#123; <span class="comment">// 单个注释, 直接解析</span></span><br><span class="line">	annTarget = annObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这句话中的ann就是<code>Info().Get()</code>函数返回给我的接口, 这个接口里可能是字符串, 也可能是一个字符串列表, 而我就使用<code>anns.(string)</code>尝试断言它里面是字符串, 如果断言正确, 则直接将取出的字符串赋值, 如果错误, 则进行另一种处理</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>Python中的文件读写非常简单, 一条语句打开文件, 获得的对象是可迭代的, 直接<code>for</code>循环就可以对文件按行处理了. 写文件同理, 也是几条语句就能搞定. 同时Python还有<code>with</code>语句可以在操作完成后自动关闭文件句柄, 可谓非常方便了.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
+
+<p>相比之下Go在读写就麻烦了很多, 比如我想按行读取文件内容并打印的话: </p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">file, err := os.Open(vcfFile)</span><br><span class="line"><span class="keyword">defer</span> file.Close() <span class="comment">// 自动关闭文件文件, 相当于用python里用with</span></span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line">reader := bufio.NewReader(file)</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">	str, err := reader.ReadString(<span class="string">'\n'</span>)</span><br><span class="line">	<span class="keyword">if</span> err == io.EOF &#123;</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(str)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面步骤主要是先打开一个文件, 然后使用另外一个函数指定以<code>&#39;\n&#39;</code>作为分隔读取一行的内容, 然后将读到的内容打印到屏幕. 其实说来核心的东西可能跟Python差不多, 但是有些东西变成了自己处理, 代码自然就多了. 比如打开文件后的异常处理, Python如果读不到文件, 会自动抛出异常, 告诉你文件不存在, 所以退出. 而写Go则要自己手动<code>panic</code>, 把<code>err</code>中的错误显示出来进行提示并终止程序. Python中使用<code>for</code>便利打开的文件对象即可按行读取文件, 并且会在达到文件末时自动终止. 而Go中这个过程是自己手动写出来的, 甚至文件按<code>&#39;\n&#39;</code>分行都是自己指定的.</p>
+<p>写文件的情况与读文件类似, 然后Go的写文件比读还要复杂一点, 这里先挖坑, 后面填.</p>
+<h3 id="嵌套数据结构"><a href="#嵌套数据结构" class="headerlink" title="嵌套数据结构"></a>嵌套数据结构</h3><p>Python中常用的数据结构之间可以进行相互嵌套, 形成复杂的数据结构以满足实际的数据处理需要. 这种嵌套的数据结构非常自由, 因为dict/list/tuple/set对其中存放的东西没有特别的限制, 所以我们可以轻松的把一系列不同的东西组成一个整理. 这是我在某些数据处理时喜欢用Python而不是R的原因之一(R的一些数据结构内部存同类的东西). 以我这个项目里存储的refGene文件信息为例. 我的程序需要从数据库文件中读取出一个基因的转录本号码, 外显子起止位点, 转录方向, 基因名称等等一系列信息. 其中转录本号码是一个字符串, 外显子起止点里存储的是一个列表的整数, 转录方向是单个字符, 基因名称则又是字符串. 这一系列信息我都可以以<code>Key: Value</code>的形式存储在一个大字典中, 需要的时候根据Key来获取对应的值就可以了.</p>
+<p>这在Go中是不可能的, 因为<code>list</code>对应的数组, <code>dict</code>对应的集合, 在Go中都是只能存储声明好的东西的:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">outStrList := []<span class="keyword">string</span>&#123;<span class="string">"out1"</span>, <span class="string">"out2"</span>&#125; <span class="comment">// 只能存string</span></span><br><span class="line">gene2tran := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>][]<span class="keyword">string</span>) <span class="comment">// Key和Value都必须是string</span></span><br></pre></td></tr></table></figure>
+
+<p>因此要做到类似Python里面那种不同类型数据的嵌套, 就智能使用结构体<code>struct</code>了:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 我代码里面定义的存储转录本信息的结构体</span></span><br><span class="line"><span class="keyword">type</span> geneRecord <span class="keyword">struct</span> &#123;</span><br><span class="line">	exon        [][]<span class="keyword">int64</span></span><br><span class="line">	intron      [][]<span class="keyword">int64</span></span><br><span class="line">	transRegion [<span class="number">2</span>]<span class="keyword">int64</span></span><br><span class="line">	cdsRegion   [<span class="number">2</span>]<span class="keyword">int64</span></span><br><span class="line">	chr         <span class="keyword">string</span></span><br><span class="line">	strand      <span class="keyword">string</span></span><br><span class="line">	geneSymbol  <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line">tran2info := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]geneRecord) <span class="comment">// map 套结构体</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h3><p>Go中的控制结构甚至比Python还简单…判断用的<code>if/else</code>, 循环用的<code>for</code>, 多分支结构的<code>switch</code>——就只有这些了.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if else 和 for 举例</span></span><br><span class="line"><span class="keyword">if</span> cols[<span class="number">3</span>] == <span class="string">"+"</span> &#123;</span><br><span class="line">	<span class="keyword">for</span> idx, _ := <span class="keyword">range</span> exonStarts &#123;</span><br><span class="line">		exons = <span class="built_in">append</span>(exons, []<span class="keyword">int64</span>&#123;exonStarts[idx], exonEnds[idx], exonFrames[idx]&#125;)</span><br><span class="line">		<span class="keyword">if</span> idx != <span class="built_in">len</span>(exonStarts)<span class="number">-1</span> &#123;</span><br><span class="line">			introns = <span class="built_in">append</span>(introns, []<span class="keyword">int64</span>&#123;exonEnds[idx], exonStarts[idx+<span class="number">1</span>]&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">for</span> idx, _ := <span class="keyword">range</span> exonStarts &#123;</span><br><span class="line">		exons = reverSlice(<span class="built_in">append</span>(exons, []<span class="keyword">int64</span>&#123;exonStarts[idx], exonEnds[idx], exonFrames[idx]&#125;))</span><br><span class="line">		<span class="keyword">if</span> idx != <span class="built_in">len</span>(exonStarts)<span class="number">-1</span> &#123;</span><br><span class="line">			introns = reverSlice(<span class="built_in">append</span>(introns, []<span class="keyword">int64</span>&#123;exonEnds[idx], exonStarts[idx+<span class="number">1</span>]&#125;))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// switch举例</span></span><br><span class="line"><span class="keyword">switch</span> &#123;</span><br><span class="line"><span class="keyword">case</span> AinA &amp;&amp; BinB: <span class="comment">// 目标fusion, 对应正确</span></span><br><span class="line">	locates[<span class="string">"breakA"</span>] = locAinA</span><br><span class="line">	locates[<span class="string">"breakB"</span>] = locBinB</span><br><span class="line">	<span class="keyword">return</span> locates, <span class="string">"right"</span>, <span class="literal">nil</span></span><br><span class="line"><span class="keyword">case</span> AinB &amp;&amp; BinA: <span class="comment">// 目标fusion, 对应颠倒</span></span><br><span class="line">	locates[<span class="string">"breakA"</span>] = locAinB</span><br><span class="line">	locates[<span class="string">"breakB"</span>] = locBinA</span><br><span class="line">	<span class="keyword">return</span> locates, <span class="string">"wrong"</span>, <span class="literal">nil</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">	err := errors.New(<span class="string">"Not Fusion"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然东西是比较少, 但也够用了…</p>
+<p>另外Go除了<code>break</code>和<code>continue</code>之外, 还提供了<code>goto</code>这种跳转性的控制语句. 不过我暂时没有使用过…</p>
+<h3 id="构建函数"><a href="#构建函数" class="headerlink" title="构建函数"></a>构建函数</h3><p>Go中创建函数没有啥特别的…就是注意输入参数和返回值的类型要先声明好(下面例子中, <code>reverSlice</code>后面跟的是传入的参数, 括号外面的是返回值的声明), 声明好就不能变了. 如果需要灵活的输入和返回, 需要靠<code>interface</code>了</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverSlice</span><span class="params">(a [][]<span class="keyword">int64</span>)</span> [][]<span class="title">int64</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="built_in">len</span>(a)/<span class="number">2</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i-- &#123;</span><br><span class="line">		opp := <span class="built_in">len</span>(a) - <span class="number">1</span> - i</span><br><span class="line">		a[i], a[opp] = a[opp], a[i]</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>本质上来说, Go里面没有Python中那样专门的错误处理, 或者说, 并没有专门的异常抛出这一操作. 但是在使用Go的时候会发现, 很多函数的返回值会有两个, 比如打开文件的函数:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file, err := os.Open(yourFile)</span><br></pre></td></tr></table></figure>
+
+<p>上面的文件打开函数除了返回打开的文件对象, 还会返回另外一个变量, 这个变量我个人理解为类似Shell执行命令后状态码一样的东西, 一般情况下, 函数内程序执行正常的话, 这个变量会是<code>nil</code>. 而一旦函数内的部分执行出错, 返回的就会是一个<code>error</code>类的对象, 对象里包含了错误的说明字符. 对这个变量进行处理, 也就等同于在Python里面用<code>Try: Except:</code>了</p>
+<h3 id="字符处理"><a href="#字符处理" class="headerlink" title="字符处理"></a>字符处理</h3><p>Go的字符串处理基本依赖<code>strings</code>包, 包内基本的连接, 拆分, 替换, 前后去空白都有…实际使用感受类似于R中的<code>stringr</code>…就是东西都有…但是总觉得没那么好用.</p>
+<p>另外Python中的格式化字符串在Go内暂时没有对等物. 所以无法像Python内弄一个硕大的文本模板然后填充内容.</p>
+<h3 id="JSON处理"><a href="#JSON处理" class="headerlink" title="JSON处理"></a>JSON处理</h3><p>Go也有专门的<code>json</code>包来读取json文件内容形成Go的数据结构, 和将Go对象转化为json字串. 不过可能还是类型限制大, 实际用起来比Python还是复杂一点…</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tarTranFile := <span class="string">"RXA_gene_trans.json"</span></span><br><span class="line">data, err := ioutil.ReadFile(tarTranFile)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> targetTransFile <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">err = json.Unmarshal(data, &amp;targetTransFile)</span><br><span class="line">targetTrans := targetTransFile.(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到我为了读取写好的json文件, 执行了打开文件, 载入内容, 将内容用特定函数处理, 然后因为返回的是<code>interface</code>, 所以最后又进行了类型断言.</p>
+<p>类似的操作…在python中1~2行就可以完成了…</p>
+<h3 id="程序编译"><a href="#程序编译" class="headerlink" title="程序编译"></a>程序编译</h3><p>与Python这种边翻译边执行的语言不同, Go语言是要先编译后使用的(虽然也有<code>go run</code>), 所以还要研究一下编译可执行文件的问题.<br>(挖坑占位)</p>
+<h3 id="Python与Go的独有物"><a href="#Python与Go的独有物" class="headerlink" title="Python与Go的独有物"></a>Python与Go的独有物</h3><p>这一部分记录Python和Go各自独有的一些东西(挖坑占位).</p>
+<h4 id="Python部分"><a href="#Python部分" class="headerlink" title="Python部分"></a>Python部分</h4><ul>
+<li>列表/字典生成式: 在Python中生成式是非常方便的可迭代对象生成/处理方式, 可以有效的简化代码(效率有没提升我不太清楚), 然而Go里就智能乖乖写循环了.</li>
+<li>字符串格式化: Python内的字符串格式化的好处就在于将常常的一段文本挖空后依次填充, 这种写法代码的可读性非常好. 可以一目了然的知道最后出现的字符串是个怎样的框架. 而Go中就只能自己拼接了.</li>
+</ul>
+<h4 id="Go部分"><a href="#Go部分" class="headerlink" title="Go部分"></a>Go部分</h4><ul>
+<li>接口(见上)</li>
+<li><code>switch</code>控制结构</li>
+<li>方便的并行化: Python虽然多线程, 多进程, 协程都有…但确实是没那么高效或者好用…这也是促使我学Go的一个原因了.</li>
+</ul>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-07-11T16:19:52+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>最后更新于 2019年7月11日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/golang/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>golang</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/2019/06/02/用Go语言重写我的项目/&title=用Go语言重写我的项目 | Silen's Blog&pics=https://avatars1.githubusercontent.com/u/12797055?s=40&v=4&summary=为了学习Go语言, 我把之前工作中一个用的比较多的脚本用Go重写了. 所谓没有对比就没有伤害, 实际写下来的感受是, Python真的简单快捷易懂…好用的第三方模块多…中英文的学习资料更是非常容易找. 要不是为了性能…我真是不想换…
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/2019/06/02/用Go语言重写我的项目/&title=用Go语言重写我的项目 | Silen's Blog&pics=https://avatars1.githubusercontent.com/u/12797055?s=40&v=4&summary=为了学习Go语言, 我把之前工作中一个用的比较多的脚本用Go重写了. 所谓没有对比就没有伤害, 实际写下来的感受是, Python真的简单快捷易懂…好用的第三方模块多…中英文的学习资料更是非常容易找. 要不是为了性能…我真是不想换…
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/2019/06/02/用Go语言重写我的项目/&title=用Go语言重写我的项目 | Silen's Blog&pics=https://avatars1.githubusercontent.com/u/12797055?s=40&v=4&summary=为了学习Go语言, 我把之前工作中一个用的比较多的脚本用Go重写了. 所谓没有对比就没有伤害, 实际写下来的感受是, Python真的简单快捷易懂…好用的第三方模块多…中英文的学习资料更是非常容易找. 要不是为了性能…我真是不想换…
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2019/06/05/Bash小技巧两则/" rel="prev" title="Bash小技巧两则">
+                                  
+                                      Bash小技巧两则
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/linux/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>linux</a> <a class="tag" href="/tags/bash/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>bash</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/05/07/https配置/" rel="prev" title="使用Caddy设置https">
+                                    
+                                        使用Caddy设置https
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/https/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>https</a> <a class="tag" href="/tags/caddy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>caddy</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '用Go语言重写我的项目',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars1.githubusercontent.com/u/12797055?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:qiumin14@163.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/silenwang"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一只Python菜鸡眼里的Go"><span class="toc-text">一只Python菜鸡眼里的Go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以Python为参照快速上手Go"><span class="toc-text">以Python为参照快速上手Go</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量-数据类型"><span class="toc-text">变量/数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量声明及初始化"><span class="toc-text">变量声明及初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go是强类型的语言"><span class="toc-text">Go是强类型的语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复杂数据类型—-数组-切片-集合-结构体"><span class="toc-text">复杂数据类型—-数组/切片/集合/结构体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#强类型下的灵活处理—-接口-interface"><span class="toc-text">强类型下的灵活处理—-接口(interface)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套数据结构"><span class="toc-text">嵌套数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制结构"><span class="toc-text">控制结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建函数"><span class="toc-text">构建函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误处理"><span class="toc-text">错误处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符处理"><span class="toc-text">字符处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON处理"><span class="toc-text">JSON处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序编译"><span class="toc-text">程序编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python与Go的独有物"><span class="toc-text">Python与Go的独有物</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python部分"><span class="toc-text">Python部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go部分"><span class="toc-text">Go部分</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/handbooks/" href="/handbooks/"
+          
+            rel="nofollow"
+          
+          
+          id="handbooks">
+          
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+          
+          我的手册
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于我
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Bioinfomatic/" href="/categories/Bioinfomatic/"><div class='name'>Bioinfomatic</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Others/" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>(18)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Script/" href="/categories/Script/"><div class='name'>Script</div><div class='badge'>(21)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/adb/" style="font-size: 14px; color: #999">adb</a> <a href="/tags/android/" style="font-size: 14px; color: #999">android</a> <a href="/tags/argparse/" style="font-size: 14px; color: #999">argparse</a> <a href="/tags/bash/" style="font-size: 20px; color: #707070">bash</a> <a href="/tags/caddy/" style="font-size: 14px; color: #999">caddy</a> <a href="/tags/conda/" style="font-size: 18px; color: #7e7e7e">conda</a> <a href="/tags/de/" style="font-size: 14px; color: #999">de</a> <a href="/tags/deepin/" style="font-size: 14px; color: #999">deepin</a> <a href="/tags/docker/" style="font-size: 16px; color: #8b8b8b">docker</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/gitbook/" style="font-size: 14px; color: #999">gitbook</a> <a href="/tags/gogs/" style="font-size: 14px; color: #999">gogs</a> <a href="/tags/golang/" style="font-size: 14px; color: #999">golang</a> <a href="/tags/graphviz/" style="font-size: 14px; color: #999">graphviz</a> <a href="/tags/hexo/" style="font-size: 16px; color: #8b8b8b">hexo</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/itertools/" style="font-size: 14px; color: #999">itertools</a> <a href="/tags/jupyter/" style="font-size: 14px; color: #999">jupyter</a> <a href="/tags/linux/" style="font-size: 20px; color: #707070">linux</a> <a href="/tags/linuxmint/" style="font-size: 14px; color: #999">linuxmint</a> <a href="/tags/machine-learning/" style="font-size: 14px; color: #999">machine learning</a> <a href="/tags/manjaro/" style="font-size: 16px; color: #8b8b8b">manjaro</a> <a href="/tags/minicap/" style="font-size: 14px; color: #999">minicap</a> <a href="/tags/mkdocs/" style="font-size: 14px; color: #999">mkdocs</a> <a href="/tags/pandas/" style="font-size: 14px; color: #999">pandas</a> <a href="/tags/perl/" style="font-size: 14px; color: #999">perl</a> <a href="/tags/plugin/" style="font-size: 14px; color: #999">plugin</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/r/" style="font-size: 22px; color: #636363">r</a> <a href="/tags/requests/" style="font-size: 14px; color: #999">requests</a> <a href="/tags/selenium/" style="font-size: 14px; color: #999">selenium</a> <a href="/tags/sge/" style="font-size: 14px; color: #999">sge</a> <a href="/tags/single-cell/" style="font-size: 14px; color: #999">single cell</a> <a href="/tags/snakemake/" style="font-size: 18px; color: #7e7e7e">snakemake</a> <a href="/tags/sqlite/" style="font-size: 14px; color: #999">sqlite</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/steam/" style="font-size: 14px; color: #999">steam</a> <a href="/tags/syntax/" style="font-size: 14px; color: #999">syntax</a> <a href="/tags/teamviewer/" style="font-size: 14px; color: #999">teamviewer</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #999">ubuntu</a> <a href="/tags/vps/" style="font-size: 14px; color: #999">vps</a> <a href="/tags/参数解析/" style="font-size: 14px; color: #999">参数解析</a> <a href="/tags/多进程/" style="font-size: 14px; color: #999">多进程</a> <a href="/tags/并行计算/" style="font-size: 18px; color: #7e7e7e">并行计算</a> <a href="/tags/文档/" style="font-size: 14px; color: #999">文档</a> <a href="/tags/正则/" style="font-size: 14px; color: #999">正则</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/结构变异/" style="font-size: 16px; color: #8b8b8b">结构变异</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:qiumin14@163.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/silenwang"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

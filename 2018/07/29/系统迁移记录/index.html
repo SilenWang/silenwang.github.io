@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>系统迁移记录 | Silen&#39;s Blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Silen's Blog</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/handbooks/"
+            
+            
+            id="handbooks">
+            <i class='fas fa-book-open fa-fw'></i>&nbsp;手册
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          Silen's Blog
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/handbooks/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="handbooks">
+									<i class='fas fa-book-open fa-fw'></i>&nbsp;手册
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的基友
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/handbooks/"
+                
+                  rel="nofollow"
+                
+                
+                id="handbooks">
+								<i class='fas fa-book-open fa-fw'></i>&nbsp;我的手册
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2018/07/29/系统迁移记录/">
+        系统迁移记录
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://silenwang.github.io" rel="nofollow">
+      
+        <img src="https://avatars1.githubusercontent.com/u/12797055?s=40&v=4">
+      
+      <p>Silen Wang</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2018-07-29</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Others/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Others</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>自我大二开始接触linux桌面发行版起, 我就不断的在更换不同的发行版本, 折腾了几年才最后稳定使用manjaro.</p>
+<a id="more"></a>
+
+<h1 id="Mint-迁移记录"><a href="#Mint-迁移记录" class="headerlink" title="Mint 迁移记录"></a>Mint 迁移记录</h1><p>由于ubuntu挂掉, 重装ubuntu过程中出现一些问题, 索性就换成了世界人气第一的mint, 据说比ubuntu更加对新手友好, 开箱可用.</p>
+<p>不过实践出真知…对于稍微习惯了unity的我来说并不是那么简单…</p>
+<p>安装上倒是还好, 几乎和ubuntu的liveCD一模一样, 本来想连home都不要格式化了, 后来想想昨天重装的ubuntu依然有问题, 所以还是咬咬牙格掉了, 于是复制一些东西回来又花了时间.</p>
+<p>安装好之后进入mint界面, 登陆的窗口真的是比ubuntu漂亮多了, 超高清晰度的美景(并不是美女= =|||)照片, 比ubuntu暗色调的设计感觉清爽多了. 登陆之后的界面就….花了半年去习惯的unity布局, 换回Gnome/win样的界面, 实在是有点蛋疼.除了布局不一样, mint的显示效果对我来说感觉没有ubuntu好, 中文字体感觉发虚明显, 可能随时是Noto sans的问题? 在换了文泉驿微米黑之后大部分地方都好多了, 不过惨淡依旧不太性, 百度说温泉以在字体小的时候本来就发虚…于是鄙人直接把所有字体都调大了.</p>
+<h2 id="输入法设置"><a href="#输入法设置" class="headerlink" title="输入法设置"></a>输入法设置</h2><p>mint本身不预置任何输入法, 虽然firefox有了, 但是没有输入法总不能完全英文百度…<br>mint的输入发在语言设置下, 虽然里面又显示支持的输入法, 但是软件源里并没有, 无法直接从软件中心安装.</p>
+<ul>
+<li>PPA安装代码:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:fcitx-team/nightly</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install fcitx</span><br></pre></td></tr></table></figure>
+
+<p>安装后还需要一些依赖包, 我没有使用PPA安装, 直接进入语言-&gt;输入法, 选择fcitx可以直接安装需要依赖. 安装完成后上搜狗网站下载搜狗linux版本, 安装完毕后重启(注销是否可未尝试), 输入法即可使用. 重装的时候有把之前ubuntu的/home复制过来, 但是搜狗输入法的词库好像没有保留.</p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><ul>
+<li><p>PPA安装:</p>
+<ul>
+<li>VirtualBox</li>
+<li>GoldenDict</li>
+<li>Shadowsocks-Qt5</li>
+<li>PlayOnLinux</li>
+<li>Okular</li>
+<li>WizNote</li>
+<li>R-base</li>
+<li>Numix-circle</li>
+</ul>
+</li>
+<li><p>PPA添加代码</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5 ppa:wiznote-team ppa:numix/ppa</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>R-base直接将源信息<code>deb http://mirror.bjtu.edu.cn/cran/bin/linux/ubuntu trusty/</code>添加至软件源</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>PPA安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install VirtualBox GoldenDict Shadowsocks-Qt5 PlayOnLinux Okular WizNote R-base numix-icon-theme-circle kolourpaint</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Deb安装<ul>
+<li>mendeley</li>
+<li>haroopad</li>
+<li>Rstudio</li>
+<li>bcloud</li>
+<li>wps</li>
+</ul>
+</li>
+</ul>
+<h2 id="配置迁移"><a href="#配置迁移" class="headerlink" title="配置迁移"></a>配置迁移</h2><p>将原来的/home进行备份, 重装完成后复制即可, 大部分软件配置会保留(firefox插件、配置丢失, 原因不明)</p>
+<h2 id="程序设置"><a href="#程序设置" class="headerlink" title="程序设置"></a>程序设置</h2><p>由于已习惯使用unity, 对mint界面做了些许调整, 降低重适应难度.</p>
+<ul>
+<li>面板上移</li>
+<li>用户小程序置于最左侧</li>
+</ul>
+<h2 id="Firefox设置与插件"><a href="#Firefox设置与插件" class="headerlink" title="Firefox设置与插件"></a>Firefox设置与插件</h2><p>由于firefox配置丢失, 所以特别记录一下相关设定以防下次再丢失</p>
+<ul>
+<li><p>使用插件</p>
+<ul>
+<li>Adblock Plus</li>
+<li>FxoyProxy</li>
+<li>Hide Cpation Titlebar Plus</li>
+<li>Stylish</li>
+</ul>
+</li>
+<li><p>Stylish设置(另一贴有,重复记录下)</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@-moz-document regexp(&quot;https?://(?!.+\\.coursera\\.org).*&quot;)&#123;</span><br><span class="line">*:not([class*=&quot;icon&quot;]):not(i)&#123;font-family: &quot;WenQuanYi Microhei&quot;  !important;&#125;</span><br><span class="line">    span.fui-logo-text&#123;font-family: &quot;IterCast-Icon&quot;  !important;&#125;</span><br><span class="line">    span.diffstat-bar&#123;font-family: &quot;octicons&quot;  !important;&#125;</span><br><span class="line">    span.diff-added&#123;font-family: &quot;octicons&quot;  !important;&#125;</span><br><span class="line">    #indexbutton&#123;font-family: &quot;html5test&quot;  !important;&#125;</span><br><span class="line">    .toolbox ins a&#123;font-family: &quot;2345&quot;  !important;&#125;</span><br><span class="line">    .tool_ul li a ins&#123;font-family: &quot;2345&quot;  !important;&#125;</span><br><span class="line">    .panel ins a&#123;font-family: &quot;2345&quot;  !important;&#125;</span><br><span class="line">    span.nba_matchnav_score&#123;font-family: &quot;Sans-Serif&quot;  !important;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="Ubuntu-unity-与-Mint-cinnamon使用对比"><a href="#Ubuntu-unity-与-Mint-cinnamon使用对比" class="headerlink" title="Ubuntu unity 与 Mint cinnamon使用对比"></a>Ubuntu unity 与 Mint cinnamon使用对比</h2><ul>
+<li>显示效果/界面布置</li>
+</ul>
+<p>个人是更习惯于unity的, 毕竟也用了半年, 虽然ubuntu本身的配色确实不太好看, 但是安装了numix主题, 换个壁纸之后还是挺不错的. unity的程序面板放在了左侧, 上面板用于整合标题栏, 这种设计在现在16:9的屏幕上确实是节省了很多空间, 能让更多内容显示出来. 并且ubuntu本身字体、图标都挺大的, 看习惯了换回win下以及现在的mint下一下真是有点难以适应, 即使笔记本是15.6都觉得整个世界都小了….只好强制调大字体了. ubuntu的默认字体效果感觉也比mint好, 可能也是因为字体比较大, 使用微米黑不会发虚…</p>
+<ul>
+<li>易用性</li>
+</ul>
+<p>这方面mint确实是比ubuntu好, 不愧是常年点击量第一. mint对操作的图形化程度确实更高. 设置中心相比ubuntu集成了更多的选项, 甚至登陆窗口软件源都可以通过Gui进行非常方便的管理. 文件操作上右键菜单里就可以选择以root打开, 不需要命令行操作. 当然…其实知道路径可拖拽之后命令行其实也很快就是. </p>
+<p>细节方面也很贴心, 比如root权限打开的管理器会有特别提示, 不会出现ubuntu下傻傻分不清楚的状况. </p>
+<p>mint面板的扩展性以及主题切换也十分方便, 有可以直接下载的资源, 不用自己另外找.</p>
+<p>当然因为我是从unity又迁移回来的, 所以有些习惯对易用性有不小影响, 如果是对于直接从win迁移的人来说mint易用性肯定爆表. 然后我觉得在软件更新方面mint真的做的很好…它设置了对核心部分更新的特殊保护, 不会让用户轻易更新内核什么的, 这对我这种半新手又强迫症的人来说非常友好(上一个ubuntu是否因为更新挂掉至今未知).</p>
+<ul>
+<li>小问题<br>从3年前第一次用ubuntu系的各种发行版起, 小问题就没有断过. 像字体乱码这种由于win的用户基数问题完全不可避免. 另外一些零碎的不一定影响使用的问题….就只能期待后续修复了.<ul>
+<li>ubuntu下遇见的小问题<ol>
+<li>双显卡,独立显卡驱动(无法解决)</li>
+<li>触控板(开机默认打开)</li>
+<li>屏幕亮度(无法记忆上一次亮度)</li>
+<li>错误报告(不知道哪里冒出来的错误提示, 没有任何实际影响)</li>
+<li>偶尔长时间看视频时死机</li>
+<li>偶尔卡, 不知道为何卡(程序运行不多)</li>
+</ol>
+</li>
+<li>mint下小问题<ol>
+<li>双显卡,独立显卡驱动</li>
+<li>屏幕亮度</li>
+<li>偶尔小卡</li>
+<li>睡眠/挂起无法唤醒</li>
+<li>字体总觉得有点虚</li>
+<li>某有线鼠标自动休眠</li>
+<li>firefox下载菜单中点击打开文件位置firefox卡死</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>okular修复<br>安装mint后直接使用<code>sudo apt-get install okular</code>安装okular无法使用, 需要补充安装其他软件包.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install kdelibs5-plugins kdelibs5-data oxygen-icon-theme</span><br></pre></td></tr></table></figure>
+
+<p>安装后可正常使用.</p>
+<h1 id="界面重布"><a href="#界面重布" class="headerlink" title="界面重布"></a>界面重布</h1><p>人无聊的时候就会干无聊事, 前段时间不知道为什么又觉得看自己桌面不顺眼了所以就开启折腾模式.<br>其实归根结底还是更喜欢unity的布局方式, 虽然很多人觉得很奇怪, 但是我接受了这个设定之后….还真是觉得挺带感的….奈何显卡驱动我折腾不来. </p>
+<p>最开始我的mint布局是这样:<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/desktop-2016-02-14%2014:26:36%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt></p>
+<p>基本上就是win(而且是xp)下的样子, 菜单-&gt;快捷启动-&gt;已开窗口, 通知栏. 本来刚从ubuntu转win的时候还保留了窗口栏按钮左置, 在误触菜单无数次之后还是换回了右边….</p>
+<p>但是用着用着就觉得中间放已开窗口的位置实在太小, 同时开四个以上窗口标签就要被部分遮盖了, 然后因为看不见标签切换起来略蛋疼….</p>
+<p>于是我就尝试使用dock工具尝试替代工具栏上的快捷启动, 有了下面这个布局:<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/desktop-2016-02-28%2016:51:03%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt><br>啊, 有那么一点unity的感觉呢! 不过并没unity好用就是…..<br>有尝试过使用工具栏模式, 无奈docky在工具栏模式下会被系统自带工具栏遮挡….<br>这个布局使用了几天之后又发现问题, 毕竟相当多的软件在左侧都会有些按钮啊菜单什么的….习惯直接一鼠标飞过去的我经常会误触然后打开别的程序…</p>
+<p>于是, 我还是把docky放到了底部…<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/desktop-2016-03-06%2021:56:24%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt><br>= =|||啊….于是我的桌面布局变得跟大部分gnome2时代的用户一毛一样了…….该说这个布局是经过实践检验的么……所以我的挣扎都是无意义的么…上帝…</p>
+<h1 id="mint2manjaro"><a href="#mint2manjaro" class="headerlink" title="mint2manjaro"></a>mint2manjaro</h1><h2 id="从Ubuntu系到Arch系"><a href="#从Ubuntu系到Arch系" class="headerlink" title="从Ubuntu系到Arch系"></a>从Ubuntu系到Arch系</h2><p>鄙人从大三开始尝试使用Linux系统, 一直以来都是用的Ubuntu以及基于Ubuntu的发行版, 所以这次的系统更换为基于Arch的Manjaro算是一次比较大的改变. 其实换之前也是很忐忑, 毕竟咱出了名的脸黑….而且虽然用了挺久的linux但是其实在linux依旧是小白状态, 总怕过程中粗大事导致电脑挂掉…..不过从好在这次结果是好的, 到目前为止更换系统刚好满一周了, 个人需要用的常用软件都顺利安装了(包括游戏), 没有严重妨碍使用的问题(虽然小bug遍地…), 目前计划继续这么跑两个月. 如果两个月后系统不出太大的问题的话就可以考虑卸掉mint了.</p>
+<h2 id="为什么选Manjaro"><a href="#为什么选Manjaro" class="headerlink" title="为什么选Manjaro"></a>为什么选Manjaro</h2><p>因为简单! 虽然我受人安利转入Arch系, 但我毕竟对linux不是那么熟悉, 所以我并没有考虑直接装原版的Arch, 而是从DistrioWatch上搜索了人气比较高的Arch衍生版, 也就是现在在用的Manjaro了.<br>虽然真正的原生Arch粉可能觉得这属于歪门邪道….毕竟Manjaro不符合Arch最精简, 把一切交给用户的理念, 但是对于我这种又想体验Pacman又不想花太多时间去细读Arch Wiki的人来说Manjaro真是非常好的解决方案…</p>
+<h2 id="安装方案"><a href="#安装方案" class="headerlink" title="安装方案"></a>安装方案</h2><p>由于第一次使用Ubuntu系之外的Linux, 为了给自己留条后路当然是要选择双系统的安装方案了.<br>我的笔记本硬盘使用了GPT分区, 只安装了一个Linux Mint, 没有安装过任何Windows, 引导的问题解决起来还是挺方便的, 安装的时候设置让Manjaro把它的Grub2装到已经存在的EFI分区中, 然后直接手动把Linux Mint放在EFI分区中的efi文件删除就可以了.<br>之所以直接删除有两个原因:</p>
+<ol>
+<li>从Mint的Grub2中无法正确引导Manjaro, 但是Manjaro的Grub2可以正确引导Mint, 问题原因不明, 可能是Mint的版本太低?</li>
+<li>不知道如何让系统自动选择用Manjaro安装的Grub2, 干脆就删掉Mint的只留Manjaro的.<br>总的来说安装挺顺利的, 跟安装Ubuntu或者Mint一样点几下鼠标就好了. 不过第一次安装完成后我尝试折腾了一下显卡的驱动, 然后桌面的分辨率变得不正常且无法复原了, 于是重新安装过一遍….</li>
+</ol>
+<h2 id="Manjaro-Cinnamon-Edition-与Linux-Mint的比较"><a href="#Manjaro-Cinnamon-Edition-与Linux-Mint的比较" class="headerlink" title="Manjaro(Cinnamon Edition)与Linux Mint的比较"></a>Manjaro(Cinnamon Edition)与Linux Mint的比较</h2><h3 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h3><p>Manjaro支持多种桌面环境, 为了减小我的迁移阻力, 我选择了搭载Cinnamon的版本.所以虽然是不同的系统了, 但是外观看上去其实没有什么不同, 在默认搭载软件上两者比较一致, 发现的不一样之处有:</p>
+<ul>
+<li>一些系统选项驱动程序管理需要使用”Manjaro Setting Manager”进行, 而Mint下是全部整合在设置面板中的</li>
+<li>Mint语言与输入法位于同一设置项中, 可同时管理语言与输入法, Manjaro下仅有位于”Manjaro Setting Manager”中的独立语言设置项, 未见输入法管理</li>
+<li>对于双显卡的电脑Manjaro默认会安装bumblebee, 并且于软件库内并未找到Nvidia Prime的相关软件包, 推测Arch系的系统里都是使用bumblebee来进行双显卡切换的</li>
+<li>软件包管理软件于源更新软件不同</li>
+<li>Manjaro没有默认安装字体管理程序</li>
+<li>计算器程序不一样</li>
+</ul>
+<h3 id="中文化情况"><a href="#中文化情况" class="headerlink" title="中文化情况"></a>中文化情况</h3><p>这一项Manjaro比Mint好很多, 选择中文进行安装后基本上该中文化的都中文化了(包括Gimp / Firefox / Libre Office). 并且后续安装的软件有中文语言包的话也会一并被安装, 如Okular / Kolour Paint 这些KDE下的软件.<br>而Mint 17经常出现中文化不全, 系统安装完毕后仅有部分常用菜单项是中文, Gimp / Firefox / Libre Office这些全部都是英文, 需要自己重新安装语言包. 并且后续安装的软件也都会一直是默认为英文.</p>
+<h3 id="字体效果"><a href="#字体效果" class="headerlink" title="字体效果"></a>字体效果</h3><p> 在没有进行任何配置的情况下, 个人感觉Manjaro的效果比Mint差一些, 这个比较出乎我的意料, 因为我之前有用Live CD体验过Manjaro的KDE版本, 字体看上去挺舒服的. 使用系统设置中的字体项进行简单设置后显示效果感觉依然不如Mint, 总感觉中文字的边缘特别虚…..不过这一些可以通过安装fontconfig-ubuntu和freetype2-ubuntu这两个包解决, 安装过后可以获得和Mint一致的显示效果.</p>
+<h3 id="常用软件获取"><a href="#常用软件获取" class="headerlink" title="常用软件获取"></a>常用软件获取</h3><p>一个基于Ubuntu, 一个基于Arch, 软件包管理自然大不同. Arch受到许多用户喜爱的原因之一就是其几乎什么都有并且随时保持最新的软件库.<br>官方库与AUR中确实是什么软件都有, 所有我在U系系统中用到的软件都能在官方库与AUR中获得. 并且像Rstudio / sogou-pinyin / WPS / Steam等等一些软件以前是要自己去下载deb包或者添加PPA源进行安装的, 但是换了Manjaro后一条命令或者在Pamac中点几下鼠标就能解决了.<br>但是, 上述方便是建立在网络环境良好的情况下的.<br>像我学校的校园网, 长期不定时抽风, 本来理论下行速度就只有512kb/s, 平常实际使用的时候一般就只有100-200kb/s, 万一是从国外网站获取软件包, 速度能有50kb/s我就要偷笑了…..因此实际的软件安装体验相当之糟……特别是从AUR安装, 即使勾选不需要确认, 大部分包都是要输入密码获取权限的, 因为下载太慢时间长, 装软件时无法实现自动安装, 得守在旁边一遍遍输入密码……然后还不一定能安装成功……<br>好在国内的Arch爱好者开了一个叫做”archliunxcn”的软件源造福国内用户, 源中有许多AUR中才能获取的软件, 其下载速度飞快并且安装不会出什么错误. <a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories#archlinuxcn" target="_blank" rel="noopener">依据ArchWiki的指导添加”archlinuxcn”源</a>后我顺利完成了绝大部分常用软件的安装.<br>值得一提的是, 在安装软件的过程中我发现Arch库中并不是所有软件都保持最新, 比如R.<br>Arch官方库中提供的R为3.2.4版本, 而最新版本为3.3.0. 虽然AUR中的r-kml是最新的3.3.0版本, 但是我怕安装出问题所以没有考虑使用.<br>如果是使用Mint, 我可以通过添加第三方PPA方便的获取最新的R, 但Arch系的系统下并不能这么干, 于是我最后选择了编译安装, 具体安装过程参看之前的<a href="http://blog.leanote.com/post/silenseek/R-3.3.0-%E5%AE%89%E8%A3%85-Arch" target="_blank" rel="noopener">另一篇记录</a>.</p>
+<h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><p>Linux下的双显卡驱动一直是个我折腾不来的问题, 这也是我最早从原生Ubuntu迁移到Mint的最重要原因: 能一键安装显卡驱动.<br>可能是Manjaro在设计理念上与Mint颇有相似之处, 因此在显卡驱动这方面做得也挺好的, 系统安装之初所有驱动就默认安装好了, 并且使用时没有什么大问题, 不过我在Mint下进行显卡切换时用的是Nvidia-prime, Manjaro下似乎只能用Bumblebee. 而最近这段时间我可能只打个炉石和火炬之光2就可以了, 也并不需要用到独显, 所以暂时也不折腾了…</p>
+<h3 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h3><p>Manjaro下并没有专门的输入法管理项, 直接从库安装输入法使用就成. 不得不说有搜狗拼音的感觉真好! 虽然之前在Mint下也适应了Rime, 但是总的来说还是不如搜狗顺手啊!求老天不要再让fcitx挂掉了! 我都换系统了就放过我吧!!!!!!</p>
+<h3 id="小问题与小Bug"><a href="#小问题与小Bug" class="headerlink" title="小问题与小Bug"></a>小问题与小Bug</h3><p>不知道是不是我真的脸黑得没治了, 从我开始用Linux起, 各种小Bug就没有断过, 这次从Mint转到Manjaro有一部分也是因为Firefox的Flash说挂就挂了, 而且我还找不到解决办法……..<br>然而我转到了Manjaro下…..依然是各种小Bug不断…..整理了一下, 转Manjaro至今遇到的小问题与小Bug有:</p>
+<ul>
+<li>leanote默认编辑器下字体不正常(升级内核后解决)</li>
+<li>vivaldi安装flash后闪烁(放弃使用)</li>
+<li>启动时提示: [failed]failed to start setup virtual console(已解决)</li>
+<li>启动时无鼠标指针, 重新登陆后指针出现(<a href="http://cncc.bingj.com/cache.aspx?q=Mouse+cursor+won%27t+appear+on+startup&d=4702496862111540&mkt=zh-CN&setlang=zh-CN&w=bFoHO6AgL5lacrZXtcV-NuAyXavoIkTi" target="_blank" rel="noopener">已解决</a>)</li>
+<li>使用截图程序的区域截图功能时程序不响应(未解决)</li>
+<li>unzip解决乱码无效(已解决)</li>
+<li>字体模糊(已解决)</li>
+<li>steam 无法直接启动(已解决)</li>
+<li>neemo 无法锁定到docky后启动, 因为docky将其辨认为root manager(未解决)</li>
+<li>Rstudio无法输入中文(未解决)</li>
+<li>telegram无法输入中文(已解决)</li>
+<li>pdf不显示中文(已解决)</li>
+<li>桌面显示不正常, 仅能使用低分辨率(原因未知, 重装解决)</li>
+<li>文本拖动复制时, 拖动无法通过面板跨窗口(未解决)</li>
+<li>rename不支持正则表达式(已解决)</li>
+<li>全局快捷键小概率失灵(未解决)</li>
+</ul>
+<p>…问题如此之多, 以至于小伙伴说, 你用的不是Arch, 是充满Bug的Arch…<br>不过好在上述问题中并没有严重影响使用的, 并且在Manjaro下我的电脑可以正常的休眠于挂起, 全局快捷键的失灵也没有Mint下那么严重. 所以总的来说, 顺利完成了Mint到Manjaro的迁移.</p>
+<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><p>Arch Wiki的详尽细致一直为所有Arch用户及一些非Arch用户所称道, 在使用一周Arch衍生版之后我也对这一点有了一点体会. 但是对我来说, 对比Ubuntu及其衍生版, 搜索一个Arch下问题的解决办法要难得多.<br>举Vivaldi安装Flash出现闪烁这个问题为例, 我直接中文百度/Bing/Google”Arch Vivaldi Flash 闪烁”出不了任何有用的结果……<br>考虑到Vivaldi毕竟是小众中的小众, 所以把”Vivaldi”换成 “Chrome” / “Chromium”, 依然找不到任何有用的结果……这个就相当尴尬了…<br>原来我在Mint下都是先搜索中文, 实在找不到才搜索英文的. 毕竟Mint基于Ubuntu, 而Ubuntu在国内的用户还是相当多的, 大部分时候都能找到有效的解决方案. 即使找不到有效解决方案, 我也能通过中文的搜索结果对问题进行初步了解, 在了解基础上尝试进行英文结果的搜索, 从而找到解决方法.<br>换了Manjaro就不行了, 且不谈国内Manjaro的用户极少(论坛贴吧等连灌水的都没有), 就连Archlinux中文论坛以及贴吧的用户活跃程度也远远不及Ubuntu,  于是中文搜索的难度实在是高了不只一点.<br>虽然Linux下非常多问题都是相通的, 以”Linux”作为关键词可以得到一部分问题的解决方案, 但是总不如直接用”Ubuntu”做关键词就能解决来得快捷舒心.</p>
+<h2 id="迁移后感"><a href="#迁移后感" class="headerlink" title="迁移后感"></a>迁移后感</h2><p>历时一周, 目前我已经能在Manjaro下完成所有我之前完成的事情了, 虽然依然有小Bug缠身(说得像之前就没有一样…), 但是也有非常多的惊喜(搜狗能用了, 休眠/挂起正常了)支持我继续用下去. 期待接下来两个月Manjaro能保持稳定了…….至于内核……到底是更新还是不更新好呢…….</p>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>在此郑重感谢安利我入坑的晨星姐! 有个用过的人能问总是比较安心的~</p>
+<h2 id="桌面截图留念"><a href="#桌面截图留念" class="headerlink" title="桌面截图留念"></a>桌面截图留念</h2><p>其实吧…前后两张图还真看不出有多大区别, 毕竟都是Cinnamon, 毕竟都用了风格类似的主题…</p>
+<ul>
+<li><p>Mint截图<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/desktop-2016-03-06%2021:56:24%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt></p>
+</li>
+<li><p>Manjaro截图<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/Manjaro-desktop-2016-05-15%2020-55-08%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt></p>
+</li>
+</ul>
+<h2 id="备忘录-额外安装软件与包一览"><a href="#备忘录-额外安装软件与包一览" class="headerlink" title="备忘录(额外安装软件与包一览)"></a>备忘录(额外安装软件与包一览)</h2><h3 id="官方库"><a href="#官方库" class="headerlink" title="官方库"></a>官方库</h3><ul>
+<li>docky</li>
+<li>virtualbox</li>
+<li>steam</li>
+<li>fcitx</li>
+<li>fcitx-sogoupinyin</li>
+<li>steam-manjaro</li>
+<li>steam-native</li>
+<li>kdegraphics-okular</li>
+<li>kdegraphics-kolourpaint</li>
+<li>texmaker</li>
+<li>uget</li>
+<li>qbittorrent</li>
+<li>flashplugin</li>
+<li>perl-rename</li>
+<li>gnome-font-viewer</li>
+<li>goldendict</li>
+</ul>
+<h3 id="Archlinuxcn"><a href="#Archlinuxcn" class="headerlink" title="Archlinuxcn"></a>Archlinuxcn</h3><ul>
+<li>telegram-desktop</li>
+<li>mendeleydesktop</li>
+<li>rstudio-desktop-bin</li>
+<li>shadowsocks-qt5</li>
+<li>atom-editor</li>
+</ul>
+<h3 id="AUR"><a href="#AUR" class="headerlink" title="AUR"></a>AUR</h3><ul>
+<li>crossover</li>
+</ul>
+<h3 id="下载即用"><a href="#下载即用" class="headerlink" title="下载即用"></a>下载即用</h3><ul>
+<li>Leanote</li>
+<li>Unipro Ugene</li>
+<li>VirtualBox Extention Pack</li>
+</ul>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><ul>
+<li>R-3.3.0</li>
+</ul>
+<h1 id="界面设置-manjaro"><a href="#界面设置-manjaro" class="headerlink" title="界面设置(manjaro)"></a>界面设置(manjaro)</h1><p>今天在油管上看到了一个manjaro deepin 16.08的体验视频,</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rMsOtFfrl6s" frameborder="0" allowfullscreen></iframe>
+
+<p>于是手痒痒下了dde下来尝试.</p>
+<p>不得不说deepin团队还是有用心做软件的, 最新的deepin15.3已经比较流畅了, 而且整个界面的设计简洁美观(在我心目中未配置状态下仅次于kde了…), 感觉很有前景呀~<br>可是毕竟现在的布局用了快半年了, 一下切去dde总觉得好空虚…另外毕竟是发展中的桌面环境, 插件和可配置(嗯…对我来说是通过GUI来配置)的地方还比较少, 所以虽然看上去很美…15分钟之后我还是卸掉了继续xfce…</p>
+<p>…不过…在看了年轻漂亮的之后, 再回到原来的环境…咳…总觉得有点难受…(果然我也是喜新厌旧的渣…)于是又开始各种换主题…在浏览pamac里的软件时偶然发现了个插件:<code>xfce4-windowck-plugin</code>, 这个插件可以把标题栏和标题按钮放到面板上, 这一下让我想起了unity…</p>
+<p>就想我之前说的, 我还是挺喜欢unity的布局的, 可惜之前配置的时候没有找到比较好的解决方案. 有了这个插件, 虽然不能达到unity的效果(unity同时整合标题栏和菜单到面板), 但总算也能节省一点空间了~<br>具体方案如下:</p>
+<ul>
+<li>安装<code>xfce4-windowck-plugin</code></li>
+<li>将插件放到上面板</li>
+<li>在窗口管理器里设置窗口最大化时隐藏标题栏</li>
+<li>将所有按钮左置</li>
+<li>将菜单按钮移到左面板, 工作区指示器移到下面板</li>
+<li>铛铛铛铛~<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/leanote-xfce-unityLike.png" alt></li>
+</ul>
+<h1 id="manjaro挂掉之后"><a href="#manjaro挂掉之后" class="headerlink" title="manjaro挂掉之后"></a>manjaro挂掉之后</h1><h2 id="挂的这么突然-还要作大死"><a href="#挂的这么突然-还要作大死" class="headerlink" title="挂的这么突然, 还要作大死"></a>挂的这么突然, 还要作大死</h2><p>当初迁移的时候就有想过…以自己的人品估计半年内怎么也得挂一次, 没想到真的就挂了…<br>本周2的时候因为不明原因GUI就进不去了, 卡在了Manjaro Logo载入的地方, 切换到控制台什么也不显示…根本不知道什么问题, 然后又急着用电脑, 想着之前重装Mint的时候保留home, 重装完成后直接挂上home软件设置和个人文件都不会丢, 就想着不如重装吧!<br>然后就作!大!!死!!!了!!!!<br>重装进入GUI的时候瞬间懵逼…我的home怎么被格式化了!!!<br>推想是重装的时候手抖勾了格式化了…<br>啊…真特么是晴天霹雳…我的实验数据全放在home没有备份啊…<br>在忧伤了半个小时之后开始寻找恢复的办法, 淘宝问了好几个店发现数据恢复服务全都是win的…真是欲哭无泪…<br>尝试使用photorec以及testdisk进行了一下修复, 并没有卵用…<br>于是在周二晚…终于认清现实, 重头来过…(你妹啊…)</p>
+<h2 id="桌面环境变更-不知道第几次了…"><a href="#桌面环境变更-不知道第几次了…" class="headerlink" title="桌面环境变更(不知道第几次了…)"></a>桌面环境变更(不知道第几次了…)</h2><p>反正整个系统要重装加重新配置, 所以就想要不要这次连桌面环境一起也换了, 毕竟上次迁移时为了最快上手保留了Cinnamon, 这次不如再学习点新东西, 反正自己一直以来都想试一试传说中的Xfce…恰好Xfce是Manjaro官方支持的桌面环境, 就直接下了Manjaro Xfce准备再次重装.</p>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>Manjaro各个版本安装起来都是相当简单…点点点就好了…只要记得不要像我一样手抖去勾格式化就好…</p>
+<h2 id="Xfce与Cinnamon"><a href="#Xfce与Cinnamon" class="headerlink" title="Xfce与Cinnamon"></a>Xfce与Cinnamon</h2><p>Xfce与之前从Unity或者Cinnamon不太相同. Unity与Cinnamon都是旨在提供漂亮易用并且功能完善的操作界面, 而Xfce是把轻量列为重要考虑因素的桌面, 所以使用起来跟前两者的感受还是很不一样的.<br>简单来说, Xfce给人的感受真的是非常非常快!不论是启动电脑还是加载程序, 速度差异真的是肉眼可见的…这个真是只有用了才有感受. 当初从Mint转到Manjaro Cinnamon就觉得速度有了明显的提升, 现在从Cinnamon换到Xfce速度又有了明显的提升…现在倒回去打开Mint真的会觉得慢的有点不能忍…<br>轻量 &amp; 简洁, Xfce非常符合这两点, 不过对于我一个从Cinnamon转过来的人来说…有些小地方太简洁了我有点难受:</p>
+<ul>
+<li>面板的音量插件非常之简洁…简洁到很多时候我不知道这个插件要怎么用…经常莫名其妙的调不了声音…</li>
+<li>unzip不支持-O这个参数…导致zip文件乱码成了问题…</li>
+<li>键盘快捷键设置的地方没有太多预设方案…需要自己先找要实现的功能的命令怎么写(我的笔记本没有专门开关触控板的功能键, 必须自己另外设置快捷键)…</li>
+<li>自带文件管理器不支持前进后退键, 并且在设置里耶找不到相应选项…另外…这货长得真是没nemo好看…</li>
+<li>没有disk(管理磁盘分区挂载的程序)…于是在自动挂载设置方面瞬间懵逼…</li>
+<li>找不到自带的mousepad(文本编辑器)的设置在哪…对着白底和小得我快受不了黑字好难受…</li>
+<li>自带音乐播放器看上去功能很多可是完全不知道怎么用…也不支持拖拽打开文件…</li>
+<li>网络设置页面没有系统代理的设置项, 只有VPN</li>
+</ul>
+<p>这些问题都不是很大, 更多的属于突然转换桌面环境后的不适应. 作为用户来说, 我可以选择慢慢的改变习惯来适应, 另一方面其实也可以根据习惯去对环境作相应修改…毕竟这是linux, 只要想折腾…大部分还是可以实现的.<br>对于我个人来说, Xfce这飞一般的速度给了我足够的动力继续使用下去, 毕竟特效再炫, 也没有炫的对象, 还是自己用的流畅舒适比较重要…</p>
+<h2 id="再看Arch-Wiki"><a href="#再看Arch-Wiki" class="headerlink" title="再看Arch Wiki"></a>再看Arch Wiki</h2><p>当时脱U系入A系的时候感觉A系系统的资料还没U系丰富, 现在Manjaro用了一个半月之后对这一点有了改观, 讲道理…丰富还是Arch Wiki丰富…一个半月以来8成以上问题都是能在里面找到答案的, Arch Wiki里没有的, 基本也很难找到答案了…<br>其实, A系的资料并不是难找, 而是没有U系的那么傻瓜式.<br>原来用U系系统时, 在网上找到的材料里一般都会附有可以直接运行的问题解决命令或代码, 只要能确定描述问题一致, 把那几行代码复制下来终端直接跑就可以了. Arch Wiki则不同, 其在编写时候大概是默认读者有一定Linux基础了, 里面会写到问题的原因与解决方案, 但很少会直接写一步到位的代码出来给大家直接用.<br>从这个角度上, Arch确实是不适合新手, 但非常适合用来学Linux.</p>
+<h2 id="对系统进行配置"><a href="#对系统进行配置" class="headerlink" title="对系统进行配置"></a>对系统进行配置</h2><p>我的配置原则是尽量符合原来在Cinnamon下的工作习惯, 因此主要对面板进行了重拍(最后其实回到了Gnome2的布局…), 删除了部分自带软件并以原来在Cinnamon下使用的进行替换. 另外Xfce下Steam的运行库再次除了问题…之前Cinnamon下使用本地运行库后所有游戏就能正常运行, 现在Xfce下这招不好使了, 于是从Arch Wiki翻到了另外的解决方案.<br>具体如下:</p>
+<h3 id="替换音量控制插件"><a href="#替换音量控制插件" class="headerlink" title="替换音量控制插件"></a>替换音量控制插件</h3><ul>
+<li>卸载自带的音量控制插件<code>pa-applet</code>, 安装<code>xfce4-pulseaudio-plugin</code>, 手动将后者添加到面板(不支持在通知栏出现)</li>
+<li>安装上述插件后调整音量时会有两个音量改变通知, 在插件上右键属性可关掉一个(另一个大概是系统自带的…不知道怎么关).</li>
+</ul>
+<h3 id="替换unzip包"><a href="#替换unzip包" class="headerlink" title="替换unzip包"></a>替换unzip包</h3><ul>
+<li>安装<code>unzip-iconv</code>(archlinuxcn repo)取代<code>unzip</code></li>
+</ul>
+<h3 id="设置开关触控板的快捷键"><a href="#设置开关触控板的快捷键" class="headerlink" title="设置开关触控板的快捷键"></a>设置开关触控板的快捷键</h3><ul>
+<li>解决方案来自<a href="https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Software_toggle" target="_blank" rel="noopener">Arch Wiki: Touchpad_Synaptics#Software_toggle</a></li>
+<li>进入页面后将脚本代码复制后保存到制定位置, 然后进入Xfce的键盘快捷键设置页面进行按键绑定即可.</li>
+</ul>
+<h3 id="替换文件管理器"><a href="#替换文件管理器" class="headerlink" title="替换文件管理器"></a>替换文件管理器</h3><ul>
+<li>自行安装<code>nemo</code>(软件源里有)</li>
+<li>一并<code>nemo-fileroller</code>, <code>nemo-previewer</code>以及<code>nemo-share</code>已保证功能完整</li>
+</ul>
+<h3 id="增加磁盘管理程序"><a href="#增加磁盘管理程序" class="headerlink" title="增加磁盘管理程序"></a>增加磁盘管理程序</h3><ul>
+<li>安装<code>gnome-disk-utility</code></li>
+</ul>
+<h3 id="替换文本编辑器"><a href="#替换文本编辑器" class="headerlink" title="替换文本编辑器"></a>替换文本编辑器</h3><ul>
+<li>卸载<code>mousepad</code>, 安装<code>gedit</code></li>
+</ul>
+<h3 id="替换音乐播放器"><a href="#替换音乐播放器" class="headerlink" title="替换音乐播放器"></a>替换音乐播放器</h3><ul>
+<li>卸载<code>guayadeque</code>, 安装<code>pragha</code>, <code>netease-cloud-music</code></li>
+</ul>
+<h3 id="配置中文输入法"><a href="#配置中文输入法" class="headerlink" title="配置中文输入法"></a>配置中文输入法</h3><ul>
+<li>按照Arch Wiki指引为输入法声明环境变量, 使绝大部分程序可以正常输入中文</li>
+</ul>
+<h3 id="Steam无法启动"><a href="#Steam无法启动" class="headerlink" title="Steam无法启动"></a>Steam无法启动</h3><ul>
+<li>解决方案来自:<a href="https://wiki.archlinux.org/index.php/Steam/Troubleshooting#Steam_runtime_issues" target="_blank" rel="noopener">Arch Wiki:Steam_runtime_issues</a></li>
+<li>按照说明添加环境变量即可</li>
+</ul>
+<p>##未解决的Bug</p>
+<ul>
+<li>Pamac内无法更新Archlinuxcn源软件, 可在命令行下使用pacman正常更新</li>
+<li>使用无线网卡时, 挂起唤醒后无线网卡无法接受信号, 必须注销重登陆</li>
+<li>leanote普通编辑器内字体显示不太正常</li>
+<li>浪漫雅圆字体安装后无法正常显示</li>
+<li>蓝牙耳机暂停键无用</li>
+</ul>
+<h2 id="软件清单"><a href="#软件清单" class="headerlink" title="软件清单"></a>软件清单</h2><ul>
+<li><p>安装软件(库):<br>docky<br>virtualbox<br>steam<br>fcitx<br>fcitx-sogoupinyin<br>steam-manjaro<br>steam-native<br>kdegraphics-kolourpaint<br>texmaker<br>uget<br>qbittorrent<br>flashplugin<br>perl-rename<br>gnome-font-viewer<br>goldendict<br>telegram-desktop<br>mendeleydesktop<br>rstudio-desktop-bin<br>r<br>shadowsocks-qt5<br>atom-editor<br>inkscape</p>
+</li>
+<li><p>AUR:<br>crossover</p>
+</li>
+<li><p>下载即用:<br>ugene<br>leanote</p>
+</li>
+</ul>
+<h2 id="新桌面纪念"><a href="#新桌面纪念" class="headerlink" title="新桌面纪念"></a>新桌面纪念</h2><ul>
+<li><p>照例来一发新桌面的截图<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/desktop.png" alt></p>
+</li>
+<li><p>顺带秀一下自带的下拉控制台, 实际使用起来还挺带感的~<br><img src="http://7xluqf.com1.z0.glb.clouddn.com/consel.png" alt></p>
+</li>
+</ul>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-07-11T16:05:02+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>最后更新于 2019年7月11日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/manjaro/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>manjaro</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linuxmint/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>linuxmint</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ubuntu/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>ubuntu</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/2018/07/29/系统迁移记录/&title=系统迁移记录 | Silen's Blog&pics=https://avatars1.githubusercontent.com/u/12797055?s=40&v=4&summary=自我大二开始接触linux桌面发行版起, 我就不断的在更换不同的发行版本, 折腾了几年才最后稳定使用manjaro."
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/2018/07/29/系统迁移记录/&title=系统迁移记录 | Silen's Blog&pics=https://avatars1.githubusercontent.com/u/12797055?s=40&v=4&summary=自我大二开始接触linux桌面发行版起, 我就不断的在更换不同的发行版本, 折腾了几年才最后稳定使用manjaro."
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/2018/07/29/系统迁移记录/&title=系统迁移记录 | Silen's Blog&pics=https://avatars1.githubusercontent.com/u/12797055?s=40&v=4&summary=自我大二开始接触linux桌面发行版起, 我就不断的在更换不同的发行版本, 折腾了几年才最后稳定使用manjaro."
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2018/07/29/正则匹配符号收录/" rel="prev" title="正则匹配符号收录">
+                                  
+                                      正则匹配符号收录
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/python/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>python</a> <a class="tag" href="/tags/bash/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>bash</a> <a class="tag" href="/tags/正则/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>正则</a> <a class="tag" href="/tags/perl/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>perl</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/07/29/用R绘制地图的笔记/" rel="prev" title="用R绘制地图的笔记">
+                                    
+                                        用R绘制地图的笔记
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/r/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>r</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '系统迁移记录',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars1.githubusercontent.com/u/12797055?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:qiumin14@163.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/silenwang"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mint-迁移记录"><span class="toc-text">Mint 迁移记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#输入法设置"><span class="toc-text">输入法设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件安装"><span class="toc-text">软件安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置迁移"><span class="toc-text">配置迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序设置"><span class="toc-text">程序设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Firefox设置与插件"><span class="toc-text">Firefox设置与插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-unity-与-Mint-cinnamon使用对比"><span class="toc-text">Ubuntu unity 与 Mint cinnamon使用对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#界面重布"><span class="toc-text">界面重布</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mint2manjaro"><span class="toc-text">mint2manjaro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从Ubuntu系到Arch系"><span class="toc-text">从Ubuntu系到Arch系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选Manjaro"><span class="toc-text">为什么选Manjaro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装方案"><span class="toc-text">安装方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manjaro-Cinnamon-Edition-与Linux-Mint的比较"><span class="toc-text">Manjaro(Cinnamon Edition)与Linux Mint的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#桌面环境"><span class="toc-text">桌面环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文化情况"><span class="toc-text">中文化情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字体效果"><span class="toc-text">字体效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用软件获取"><span class="toc-text">常用软件获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显卡驱动"><span class="toc-text">显卡驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入法"><span class="toc-text">输入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小问题与小Bug"><span class="toc-text">小问题与小Bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习资料"><span class="toc-text">学习资料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移后感"><span class="toc-text">迁移后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#致谢"><span class="toc-text">致谢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#桌面截图留念"><span class="toc-text">桌面截图留念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备忘录-额外安装软件与包一览"><span class="toc-text">备忘录(额外安装软件与包一览)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方库"><span class="toc-text">官方库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Archlinuxcn"><span class="toc-text">Archlinuxcn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AUR"><span class="toc-text">AUR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载即用"><span class="toc-text">下载即用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译安装"><span class="toc-text">编译安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#界面设置-manjaro"><span class="toc-text">界面设置(manjaro)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#manjaro挂掉之后"><span class="toc-text">manjaro挂掉之后</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#挂的这么突然-还要作大死"><span class="toc-text">挂的这么突然, 还要作大死</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#桌面环境变更-不知道第几次了…"><span class="toc-text">桌面环境变更(不知道第几次了…)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装过程"><span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Xfce与Cinnamon"><span class="toc-text">Xfce与Cinnamon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再看Arch-Wiki"><span class="toc-text">再看Arch Wiki</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对系统进行配置"><span class="toc-text">对系统进行配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#替换音量控制插件"><span class="toc-text">替换音量控制插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换unzip包"><span class="toc-text">替换unzip包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置开关触控板的快捷键"><span class="toc-text">设置开关触控板的快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换文件管理器"><span class="toc-text">替换文件管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加磁盘管理程序"><span class="toc-text">增加磁盘管理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换文本编辑器"><span class="toc-text">替换文本编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换音乐播放器"><span class="toc-text">替换音乐播放器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置中文输入法"><span class="toc-text">配置中文输入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Steam无法启动"><span class="toc-text">Steam无法启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件清单"><span class="toc-text">软件清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新桌面纪念"><span class="toc-text">新桌面纪念</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/handbooks/" href="/handbooks/"
+          
+            rel="nofollow"
+          
+          
+          id="handbooks">
+          
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+          
+          我的手册
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于我
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Bioinfomatic/" href="/categories/Bioinfomatic/"><div class='name'>Bioinfomatic</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Others/" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>(18)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Script/" href="/categories/Script/"><div class='name'>Script</div><div class='badge'>(21)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/adb/" style="font-size: 14px; color: #999">adb</a> <a href="/tags/android/" style="font-size: 14px; color: #999">android</a> <a href="/tags/argparse/" style="font-size: 14px; color: #999">argparse</a> <a href="/tags/bash/" style="font-size: 20px; color: #707070">bash</a> <a href="/tags/caddy/" style="font-size: 14px; color: #999">caddy</a> <a href="/tags/conda/" style="font-size: 18px; color: #7e7e7e">conda</a> <a href="/tags/de/" style="font-size: 14px; color: #999">de</a> <a href="/tags/deepin/" style="font-size: 14px; color: #999">deepin</a> <a href="/tags/docker/" style="font-size: 16px; color: #8b8b8b">docker</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/gitbook/" style="font-size: 14px; color: #999">gitbook</a> <a href="/tags/gogs/" style="font-size: 14px; color: #999">gogs</a> <a href="/tags/golang/" style="font-size: 14px; color: #999">golang</a> <a href="/tags/graphviz/" style="font-size: 14px; color: #999">graphviz</a> <a href="/tags/hexo/" style="font-size: 16px; color: #8b8b8b">hexo</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/itertools/" style="font-size: 14px; color: #999">itertools</a> <a href="/tags/jupyter/" style="font-size: 14px; color: #999">jupyter</a> <a href="/tags/linux/" style="font-size: 20px; color: #707070">linux</a> <a href="/tags/linuxmint/" style="font-size: 14px; color: #999">linuxmint</a> <a href="/tags/machine-learning/" style="font-size: 14px; color: #999">machine learning</a> <a href="/tags/manjaro/" style="font-size: 16px; color: #8b8b8b">manjaro</a> <a href="/tags/minicap/" style="font-size: 14px; color: #999">minicap</a> <a href="/tags/mkdocs/" style="font-size: 14px; color: #999">mkdocs</a> <a href="/tags/pandas/" style="font-size: 14px; color: #999">pandas</a> <a href="/tags/perl/" style="font-size: 14px; color: #999">perl</a> <a href="/tags/plugin/" style="font-size: 14px; color: #999">plugin</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/r/" style="font-size: 22px; color: #636363">r</a> <a href="/tags/requests/" style="font-size: 14px; color: #999">requests</a> <a href="/tags/selenium/" style="font-size: 14px; color: #999">selenium</a> <a href="/tags/sge/" style="font-size: 14px; color: #999">sge</a> <a href="/tags/single-cell/" style="font-size: 14px; color: #999">single cell</a> <a href="/tags/snakemake/" style="font-size: 18px; color: #7e7e7e">snakemake</a> <a href="/tags/sqlite/" style="font-size: 14px; color: #999">sqlite</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/steam/" style="font-size: 14px; color: #999">steam</a> <a href="/tags/syntax/" style="font-size: 14px; color: #999">syntax</a> <a href="/tags/teamviewer/" style="font-size: 14px; color: #999">teamviewer</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #999">ubuntu</a> <a href="/tags/vps/" style="font-size: 14px; color: #999">vps</a> <a href="/tags/参数解析/" style="font-size: 14px; color: #999">参数解析</a> <a href="/tags/多进程/" style="font-size: 14px; color: #999">多进程</a> <a href="/tags/并行计算/" style="font-size: 18px; color: #7e7e7e">并行计算</a> <a href="/tags/文档/" style="font-size: 14px; color: #999">文档</a> <a href="/tags/正则/" style="font-size: 14px; color: #999">正则</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/结构变异/" style="font-size: 16px; color: #8b8b8b">结构变异</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:qiumin14@163.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/silenwang"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
