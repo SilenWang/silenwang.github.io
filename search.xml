@@ -241,9 +241,9 @@
       
         <tags>
             
-            <tag> 并行计算 </tag>
-            
             <tag> bash </tag>
+            
+            <tag> 并行计算 </tag>
             
         </tags>
       
@@ -663,9 +663,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> conda </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -798,9 +798,9 @@
       
         <tags>
             
-            <tag> steam </tag>
-            
             <tag> linux </tag>
+            
+            <tag> steam </tag>
             
         </tags>
       
@@ -1112,9 +1112,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> bash </tag>
+            
+            <tag> python </tag>
             
             <tag> 正则 </tag>
             
