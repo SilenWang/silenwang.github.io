@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>使用Syncthing进行文件同步</title>
+      <link href="/2019/08/18/%E4%BD%BF%E7%94%A8Syncthing%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/"/>
+      <url>/2019/08/18/%E4%BD%BF%E7%94%A8Syncthing%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</url>
+      
+        <content type="html"><![CDATA[<p>只要使用多台设备进行工作, 就一定会涉及到不同设备之前互相同步的问题. 现在已经不是七八年前云服务刚兴起, 便宜又大碗的时代了. 一个实惠好用又不会突然跑路或改用户协议的服务商怕是并不存在, 所以还是要靠自己来搭了…</p><!-- 摘要部分 --><a id="more"></a><p>Syncthing在<a href="https://www.appinn.com/syncthing/" target="_blank" rel="noopener">小众软件</a>和<a href="https://www.iplaysoft.com/syncthing.html" target="_blank" rel="noopener">异次元软件</a>都有介绍, 是一款使用简单且开源的同步软件.</p><p>由于官方已经提供了打包好的可执行文件, 三大平台都是下载运行文件后即可使用, 因此我就不再重复了. 这里主要记录如何在我的电脑和VPS上将其设置为服务来运行.</p><p>CentOS7和Manjaro都有systemd, 且操作命令都是<code>systemctl</code>, 所以操作一样的. </p><p>首先找到Syncthing执行文件包, 里面的<code>Syncthing/etc/</code>下有已经准备好的各种服务配置文件实例. 我使用的是<code>Syncthing/etc/linux-systemd/user/syncthing.service</code>. 打开这个文件, 将其中的<code>[Service]</code>部分的<code>ExecStart</code>项目中的程序路径改成自己的程序位置. 我是将这个服务作为当前用户的服务而不是系统级服务使用, 所以将这个文件复制到<code>~/.config/systemd/user/</code>, 然后运行命令启动服务即可:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl --user <span class="built_in">enable</span> syncthing.service</span><br><span class="line">systemctl --user start syncthing.service</span><br></pre></td></tr></table></figure><p>启动后可像其他服务一样用<code>ststemctl</code>来查看服务运行状态.</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/Syncthing.png" alt="Syncthing"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Syncthing </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git钩子使用</title>
       <link href="/2019/08/17/Git%E9%92%A9%E5%AD%90%E4%BD%BF%E7%94%A8/"/>
       <url>/2019/08/17/Git%E9%92%A9%E5%AD%90%E4%BD%BF%E7%94%A8/</url>
