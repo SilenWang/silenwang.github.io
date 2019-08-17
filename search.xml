@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>装饰器入门</title>
+      <link href="/2019/08/15/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%85%A5%E9%97%A8/"/>
+      <url>/2019/08/15/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<p>很早之前, 前公司的Python大神就有给我们科普过装饰器的使用, 但是由于个人愚钝, 一直没有很好理解这个东西, 也没有在实际的写代码的时候用过. 因此这里把这种工作总遇到的一个例子记录一下.</p><!-- 摘要部分 --><a id="more"></a><p>首先, Python中装饰器本身的作用是在不改动原函数代码的前提下为其附加新的功能, 因为它本身其实也要求你去定义一个函数, 只不过这个函数以函数为接收对象, 也以函数为返回对象.</p><p>我本周碰到的一个问题是, 我写了一个函数去计算<code>Bam</code>文件中UMI序列的一些指标, 但是输入的<code>Bam</code>带的UMI有两种情况: </p><ul><li>双端各N个bpUMI</li><li>单端N个bpUMI<br>这两种情况在从<code>Bam</code>文件中读取UMI的时候处理是不一样的, 单端的话要读取UMI全长, 双端的话只读UMI的半长. 原本单端的代码如下:</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">single_count</span><span class="params">(file, tag, mode)</span>:</span></span><br><span class="line">    umi_count = &#123;</span><br><span class="line">        <span class="string">'R1'</span>: [],</span><br><span class="line">    &#125;</span><br><span class="line">    infos = load_single(file)</span><br><span class="line">    <span class="keyword">for</span> info <span class="keyword">in</span> infos:</span><br><span class="line">        <span class="keyword">if</span> info[<span class="string">'strand'</span>] == <span class="string">'R1'</span>:</span><br><span class="line">            umi_count[<span class="string">'R1'</span>].append(info[<span class="string">'umi'</span>])</span><br><span class="line">    umi_count[<span class="string">'R1'</span>] = Counter(umi_count[<span class="string">'R1'</span>])</span><br><span class="line">    total_umi = <span class="number">0</span></span><br><span class="line">    read_with_umi = <span class="number">0</span></span><br><span class="line">    max_grp_size = <span class="number">0</span></span><br><span class="line">    max_umi = <span class="string">''</span></span><br><span class="line">    size_stat = Counter([<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>])</span><br><span class="line">    <span class="keyword">for</span> umi <span class="keyword">in</span> umi_count[<span class="string">'R1'</span>]:</span><br><span class="line">        <span class="keyword">if</span> umi_count[<span class="string">'R1'</span>][umi] &gt; max_grp_size:</span><br><span class="line">            max_grp_size = umi_count[<span class="string">'R1'</span>][umi]</span><br><span class="line">            max_umi = umi</span><br><span class="line">        <span class="keyword">for</span> size <span class="keyword">in</span> size_stat: <span class="comment"># 注意初始化的时候, 全都是1, 不是0, 所以最后要处理(-1)</span></span><br><span class="line">            <span class="keyword">if</span> umi_count[<span class="string">'R1'</span>][umi] &lt;= size:</span><br><span class="line">                size_stat[size] += <span class="number">1</span></span><br><span class="line">        total_umi += <span class="number">1</span></span><br><span class="line">        read_with_umi += umi_count[<span class="string">'R1'</span>][umi]</span><br><span class="line">    size_stat = OrderedDict(list([(<span class="string">"%%Group_Size_below_%s(%s)"</span> % (size, tag), str((size_stat[size] - <span class="number">1</span>) / total_umi )) \</span><br><span class="line">        <span class="keyword">for</span> size <span class="keyword">in</span> size_stat])) <span class="comment"># python所以要先list化</span></span><br><span class="line">    <span class="keyword">return</span> total_umi, read_with_umi, max_grp_size, max_umi, size_stat</span><br></pre></td></tr></table></figure><p>而双端读取的代码与单端的区别仅仅是<code>infos = load_single(file)</code>这一句需要替换成<code>infos = load_duplex(file)</code>而已. 为了实现这一目的其实也有很直接简单的方式, 就是更改这个函数, 加上一个参数, 然后在这一句前面加一个判断, 根据传入的参数决定调用<code>load_duplex</code>还是<code>load_single</code>. 但是这样一来会需要改动这个函数的代码, 以及调用这个函数的其他代码. 如果这样的地方一多, 其实难免会产生新的bug. 因此这次我尝试使用装饰器来解决这个问题:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_mod</span><span class="params">(func)</span>:</span></span><br><span class="line">    load_single = load_duplex</span><br><span class="line">    <span class="keyword">return</span> func</span><br><span class="line"></span><br><span class="line"><span class="meta">@load_mod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">duplex_count</span><span class="params">(file, tag, mode)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> single_count(file, tag, mode)</span><br></pre></td></tr></table></figure><p>这里我新定义了两个函数, <code>duplex_count</code>想达到的效果是重复<code>single_count</code>中除了<code>infos = load_single(file)</code>之外的所有步骤, 然后只把调用的函数改成<code>load_duplex</code>. 因此可以看到这个函数的内容其实就是返回<code>single_count</code>的计算结果. 单这样一来并没有完成两个load函数的替换.<br> 这里就是<code>load_mod</code>发挥作用的地方了: 它用来对局部命名空间内的内容进行替换, 具体是将<code>load_single</code>的内容以<code>load_duplex</code>替换. 以<code>load_mod</code>装饰<code>duplex_count</code>后, 相当于在执行函数前先把<code>load_single</code>的内容以<code>load_duplex</code>替换, 这样一来, 这个函数的执行的东西就改变了.</p><p> 当然, 我这么用其实更像常见装饰器教程中的’闭包’用法, 而不是’为函数添加新功能’.</p><p> 其他的应用之后再继续水.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 装饰器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>黑历史计划,启动!</title>
       <link href="/2019/07/27/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AE%A1%E5%88%92-%E5%90%AF%E5%8A%A8/"/>
       <url>/2019/07/27/%E9%BB%91%E5%8E%86%E5%8F%B2%E8%AE%A1%E5%88%92-%E5%90%AF%E5%8A%A8/</url>
@@ -663,9 +690,9 @@
       
         <tags>
             
-            <tag> conda </tag>
-            
             <tag> docker </tag>
+            
+            <tag> conda </tag>
             
         </tags>
       
@@ -1200,6 +1227,99 @@
         <tags>
             
             <tag> r </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>宿命传说2</title>
+      <link href="/2016/07/22/%E5%AE%BF%E5%91%BD%E4%BC%A0%E8%AF%B42/"/>
+      <url>/2016/07/22/%E5%AE%BF%E5%91%BD%E4%BC%A0%E8%AF%B42/</url>
+      
+        <content type="html"><![CDATA[<p>感冒伴发过敏…在家里躺了两天半, 一件正事没干, 通了宿命传说2(PSP版本)…果然打游戏对我来说比什么动力都大…</p><p>我还在上小学的时候就知道这个游戏了…那时电视上还有挺多电玩介绍节目, 报刊亭也还买得到各种游戏攻略杂志, 我至少在两个节目里、以及三本中看过宿命传说2, 印象中他们对这个游戏的评价都非常好…</p><p>然而我毕竟不是主机玩家(那时也没有可能成为, 太贵…), 对于这等大作也只能看着手痒了…不过感谢科技的进步, 十四年之后我终于有机会玩到这个游戏了~</p><p>不过不知道是不是期望越高失望越高…这个游戏很多地方真的是特别的糟心…</p><p>首先是画风…该说人变得太快么…我记得小学的时候我看片头动画觉得还是挺好的…然而现在再来看…总觉得这些个人物肖像看着好难受…奇大的眼睛…奇瘦的躯干和四肢…然后特别是主角的这个衣服…实在是有点过于…咳咳…</p><p>然后是性格设定…主要是针对主角…就好像大多数人的感觉一样…真的是典型的中二小屁孩…啊…我这果然是长大了然后无法直面过去的自己么= =|||</p><p>接着是地图和部分解谜…尤其是世界地图. 说实话刚开始我还觉得游戏的引导做的还挺好的, 会在小地图上标志目标地点, 然而我发现除了刚开始的兰格那遗迹可以直线走过去之外, 几乎所有的地点都是必!须!绕!路!才能到达的! 并且从小地图上根本看!!不!!出!!怎么走!!! 导致每去一个新地点几乎都要把能走的地方跑遍才能到达, 然后绕路过程中要杀无数的怪…解谜方面…有些触发点实在是做的太tm不明显了…也是导致跑来跑去杀了无数怪才明白要怎么搞…</p><p>最后是战斗…刚开始玩的时候感觉这个战斗系统还挺有意思的…可是后面敌人越来越恶心…前排的敌人难以击飞, 后排的晶术咏唱快得离谱, 万一甩一个上级晶术出来至少要跪一两个…尝试用控制的人物直接绕到后排打断, 那这个人多半跳进去就回不来了…到最后只好碰到恶心的组合就直接不打了…</p><p>总的来说…从游戏系统上…个人感觉这是一个玩着特别累的游戏…剧情方面由于主角实在太中二, 反复穿越时间的各种不合理, 反派的智商硬伤, 最后没道理的强行团圆等等, 也不能给这个游戏带来什么加分…所以对我来说, 打通这个游戏只能算是消除心中的残念, 至于再打一次或者向别人推荐…免了吧…</p><p><img src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=2e902d16e3f81a4c2632ebcfef110764/a5c27d1ed21b0ef43976073cd5c451da81cb3e31.jpg" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闲来打游戏 </tag>
+            
+            <tag> 黑历史计划 </tag>
+            
+            <tag> 宿命传说2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Melody&#39;s Escape</title>
+      <link href="/2016/06/05/Melody-s-Escape/"/>
+      <url>/2016/06/05/Melody-s-Escape/</url>
+      
+        <content type="html"><![CDATA[<p>不知这首歌的原出处是哪, 反正我是玩Melody’s Escape听到的…  </p><p>这游戏的一大特点是音乐自选, 官方只自带的5首歌(就包括这首Regain Control), 但是你可以选择任何自己有的音乐进行游戏(支持MP3s, WMAs, iTunes, FLAC等格式), 把原来喜欢听的ACG歌曲翻出来一首首跑一遍还是挺带感的~</p><p>对于音游粉丝来说旋律逃脱应该还挺简单的, 一共就八个按键…..如果是和我一样第一次玩音游的手残来, 从Medium(四个按键)开始会比较容易上手, 两个手都有点手感了再尝试八个按键.</p><p>另外感觉初玩最好还是选节奏感强的乐曲跑, 因为这种乐曲大部分按键都在节奏点上, 比较容易按.  </p><p>个人玩了一个星期左右发现比较带感且相对简单的乐曲有:</p><p>AlieZ, βios, X.U, Hero’s Come Back, only my railgun, hollow World  </p><p>唯一的遗憾是这个游戏目前是完全的单人游戏, 不知道作者之后会不会加入本地对抗的模式呢……</p><p><a href="https://store.steampowered.com/app/270210/Melodys_Escape/" target="_blank" rel="noopener">steam链接</a></p><iframe src="https://media.st.dl.bscstorage.net/steam/apps/256664362/movie480.webm?t=1463677466" width="700" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 音游 </tag>
+            
+            <tag> 旋律逃脱 </tag>
+            
+            <tag> Melody&#39;s Escape </tag>
+            
+            <tag> 闲来打游戏 </tag>
+            
+            <tag> 黑历史计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>晶体管</title>
+      <link href="/2016/01/01/%E6%99%B6%E4%BD%93%E7%AE%A1/"/>
+      <url>/2016/01/01/%E6%99%B6%E4%BD%93%E7%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<p>这是一个非常有特色的游戏, 画面非常出彩, 披着ARPG的皮的策略游戏. 故事叙事上有点魂的意思(如果不自己探寻隐藏信息的话完全不知道讲了个XX). 印象中这是我在Steam上购买的第一个游戏(当时刚开放国区, 到库还花了小几天), 也是因为这个游戏我开始关注游戏的制作组, 后来还补了堡垒和后来的柴堆(柴堆至今没打开过…)</p><!-- 摘要部分 --><a id="more"></a><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/transistor.jpg" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闲来打游戏 </tag>
+            
+            <tag> steam </tag>
+            
+            <tag> 晶体管 </tag>
+            
+            <tag> Transistor </tag>
             
         </tags>
       
