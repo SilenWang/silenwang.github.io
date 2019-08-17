@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Git钩子使用</title>
+      <link href="/2019/08/17/Git%E9%92%A9%E5%AD%90%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/08/17/Git%E9%92%A9%E5%AD%90%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>虽然我也用Git进行部分项目的代码管理, 但是其实很多Git的特性我都还不熟悉, 也没有用, 今天尝试了一下Githook的使用.</p><!-- 摘要部分 --><a id="more"></a><p>Hook, 直译就是钩子, 指的是预先定义好的一系列脚本. 这些脚本在我们使用特定的Git命令完成一些代码管理操作时自动执行, 以达到减少重复操作, 提高效率的目的.</p><p>比如我的博客源代码就是用Git管理的. 我现在写一篇博客并发布的步骤是:</p><ol><li><code>hexo new post</code>创建一篇新的博客文章的makrdown草稿</li><li>打开新建的markdown文件, 编写内容</li><li>编写完成后运行<code>hexo g</code>和<code>hexo d</code>将博客内容生成并推送到Gitpages的源上去</li><li>运行<code>git commit</code>提交博客源代码的修改, 然后<code>git push</code>到源代码源上去</li></ol><p>其中, 撰写博客的过程可能会有一些不固定的操作, 但是最后两部的内容其实是每次写博客一定会重复且不太会变动的步骤. 这些步骤就可以利用钩子来执行.</p><p>首先要来判断这些东西应该在什么时候执行: 我的博客源代码在<code>commit</code>之前, 我会首先确认内容. 所以理论上, 我使用任何一个<code>git commit</code>会触发的钩子都可以. 实际选用的钩子为<code>post-commit</code>, 这个钩子会在<code>commit</code>后执行, 所以我就把如下内容写到项目的<code>.git/hooks/post-commit</code>文件中(名字不要改, 特定的名称才会被执行).</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">cd</span> /home/silen/git_proj/silen_blog/</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>然后给这个文件加上可执行权限, 这样一来, 每次我对这个项目完成一次commit后, 就会调用这个脚本自动进行博客的生成和推送了.</p><p>当然现在这里举的例子可能没啥吸引力, 因为这两步其实也并不多…省不了太多功夫. 但是我现在的站点除了主站, 我还在子站里弄了个个人的速查手册. 这个手册使用mkdocs进行编写, 是另外一个独立项目. 如果想要达到两个项目其中一个更新就同步更新到博客的话, 钩子应该就很实用了.</p><p>最后需要注意的是, git钩子是分为客户端和服务端的, 我现在使用的是客户端的一种钩子. 客户端钩子的一个缺陷是无法在项目的不同副本间同步(不同副本是不同的客户端), 这个问题我之后再找方法解决好了…</p><p>以上~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> githook </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>装饰器入门</title>
       <link href="/2019/08/15/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%85%A5%E9%97%A8/"/>
       <url>/2019/08/15/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%85%A5%E9%97%A8/</url>
@@ -690,9 +717,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> conda </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -1313,9 +1340,9 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
-            
             <tag> steam </tag>
+            
+            <tag> 闲来打游戏 </tag>
             
             <tag> 晶体管 </tag>
             
