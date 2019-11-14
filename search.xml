@@ -4,6 +4,187 @@
   
     
     <entry>
+      <title>让自写的对象可以用上with</title>
+      <link href="/2019/11/14/%E8%AE%A9%E8%87%AA%E5%86%99%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%B8%8Awith/"/>
+      <url>/2019/11/14/%E8%AE%A9%E8%87%AA%E5%86%99%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%B8%8Awith/</url>
+      
+        <content type="html"><![CDATA[<p><code>with open</code>是python中特别方便的一种写法, 对于支持的函数来说, 有了<code>with</code>这个语句可以很方便的在操作完成时自动关闭对象. 对于自己编写的对象其实也可以实现<code>with</code>语法的支持.</p><!-- 摘要部分 --><a id="more"></a><p>具体的做法就是在自己的<code>class</code>中定义<code>__enter__</code>和<code>__exit__</code>两个方法:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Start"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, exc_type, exc_val, exc_tb)</span>:</span></span><br><span class="line">        print(<span class="string">"End"</span>)</span><br></pre></td></tr></table></figure><p>如此一来, 在使用<code>with</code>时就会先执行<code>__enter__</code>内的内容, 在代码块结束的时候则自动执行<code>__exit__</code>的内容了.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; with MyClass() as tClass:</span><br><span class="line">...     print(&quot;test&quot;)</span><br><span class="line">...</span><br><span class="line">Start</span><br><span class="line">test</span><br><span class="line">End</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>猛汉王狩猎日记_历战爆鳞龙</title>
+      <link href="/2019/10/30/%E7%8C%9B%E6%B1%89%E7%8E%8B%E7%8B%A9%E7%8C%8E%E6%97%A5%E8%AE%B0-%E5%8E%86%E6%88%98%E7%88%86%E9%B3%9E%E9%BE%99/"/>
+      <url>/2019/10/30/%E7%8C%9B%E6%B1%89%E7%8E%8B%E7%8B%A9%E7%8C%8E%E6%97%A5%E8%AE%B0-%E5%8E%86%E6%88%98%E7%88%86%E9%B3%9E%E9%BE%99/</url>
+      
+        <content type="html"><![CDATA[<p>男人的浪漫除了爆炸…还有社保!</p><p>沉迷狩猎…荒废事业ing…</p><iframe src="//player.bilibili.com/player.html?aid=73777571&cid=126193394&page=1" width="700" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><!-- 摘要部分 --><a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闲来打游戏 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>猛汉王狩猎日记_樱火龙</title>
+      <link href="/2019/10/06/%E7%8C%9B%E6%B1%89%E7%8E%8B%E7%8B%A9%E7%8C%8E%E6%97%A5%E8%AE%B0-%E6%A8%B1%E7%81%AB%E9%BE%99/"/>
+      <url>/2019/10/06/%E7%8C%9B%E6%B1%89%E7%8E%8B%E7%8B%A9%E7%8C%8E%E6%97%A5%E8%AE%B0-%E6%A8%B1%E7%81%AB%E9%BE%99/</url>
+      
+        <content type="html"><![CDATA[<p>果然就像我当年买了平板看了两天书之后就开始玩PSP模拟器一样…这次买了电脑也没有用来做软件测试太久…直接就被我用来打猛汉王了…我甚至还折腾了如何在宿主机上录客户机的视频…在折腾了一整天后最终选择了视频音频双串流…分别通过looking-glass和scream两个项目将视频和音频都串回宿主机, 然后在宿主机使用OBS进行录制. 至于你问我为啥不客户机直接录…那就不能体现抖m的本质了鸭!</p><p>奉上测试用的, 打得没有任何技术含量的樱火龙…</p><iframe src="//player.bilibili.com/player.html?aid=70256357&cid=118237953&page=1" width="700" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><!-- 摘要部分 --><a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闲来打游戏 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大逆转裁判, 通关撒花\(￣▽￣)/</title>
+      <link href="/2019/10/05/%E5%A4%A7%E9%80%86%E8%BD%AC%E8%A3%81%E5%88%A4/"/>
+      <url>/2019/10/05/%E5%A4%A7%E9%80%86%E8%BD%AC%E8%A3%81%E5%88%A4/</url>
+      
+        <content type="html"><![CDATA[<p>大逆转裁判通关了, 个人感觉这一作甚至在之前的成步堂三部曲之上, 因为与它们相比, 这一作没有超自然的元素, 故事中关于证据的部分更合理了一些(不是随便搬个物品/人出来就能当证据). 当然, 在一个以推理的游戏性为重心的游戏里寻找合理性…我可能也是搞错了什么吧~</p><img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike220%2C5%2C5%2C220%2C73/sign=60bda97249166d222c7a1dc6274a6292/c8ea15ce36d3d5398346217a3087e950352ab00b.jpg" width="50%" height="50%"><!-- 摘要部分 --><a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闲来打游戏 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>编写Dockerfile构建docker镜像</title>
+      <link href="/2019/10/05/%E7%BC%96%E5%86%99Dockerfile%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/"/>
+      <url>/2019/10/05/%E7%BC%96%E5%86%99Dockerfile%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</url>
+      
+        <content type="html"><![CDATA[<p>从过去的经验来看…我有很多的技能都属于副产物…今天这个也是, 我的本意在于使用网易提供的NemuBox源代码编译出一个网易改进过的Virtualbox, 结果…我学了几样跟docker有关的技能…</p><!-- 摘要部分 --><a id="more"></a><p>镜像的构建是docker的基本, 虽然也可以每次创建好基础镜像后进入手动构建或者通过类似dockerhub这样的平台直接拉取, 但是前者耗时且重复性差, 后者对网络有一定要求且自定义性差. 掌握编写和修改Dockerfile这一构建图纸的使用方法还是很必要的. 况且…其实这东西也非常简单.</p><p>我在Dockerfile中可能会用的比较多的关键字有:</p><ul><li><code>FROM</code>: 指定构建的基础镜像, 在构建开始前会pull指定的镜像作为构建基础.</li><li><code>COPY</code>: 从外部(宿主流经)复制文件到镜像内, 第一个参数是外部路径, 第二个参数是内部路径, 具体参数用法类似<code>cp</code>, 似乎不能多个文件同时使用, 没有尝试过通配符是否有效</li><li><code>ADD</code>: 类似<code>COPY</code>, 但是<code>ADD</code>可以获取网络上的文件, 这在向其他地方部署容器时非常有用</li><li><code>RUN</code>: 需要执行的命令</li><li><code>WORKDIR</code>: 构建好的镜像在启动时进入的目录</li><li><code>CMD</code>: 构建好的镜像在启动时运行的命令</li></ul><p>这里<code>COPY</code>和<code>RUN</code>两个命令需要特别注意:</p><ul><li><code>COPY</code>这个关键自在复制外部路径时, 只能获取<code>docker build</code>制定的构建路径下以及其下层的文件. 这个时是受docker运行时<strong>上下文(context)</strong>的限制. </li><li><code>RUN</code>命令每运行一次都会产生<strong>一层新镜像</strong>, 如果不是必须的, 最好精简需要运行的命令, 并将其以<code>&amp;&amp;</code>连接在同一个<code>RUN</code>下, 防止构建的镜像又大又慢.</li></ul><p>这里我写一个之前工作时需要部署的R包<code>sscClust</code>的例子:</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># sscClust Dockerfile</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># https://github.com/dockerfile/fpm</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pull base image.</span></span><br><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install dep-packages</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum install -y epel-release wget \</span></span><br><span class="line"><span class="bash">    &amp;&amp; mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak \</span></span><br><span class="line"><span class="bash">    &amp;&amp; mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak \</span></span><br><span class="line"><span class="bash">    &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \</span></span><br><span class="line"><span class="bash">    &amp;&amp; wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo \</span></span><br><span class="line"><span class="bash">    &amp;&amp; yum clean all \</span></span><br><span class="line"><span class="bash">    &amp;&amp; yum makecache -y \</span></span><br><span class="line"><span class="bash">    &amp;&amp; yum install -y R openssl-devel libcurl-devel libxml2-devel gsl-devel \</span></span><br><span class="line"><span class="bash">    &amp;&amp; mkdir -p /install_script</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install R packages</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> install.r /install_script/install.r</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> Rscript /install_script/install.r</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define working directory.</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define default command.</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> /bin/bash</span></span><br></pre></td></tr></table></figure><p>其中涉及的R脚本为:</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.ustc.edu.cn/CRAN/"</span>))</span><br><span class="line">options(BioC_mirror=<span class="string">"http://mirrors.ustc.edu.cn/bioc/"</span>)</span><br><span class="line">install.packages(c(<span class="string">"BiocManager"</span>, <span class="string">"devtools"</span>))</span><br><span class="line">BiocManager::install(c(<span class="string">'SingleCellExperiment'</span>, <span class="string">'scran'</span>, <span class="string">'SC3'</span>, <span class="string">'zinbwave'</span>, <span class="string">'BiocParallel'</span>))</span><br><span class="line">devtools::install_github(<span class="string">"Japrin/sscClust"</span>)</span><br></pre></td></tr></table></figure><p>执行<code>docker build -t=test_docker .</code>使用上面文件构建镜像</p><p>当然现在已经不保证这个例子能顺利构建了, 因为软件总是在不断更新, 而我的构建过程没有任何指定特定版本软件的内容, 随着时间的推进, 很有可能会出现各种依赖爆炸…不过作为使用记录还是阔以哒~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> dockerfile </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在Linux系统中添加自定义服务</title>
+      <link href="/2019/10/05/%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1/"/>
+      <url>/2019/10/05/%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1/</url>
+      
+        <content type="html"><![CDATA[<p>使用Linux系统的时候经常会需要设置一些开机自启动的东西, 对于使用systemd的发行版, 自行编写服务文件并启用是个非常不错的选择.</p><!-- 摘要部分 --><a id="more"></a><p>服务文件采用类似ini格式的配置文件编写, 一个基本的服务配置文件包含如下内容:</p><ul><li><code>Unit</code>: 定义的部分, 比如说明什么的</li><li><code>Service</code>: 实际执行执行内容, 包括这个服务是啥类型, 启动时要做什么, 结束时要做什么, 重启要做什么之类的</li><li><code>Install</code>: 基本都是以来关系, 比如服务什么时候启动, 或者在XX之前/之后启动</li></ul><p>下面是一个v2ray服务的例子:</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Daemon to start V2ray</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/bin/v2ray -config /home/silen/script/v2ray/v2ray.json</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">Alias</span>=v2ray</span><br><span class="line"><span class="attr">WantedBy</span>=default.target</span><br></pre></td></tr></table></figure><p>这个服务如果开启了, 则默认自动启动(<code>WantedBy=default.target</code>), 启动时执行命令<code>/usr/bin/v2ray -config /home/silen/script/v2ray/v2ray.json</code>, 也就是开启v2ray代理. 对于服务的其他动作, 比如重启停止之类没有作定义.</p><p>写好上面的文件后就可以把这个文件命名为<code>v2ray.service</code>放到指定的位置(<code>/etc/systemd/system</code>或<code>/usr/lib/systemd/system</code>), 然后以root权限使用<code>systemctl enable v2ray.service</code>就可以激活服务(开机后根据配置情况启动), 使用<code>systemctl start v2ray.service</code>则可立刻启动服务.</p><p>需要注意的是, 调用root权限去启动服务, 那么执行用户也自然是root, 这在某些情况下并不是一个好选择. 因此我之前的同步服务和这次的v2ray服务实际都是以个人用户的权限去开启的. 也就是将上面的服务文件放到<code>/home/&lt;user&gt;/.config/systemd/user</code>下, 然后直接<code>systemctl start --uesr v2ray.service</code>来启动服务.</p><p>这种情况下的服务只会在我当前用户登入后才开始执行, 并且也不需要root权限(用户需要不需要在root group中我倒不清楚).</p><p>示例中使用的v2ray程序属于占着前台不放的类型, 因此可以直接使用<code>simple</code>类型. 除了该类型还有: <code>simple</code>, <code>forking</code>, <code>oneshot</code>, <code>notify</code>, <code>dbus</code>, <code>idle</code></p><p>当然我自定义的服务一般也就很简单, <code>sample</code>和<code>oneshot</code>应该够用了.</p><p>至于<code>ExecStart</code>, <code>ExecStop</code>, 和<code>ExecReload</code>, 前者是必须的, 后两者则可根据启动命令的情况选择是否需要编写.</p><p>最后是<code>Install</code>里的<code>WantedBy=default.target</code>这个根据我的尝试是必须加的, 因为不加服务不会自动启动…不知道是不是只有user层面的服务才会这样</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> systemd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>台式机置备计划(下)</title>
+      <link href="/2019/09/08/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92-2-md/"/>
+      <url>/2019/09/08/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92-2-md/</url>
+      
+        <content type="html"><![CDATA[<p>在千辛万苦搞定了硬件之后, 接下来就是软件了.</p><!-- 摘要部分 --><a id="more"></a><p>按照我之前的规划, 我的机器需要达到一机多用的效果: 宿主机linux用来做计算, 虚拟机windows用来打游戏.</p><p>但凡用过虚拟机的人应该都知道…虚拟机的性能一直是个的问题, 就算牛X如vmware和mac专属的parallel, 其图形性能也还是不如原生硬件. 因此也就有了PCI Passthrough这种技术, 即将PCI插槽上的设备从宿主机屏蔽, 直接分配给虚拟机使用. 获得了实际的硬件, 没有中间商, 性能也就几乎与原生无异了. 这也是我当初买了个有两条显卡PCI插槽主板的原因, 因为如果日后要虚拟出两台打游戏用的电脑, 必须给每台机器都分配一张显卡, 然后宿主机启动也是要显卡的, 所以CPU需要有内建显卡.</p><p>本次虚拟化配置我使用的宿主系统为Manjaro, 参考的文档/视频包括:</p><ul><li><a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">ArchWiki上的GPU Passthrough教程</a></li><li><a href="https://www.bilibili.com/video/av54526748" target="_blank" rel="noopener">Linus Tech Tips的虚拟MacOS视频</a></li><li><a href>一个关于promox的错误讨论帖</a></li></ul><p>由于这份配置是在基于Arch的发行版上进行的, 因此具体设置用的命令和组件会和中文网站中搜索到的材料比较不一样(基本都是基于Ubuntu的).</p><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="1-准备系统盘"><a href="#1-准备系统盘" class="headerlink" title="1. 准备系统盘"></a>1. 准备系统盘</h3><ul><li>宿主系统: manjaro-architect-18.0.4-stable, 基于Arch的衍生发行版, 特点是简单易上手, 虽然被Arch教派认为是邪道, 单阻止不了其越来越高的人气(甚至我昨天看到Manjaro的社区和Ubuntu一样开了个公司). 使用architect而不是预搭载桌面的livecd主要是因为镜像小, 所有软件包全程联网下载就好.</li><li>子系统: 与宿主系统不一样, 子系统除了准备一份要安装到宿主机中的windows之外, 可能还需要准备一份<strong>支持EFI启动的ISO镜像</strong>. 因为ArchWiki上的教程使用了OVMF(这会让直通更简单, 少一些在虚拟BIOS上配置的过程), 用了这东西之后虚拟机内使用的就是EFI(only), 而不是BIOS了. 这就要求安装系统的ISO镜像一定要支持EFI启动. 但是我下载了很多个系统安装镜像都不支持…因此只好专门找了个支持UEFI的PE镜像, 用这个镜像引导启动, 然后安装另外一份安装镜像上的系统.</li></ul><h3 id="2-安装宿主系统"><a href="#2-安装宿主系统" class="headerlink" title="2. 安装宿主系统"></a>2. 安装宿主系统</h3><p>使用宿主系统盘在电脑上安装好Manjaro, 详细步骤其他地方找得到, 我这里就先略了, 以后有空再补截图(咕咕咕).</p><h3 id="3-进行GPU隔离设置"><a href="#3-进行GPU隔离设置" class="headerlink" title="3. 进行GPU隔离设置"></a>3. 进行GPU隔离设置</h3><p>进行直通就是让虚拟机直接使用被直通的硬件, 因此需要防止宿主机对硬件进行访问. 具体设置为:</p><ul><li><p>启动IOMMU</p><ul><li><p>打开配置文件(<code>/etc/default/grub</code>)更改内核参数, 以启用IOMMU:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet udev.log_priority=3 audit=0 amd_iommu=on iommu=pt&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li><li><p>进行上面的编辑后需要重新生成生成`grub.cfg:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></li></ul></li><li><p>编辑配置文件使用vcfio屏蔽准备隔离的显卡组件</p><ul><li><p>使用<code>lspci -nnk</code>命令查看所有的PCI硬件信息, 从中找到需要直通的硬件, 并记录其ID:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">01:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin [Radeon RX 460/560D / Pro 450/455/460/555/555X/560/560X] [1002:67ef] (rev e5)</span><br><span class="line">    Subsystem: Tul Corporation / PowerColor Baffin [Radeon RX 460/560D / Pro 450/455/460/555/555X/560/560X] [148c:2385]</span><br><span class="line">    Kernel driver in use: vfio-pci</span><br><span class="line">    Kernel modules: amdgpu</span><br><span class="line">01:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] [1002:aae0]</span><br><span class="line">    Subsystem: Tul Corporation / PowerColor Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] [148c:aae0]</span><br><span class="line">    Kernel driver in use: vfio-pci</span><br><span class="line">    Kernel modules: snd_hda_intel</span><br></pre></td></tr></table></figure></li><li><p>上面的信息是我屏蔽之后的信息, 因此两个设备的<code>Kernel driver in use</code>都显示为<code>vfio-pci</code>, 代表屏蔽成功, 屏蔽前应该是安装系统时安装的开源驱动; 需要记录的ID跟在设备名称的中括号中, 在上面的例子中分别是显示设备<code>[148c:2385]</code>和音频设备<code>[1002:aae0]</code>(现在的显卡很多都带音频输出…所以会显示为两个设备实际是要一起屏蔽的)</p></li><li><p>创建<code>/etc/modprobe.d/vfio.conf</code>, 并在其中加入<code>options vfio-pci ids=&lt;id to block&gt;</code></p></li><li><p>编辑<code>/etc/mkinitcpio.conf</code>, 在其中找到下面项目并添加如相应内容:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">MODULES=(... vfio_pci vfio vfio_iommu_type1 vfio_virqfd ...)</span><br><span class="line">...</span><br><span class="line">HOOKS=(... modconf ...)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li><li><p>编辑完成之后, 更改是不会生效的, 需要重新生成<code>initramfs</code>:</p><ul><li><strong>注意:</strong> 由于我对这个东西是什么并没有概念, 并且ArchWiki上相关的内容我也看不懂, 所以这里记录的是我进行的实际操作, 并不保证是最正确的操作</li><li>执行命令重新生成<code>/boot</code>下的启动用<code>img</code>文件: <code>sudo mkinitcpio -g /boot/initramfs-4.19-x86_64.img</code>(建议把原来的备份)</li><li>覆盖原来的<code>img</code>后, 需要重新启动宿主机, 如果设置成功, 则对应设备的驱动应该为<code>vfio-pci</code></li><li>在进行覆盖后, 宿主系统无法访问被屏蔽的硬件, 如果有需要访问的, 可以在启动时在grub菜单选择通过<code>initramfs-4.19-x86_64-fallback.img</code>启动, 这个没有被改动过, 可以正常访问硬件.</li></ul></li></ul></li></ul><h3 id="4-安装并配置虚拟机"><a href="#4-安装并配置虚拟机" class="headerlink" title="4. 安装并配置虚拟机"></a>4. 安装并配置虚拟机</h3><p>在做好硬件的设置后, 下面就要进行软件的配置了.</p><ul><li><p>安装虚拟机管理软件</p><ul><li>tip: 这里安装的是使用虚拟机的软件QEMU和简化QEMU设置的VirtManager和libvirt, kvm本身是linux内核中的一个模块, 只要在主板中设置开启虚拟化就可以使用了, 无须另外安装什么<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qemu libvirt virt-manager ovmf</span><br></pre></td></tr></table></figure></li></ul></li><li><p>创建虚拟机</p><ul><li>打开virt-manager, 点击创建虚拟机<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/add_vm.jpg" alt="add_vm.jpg"></li><li>选择安装镜像(非启动用), 由于下载的镜像不是官方的, 无法自动识别是啥系统, 所以去掉自动检测然后手动选择<code>Win10</code>然后进入下一步<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/select_iso.jpg" alt="select_iso.jpg"></li><li>CPU和内存分配<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/cpu_mem.jpg" alt="cpu_mem.jpg"></li><li>选择创建镜像(没啥特殊图略…)</li><li>确认信息, 选择网络为桥接, 并选择进一步编辑</li><li>分配需要直通的设备<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/pci_device.jpg" alt="pci_device.jpg"></li><li>由于我手头的安装镜像不支持UEFI启动, 因此另外找了一个支持但是里面没有安装文件的启动镜像, 需要对启动顺序做点小设置, 保证挂载启动镜像并从它启动<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/boot.jpg" alt="boot.jpg"></li><li>编辑CPU信息, 主要是勾选<code>复制主机CPU配置</code>(等同于<code>host-model</code>)<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/set_cpu.jpg" alt="set_cpu.jpg"></li><li>编辑使用的BIOS为OVMF(具体参照ArchWiki, 图忘截了…)</li><li>点击左上角的开始安装正常安装系统即可</li></ul></li></ul><h3 id="5-音频设备BUG修复及其他"><a href="#5-音频设备BUG修复及其他" class="headerlink" title="5. 音频设备BUG修复及其他"></a>5. 音频设备BUG修复及其他</h3><p>在完成上述步骤安装好系统后, 一台有物理显卡的虚拟机就搞定了, 将显卡的显示接口接到任意显示设备就能快乐的玩游戏了. 但是这时依然存在一个问题, 虽然显卡是自带音频设备的, 理论上一条HDMI线就可以把音频传到我显示器的扬声器上播放才是. 但是实际上在虚拟机里面连没有找到显卡附带的音频设备. 这个问题苦恼了我一个星期, 最后在Promox(一个专门用来作虚拟化宿主的发行版)的论坛上看到了类似的问题, 说这个问题是Q35 4.0的一个Bug导致的, 可以在虚拟机配置文件中将版本回退到3.1来解决. 因此我们需要手动编辑虚拟机的XML配置文件(需要打开直接编辑的选项), 找到对应的条目改成如下配置:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;type arch=&quot;x86_64&quot; machine=&quot;pc-q35-3.1&quot;&gt;hvm&lt;/type&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/game_xml_config.jpg" alt="game_xml_config.jpg"></p><p>终于…可以坐下来好好玩游戏了<del>~</del></p><p>后记: 一篇9.8就开始写的博文硬生生被我鸽到了快10.8……猛汉王果然魅力巨大….</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GPU Passthrough </tag>
+            
+            <tag> Majaro </tag>
+            
+            <tag> kvm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>台式机置备计划(上)</title>
       <link href="/2019/09/02/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92_1/"/>
       <url>/2019/09/02/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92_1/</url>
