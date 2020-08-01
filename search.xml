@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>水一发:hexo一次性多仓库部署</title>
+      <link href="/2020/08/02/hexo%E4%B8%80%E6%AC%A1%E6%80%A7%E5%A4%9A%E4%BB%93%E5%BA%93%E9%83%A8%E7%BD%B2/"/>
+      <url>/2020/08/02/hexo%E4%B8%80%E6%AC%A1%E6%80%A7%E5%A4%9A%E4%BB%93%E5%BA%93%E9%83%A8%E7%BD%B2/</url>
+      
+        <content type="html"><![CDATA[<p>最近github的访问越来越不行了, 有时候想查自己博客里的博文都费劲…所以在国内的git托管服务商gitee也托管了一份, 但是问题就来了…如何一次更新多地部署呢?</p><!-- 摘要部分 --><a id="more"></a><p>首先要设置在gitee上的仓库, 基本方式和github一致啦, 唯一需要注意的是gitee的默认展示项目和github不一样, github用<code>USERNAME.github.io</code>, 而gitee使用的是<code>USERNAME</code>.</p><p>由于gitee本身有fork github项目的功能, 因此在创建项目的时候选择fork原来在github上的博客仓库, 然后把仓库名改成<code>USERNAME</code>就可以(图里是迁移完成后举例的…所以显示已创建).</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/gitee_proj.png" alt="gitee_proj"></p><p>之后再项目页面选服务菜单进行一下设置, 就能从<code>USERNAME.gitee.io</code>访问博客了.</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/gitee_pages.jpg" alt="gitee_pages"></p><p>然后就是设置通过ssh等度gitee了, 这个也跟github的一致就不展开.</p><p>最后就是设置项目的<code>_config.yaml</code>文件, 在部署的部分如下配置, 这样就能部署的时候一次性传两次了.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  - type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span></span><br><span class="line">      <span class="string">git@github.com:SilenWang/silenwang.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  - type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span></span><br><span class="line">      <span class="string">git@gitee.com:silenwang/silenwang.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>本来这样就该结束了…但是测试的时候发现另外一个问题…就是家里的网已经完全不能直连github, 导致部署不到github上了… 因此又搜索了下给git加代理的方式.</p><p>由于我配置里走的是ssh协议连接github, 经查需要通过ssh的配置文件添加一个<code>ProxyCommand</code>的设置, 如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    User git</span><br><span class="line">    HostName github.com</span><br><span class="line">    ProxyCommand nc -x 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure><p>添加之后再次尝试<code>hexo d</code>, 确实成功部署了.</p><p>以上, 水完~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> gitee </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pandas常用操作记录</title>
       <link href="/2020/07/26/pandas%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
       <url>/2020/07/26/pandas%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
@@ -153,7 +180,7 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
             <tag> 爬虫 </tag>
             
@@ -373,8 +400,8 @@
     
     <entry>
       <title>台式机置备计划(下)</title>
-      <link href="/2019/09/08/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92-2-md/"/>
-      <url>/2019/09/08/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92-2-md/</url>
+      <link href="/2019/09/08/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92-2/"/>
+      <url>/2019/09/08/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92-2/</url>
       
         <content type="html"><![CDATA[<p>在千辛万苦搞定了硬件之后, 接下来就是软件了.</p><!-- 摘要部分 --><a id="more"></a><p>按照我之前的规划, 我的机器需要达到一机多用的效果: 宿主机linux用来做计算, 虚拟机windows用来打游戏.</p><p>但凡用过虚拟机的人应该都知道…虚拟机的性能一直是个的问题, 就算牛X如vmware和mac专属的parallel, 其图形性能也还是不如原生硬件. 因此也就有了PCI Passthrough这种技术, 即将PCI插槽上的设备从宿主机屏蔽, 直接分配给虚拟机使用. 获得了实际的硬件, 没有中间商, 性能也就几乎与原生无异了. 这也是我当初买了个有两条显卡PCI插槽主板的原因, 因为如果日后要虚拟出两台打游戏用的电脑, 必须给每台机器都分配一张显卡, 然后宿主机启动也是要显卡的, 所以CPU需要有内建显卡.</p><p>本次虚拟化配置我使用的宿主系统为Manjaro, 参考的文档/视频包括:</p><ul><li><a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">ArchWiki上的GPU Passthrough教程</a></li><li><a href="https://www.bilibili.com/video/av54526748" target="_blank" rel="noopener">Linus Tech Tips的虚拟MacOS视频</a></li><li><a href>一个关于promox的错误讨论帖</a></li></ul><p>由于这份配置是在基于Arch的发行版上进行的, 因此具体设置用的命令和组件会和中文网站中搜索到的材料比较不一样(基本都是基于Ubuntu的).</p><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="1-准备系统盘"><a href="#1-准备系统盘" class="headerlink" title="1. 准备系统盘"></a>1. 准备系统盘</h3><ul><li>宿主系统: manjaro-architect-18.0.4-stable, 基于Arch的衍生发行版, 特点是简单易上手, 虽然被Arch教派认为是邪道, 单阻止不了其越来越高的人气(甚至我昨天看到Manjaro的社区和Ubuntu一样开了个公司). 使用architect而不是预搭载桌面的livecd主要是因为镜像小, 所有软件包全程联网下载就好.</li><li>子系统: 与宿主系统不一样, 子系统除了准备一份要安装到宿主机中的windows之外, 可能还需要准备一份<strong>支持EFI启动的ISO镜像</strong>. 因为ArchWiki上的教程使用了OVMF(这会让直通更简单, 少一些在虚拟BIOS上配置的过程), 用了这东西之后虚拟机内使用的就是EFI(only), 而不是BIOS了. 这就要求安装系统的ISO镜像一定要支持EFI启动. 但是我下载了很多个系统安装镜像都不支持…因此只好专门找了个支持UEFI的PE镜像, 用这个镜像引导启动, 然后安装另外一份安装镜像上的系统.</li></ul><h3 id="2-安装宿主系统"><a href="#2-安装宿主系统" class="headerlink" title="2. 安装宿主系统"></a>2. 安装宿主系统</h3><p>使用宿主系统盘在电脑上安装好Manjaro, 详细步骤其他地方找得到, 我这里就先略了, 以后有空再补截图(咕咕咕).</p><h3 id="3-进行GPU隔离设置"><a href="#3-进行GPU隔离设置" class="headerlink" title="3. 进行GPU隔离设置"></a>3. 进行GPU隔离设置</h3><p>进行直通就是让虚拟机直接使用被直通的硬件, 因此需要防止宿主机对硬件进行访问. 具体设置为:</p><ul><li><p>启动IOMMU</p><ul><li><p>打开配置文件(<code>/etc/default/grub</code>)更改内核参数, 以启用IOMMU:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet udev.log_priority=3 audit=0 amd_iommu=on iommu=pt&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li><li><p>进行上面的编辑后需要重新生成生成`grub.cfg:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></li></ul></li><li><p>编辑配置文件使用vcfio屏蔽准备隔离的显卡组件</p><ul><li><p>使用<code>lspci -nnk</code>命令查看所有的PCI硬件信息, 从中找到需要直通的硬件, 并记录其ID:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">01:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin [Radeon RX 460/560D / Pro 450/455/460/555/555X/560/560X] [1002:67ef] (rev e5)</span><br><span class="line">    Subsystem: Tul Corporation / PowerColor Baffin [Radeon RX 460/560D / Pro 450/455/460/555/555X/560/560X] [148c:2385]</span><br><span class="line">    Kernel driver in use: vfio-pci</span><br><span class="line">    Kernel modules: amdgpu</span><br><span class="line">01:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] [1002:aae0]</span><br><span class="line">    Subsystem: Tul Corporation / PowerColor Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] [148c:aae0]</span><br><span class="line">    Kernel driver in use: vfio-pci</span><br><span class="line">    Kernel modules: snd_hda_intel</span><br></pre></td></tr></table></figure></li><li><p>上面的信息是我屏蔽之后的信息, 因此两个设备的<code>Kernel driver in use</code>都显示为<code>vfio-pci</code>, 代表屏蔽成功, 屏蔽前应该是安装系统时安装的开源驱动; 需要记录的ID跟在设备名称的中括号中, 在上面的例子中分别是显示设备<code>[148c:2385]</code>和音频设备<code>[1002:aae0]</code>(现在的显卡很多都带音频输出…所以会显示为两个设备实际是要一起屏蔽的)</p></li><li><p>创建<code>/etc/modprobe.d/vfio.conf</code>, 并在其中加入<code>options vfio-pci ids=&lt;id to block&gt;</code></p></li><li><p>编辑<code>/etc/mkinitcpio.conf</code>, 在其中找到下面项目并添加如相应内容:</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">MODULES=(... vfio_pci vfio vfio_iommu_type1 vfio_virqfd ...)</span><br><span class="line">...</span><br><span class="line">HOOKS=(... modconf ...)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li><li><p>编辑完成之后, 更改是不会生效的, 需要重新生成<code>initramfs</code>:</p><ul><li><strong>注意:</strong> 由于我对这个东西是什么并没有概念, 并且ArchWiki上相关的内容我也看不懂, 所以这里记录的是我进行的实际操作, 并不保证是最正确的操作</li><li>执行命令重新生成<code>/boot</code>下的启动用<code>img</code>文件: <code>sudo mkinitcpio -g /boot/initramfs-4.19-x86_64.img</code>(建议把原来的备份)</li><li>覆盖原来的<code>img</code>后, 需要重新启动宿主机, 如果设置成功, 则对应设备的驱动应该为<code>vfio-pci</code></li><li>在进行覆盖后, 宿主系统无法访问被屏蔽的硬件, 如果有需要访问的, 可以在启动时在grub菜单选择通过<code>initramfs-4.19-x86_64-fallback.img</code>启动, 这个没有被改动过, 可以正常访问硬件.</li></ul></li></ul></li></ul><h3 id="4-安装并配置虚拟机"><a href="#4-安装并配置虚拟机" class="headerlink" title="4. 安装并配置虚拟机"></a>4. 安装并配置虚拟机</h3><p>在做好硬件的设置后, 下面就要进行软件的配置了.</p><ul><li><p>安装虚拟机管理软件</p><ul><li>tip: 这里安装的是使用虚拟机的软件QEMU和简化QEMU设置的VirtManager和libvirt, kvm本身是linux内核中的一个模块, 只要在主板中设置开启虚拟化就可以使用了, 无须另外安装什么<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qemu libvirt virt-manager ovmf</span><br></pre></td></tr></table></figure></li></ul></li><li><p>创建虚拟机</p><ul><li>打开virt-manager, 点击创建虚拟机<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/add_vm.jpg" alt="add_vm.jpg"></li><li>选择安装镜像(非启动用), 由于下载的镜像不是官方的, 无法自动识别是啥系统, 所以去掉自动检测然后手动选择<code>Win10</code>然后进入下一步<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/select_iso.jpg" alt="select_iso.jpg"></li><li>CPU和内存分配<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/cpu_mem.jpg" alt="cpu_mem.jpg"></li><li>选择创建镜像(没啥特殊图略…)</li><li>确认信息, 选择网络为桥接, 并选择进一步编辑</li><li>分配需要直通的设备<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/pci_device.jpg" alt="pci_device.jpg"></li><li>由于我手头的安装镜像不支持UEFI启动, 因此另外找了一个支持但是里面没有安装文件的启动镜像, 需要对启动顺序做点小设置, 保证挂载启动镜像并从它启动<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/boot.jpg" alt="boot.jpg"></li><li>编辑CPU信息, 主要是勾选<code>复制主机CPU配置</code>(等同于<code>host-model</code>)<br>  <img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/set_cpu.jpg" alt="set_cpu.jpg"></li><li>编辑使用的BIOS为OVMF(具体参照ArchWiki, 图忘截了…)</li><li>点击左上角的开始安装正常安装系统即可</li></ul></li></ul><h3 id="5-音频设备BUG修复及其他"><a href="#5-音频设备BUG修复及其他" class="headerlink" title="5. 音频设备BUG修复及其他"></a>5. 音频设备BUG修复及其他</h3><p>在完成上述步骤安装好系统后, 一台有物理显卡的虚拟机就搞定了, 将显卡的显示接口接到任意显示设备就能快乐的玩游戏了. 但是这时依然存在一个问题, 虽然显卡是自带音频设备的, 理论上一条HDMI线就可以把音频传到我显示器的扬声器上播放才是. 但是实际上在虚拟机里面连没有找到显卡附带的音频设备. 这个问题苦恼了我一个星期, 最后在Promox(一个专门用来作虚拟化宿主的发行版)的论坛上看到了类似的问题, 说这个问题是Q35 4.0的一个Bug导致的, 可以在虚拟机配置文件中将版本回退到3.1来解决. 因此我们需要手动编辑虚拟机的XML配置文件(需要打开直接编辑的选项), 找到对应的条目改成如下配置:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;type arch=&quot;x86_64&quot; machine=&quot;pc-q35-3.1&quot;&gt;hvm&lt;/type&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/game_xml_config.jpg" alt="game_xml_config.jpg"></p><p>终于…可以坐下来好好玩游戏了<del>~</del></p><p>后记: 一篇9.8就开始写的博文硬生生被我鸽到了快10.8……猛汉王果然魅力巨大….</p>]]></content>
       
@@ -390,7 +417,7 @@
             
             <tag> GPU Passthrough </tag>
             
-            <tag> Majaro </tag>
+            <tag> Manjaro </tag>
             
             <tag> kvm </tag>
             
@@ -813,7 +840,7 @@
       
         <tags>
             
-            <tag> r </tag>
+            <tag> R </tag>
             
         </tags>
       
@@ -946,7 +973,7 @@
       
         <tags>
             
-            <tag> r </tag>
+            <tag> R </tag>
             
             <tag> 并行计算 </tag>
             
@@ -1289,7 +1316,7 @@
       
         <tags>
             
-            <tag> r </tag>
+            <tag> R </tag>
             
         </tags>
       
@@ -1341,7 +1368,7 @@
       
         <tags>
             
-            <tag> r </tag>
+            <tag> R </tag>
             
         </tags>
       
@@ -1404,7 +1431,7 @@
       <link href="/2018/08/29/Pandas%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
       <url>/2018/08/29/Pandas%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<p>最近用pandas比较多, 把常用的东西摘抄一下备查</p><a id="more"></a><h1 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h1><ul><li>基本读取直接read_table就可以了, 主要是涉及到一些参数</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_table(file_path, sep=<span class="string">"\t"</span>, index_col=<span class="number">0</span>, header=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># index_col等同R里面的row.names, 都是把特定列作为行标签使用, 并且将该列从数据中去除, 如果不指定则会生成0-length的数字作为标签</span></span><br><span class="line"><span class="comment"># header函数与R里的逻辑不太一样, 默认是header=0, 即将读取的第一行作为表头, 如果不要表头的话用header=None, 如果制定别的行为表头, 则表头行以上的数据会被丢弃</span></span><br></pre></td></tr></table></figure><ul><li>在处理很大的数据时, 为防止爆内存, 需要生成迭代器分块读取文件</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># reader是以一个生成器</span></span><br><span class="line">reader = pd.read_table(file_path, sep=<span class="string">"\t"</span>, iterator=<span class="literal">True</span>, chunksize=<span class="number">1000</span>))</span><br><span class="line"><span class="comment"># iterator / chunksize这两个参数指定一个就会生成迭代器, 其实如果指定了chunksize可以不写iterator了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果生成reader时指定过chunksize, 那可可以直接调用get_chunk()</span></span><br><span class="line"><span class="comment"># 获得特定数量的行, 否则就要写get_chunk(num), 这个我还没详尽测试过</span></span><br><span class="line"><span class="comment"># 注意, 这里的行数是数据的行数, 不包括表头, 因为生成reader的时候</span></span><br><span class="line"><span class="comment"># 默认以第一行作为表头了, 所以后面生成的df都是带表头的</span></span><br><span class="line">chunk = reader.get_chunk()</span><br><span class="line">df = pd.DataFrame(chunk)</span><br></pre></td></tr></table></figure><h1 id="子集选取"><a href="#子集选取" class="headerlink" title="子集选取"></a>子集选取</h1><ul><li>与R类似, pandas也支持多种子集选取方式, 部分选取逻辑也跟R非常类似, 但是有些东西与R并不一样, 一般来说在pandas里能实现的方式R都可以, 但是反过来则不然, 这里只记录与R中选取逻辑类似的方法</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_table(file_path, sep=<span class="string">"\t"</span>)</span><br><span class="line"><span class="comment"># 依据标签选取行列使用.loc[row, col]</span></span><br><span class="line">df = df.loc[[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], [<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line"><span class="comment"># 注意与R不一样的是, 单取列时, 前面不可以留空, 单取行则可以后面留空</span></span><br><span class="line">df = df.loc[:, [<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line">df = df.loc[[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], ]</span><br><span class="line"><span class="comment"># 与.loc对应有一个.iloc, 这里使用的行/列序号, 而不是标签, 注意需要从0起算</span></span><br></pre></td></tr></table></figure><h1 id="行列删减"><a href="#行列删减" class="headerlink" title="行列删减"></a>行列删减</h1><h1 id="遍历处理"><a href="#遍历处理" class="headerlink" title="遍历处理"></a>遍历处理</h1>]]></content>
+        <content type="html"><![CDATA[<p>最近用Pandas比较多, 把常用的东西摘抄一下备查</p><a id="more"></a><h1 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h1><ul><li>基本读取直接read_table就可以了, 主要是涉及到一些参数</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_table(file_path, sep=<span class="string">"\t"</span>, index_col=<span class="number">0</span>, header=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># index_col等同R里面的row.names, 都是把特定列作为行标签使用, 并且将该列从数据中去除, 如果不指定则会生成0-length的数字作为标签</span></span><br><span class="line"><span class="comment"># header函数与R里的逻辑不太一样, 默认是header=0, 即将读取的第一行作为表头, 如果不要表头的话用header=None, 如果制定别的行为表头, 则表头行以上的数据会被丢弃</span></span><br></pre></td></tr></table></figure><ul><li>在处理很大的数据时, 为防止爆内存, 需要生成迭代器分块读取文件</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># reader是以一个生成器</span></span><br><span class="line">reader = pd.read_table(file_path, sep=<span class="string">"\t"</span>, iterator=<span class="literal">True</span>, chunksize=<span class="number">1000</span>))</span><br><span class="line"><span class="comment"># iterator / chunksize这两个参数指定一个就会生成迭代器, 其实如果指定了chunksize可以不写iterator了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果生成reader时指定过chunksize, 那可可以直接调用get_chunk()</span></span><br><span class="line"><span class="comment"># 获得特定数量的行, 否则就要写get_chunk(num), 这个我还没详尽测试过</span></span><br><span class="line"><span class="comment"># 注意, 这里的行数是数据的行数, 不包括表头, 因为生成reader的时候</span></span><br><span class="line"><span class="comment"># 默认以第一行作为表头了, 所以后面生成的df都是带表头的</span></span><br><span class="line">chunk = reader.get_chunk()</span><br><span class="line">df = pd.DataFrame(chunk)</span><br></pre></td></tr></table></figure><h1 id="子集选取"><a href="#子集选取" class="headerlink" title="子集选取"></a>子集选取</h1><ul><li>与R类似, pandas也支持多种子集选取方式, 部分选取逻辑也跟R非常类似, 但是有些东西与R并不一样, 一般来说在pandas里能实现的方式R都可以, 但是反过来则不然, 这里只记录与R中选取逻辑类似的方法</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_table(file_path, sep=<span class="string">"\t"</span>)</span><br><span class="line"><span class="comment"># 依据标签选取行列使用.loc[row, col]</span></span><br><span class="line">df = df.loc[[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], [<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line"><span class="comment"># 注意与R不一样的是, 单取列时, 前面不可以留空, 单取行则可以后面留空</span></span><br><span class="line">df = df.loc[:, [<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line">df = df.loc[[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], ]</span><br><span class="line"><span class="comment"># 与.loc对应有一个.iloc, 这里使用的行/列序号, 而不是标签, 注意需要从0起算</span></span><br></pre></td></tr></table></figure><h1 id="行列删减"><a href="#行列删减" class="headerlink" title="行列删减"></a>行列删减</h1><h1 id="遍历处理"><a href="#遍历处理" class="headerlink" title="遍历处理"></a>遍历处理</h1>]]></content>
       
       
       <categories>
@@ -1416,9 +1443,9 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
-            <tag> pandas </tag>
+            <tag> Pandas </tag>
             
         </tags>
       
@@ -1443,7 +1470,7 @@
       
         <tags>
             
-            <tag> r </tag>
+            <tag> R </tag>
             
             <tag> conda </tag>
             
@@ -1663,7 +1690,7 @@
       
         <tags>
             
-            <tag> r </tag>
+            <tag> R </tag>
             
         </tags>
       
