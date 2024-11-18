@@ -29,6 +29,60 @@
     </entry>
     
     
+    
+    <entry>
+      <title>ssh no longer supports rsa by default</title>
+      <link href="/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/"/>
+      <url>/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/</url>
+      
+        <content type="html"><![CDATA[<p>Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Unable to negotiate with UNKNOWN port 65535: no matching host key <span class="built_in">type</span> found. Their offer: ssh-rsa,ssh-dss</span><br><span class="line">lost connection</span><br><span class="line"></span><br><span class="line">sign_and_send_pubkey: no mutual signature supported</span><br></pre></td></tr></table></figure><p>Upon investigation, I found out…well, <a href="https://www.openssh.com/releasenotes.html">OpenSSH deems the ssh-rsa encryption method insecure and has directly disabled this key type for logins by default starting from 8.8</a>…</p><!-- 摘要部分 --><span id="more"></span><p>I initially thought that Manjaro lags behind Arch by several versions, so I went to the Archwiki for a solution, but it wasn’t mentioned yet… After searching for half an hour, I founded that I could add the following lines in ~&#x2F;.ssh&#x2F;config to resolve the issue:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    PubkeyAcceptedKeyTypes +ssh-rsa</span><br><span class="line">    HostKeyAlgorithms +ssh-rsa</span><br></pre></td></tr></table></figure><p>The first line means it applies to all hosts, the second line adds <code>ssh-rsa</code> back into the allowed use range, and the third line specifies that all hosts should use the <code>ssh-rsa</code> algorithm’s key.<br>Through actual testing, both lines are required; without the second line, it prompts that there is no <code>ssh-rsa</code> type, and without the third line, it prompts <code>sign_and_send_pubkey: no mutual signature supported</code>.</p><p>That’s all~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+            <tag> openssh </tag>
+            
+            <tag> manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Adding Custom Services in Linux Distributions</title>
+      <link href="/en/2019/10/05/%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1/"/>
+      <url>/en/2019/10/05/%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1/</url>
+      
+        <content type="html"><![CDATA[<p>When using a Linux system, it’s often necessary to set up things that start automatically at boot. For distributions that use systemd, writing your own service files and enabling them is a great choice.</p><!-- 摘要部分 --><span id="more"></span><p>Service files are written in a configuration file format similar to ini. A basic service configuration file includes the following content:</p><ul><li><code>Unit</code>: The defined section, such as what the service does</li><li><code>Service</code>: The actual execution content, including what type of service it is, what to do when starting, what to do when stopping, and what to do when restarting</li><li><code>Install</code>: It’s mostly about dependencies, such as when the service should start or before or after XX starts</li></ul><p>Here is an example of a v2ray service:</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Daemon to start V2ray</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/bin/v2ray -config /home/silen/script/v2ray/v2ray.json</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">Alias</span>=v2ray</span><br><span class="line"><span class="attr">WantedBy</span>=default.target</span><br></pre></td></tr></table></figure><p>If this service is enabled, it will start automatically by default(<code>WantedBy=default.target</code>), executing the command<code>/usr/bin/v2ray -config /home/silen/script/v2ray/v2ray.json</code>, when booting, which means activating the v2ray proxy. Other actions for the service, such as restarting and stopping, are not defined.</p><p>After writing the above file, you can name the file<code>v2ray.service</code>and place it in the specified location (<code>/etc/systemd/system</code> or <code>/usr/lib/systemd/system</code>), then use <code>systemctl enable v2ray.service</code>with root privileges to activate the service (it will start according to the configuration after boot), and use <code>systemctl start v2ray.service</code> to start the service immediately.</p><p>It should be noted that when calling root privileges to start the service, the executing user is naturally root, which is not always a good choice. Therefore, my previous synchronization service and this v2ray service are actually both started with personal user permissions. In other words, put the above service file in <code>/home/&lt;user&gt;/.config/systemd/user</code>, and then directly <code>systemctl start --uesr v2ray.service</code> to start the service.</p><p>In this case, the service will only start after my current user logs in, and there is no need for root privileges (whether the user needs to be in the root group or not, I am not sure).</p><p>The v2ray program used in the example belongs to the type that occupies the foreground, so it can be directly used with the <code>sample</code> and <code>oneshot</code> type. In addition to this type, there are: <code>simple</code>, <code>forking</code>, <code>oneshot</code>, <code>notify</code>, <code>dbus</code>, <code>idle</code>.</p><p>Of course, my custom services are generally quite simple, <code>simple</code> and <code>oneshot</code> should be enough.</p><p>As for <code>ExecStart</code>, <code>ExecStop</code>, and <code>ExecReload</code>, the former is required, while the latter two can be written or not depending on the start command situation.</p><p>Finally, <code>WantedBy=default.target</code> in <code>Install</code> is a must according to my test, because the service will not start automatically without it… It’s not clear whether this is only for services at the user level.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> systemd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
