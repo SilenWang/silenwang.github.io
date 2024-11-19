@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://silenwang.github.io/en/2021/10/11/ssh默认不支持rsa了/"/>
+  <link rel="canonical" href="https://silenwang.github.io/en/2024/06/22/新工具解决老问题-使用pixi进行生物信息环境配置/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -36,24 +36,22 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>ssh no longer supports rsa by default - SylensHub</title>
-  <meta name="keywords" content="ssh,openssh,manjaro,null">
-  <meta desc name="description" content="Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:
-1234Unable to negotiate with UNKNOWN port 6553... - Sylens Wong - SylensHub">
+  <title>New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration - SylensHub</title>
+  <meta name="keywords" content="pixi,conda,null">
+  <meta desc name="description" content="Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of frag... - Sylens Wong - SylensHub">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh no longer supports rsa by default">
-<meta property="og:url" content="https://silenwang.github.io/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/index.html">
+<meta property="og:title" content="New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration">
+<meta property="og:url" content="https://silenwang.github.io/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="SylensHub">
-<meta property="og:description" content="Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows: 1234Unable to negotiate with UNKNOWN port 65535: no matching host key type found. Their o">
+<meta property="og:description" content="Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2021-10-11T13:06:49.000Z">
-<meta property="article:modified_time" content="2024-11-18T16:11:44.691Z">
+<meta property="article:published_time" content="2024-06-21T17:26:08.000Z">
+<meta property="article:modified_time" content="2024-11-19T15:38:26.361Z">
 <meta property="article:author" content="Sylens Wong">
-<meta property="article:tag" content="ssh">
-<meta property="article:tag" content="openssh">
-<meta property="article:tag" content="manjaro">
+<meta property="article:tag" content="pixi">
+<meta property="article:tag" content="conda">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2422,7 +2420,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2021/10/11/ssh默认不支持rsa了/">
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2024/06/22/新工具解决老问题-使用pixi进行生物信息环境配置/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SylensHub">
   </span>
@@ -2443,7 +2441,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        ssh no longer supports rsa by default
+        New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration
       </h1>
       <div class='new-meta-box'>
         
@@ -2462,10 +2460,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/en/categories/Others/">Others</a>
+    <a class="category-link" href="/en/categories/Bioinfomatic/">Bioinfomatic</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/en/categories/Others/" itemprop="url"><span itemprop="name">Others</span></a>
+        <a href="/en/categories/Bioinfomatic/" itemprop="url"><span itemprop="name">Bioinfomatic</span></a>
       </span>
     
   </div>
@@ -2474,10 +2472,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2021-10-11T21:06:49+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-06-22T01:26:08+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Oct 11, 2021</p>
+    <p>发布于：Jun 22, 2024</p>
   </a>
 </div>
 
@@ -2512,18 +2510,33 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Unable to negotiate with UNKNOWN port 65535: no matching host key <span class="built_in">type</span> found. Their offer: ssh-rsa,ssh-dss</span><br><span class="line">lost connection</span><br><span class="line"></span><br><span class="line">sign_and_send_pubkey: no mutual signature supported</span><br></pre></td></tr></table></figure>
-
-<p>Upon investigation, I found out…well, <a target="_blank" rel="noopener" href="https://www.openssh.com/releasenotes.html">OpenSSH deems the ssh-rsa encryption method insecure and has directly disabled this key type for logins by default starting from 8.8</a>…</p>
-<!-- 摘要部分 -->
+    <p>Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not less than that of Linux distributions… This also brings us a common challenge: the deployment of bioinformatics analysis environments.</p>
 <span id="more"></span>
 
-<p>I initially thought that Manjaro lags behind Arch by several versions, so I went to the Archwiki for a solution, but it wasn’t mentioned yet… After searching for half an hour, I founded that I could add the following lines in ~&#x2F;.ssh&#x2F;config to resolve the issue:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    PubkeyAcceptedKeyTypes +ssh-rsa</span><br><span class="line">    HostKeyAlgorithms +ssh-rsa</span><br></pre></td></tr></table></figure>
+<h2 id="Deploying-bioinformatics-environments-is-a-hassle"><a href="#Deploying-bioinformatics-environments-is-a-hassle" class="headerlink" title="Deploying bioinformatics environments is a hassle"></a>Deploying bioinformatics environments is a hassle</h2><p>In the development process, one would initially select a programming language, subsequently install the appropriate development environment, and thereafter utilize existing environment or package management tools to handle library dependencies.<br>However, bioinformatics, like medical statistics I majored in before, was aimed to solve problem first, using whatever is available, and writing codes only if it is needed… Therefore, encountering multiple languages is a highly likely event. Personally, due to the cutting-edge research field of my previous company… I often have to use tools written by university researchers based on the principle of “whatever works, use it”, and I have come into contact with a bunch of languages: C, C++, Java, Scala, Perl, Python, R, Go, Julia, Nim, Js… If you also count database languages, configuration file syntax, and the like… The quantity could double again…</p>
+<p>Such a messy technology stack makes deploying and setting up a bioinformatics development environment or deploying bioinformatics analysis workflows a very cumbersome task. It’s important to know that a significant proportion of tools or software in bioinformatics may no longer be maintained after about a year, which means that the compilers and libraries required by the software will remain outdated, and gradually start to conflict with subsequent versions, causing a more terrifying dependency explosion problem than inter-version upgrades of Linux distributions. Then this dependency is not only going to explode in a single language’s toolkit, but there is also a possibility of explosions in toolkits of all languages, and due to the C foundation in Python, R and other scripting languages, there can also be cross explosions… It can make a person’s mentality explode in minutes.</p>
+<p>However… The problem is far from over, for some adult reasons… Not everyone can get system-level permissions, and when configuring the environment, they can only use the permissions of an ordinary user, so some problems that can be solved by packaging with the distribution’s package manager may have to be solved by recompiling the entire software’s dependencies… This is enough to make a person explode for a month…</p>
+<p>Based on the aforementioned annoying issues, when I first learned about the tool called <a target="_blank" rel="noopener" href="https://anaconda.org/">conda</a>, I really felt it was a lifesaver… A large number of bioinformatics software are pre-compiled, packaged, and uploaded, ready to use after download and decompression, and it can automatically calculate if dependencies conflict, ensuring the basic use of tools in different languages, which is simply perfect!</p>
+<p>However, after using it for a about a week, you will find that… due to being based on Python, the speed of conda’s dependency calculation… is really slow. It might take about 20 minutes to calculate dependencies for around 10 tools, which is especially annoying when there are dependency issues… It’s almost like running 20 minutes of calculations, only to find out there’s a problem with the variable names, and no breakpoints are set, so you have to start over… Perhaps this downside is so significant that it affects general usage, which led to the development of the C++ implementation of Conda: <a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">Mamba</a>, and then came <a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html">micromamba</a>, and later today’s main character, <a target="_blank" rel="noopener" href="https://pixi.sh/latest/">pixi</a>.</p>
+<h2 id="Introduction-to-Pixi"><a href="#Introduction-to-Pixi" class="headerlink" title="Introduction to Pixi"></a>Introduction to Pixi</h2><p>In simple terms, pixi is a multi-language software package manager designed for developers, aimed at making it easy for developers to create and lock down multi-language development environments, making computational results easier to replicate.</p>
+<p>The simple usage of pixi (via the command line) can be found in its <a target="_blank" rel="noopener" href="https://pixi.sh/latest/">official documentation</a>, and I won’t go into detail here because for me, I mainly use it for environment deployment, where a lot of things are installed at once, so I generally use configuration files for this.</p>
+<h2 id="Basic-Usage-of-Pixi"><a href="#Basic-Usage-of-Pixi" class="headerlink" title="Basic Usage of Pixi"></a>Basic Usage of Pixi</h2><p>Pixi uses configuration files in the <code>toml</code> format (and here we have another one), which is somewhat like <code>ini</code>… but with more complex syntax and the ability to support more features.</p>
+<p>If you want to manage with <code>toml</code>, after installing pixi, you can create a managed project by using <code>pixi init</code>. This command will generate a configuration file in the current directory, and the newly generated file will contain the following content.</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[project]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;demo&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">description</span> = <span class="string">&quot;Add a short description here&quot;</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;silenwang &lt;silenseek14@gmail.com&gt;&quot;</span>]</span><br><span class="line"><span class="attr">channels</span> = [<span class="string">&quot;conda-forge&quot;</span>]</span><br><span class="line"><span class="attr">platforms</span> = [<span class="string">&quot;linux-aarch64&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[tasks]</span></span><br><span class="line"></span><br><span class="line"><span class="section">[dependencies]</span></span><br></pre></td></tr></table></figure>
 
-<p>The first line means it applies to all hosts, the second line adds <code>ssh-rsa</code> back into the allowed use range, and the third line specifies that all hosts should use the <code>ssh-rsa</code> algorithm’s key.<br>Through actual testing, both lines are required; without the second line, it prompts that there is no <code>ssh-rsa</code> type, and without the third line, it prompts <code>sign_and_send_pubkey: no mutual signature supported</code>.</p>
-<p>That’s all~</p>
+<p>It already includes the basic information of the project, tasks, and dependencies, which are the most important and main contents. If tasks are not used, they can be left blank. In the dependencies section, you should write down the desired installations (contents will be retrieved from conda). After saving, you can use <code>pixi install</code> to install the required contents. During the installation process, a lock file will also be generated. The role of this file is similar to the lock files generated by npm or yarn in nodejs, which is used to record the versions of installed software. By managing this lock file along with the project, you can ensure that the same dependencies are installed again when deploying, guaranteeing the reproducibility of software operation or calculations.</p>
+<h2 id="Handling-Multiple-Dependencies-at-Once"><a href="#Handling-Multiple-Dependencies-at-Once" class="headerlink" title="Handling Multiple Dependencies at Once"></a>Handling Multiple Dependencies at Once</h2><p>Although pixi’s software is mainly sourced from conda, it also supports fetching Python packages from pypi. If there are packages not available on conda but can be obtained from pypi, you can add a pypi section in the configuration file. The software within this section will be automatically fetched from pypi and installed after the conda dependencies have been processed, and the obtained packages will also be recorded in the lock file.</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[pypi-dependencies]</span></span><br><span class="line"><span class="attr">spats-shape-seq</span> = <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>If there are additional packages that need to be compiled and installed separately, or further processed with scripts after downloading, you can use the <code>task</code> feature to set up tasks.</p>
+<p>Tasks set up in the task block can be executed by running <code>pixi run TASK_NAME</code>. Although the official documentation does not currently provide a direct way to run specific tasks after dependency processing, you can achieve the goal of automatically proceeding with subsequent compilation and installation tasks after dependency processing by executing the <code>pixi install -a</code> command through a task, as shown below:</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[project]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;demo&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">description</span> = <span class="string">&quot;Add a short description here&quot;</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;silenwang &lt;silenseek14@gmail.com&gt;&quot;</span>]</span><br><span class="line"><span class="attr">channels</span> = [<span class="string">&quot;conda-forge&quot;</span>, <span class="string">&quot;bioconda&quot;</span>, <span class="string">&quot;milaboratories&quot;</span>, <span class="string">&quot;main&quot;</span>]</span><br><span class="line"><span class="attr">platforms</span> = [<span class="string">&quot;linux-64&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[tasks]</span></span><br><span class="line"><span class="attr">install</span> = &#123;cmd = <span class="string">&#x27;pixi install -a&#x27;</span>&#125;</span><br><span class="line"><span class="attr">deploy</span> = &#123;cmd = <span class="string">&#x27;echo &quot;Deploy done&quot;&#x27;</span>, depends-<span class="literal">on</span> = [<span class="string">&quot;instal&quot;</span>] &#125;</span><br><span class="line"></span><br><span class="line"><span class="section">[feature.python3.dependencies]</span></span><br><span class="line"><span class="attr">python</span> = <span class="string">&quot;3.11.*&quot;</span></span><br><span class="line"><span class="attr">pip</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">jupyter</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">ipykernel</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">numpy</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">pandas</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">statsmodels</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">scipy</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">tensorflow</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">keras</span> = <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Deploy-Multiple-Environments-at-Once"><a href="#Deploy-Multiple-Environments-at-Once" class="headerlink" title="Deploy Multiple Environments at Once"></a>Deploy Multiple Environments at Once</h2><p>Pixi also supports the deployment of multiple environments at once, and the general syntax is as follows:</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[feature.python3.dependencies]</span></span><br><span class="line"><span class="attr">python</span> = <span class="string">&quot;3.11.*&quot;</span></span><br><span class="line"><span class="attr">pip</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">jupyter</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">ipykernel</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">numpy</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">pandas</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">statsmodels</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">scipy</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">tensorflow</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">keras</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[feature.python2.dependencies]</span></span><br><span class="line"><span class="attr">python</span> = <span class="string">&quot;2.7.*&quot;</span></span><br><span class="line"><span class="attr">pip</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">jupyter</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">ipykernel</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[feature.bioinfo.dependencies]</span></span><br><span class="line"><span class="attr">bwa</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">samtools</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">bedtools</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[feature.rlang.dependencies]</span></span><br><span class="line"><span class="attr">r-base</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">r-irkernel</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">r-ggplot2</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="attr">bioconductor-limma</span> = <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[environments]</span></span><br><span class="line"><span class="attr">python3</span> = [<span class="string">&quot;python3&quot;</span>]</span><br><span class="line"><span class="attr">python2</span> = [<span class="string">&quot;python2&quot;</span>]</span><br><span class="line"><span class="attr">bioinfo</span> = [<span class="string">&quot;bioinfo&quot;</span>]</span><br><span class="line"><span class="attr">rlang</span> = [<span class="string">&quot;rlang&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Specify the environment names in <code>environments</code>, and then use blocks like <code>[feature.rlang.dependencies]</code> to manage the dependencies within the environment. Once configured, use <code>pixi install -a</code> to install all environments (using <code>pixi install</code> will only check for dependency issues but will not actually install them).</p>
+<h2 id="Environment-Usage"><a href="#Environment-Usage" class="headerlink" title="Environment Usage"></a>Environment Usage</h2><p>Although pixi uses packages from conda, its environment activation and usage methods follow those of <code>poetry</code> and <code>pipenv</code>. To activate an environment, run <code>pixi shell</code> in the directory; if there are multiple environments, add <code>-e</code> to specify the environment name. At the same time, pixi also supports running software within the environment using <code>pixi run</code> (yes, <code>pixi run</code> is used both for running tasks and for running commands within the environment).</p>
 
   </div>
   
@@ -2548,7 +2561,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-19T00:11:44+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-19T23:38:26+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Nov 19, 2024</p>
@@ -2560,8 +2573,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/ssh/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>ssh</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/openssh/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>openssh</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/manjaro/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>manjaro</p></a></div>
-  <span hidden itemprop="keywords">ssh openssh manjaro</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/pixi/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>pixi</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/conda/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>conda</p></a></div>
+  <span hidden itemprop="keywords">pixi conda</span>
 
 
         
@@ -2574,11 +2587,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/&title=ssh no longer supports rsa by default - SylensHub&summary=Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:
-1234Unable to negotiate with UNKNOWN port 65535: no matching host key type found. Their offer: ssh-rsa,ssh-dsslost connectionsign_and_send_pubkey: no mutual signature supported
-
-Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption method insecure and has directly disabled this key type for logins by default starting from 8.8…
-"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration - SylensHub&summary=Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not less than that of Linux distributions… This also brings us a common challenge: the deployment of bioinformatics analysis environments."
           
           >
           
@@ -2590,11 +2599,7 @@ Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption met
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/&title=ssh no longer supports rsa by default - SylensHub&summary=Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:
-1234Unable to negotiate with UNKNOWN port 65535: no matching host key type found. Their offer: ssh-rsa,ssh-dsslost connectionsign_and_send_pubkey: no mutual signature supported
-
-Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption method insecure and has directly disabled this key type for logins by default starting from 8.8…
-"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration - SylensHub&summary=Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not less than that of Linux distributions… This also brings us a common challenge: the deployment of bioinformatics analysis environments."
           
           >
           
@@ -2606,11 +2611,7 @@ Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption met
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/&title=ssh no longer supports rsa by default - SylensHub&summary=Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:
-1234Unable to negotiate with UNKNOWN port 65535: no matching host key type found. Their offer: ssh-rsa,ssh-dsslost connectionsign_and_send_pubkey: no mutual signature supported
-
-Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption method insecure and has directly disabled this key type for logins by default starting from 8.8…
-"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration - SylensHub&summary=Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not less than that of Linux distributions… This also brings us a common challenge: the deployment of bioinformatics analysis environments."
           
           >
           
@@ -2643,15 +2644,15 @@ Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption met
   
     <div class="prev-next">
       
-        <a class='prev' href='/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Using Codespace for Free to Write Hexo Blogs</p>
-          <p class='content'>Recently, out of… well, let’s say a bit of dissatisfaction, I sold my previously purchased Lenovo...</p>
+        <a class='prev' href='/en/2024/08/04/fydetab-duo-%E4%B8%8B%E4%BD%BF%E7%94%A8-pixi%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Deploying Hexo Blog with Pixi on Fydetab Duo</p>
+          <p class='content'>I’ve had the Fydetab Duo for over a month, and I’m still trying to find ways to make the most use...</p>
         </a>
       
       
-        <a class='next' href='/en/2019/10/05/%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1/'>
-          <p class='title'>Adding Custom Services in Linux Distributions<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>When using a Linux system, it’s often necessary to set up things that start automatically at boot...</p>
+        <a class='next' href='/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/'>
+          <p class='title'>Using Codespace for Free to Write Hexo Blogs<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Recently, out of… well, let’s say a bit of dissatisfaction, I sold my previously purchased Lenovo...</p>
         </a>
       
     </div>
@@ -2667,7 +2668,7 @@ Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption met
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/index.html#comments">
+      <meta itemprop="discussionUrl" content="/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html#comments">
     </span>
     <p ct><i class='fas fa-comments'></i> Comments</p>
     
@@ -2701,9 +2702,19 @@ Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption met
   
 
 
-  <div class="">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying-bioinformatics-environments-is-a-hassle"><span class="toc-text">Deploying bioinformatics environments is a hassle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-Pixi"><span class="toc-text">Introduction to Pixi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Usage-of-Pixi"><span class="toc-text">Basic Usage of Pixi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handling-Multiple-Dependencies-at-Once"><span class="toc-text">Handling Multiple Dependencies at Once</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploy-Multiple-Environments-at-Once"><span class="toc-text">Deploy Multiple Environments at Once</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Environment-Usage"><span class="toc-text">Environment Usage</span></a></li></ol>
+    </div>
+  </section>
 
   
 
@@ -3258,7 +3269,7 @@ Upon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption met
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","sameAs":["https://github.com/volantis-x"],"description":"Blog from Sylens Wong"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/en/en/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/en/en/categories/Others/","name":"Others"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/en/en/2021/10/11/ssh默认不支持rsa了/","name":"ssh no longer supports rsa by default"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/en/en/","keywords":null,"description":"Blog from Sylens Wong","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","description":"Blog from Sylens Wong"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io/en?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"ssh no longer supports rsa by default","description":"Today, after upgrading Manjaro, the most basic ssh login suddenly had issues, and the prompts were as follows:\n1234Unable to negotiate with UNKNOWN port 65535: no matching host key type found. Their offer: ssh-rsa,ssh-dsslost connectionsign_and_send_pubkey: no mutual signature supported\n\nUpon investigation, I found out…well, OpenSSH deems the ssh-rsa encryption method insecure and has directly disabled this key type for logins by default starting from 8.8…\n","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/en/2021/10/11/ssh%E9%BB%98%E8%AE%A4%E4%B8%8D%E6%94%AF%E6%8C%81rsa%E4%BA%86/","wordCount":461,"datePublished":"2021-10-11T13:06:49.000Z","dateModified":"2024-11-18T16:11:44.691Z","articleSection":"Others","keywords":"ssh,openssh,manjaro","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","sameAs":["https://github.com/volantis-x"],"description":"Blog from Sylens Wong"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/en/en/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/en/en/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/en/en/2024/06/22/新工具解决老问题-使用pixi进行生物信息环境配置/","name":"New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/en/en/","keywords":null,"description":"Blog from Sylens Wong","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","description":"Blog from Sylens Wong"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io/en?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration","description":"Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not less than that of Linux distributions… This also brings us a common challenge: the deployment of bioinformatics analysis environments.","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/","wordCount":335,"datePublished":"2024-06-21T17:26:08.000Z","dateModified":"2024-11-19T15:38:26.361Z","articleSection":"Bioinfomatic","keywords":"pixi,conda","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
