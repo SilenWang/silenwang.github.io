@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用aider辅助编程工作</title>
+      <link href="/2025/04/25/%E4%BD%BF%E7%94%A8aider%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/"/>
+      <url>/2025/04/25/%E4%BD%BF%E7%94%A8aider%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<p>今年的deepseek着实让LLM又火了一把，虽然在chatGPT之后，copilot和cursor就一直在到处打广告，但是我其实一直没试过… 于是在今年，我… 试了试<a href="https://cline.bot/">Cline</a>，确实好用，但是也符合我的固有印象，没有那么方便，尤其是，我更需要一个能直接在命令行使用并能够快速迁入脚本的选项，以批量完成一些简单的编码初始化业务，于是我找到了<a href="https://aider.chat/">aider</a>…</p><span id="more"></span><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>软件安装比较简单，因为是一个python项目，使用pip就可以安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install aider-install</span><br><span class="line">aider-install</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>aider是一个CUI应用，输入aider就能进入。Aider 支持一系列以 <code>/</code> 开头的聊天命令，这些命令可以帮助你更高效地管理代码编辑任务、切换模式以及与代码库进行交互。以下是一些常用的命令及其功能：</p><ul><li>文件管理命令<ul><li><code>/add</code>：将文件添加到聊天会话中，以便 Aider 可以编辑或详细审查这些文件。</li><li><code>/drop</code>：从聊天会话中移除文件，释放上下文空间。</li><li><code>/ls</code>：列出所有已知文件，并指示哪些文件已包含在聊天会话中。</li></ul></li><li>编辑与代码操作命令<ul><li><code>/code</code>：请求对代码进行更改，如果没有提供提示信息，则切换到代码模式。</li><li><code>/diff</code>：显示自上次消息以来的更改差异。</li><li><code>/commit</code>：提交在聊天之外对代码库所做的更改（可选提交信息）。</li><li><code>/undo</code>：撤销 Aider 执行的最后一次 Git 提交。</li></ul></li><li>模式切换命令<ul><li><code>/chat-mode</code>：切换到新的聊天模式。</li><li><code>/architect</code>：进入架构师&#x2F;编辑模式，使用两种不同的模型进行代码设计或编辑。</li><li><code>/ask</code>：询问有关代码库的问题，而不编辑任何文件。</li></ul></li><li>其他实用命令<ul><li><code>/clear</code>：清除聊天历史记录。</li><li><code>/copy</code>：将上次助手的消息复制到剪贴板。</li><li><code>/model</code>：切换到新的语言模型。</li><li><code>/help</code>：获取有关 Aider 使用的帮助信息。</li><li><code>/exit</code> 或 <code>/quit</code>：退出 Aider 应用程序。</li></ul></li></ul><h2 id="嵌入shell脚本"><a href="#嵌入shell脚本" class="headerlink" title="嵌入shell脚本"></a>嵌入shell脚本</h2><p>作为CUI程序，aider 也有直接从命名行运行的方式，通过指定参数，然后直接将 prompt 写在命名行中，就可以（这方式还挺类似<code>ssh</code>）。</p><h3 id="用例1–批量翻译博客"><a href="#用例1–批量翻译博客" class="headerlink" title="用例1–批量翻译博客"></a>用例1–批量翻译博客</h3><p>因为可以通过命令行运行，aider也就可以方便的潜入到shell中，批量完成一些工作量不太大的问题，比如将过过去的博客都翻译一遍…</p><p>虽然在chatGPT刚火的时候，我就想过用它来完成翻译，但是实际操作后才发现，手动工作量仍然不小。因为我的博客已经有上百个文件了… 每次输入prompt,然后把内容贴近贴出以及进行校对，也还是很繁琐和无趣的工作。</p><p>使用aider，至少能再多偷些懒。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -e </span><br><span class="line"></span><br><span class="line">DIR_A=blog_cn/source/_posts</span><br><span class="line">DIR_B=blog_en/source/_posts</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> `<span class="built_in">ls</span> <span class="variable">$DIR_A</span>/*`; <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># 获取文件名（去掉路径部分）</span></span><br><span class="line">    filename=$(<span class="built_in">basename</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件是否存在于目录B</span></span><br><span class="line">    <span class="keyword">if</span> [[ -e <span class="string">&quot;<span class="variable">$&#123;DIR_B&#125;</span>/<span class="variable">$&#123;filename&#125;</span>&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;文件 <span class="variable">$&#123;filename&#125;</span> 存在于目录<span class="variable">$&#123;DIR_B&#125;</span>，跳过&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;文件 <span class="variable">$&#123;filename&#125;</span> 不存在于目录<span class="variable">$&#123;DIR_B&#125;</span>，启动aider翻译...&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;开始文稿校对&quot;</span></span><br><span class="line">        aider \</span><br><span class="line">            --no-show-model-warnings --<span class="built_in">yes</span> --no-auto-commits \</span><br><span class="line">            --message <span class="string">&quot;我这里有一篇blog，请把它翻译成英文，然后保存到 <span class="variable">$&#123;DIR_B&#125;</span>/<span class="variable">$&#123;filename&#125;</span> 文件中&quot;</span> \</span><br><span class="line">            <span class="variable">$file</span></span><br><span class="line">    <span class="keyword">fi</span></span><br></pre></td></tr></table></figure><h3 id="用例2–批量生成api测试"><a href="#用例2–批量生成api测试" class="headerlink" title="用例2–批量生成api测试"></a>用例2–批量生成api测试</h3><p>与生成博客类似，根据openapi或者swagger文档理论上可以很快的编写出接口的测试代码，但是如果接口一多，实际写起来还是很麻烦的。这种时候，让aider来读取代码，并预先生成一个测试代码的框架，可以省下不少事情。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> group <span class="keyword">in</span> group1 group2 group3;<span class="keyword">do</span></span><br><span class="line">    <span class="comment"># 获取文件名（去掉路径部分）</span></span><br><span class="line">    pytest=<span class="built_in">test</span>/<span class="variable">$&#123;group&#125;</span>.py</span><br><span class="line">    <span class="built_in">touch</span> <span class="variable">$pytest</span></span><br><span class="line">    aider \</span><br><span class="line">        --no-show-model-warnings --<span class="built_in">yes</span> --no-auto-commits \</span><br><span class="line">        --message <span class="string">&quot;这里有一份api的swagger描述文件 <span class="variable">$&#123;group&#125;</span>.swagger.json ，请根据它的内容，为这个api编写pytest测试脚本，并将写好的测试脚本放到 <span class="variable">$&#123;pytest&#125;</span> 文件中。&quot;</span> \</span><br><span class="line">        data/<span class="variable">$&#123;group&#125;</span>.swagger.json <span class="variable">$pytest</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> aider </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Github Actions的基本使用</title>
       <link href="/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/"/>
       <url>/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/</url>
@@ -406,9 +433,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 钉钉 </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1235,7 +1262,7 @@
       <link href="/2020/02/23/%E7%8C%9B%E6%B1%89%E7%8E%8B%E7%8B%A9%E7%8C%8E%E6%97%A5%E8%AE%B0-%E5%86%B0%E5%8E%9F%E5%BC%80%E8%8D%92%E5%AE%8C%E7%BB%93%E7%BA%AA%E5%BF%B5/"/>
       <url>/2020/02/23/%E7%8C%9B%E6%B1%89%E7%8E%8B%E7%8B%A9%E7%8C%8E%E6%97%A5%E8%AE%B0-%E5%86%B0%E5%8E%9F%E5%BC%80%E8%8D%92%E5%AE%8C%E7%BB%93%E7%BA%AA%E5%BF%B5/</url>
       
-        <content type="html"><![CDATA[<p>本来想着春节期间好好肝一把… 结果大部分时间都加班了, 现在才开荒完毕… 而且在可以预期的未来工作也会比较繁忙… 趁没有正式复工, 留个几年bia…</p><div class="bvideo"><a href="//www.bilibili.com/video/av91147423" target="_blank">        <div class="bvideo-box">            <div class="bvideo-cover">                <div class="cover-default"></div>                <div class="bvideo-cover-layer" style="background-image:url(https://images.weserv.nl/?url=http://i2.hdslb.com/bfs/archive/75098d6f5f4d2a82a795db645c54dabcbe5deb12.jpg)">                    <i class="icon-video"></i>                </div>                <span class="duration">01:14:04</span>            </div>            <div class="bvideo-info">                <p class="title">猛汉王狩猎日记-冰原开荒纪念-引导之歌</p>                <p class="card-status">                    <span class="play-num">                        <i class="fa fa-youtube-play"></i>                        <span>113</span></span>                    <span>                        <i class="fa fa-list-alt"></i>                        <span>0</span></span></p>                <div class="partition">                    <label class="card-label">视频</label>                    <label class="up-label"></label>                    <label class="up-name">SilenWang</label>                </div>                <div class="actions hide"></div>            </div>        </div>    </a></div><!-- 摘要部分 --><span id="more"></span>]]></content>
+        <content type="html"><![CDATA[<p>本来想着春节期间好好肝一把… 结果大部分时间都加班了, 现在才开荒完毕… 而且在可以预期的未来工作也会比较繁忙… 趁没有正式复工, 留个几年bia…</p><div class="bvideo"><a href="//www.bilibili.com/video/av91147423" target="_blank">        <div class="bvideo-box">            <div class="bvideo-cover">                <div class="cover-default"></div>                <div class="bvideo-cover-layer" style="background-image:url(https://images.weserv.nl/?url=http://i2.hdslb.com/bfs/archive/75098d6f5f4d2a82a795db645c54dabcbe5deb12.jpg)">                    <i class="icon-video"></i>                </div>                <span class="duration">01:14:04</span>            </div>            <div class="bvideo-info">                <p class="title">猛汉王狩猎日记-冰原开荒纪念-引导之歌</p>                <p class="card-status">                    <span class="play-num">                        <i class="fa fa-youtube-play"></i>                        <span>114</span></span>                    <span>                        <i class="fa fa-list-alt"></i>                        <span>0</span></span></p>                <div class="partition">                    <label class="card-label">视频</label>                    <label class="up-label"></label>                    <label class="up-name">SilenWang</label>                </div>                <div class="actions hide"></div>            </div>        </div>    </a></div><!-- 摘要部分 --><span id="more"></span>]]></content>
       
       
       <categories>
@@ -2331,9 +2358,9 @@
       
         <tags>
             
-            <tag> conda </tag>
-            
             <tag> docker </tag>
+            
+            <tag> conda </tag>
             
         </tags>
       
