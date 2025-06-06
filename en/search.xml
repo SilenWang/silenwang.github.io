@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>OMG...Our company server got hacked by malware</title>
+      <link href="/en/2025/06/07/%E6%B4%BB%E4%B9%85%E8%A7%81%E5%85%AC%E5%8F%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%E6%94%BB%E5%87%BB%E4%BA%86/"/>
+      <url>/en/2025/06/07/%E6%B4%BB%E4%B9%85%E8%A7%81%E5%85%AC%E5%8F%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%E6%94%BB%E5%87%BB%E4%BA%86/</url>
+      
+        <content type="html"><![CDATA[<p>Since I started playing with the ancient version of Linux Deepin in my junior year (2011), it’s been 14 years now. During this long period, I’ve used Debian&#x2F;RedHat&#x2F;Arch-based distros, but except for accidentally deleting my graduation thesis in my final year of grad school, I’ve never encountered any malware or viruses on Linux distributions.</p><p>However last week, our company server… actually got infected…</p><span id="more"></span><p>At first when the maintenance vendor told me our server might be infected, I was skeptical, because the technical support staff seemed quite unreliable.</p><p>I watched the whole remote operation process… their command familiarity… was even worse than mine… They just opened TOP and went through process names one by one, didn’t even know how to filter by user or sort by CPU usage. They even asked me about some obviously normal processes… After rebooting, they looked at TOP and said “seems fine now” (while CPU was still at 100%)… After messing around for a while, they just said “probably a mining virus, you need to reinstall the system” and stopped responding…</p><p>Although our data and system are separated, reinstalling would still cost us extra time reconfiguring everything. Moreover, prescribing medicine without diagnosing the problem, <del>doesn’t satisfy my curiosity</del> might not actually solve the problem…</p><p>So I decided to Google first…</p><h2 id="It-really-was-a-mining-virus"><a href="#It-really-was-a-mining-virus" class="headerlink" title="It really was a mining virus"></a>It really was a mining virus</h2><p>Initial Google searches didn’t yield much. Besides CPU being at 100% with no visible process responsible (which matched), <code>netstat</code> didn’t show any connections to mining pools, and <code>systemctl</code> mysteriously stopped working, preventing me from installing some tools mentioned in <a href="https://www.lwohvye.com/2021/02/03/%E6%9F%A5%E6%89%BE%E9%9A%90%E8%97%8F%E8%BF%9B%E7%A8%8B%EF%BC%88%E6%AF%94%E5%A6%82%E6%8C%96%E7%9F%BF%E8%BF%9B%E7%A8%8B%EF%BC%89/">this blog</a>.</p><p>At this point I still wasn’t thinking virus, until I found a blog suggesting using <code>lsattr</code> and <code>chattr</code> to check&#x2F;modify <code>systemctl</code> permissions to fix software installation issues. I found that <code>lsattr</code> was missing from the server, and <code>chattr</code> gave a very strange error. I initially thought maybe these tools weren’t installed?</p><p>Then I remembered - we have another server! After logging into that one… wow, the other server did have <code>lsattr</code> and <code>chattr</code>… I went back to check what <code>chattr</code> was on the infected server… <code>cat</code> revealed it had clearly been replaced!</p><p>Then it hit me - <code>top</code>&#x2F;<code>htop</code>&#x2F;<code>netstat</code> etc. must have all been modified too!</p><h2 id="Discovering-malware-modifications-and-countermeasures"><a href="#Discovering-malware-modifications-and-countermeasures" class="headerlink" title="Discovering malware modifications and countermeasures"></a>Discovering malware modifications and countermeasures</h2><ul><li>lsattr: Completely deleted, couldn’t check file attributes. Replaced with file from the other server.</li><li>chattr: Replaced and set with ‘i’ and ‘a’ attributes so even root couldn’t delete it. Couldn’t reinstall chattr to fix. Replaced with file from the other server.</li><li>top&#x2F;htop: Must have been modified to hide malicious processes. Replaced top from the other server, reinstalled htop.</li><li>systemctl&#x2F;service management: Added a service to launch malware. Modified systemctl couldn’t show the malicious service. Removed immutable attributes and reinstalled systemd.</li><li>ls: Replaced to hide malicious executables and service files. Replaced with file from the other server.</li><li>reboot: Modified (SHA didn’t match the other server). Replaced with file from the other server, but still couldn’t reboot properly after fixing.</li><li>netstat: Replaced to hide malicious network connections. Reinstalled net-tools.</li></ul><h2 id="Afterword"><a href="#Afterword" class="headerlink" title="Afterword"></a>Afterword</h2><p>I guess you really do learn from experience. I never imagined malware would evolve to… just modify all the tools you’d use to detect it…<br>Also, I’ve… really become a sysadmin now…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Using aider for programming assistance</title>
       <link href="/en/2025/04/25/%E4%BD%BF%E7%94%A8aider%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/"/>
       <url>/en/2025/04/25/%E4%BD%BF%E7%94%A8aider%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/</url>
@@ -433,9 +458,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> DingTalk </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -2399,9 +2424,9 @@
       
         <tags>
             
-            <tag> conda </tag>
-            
             <tag> docker </tag>
+            
+            <tag> conda </tag>
             
         </tags>
       
