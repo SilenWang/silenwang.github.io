@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>Using Playwright for Browser Testing</title>
+      <link href="/en/2025/06/09/%E4%BD%BF%E7%94%A8playwright%E6%8E%A7%E5%88%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/"/>
+      <url>/en/2025/06/09/%E4%BD%BF%E7%94%A8playwright%E6%8E%A7%E5%88%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p>For websites requiring interactive operations, using pytest for API testing alone is insufficient as it doesn’t cover frontend interactions. Previously I used Selenium for browser control in web scraping tasks, but now I’ve found that Microsoft’s Playwright can also control browsers for automated testing, and it’s even simpler to use than Selenium since it supports automatic test case recording.</p><span id="more"></span><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Using pixi makes Playwright installation quick, but after installation you still need to call Playwright to install browser dependencies. This differs from Selenium which directly uses browsers supported by the system.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install firefox and chromium</span></span><br><span class="line">playwright install --with-deps firefox chromium</span><br></pre></td></tr></table></figure><h2 id="Using-with-Pytest"><a href="#Using-with-Pytest" class="headerlink" title="Using with Pytest"></a>Using with Pytest</h2><p>Playwright supports multiple languages and also works with Python’s Pytest framework. Using the command <code>playwright codegen -b firefox http://127.0.0.1:8000</code> to open the browser, then selecting Pytest in the recording window allows you to record Pytest code. A recorded test would look like this:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BASE_URL = <span class="string">&#x27;http://127.0.0.1:8000&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_add_sample</span>(<span class="params">lab_mem_page</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        lab_mem_page.goto(<span class="string">f&quot;<span class="subst">&#123;BASE_URL&#125;</span>/page&quot;</span>, wait_until=<span class="string">&quot;load&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> TimeoutError: <span class="comment"># Retry once if failed</span></span><br><span class="line">        lab_mem_page.reload(wait_until=<span class="string">&quot;load&quot;</span>)</span><br><span class="line"></span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;button&quot;</span>, name=<span class="string">&quot;添加/修改样本&quot;</span>).click()</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;menuitem&quot;</span>, name=<span class="string">&quot;添加样本&quot;</span>).click()</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;textbox&quot;</span>, name=<span class="string">&quot;*内部编号&quot;</span>).fill(<span class="string">&quot;CODE&quot;</span>)</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;textbox&quot;</span>, name=<span class="string">&quot;*住院号&quot;</span>).fill(<span class="string">&quot;6666&quot;</span>)</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;textbox&quot;</span>, name=<span class="string">&quot;*姓名&quot;</span>).fill(<span class="string">&quot;2222&quot;</span>)</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;textbox&quot;</span>, name=<span class="string">&quot;*性别&quot;</span>).click()</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;listitem&quot;</span>).<span class="built_in">filter</span>(has_text=<span class="string">&quot;男&quot;</span>).click()</span><br><span class="line">    lab_mem_page.get_by_role(<span class="string">&quot;button&quot;</span>, name=<span class="string">&quot;提交&quot;</span>).click()</span><br><span class="line">    expect(lab_mem_page.get_by_text(<span class="string">&quot;添加成功&quot;</span>)).to_be_visible()</span><br></pre></td></tr></table></figure><p>After creating test cases, you can run tests and see if any content needs trimming or adjustment.</p><h2 id="Leveraging-Pytest-Features"><a href="#Leveraging-Pytest-Features" class="headerlink" title="Leveraging Pytest Features"></a>Leveraging Pytest Features</h2><p>When using Pytest for testing, Pytest’s fixture system and special <code>conftest.py</code> files are all available, allowing information sharing between tests just like regular Pytest testing to make tests more efficient and stable.</p><h2 id="Issues-with-Recording-System"><a href="#Issues-with-Recording-System" class="headerlink" title="Issues with Recording System"></a>Issues with Recording System</h2><p>While the recording feature significantly speeds up test writing, automatic recording doesn’t always perfectly select page elements, especially when interactive elements are dynamically generated. Therefore, to write stable test cases, some frontend knowledge is still needed to uniquely identify target elements in the resource tree.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> pytest </tag>
+            
+            <tag> playwright </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Testing Network APIs with pytest</title>
+      <link href="/en/2025/06/09/%E4%BD%BF%E7%94%A8pytest%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CAPI%E6%B5%8B%E8%AF%95/"/>
+      <url>/en/2025/06/09/%E4%BD%BF%E7%94%A8pytest%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CAPI%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p>For the past six months, a significant part of my work has been maintaining the company’s website. Since I took over the code midway, there’s always a risk of introducing new bugs during maintenance. Therefore, as required by my supervisor, I learned how to implement automated testing.</p><span id="more"></span><p>The testing framework used is pytest, the most popular testing framework in Python.</p><p>The framework is very simple to use. Create files starting with <code>test_</code>, then write functions starting with <code>test_</code> inside them. Within these functions, write test code and add <code>assert</code> statements to complete the most basic tests:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BASE_URL = <span class="string">&#x27;http://127.0.0.1:4567&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_login_success</span>():</span><br><span class="line">    login_data = &#123;<span class="string">&quot;username&quot;</span>: <span class="string">&quot;USER&quot;</span>, <span class="string">&quot;password&quot;</span>: <span class="string">&quot;123456&quot;</span>&#125;</span><br><span class="line">    response = requests.post(<span class="string">f&quot;<span class="subst">&#123;BASE_URL&#125;</span>/login&quot;</span>, json=login_data)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Assert key results</span></span><br><span class="line">    <span class="keyword">assert</span> response.status_code == <span class="number">200</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="string">&quot;accessToken&quot;</span> <span class="keyword">in</span> response.json().get(<span class="string">&quot;data&quot;</span>)</span><br></pre></td></tr></table></figure><p>In actual testing, we often need to set up some shared information between different tests. For example, all the APIs I need to test require authentication, so it’s perfect to use pytest’s <code>fixture</code> system. We can first obtain a login token before testing begins, then use the same token to access APIs in each test function:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&#x27;session&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">prod_admin_auth_header</span>():</span><br><span class="line">    <span class="keyword">return</span> auth_header(<span class="string">&quot;admin&quot;</span>, <span class="string">&quot;123456&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_get_dictionary_id</span>(<span class="params">prod_admin_auth_header</span>):</span><br><span class="line">    response = requests.get(<span class="string">f&quot;<span class="subst">&#123;BASE_URL&#125;</span>/GetDictionaryid&quot;</span>, headers=lab_mem_auth_header)</span><br><span class="line">    <span class="keyword">assert</span> response.status_code == <span class="number">200</span></span><br></pre></td></tr></table></figure><p>Here, functions marked as <code>fixture</code> can be directly passed into test functions as parameters by their function names, without requiring additional operations.</p><p>Additionally, you can create a special file <code>conftest.py</code> in the test folder to store all the <code>fixture</code>s that need to be shared across the entire test suite. This way, in other test files, you can directly use the configured <code>fixture</code>s without manual imports.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> pytest </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OMG...Our company server got hacked by malware</title>
       <link href="/en/2025/06/07/%E6%B4%BB%E4%B9%85%E8%A7%81%E5%85%AC%E5%8F%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%E6%94%BB%E5%87%BB%E4%BA%86/"/>
       <url>/en/2025/06/07/%E6%B4%BB%E4%B9%85%E8%A7%81%E5%85%AC%E5%8F%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%E6%94%BB%E5%87%BB%E4%BA%86/</url>
@@ -458,9 +514,9 @@
       
         <tags>
             
-            <tag> DingTalk </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> DingTalk </tag>
             
         </tags>
       
@@ -2424,9 +2480,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> conda </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
