@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>再次尝试编译openfyde（上）</title>
+      <link href="/2025/06/15/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8A/"/>
+      <url>/2025/06/15/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8A/</url>
+      
+        <content type="html"><![CDATA[<p>今年年初的时候，就尝试编译openfyde，想着学习下编译和修改openfyde系统，也利用一下我多余的一台工程机。然而半年都过去了… 上次编译出镜像的问题都还没解决…</p><span id="more"></span><p>看着最近最新的r132代码也在逐步更新了，那我先… 尝试再编译一次吧… </p><p>本次基本遵循<a href="#">INVALID POST SLUG PROVIDED 编译openfyde.md</a>，即装系统依赖，下载<code>depot_tools</code>，克隆代码，进入chroot环境然后开始编译。不同的是，目前 r132 版本的代码应该是还没有完整上传，因此编译中还会碰到一些问题：</p><ul><li><code>chromeos-kernel-6_1-6.1.115-r1676</code>的克隆地址还没有修改，无法获取源代码因此无法编译</li><li><code>libv4lplugins-0.0.1</code>代码还有Bug，需要再加一个补丁修复：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Index: libv4l-rkmpp/src/libv4l-rkmpp.c</span><br><span class="line">===================================================================</span><br><span class="line">--- libv4l-rkmpp.orig/src/libv4l-rkmpp.c</span><br><span class="line">+++ libv4l-rkmpp/src/libv4l-rkmpp.c</span><br><span class="line"></span><br><span class="line">@@ -1206,5 +1206,4 @@</span><br><span class="line"> .init = &amp;plugin_init,</span><br><span class="line"> .close = &amp;plugin_close,</span><br><span class="line"> .ioctl = &amp;plugin_ioctl,</span><br><span class="line">-.mmap = &amp;plugin_mmap,</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></li></ul><p>目前我的破电脑还在编译着编译着就死机的状态… 回头完成了再更新… </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> openfyde </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用playwright控制浏览器进行测试</title>
       <link href="/2025/06/09/%E4%BD%BF%E7%94%A8playwright%E6%8E%A7%E5%88%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/"/>
       <url>/2025/06/09/%E4%BD%BF%E7%94%A8playwright%E6%8E%A7%E5%88%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</url>
@@ -64,7 +89,7 @@
       <link href="/2025/06/07/%E6%B4%BB%E4%B9%85%E8%A7%81%E5%85%AC%E5%8F%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%E6%94%BB%E5%87%BB%E4%BA%86/"/>
       <url>/2025/06/07/%E6%B4%BB%E4%B9%85%E8%A7%81%E5%85%AC%E5%8F%B8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%E6%94%BB%E5%87%BB%E4%BA%86/</url>
       
-        <content type="html"><![CDATA[<p>从我大三（2011）开始玩当时远古版本的Linux Deepin起，到现在已经14年了。这么长的时间中，debian&#x2F;redhat&#x2F;arch系我都用过，但除了研三我自己把我的毕业论文误删了，我从来没有在Linux发行版下碰到过任何恶意程序或病毒。</p><p>然而上个星期，我公司的服务器… 居然中毒了…</p><span id="more"></span><p>起初维护的服务商跟我说我们服务器可能中毒的时候，我还半信半疑，毕竟给我技术支持的人，看上去相当不靠谱。</p><p>我全程看着对方远程操作服务器… 对命令的熟悉程度… 甚至还不如我… 就开着TOP然后一个个翻进程名，甚至过滤用户、按CPU占用排序都不会的样子。还对着TOP问了我几个明显没问题的进程… 并在重启后对着TOP说，看上去没问题呀（看不到CPU还是100%的样子）… 最后捣鼓了半天，只留下一句，可能是挖矿病毒，重装吧，就不回复了…</p><p>虽然我们的数据和系统是分开的，重装还是会让我们花费额外的时间在重新配置上，况且病因都没确定就下药，<del>满足不了我的好奇心</del> 也不一一定就能解决问题不是…</p><p>于是我还是Google了一下先…</p><h2 id="真是挖矿病毒啊"><a href="#真是挖矿病毒啊" class="headerlink" title="真是挖矿病毒啊"></a>真是挖矿病毒啊</h2><p>起初的Google其实也没什么成果，因为除了CPU被100%占用，看不到占用进程这两点符合，<code>netstat</code>没有看到挖矿程序用来连接挖矿池的链接，然后<code>systemctl</code>莫名其妙出了问题，导致我没法安装一些<a href="https://www.lwohvye.com/2021/02/03/%E6%9F%A5%E6%89%BE%E9%9A%90%E8%97%8F%E8%BF%9B%E7%A8%8B%EF%BC%88%E6%AF%94%E5%A6%82%E6%8C%96%E7%9F%BF%E8%BF%9B%E7%A8%8B%EF%BC%89/">博文</a>里说到的软件。</p><p>但是到这时我其实还是没往病毒想，直到我翻到一个博文要用<code>lsattr</code>和<code>chattr</code>查看并修改<code>systemctl</code>的权限，以解决安装软件的问题时，我发现服务器上没有<code>lsattr</code>，同时运行<code>chattr</code>会给一个很奇怪的提示。我当时还想，也许是这个服务器本来没装这俩？</p><p>直到我想起，我们特么还有一台一模一样的服务器呀… 然后登录上去看了看… woc, 另一台服务器是有<code>lsattr</code>和<code>chattr</code>的… 我这才想起翻回去看，出问题的服务器上的<code>chattr</code>是个什么玩意… <code>cat</code>一看，特么这程序明显是被替换了呀！</p><p>接着我就反应过来了，特么<code>top</code>&#x2F;<code>htop</code>&#x2F;<code>netstat</code>这些，肯定全部被改了呀！</p><h2 id="发现恶意程序修改以及应对"><a href="#发现恶意程序修改以及应对" class="headerlink" title="发现恶意程序修改以及应对"></a>发现恶意程序修改以及应对</h2><ul><li>lsattr: 直接被删除，无法查看文件状态，用另一台服务器上的文件替换</li><li>chattr: 被替换后，赋予了’i’和’a’，以保证root都无法删除这个文件，无法重新安装chattr进行修复，用另一台服务器上的文件替换</li><li>top&#x2F;htop: 应该被修改过，所以看不到恶意程序进程，top用另一台服务器的替换，htop重装</li><li>systemctl&#x2F;添加服务: 添加了一个启动恶意程序的服务，同时程序被替换后看不到恶意程序服务，用chattr移除不可动权限后重新安装systemd</li><li>ls: 被替换后，无法看到恶意程序的可执行文件，以及服务文件，用另一台服务器上的文件替换</li><li>reboot: 应该被修改过，发现sha与另一台服务器不一样，用另一台服务器上的文件替换，但是修复回来后，依然不能正常重启</li><li>netstat: 被替换后，无法看到恶意程序开启的网络链接，重装net-tools</li></ul><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>只能说，果然是见多才能识广，我怎么就没想到，恶意程序也是要进化的… 直接能看它的全修改一遍…<br>另外，我这还… 真干上运维了呀…</p>]]></content>
+        <content type="html"><![CDATA[<p>从我大三（2011）开始玩当时远古版本的Linux Deepin起，到现在已经14年了。这么长的时间中，debian&#x2F;redhat&#x2F;arch系我都用过，但除了研三我自己把我的毕业论文误删了，我从来没有在Linux发行版下碰到过任何恶意程序或病毒。</p><p>然而上个星期，我公司的服务器… 居然中毒了…</p><span id="more"></span><p>起初维护的服务商跟我说我们服务器可能中毒的时候，我还半信半疑，毕竟给我技术支持的人，看上去相当不靠谱。</p><p>我全程看着对方远程操作服务器… 对命令的熟悉程度… 甚至还不如我… 就开着TOP然后一个个翻进程名，甚至过滤用户、按CPU占用排序都不会的样子。还对着TOP问了我几个明显没问题的进程… 并在重启后对着TOP说，看上去没问题呀（看不到CPU还是100%的样子）… 最后捣鼓了半天，只留下一句，可能是挖矿病毒，重装吧，就不回复了…</p><p>虽然我们的数据和系统是分开的，重装还是会让我们花费额外的时间在重新配置上，况且病因都没确定就下药，<del>满足不了我的好奇心</del> 也不一一定就能解决问题不是…</p><p>于是我还是Google了一下先…</p><h2 id="真是挖矿病毒啊"><a href="#真是挖矿病毒啊" class="headerlink" title="真是挖矿病毒啊"></a>真是挖矿病毒啊</h2><p>起初的Google其实也没什么成果，因为除了CPU被100%占用，看不到占用进程这两点符合，<code>netstat</code>没有看到挖矿程序用来连接挖矿池的链接，然后<code>systemctl</code>莫名其妙出了问题，导致我没法安装一些<a href="https://www.lwohvye.com/2021/02/03/%E6%9F%A5%E6%89%BE%E9%9A%90%E8%97%8F%E8%BF%9B%E7%A8%8B%EF%BC%88%E6%AF%94%E5%A6%82%E6%8C%96%E7%9F%BF%E8%BF%9B%E7%A8%8B%EF%BC%89/">博文</a>里说到的软件。</p><p>但是到这时我其实还是没往病毒想，直到我翻到一个博文要用<code>lsattr</code>和<code>chattr</code>查看并修改<code>systemctl</code>的权限，以解决安装软件的问题时，我发现服务器上没有<code>lsattr</code>，同时运行<code>chattr</code>会给一个很奇怪的提示。我当时还想，也许是这个服务器本来没装这俩？</p><p>直到我想起，我们特么还有一台一模一样的服务器呀… 然后登录上去看了看… woc, 另一台服务器是有<code>lsattr</code>和<code>chattr</code>的… 我这才想起翻回去看，出问题的服务器上的<code>chattr</code>是个什么玩意… <code>cat</code>一看，特么这程序明显是被替换了呀！</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994077.jpg" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994077.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="chattr"></p><p>接着我就反应过来了，特么<code>top</code>&#x2F;<code>htop</code>&#x2F;<code>netstat</code>这些，肯定全部被改了呀！</p><h2 id="发现恶意程序修改以及应对"><a href="#发现恶意程序修改以及应对" class="headerlink" title="发现恶意程序修改以及应对"></a>发现恶意程序修改以及应对</h2><ul><li>lsattr: 直接被删除，无法查看文件状态，用另一台服务器上的文件替换</li><li>chattr: 被替换后，赋予了’i’和’a’，以保证root都无法删除这个文件，无法重新安装chattr进行修复，用另一台服务器上的文件替换</li><li>top&#x2F;htop: 应该被修改过，所以看不到恶意程序进程，top用另一台服务器的替换，htop重装</li><li>systemctl&#x2F;添加服务: 添加了一个启动恶意程序的服务，同时程序被替换后看不到恶意程序服务，用chattr移除不可动权限后重新安装systemd<br><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994100.jpg" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994100.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="service"></li><li>ls: 被替换后，无法看到恶意程序的可执行文件，以及服务文件，用另一台服务器上的文件替换<br><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994101.jpg" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994101.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="lsattr"></li><li>reboot: 应该被修改过，发现sha与另一台服务器不一样，用另一台服务器上的文件替换，但是修复回来后，依然不能正常重启</li><li>netstat: 被替换后，无法看到恶意程序开启的网络链接，重装net-tools<br><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994102.jpg" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994102.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="netstat"></li></ul><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>只能说，果然是见多才能识广，我怎么就没想到，恶意程序也是要进化的… 直接能看它的全修改一遍…<br>另外，我这还… 真干上运维了呀…</p>]]></content>
       
       
       <categories>
@@ -272,6 +297,37 @@
             <tag> pixi </tag>
             
             <tag> fydetab duo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用新的R语言jupyter内核解决monocle3无法在notebook上选发育起始点的问题</title>
+      <link href="/2024/06/23/%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84R%E8%AF%AD%E8%A8%80jupyter%E5%86%85%E6%A0%B8%E8%A7%A3%E5%86%B3monocle3%E6%97%A0%E6%B3%95%E5%9C%A8notebook%E4%B8%8A%E9%80%89%E5%8F%91%E8%82%B2%E8%B5%B7%E5%A7%8B%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2024/06/23/%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84R%E8%AF%AD%E8%A8%80jupyter%E5%86%85%E6%A0%B8%E8%A7%A3%E5%86%B3monocle3%E6%97%A0%E6%B3%95%E5%9C%A8notebook%E4%B8%8A%E9%80%89%E5%8F%91%E8%82%B2%E8%B5%B7%E5%A7%8B%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>看一看这个草稿的创建时间，居然是2024年06月了… 现在都2025年6月了，突然理解了为什么那么多UP主会成为鸽子，挖坑一时爽，填坑火葬场啊… 这篇是我位数不多的纯生物信息内容了…</p><p>问题起因是去年要运行 monocle3 进行拟时间分析，但是分析到最后发现一个很蛋疼的问题，monocle3 中的拟时间轨迹起点，是需要分析者来手动指定的，R代码执行过程中会自动开启浏览器，用户需要在浏览器打开的临时网站中指定起点，然后关闭页面，分析继续进行。</p><p>但是jupyter的<code>irkernel</code>内核并不支持这一特性。也就是说，我无法在juputer notebook中直接完成分析。这一问题在<a href="https://github.com/cole-trapnell-lab/monocle3/issues/179">2019年就被提出过</a>，但是直到我需要进行分析的2024年，5年过去，依然没有解决方案…</p><span id="more"></span><p>不过我当时还真偶然发现了解决方案，因为github给我推荐了一个项目，<a href="https://github.com/jupyter-xeus/">jupyter-xeus</a>，这个项目旨在重新开发一系列Jupyter内核，其中就包括新的R内核，<a href="https://github.com/jupyter-xeus/xeus-r">xeus-r</a>，这个新的内核支持交互模式，可以在运行 monocle3 的时候生成一个链接，用户点进链接完成选点后，再退出页面就能继续分析了。</p><p><code>xeus-r</code> 在conda上就有，用 conda &#x2F; mamba &#x2F; pixi 就能快速安装。安装完后，在jupyter的界面会看到对应的<code>xr</code>内核，选择使用就好</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994103.png" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749994103.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="xeus-r"></p><p>需要执行的代码如下：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>monocle3<span class="punctuation">)</span></span><br><span class="line">cds <span class="operator">&lt;-</span> readRDS<span class="punctuation">(</span><span class="string">&quot;/Your/rds/contain/monocle3/object.RDS&quot;</span><span class="punctuation">)</span></span><br><span class="line">options<span class="punctuation">(</span><span class="built_in">browser</span><span class="operator">=</span><span class="string">&quot;firefox&quot;</span><span class="punctuation">)</span></span><br><span class="line">cds <span class="operator">&lt;-</span> order_cells<span class="punctuation">(</span>cds<span class="punctuation">)</span></span><br></pre></td></tr></table></figure><p>运行后在单元格下面就可以看见需要打开的链接，打开后，选择起点，再后关闭即可。</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749997047.png" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/06/upgit_20250615_1749997047.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="monocle3"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bioinfomatic </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jupyter </tag>
+            
+            <tag> monocle3 </tag>
+            
+            <tag> singlecell </tag>
+            
+            <tag> xeus </tag>
             
         </tags>
       
