@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>使用github_action编译arm版的theia_ide</title>
+      <link href="/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"/>
+      <url>/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/</url>
+      
+        <content type="html"><![CDATA[<p>自从第一次接触chromeos&#x2F;fydeos开始，我就一直在尝试各种不同的 vscode(-like) 编辑器，最近因为看到华为的CodeArt，知道了它的上游项目theia，又开始了折腾。<br>奈何我手上的设备已经是只有8G内存的 fydeos 不是之前的16G Manjaro，也不是PixelBook 2017。在Linux容器下的可用内存十分受限，连编译个arm版的 theiaide-ide browser版都不得行… 那… 只有又来白嫖Github了</p><span id="more"></span><p>这次结合之前提到的 <a href="/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="白嫖codespace用来写hexo博客">[白嫖codespace写博客]</a> 和 <a href="/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Github Actions的基本使用">[github action的使用]</a> 。</p><p>首先在github上新建一个项目，然后找到右上角的<code>Code</code>创建该项目的codespace，即可在浏览器中使用vscode，直接进行代码编写和保存。<br>我直接参照之前已经写过的<a href="https://github.com/SilenWang/certimate_win7">certimate_win7</a>项目，创建一个github workflow，注意Runner用Github提供的Arm Runner。</p><p><a href="https://github.com/eclipse-theia/theia-ide">Theia-IDE的原项目</a>还没有正式的Release，所以不能根据Tag下载打包好的Release，改成使用checkout来获得特定的代码。</p><p>然后按照项目下的<a href="https://github.com/eclipse-theia/theia-ide/blob/master/browser.Dockerfile">browser.Dockerfile文件内容</a>，设置编译步骤，接着将整个代码目录打包，上传到我自己项目的<a href="https://github.com/SilenWang/theia-ide-browser-build/releases">Release中</a>。</p><p>下载编译文件后，容器内按照官方的说明安装好系统级别的依赖，<code>yarn browser start</code>就可以启动了。</p><p>因为我是fydeos用，直接编译的browser版，如果需要桌面版本，按照官方的说明生成Arm版就好了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> theia </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>再次尝试编译openfyde（上）</title>
       <link href="/2025/06/15/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8A/"/>
       <url>/2025/06/15/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8A/</url>
       
-        <content type="html"><![CDATA[<p>今年年初的时候，就尝试编译openfyde，想着学习下编译和修改openfyde系统，也利用一下我多余的一台工程机。然而半年都过去了… 上次编译出镜像的问题都还没解决…</p><span id="more"></span><p>看着最近最新的r132代码也在逐步更新了，那我先… 尝试再编译一次吧… </p><p>本次基本遵循<a href="#">INVALID POST SLUG PROVIDED 编译openfyde.md</a>，即装系统依赖，下载<code>depot_tools</code>，克隆代码，进入chroot环境然后开始编译。不同的是，目前 r132 版本的代码应该是还没有完整上传，因此编译中还会碰到一些问题：</p><ul><li><code>chromeos-kernel-6_1-6.1.115-r1676</code>的克隆地址还没有修改，无法获取源代码因此无法编译</li><li><code>libv4lplugins-0.0.1</code>代码还有Bug，需要再加一个补丁修复：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Index: libv4l-rkmpp/src/libv4l-rkmpp.c</span><br><span class="line">===================================================================</span><br><span class="line">--- libv4l-rkmpp.orig/src/libv4l-rkmpp.c</span><br><span class="line">+++ libv4l-rkmpp/src/libv4l-rkmpp.c</span><br><span class="line"></span><br><span class="line">@@ -1206,5 +1206,4 @@</span><br><span class="line"> .init = &amp;plugin_init,</span><br><span class="line"> .close = &amp;plugin_close,</span><br><span class="line"> .ioctl = &amp;plugin_ioctl,</span><br><span class="line">-.mmap = &amp;plugin_mmap,</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></li></ul><p>目前我的破电脑还在编译着编译着就死机的状态… 回头完成了再更新… </p>]]></content>
+        <content type="html"><![CDATA[<p>今年年初的时候，就尝试编译openfyde，想着学习下编译和修改openfyde系统，也利用一下我多余的一台工程机。然而半年都过去了… 上次编译出镜像的问题都还没解决…</p><span id="more"></span><p>看着最近最新的r132代码也在逐步更新了，那我先… 尝试再编译一次吧… </p><p>本次基本遵循<a href="/2025/01/04/%E7%BC%96%E8%AF%91openfyde/" title="编译openfyde">[之前的步骤]</a>，即装系统依赖，下载<code>depot_tools</code>，克隆代码，进入chroot环境然后开始编译。不同的是，目前 r132 版本的代码应该是还没有完整上传，因此编译中还会碰到一些问题：</p><ul><li><code>chromeos-kernel-6_1-6.1.115-r1676</code>的克隆地址还没有修改，无法获取源代码因此无法编译</li><li><code>libv4lplugins-0.0.1</code>代码还有Bug，需要再加一个补丁修复：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Index: libv4l-rkmpp/src/libv4l-rkmpp.c</span><br><span class="line">===================================================================</span><br><span class="line">--- libv4l-rkmpp.orig/src/libv4l-rkmpp.c</span><br><span class="line">+++ libv4l-rkmpp/src/libv4l-rkmpp.c</span><br><span class="line"></span><br><span class="line">@@ -1206,5 +1206,4 @@</span><br><span class="line"> .init = &amp;plugin_init,</span><br><span class="line"> .close = &amp;plugin_close,</span><br><span class="line"> .ioctl = &amp;plugin_ioctl,</span><br><span class="line">-.mmap = &amp;plugin_mmap,</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></li></ul><p>目前我的破电脑还在编译着编译着就死机的状态… 回头完成了再更新… </p>]]></content>
       
       
       <categories>
