@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title>Trying to compile openfyde again (Part 2)</title>
+      <link href="/en/2025/06/19/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8B/"/>
+      <url>/en/2025/06/19/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8B/</url>
+      
+        <content type="html"><![CDATA[<p>After changing the motherboard and CPU, everything went smoothly… I’m not sure whether it was the motherboard or CPU that was causing the issue before - compilation would fail after tens of minutes, and subsequent attempts would fail at different points. This was actually the first time in my life I encountered real hardware incompatibility issues… Another “first time in my life” experience.</p><p>So here comes the second part of compiling openfyde. Unfortunately, during the time I was struggling with the faulty hardware, the prebuilt image for r132-dev version was already updated… Missed the hot topic…</p><span id="more"></span><p>Actually, I had already reached the final steps last time, but got stuck when compiling the massive Chrome project due to my hardware issues. After completing the compilation, we can generate the image that can be directly flashed to a USB drive.</p><p>This time I actually solved a problem from last time - how to get a flashable image using Rockchip tools after obtaining <code>chromiumos.bin</code>. The tutorial gives us a bin image, while official prebuilt versions are in img format, clearly different. Also, unpacking official openfyde prebuilt images with Rockchip tools seems to yield some content not included in the bin.</p><p>Actually, the official tools are available - it’s <a href="https://github.com/openFyde/rk3588-image-maker">openFyde&#x2F;rk3588-image-maker</a>. But last time as a complete beginner, I couldn’t understand what was happening during compilation, let alone figure out what all the projects under openfyde were for.</p><p>The steps to generate the required image are simple: first clone this project, then go to the root directory and run the following commands as instructed:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Mount required content from bin</span></span><br><span class="line">./map_chromiumos_image.sh /PATH/TO/CHROMIUMOS/IMAGE.bin --board fydetab_duo</span><br><span class="line"><span class="comment"># Generate update.img</span></span><br><span class="line">./rk3588-mkupdate.sh</span><br></pre></td></tr></table></figure><p>Note: For the r132 version I compiled this time, the <code>Image/parameter.txt</code> file in the project needs modification - change <code>0xa0006d@0x00b02040(STATE)</code> to <code>0xa0006d@0x00b02040(STATE)</code>.</p><p>Then copy the generated image and flash it using the official Rockchip tool. The compiled image this time has working touchscreen, Bluetooth, and Linux containers - should be problem-free.</p><p>Next step is to try adding stuff to it!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fydeos </tag>
+            
+            <tag> openfyde </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"/>
+      <url>/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/</url>
+      
+        <content type="html"><![CDATA[<hr><p>title: Compiling ARM version of Theia-IDE using GitHub Actions<br>categories: Script<br>date: 2025-06-16 23:20:58<br>tags: [‘github’, ‘theia’]</p><p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p><span id="more"></span><p>This combines what I mentioned before about <a href="/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="Using Codespace for Free to Write Hexo Blogs">[Using Codespace to write blogs]</a> and <a href="/en/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Basic Usage of GitHub Actions">[Using GitHub Actions]</a>.</p><p>First, create a new project on GitHub, then click <code>Code</code> in the upper right corner to create a Codespace for this project, which allows you to use VSCode directly in the browser for coding and saving.<br>I directly referenced my previous <a href="https://github.com/SilenWang/certimate_win7">certimate_win7</a> project to create a GitHub workflow, making sure to use GitHub’s Arm Runner.</p><p><a href="https://github.com/eclipse-theia/theia-ide">The original Theia-IDE project</a> doesn’t have official releases yet, so we can’t download pre-built releases by tags. Instead, we need to use checkout to get specific code versions.</p><p>Then follow the instructions in the project’s <a href="https://github.com/eclipse-theia/theia-ide/blob/master/browser.Dockerfile">browser.Dockerfile</a> to set up the compilation steps. After that, package the entire code directory and upload it to my project’s <a href="https://github.com/SilenWang/theia-ide-browser-build/releases">Releases</a>.</p><p>After downloading the compiled files, install system-level dependencies as per the official instructions, then run <code>yarn browser start</code> to launch it.</p><p>Since I’m using FydeOS, I compiled the browser version directly. If you need the desktop version, just follow the official instructions to generate the ARM version.</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Trying to Compile openfyde Again (Part 1)</title>
       <link href="/en/2025/06/15/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8A/"/>
       <url>/en/2025/06/15/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8A/</url>
@@ -570,9 +610,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> DingTalk </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
