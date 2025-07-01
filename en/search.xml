@@ -361,11 +361,11 @@
       
         <tags>
             
-            <tag> jupyter </tag>
-            
             <tag> monocle3 </tag>
             
             <tag> singlecell </tag>
+            
+            <tag> jupyter </tag>
             
             <tag> xeus </tag>
             
@@ -2576,9 +2576,9 @@
       
         <tags>
             
-            <tag> conda </tag>
-            
             <tag> docker </tag>
+            
+            <tag> conda </tag>
             
         </tags>
       
