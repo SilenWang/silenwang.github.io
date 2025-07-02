@@ -38,18 +38,18 @@
   <!-- 页面元数据 -->
   <title>新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub</title>
   <meta name="keywords" content="conda,pixi,null">
-  <meta desc name="description" content="生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
+  <meta desc name="description" content="生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
  - Sylens Wong - SylensHub">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="新工具解决老问题----使用pixi进行生物信息环境配置">
 <meta property="og:url" content="https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="SylensHub">
-<meta property="og:description" content="生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。">
+<meta property="og:description" content="生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-06-21T17:26:08.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.036Z">
+<meta property="article:modified_time" content="2025-07-02T17:21:41.142Z">
 <meta property="article:author" content="Sylens Wong">
 <meta property="article:tag" content="conda">
 <meta property="article:tag" content="pixi">
@@ -1634,7 +1634,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1751382013387),
+    lastupdate: new Date(1751478475501),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2511,18 +2511,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。</p>
+    <p>生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。</p>
 <!-- 摘要部分 -->
 <span id="more"></span>
 
-<h2 id="生信环境部署是个麻烦事"><a href="#生信环境部署是个麻烦事" class="headerlink" title="生信环境部署是个麻烦事"></a>生信环境部署是个麻烦事</h2><p>一般来说，用什么语言做开发，那就部署那个语言的开发环境，然后使用相应的环境&#x2F;包管理软件对库的依赖管理就好了。但是生物信息跟我之前学的医学统计一样，应用成分重，有啥用啥，没有再写… 因此，接触多种语言这种事是极大概率事件。就我个人来说，由于前公司的研究领域教前沿… 很多时候都要使用大学里的研究者们基于<code>会啥用啥</code>这一抓到老鼠就是好猫一般的原则下写出来的工具，我已经接触过一堆语言了：C、C++、Java、Scala、Perl、Python、R、Go、Julia、Nim、Js… 如果再要算上一些数据库语言、配置文件语法之类的… 数量还能再翻个一倍…</p>
-<p>这么杂乱的技术栈，就让部署和设置生物信息开发环境，或者部署生物信息分析流程成了一件非常繁琐的事情。要知道生物信息学中有相当比例的工具或软件，在一年左右就不一定会再有人去维护了，这意味着软件需要的编译器和库会一直停留在过时的版本，然后逐渐开始和后续版本打架，造成比Linux发行版跨版本升级更可怕的依赖爆炸问题。然后这个依赖还不是只有一个语言下的工具集会爆炸，是所有语言下的工具集都有爆炸的可能，且由于Python、R等一些脚本语言底层有C，所以还能交叉爆炸… 分分钟搞得人心态爆炸。</p>
-<p>然而… 为题远不止步于此，处于一些大人的原因… 不是所有人都能拿到系统级别的权限，配置环境时仅能使用普通用户的权限，因此一些用发行版的包管理器装个包就能解决的问题，最后可能只能选择将整个软件的依赖从头编译一遍… 这又够人爆炸一个月的了…</p>
+<h2 id="生信环境部署是个麻烦事"><a href="#生信环境部署是个麻烦事" class="headerlink" title="生信环境部署是个麻烦事"></a>生信环境部署是个麻烦事</h2><p>一般来说，用什么语言做开发，那就部署那个语言的开发环境，然后使用相应的环境&#x2F;包管理软件对库的依赖管理就好了。但是生物信息跟我之前学的医学统计一样，<strong>应用成分极重</strong>，有啥用啥，没有再写… 因此，接触多种语言这种事是<strong>极大概率事件</strong>。就我个人来说，由于前公司的研究领域较前沿… 很多时候都要使用大学里的研究者们遵循<code>会啥用啥</code>—–这一抓到老鼠就是好猫一般的原则写出来的工具。因此，我已经接触过一堆语言了：C、C++、Java、Scala、Perl、Python、R、Go、Julia、Nim、Js… 如果再要算上一些数据库语言、配置文件语法之类的… 数量还能再翻个一倍…</p>
+<p>这么杂乱的技术栈，就让部署和设置生物信息开发环境，或者部署生物信息分析流程成了一件非常繁琐的事情。要知道生物信息学中有相当比例的工具或软件，在一年左右就不一定会再有人去维护了，这意味着软件需要的编译器和库会一直停留在过时的版本，然后逐渐开始和后续版本打架，造成比Linux发行版的跨版本升级更可怕的依赖爆炸问题。然后这个依赖还不是只有一个语言下的工具集会爆炸，是所有语言下的工具集都有爆炸的可能，且由于Python、R等一些脚本语言底层有C，所以还能交叉爆炸… 分分钟搞得人心态爆炸。</p>
+<p>然而… 问题远不止步于此，出于一些大人的原因… 不是所有人都能拿到系统级别的权限，配置环境时仅能使用普通用户的权限，因此一些用发行版的包管理器装个包就能解决的问题，最后可能只能选择将整个软件的依赖从头编译一遍… 这又够人爆炸一个月的了…</p>
 <p>基于前述种种令人恼火的问题，当我第一次知道有<a target="_blank" rel="noopener" href="https://anaconda.org/">conda</a>这么个工具的时候，真的是感觉救我狗命啊… 大量的生物信息学软件都已预编译后打包上传，下载解压缩即用，还能自动计算依赖是否打架，保证不同语言下工具的基本使用，简直是太完美了！</p>
 <p>不过用过一周之后就会了解到… 由于基于python，conda的依赖计算速度… 是真的慢，10个左右的工具可能就会算个20分钟了，这在依赖会有问题的时候尤其令人恼火… 约等于跑了20分钟的计算，发现变量名称写得有问题，又没有设好断点，只能从头再来一遍… 可能也就是这个缺点大到影响一般使用，就有人开发了Conda的C++实现：<a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">Mamba</a>，然后又有了<a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html">micromamba</a>，再后来有了今天的主角，<a target="_blank" rel="noopener" href="https://pixi.sh/latest/">pixi</a></p>
 <h2 id="pixi简介"><a href="#pixi简介" class="headerlink" title="pixi简介"></a>pixi简介</h2><p>简单来说，pixi是一个为开发者设计的多语言软件包管理程序，目的在于使开发者能够轻松的创建和锁定多语言开发环境，使计算结果更容易被重复。</p>
 <p>pixi的简单使用方法(通过命令行)可以参见它的<a target="_blank" rel="noopener" href="https://pixi.sh/latest/">官方文档</a>，这里不多说，因为对我来说主要会用它进行环境部署，会一次性安装一大堆的东西，因此一般都是用配置文件来进行配置的。</p>
-<h2 id="pixi基本使用"><a href="#pixi基本使用" class="headerlink" title="pixi基本使用"></a>pixi基本使用</h2><p>pixi使用<code>toml</code>格式的配置文件(得，又多了一种)，其格式有点类似ini…但是语法更复杂，能支持更多的东西。</p>
+<h2 id="pixi基本使用"><a href="#pixi基本使用" class="headerlink" title="pixi基本使用"></a>pixi基本使用</h2><p>pixi使用<code>toml</code>格式的配置文件(得，又多了一种)，其格式有点类似<code>ini</code>…但是语法更复杂，能支持更多的东西。</p>
 <p>想使用<code>toml</code>来管理的话，安装好pixi后，使用<code>pixi init</code>就可以创建一个管理项目，并在当前目录生成一份配置文件了，刚生成的文件包含如下内容。</p>
 <figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[project]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;demo&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">description</span> = <span class="string">&quot;Add a short description here&quot;</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;silenwang &lt;silenseek14@gmail.com&gt;&quot;</span>]</span><br><span class="line"><span class="attr">channels</span> = [<span class="string">&quot;conda-forge&quot;</span>]</span><br><span class="line"><span class="attr">platforms</span> = [<span class="string">&quot;linux-aarch64&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[tasks]</span></span><br><span class="line"></span><br><span class="line"><span class="section">[dependencies]</span></span><br></pre></td></tr></table></figure>
 
@@ -2564,10 +2564,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-03T01:21:41+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月3日</p>
   </a>
 </div>
 
@@ -2590,7 +2590,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub&summary=生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub&summary=生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
 "
           
           >
@@ -2603,7 +2603,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub&summary=生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub&summary=生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
 "
           
           >
@@ -2616,7 +2616,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub&summary=生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/&title=新工具解决老问题----使用pixi进行生物信息环境配置 - SylensHub&summary=生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。
 "
           
           >
@@ -3285,7 +3285,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2024/06/22/新工具解决老问题-使用pixi进行生物信息环境配置/","name":"新工具解决老问题----使用pixi进行生物信息环境配置"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"新工具解决老问题----使用pixi进行生物信息环境配置","description":"生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其片化的程度，我是觉得绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/","wordCount":93,"datePublished":"2024-06-21T17:26:08.000Z","dateModified":"2024-11-17T14:11:49.036Z","articleSection":"Bioinfomatic","keywords":"conda,pixi","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2024/06/22/新工具解决老问题-使用pixi进行生物信息环境配置/","name":"新工具解决老问题----使用pixi进行生物信息环境配置"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"新工具解决老问题----使用pixi进行生物信息环境配置","description":"生物信息是一门交叉学科，而生物信息学中使用的工具集或技术栈，也是相当的“交叉”，其碎片化的程度，我绝对不亚于Linux发行版… 这也带来了大家都会面临的难题：生物信息分析环境部署。\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/","wordCount":91,"datePublished":"2024-06-21T17:26:08.000Z","dateModified":"2025-07-02T17:21:41.142Z","articleSection":"Bioinfomatic","keywords":"conda,pixi","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
