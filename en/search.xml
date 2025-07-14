@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>What AI Can and Cannot Do - Two Failed Attempts</title>
+      <link href="/en/2025/07/15/AI%E8%83%BD%E5%81%9A%E5%92%8C%E4%B8%8D%E8%83%BD%E5%81%9A%E7%9A%84-%E4%B8%A4%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%B0%9D%E8%AF%95/"/>
+      <url>/en/2025/07/15/AI%E8%83%BD%E5%81%9A%E5%92%8C%E4%B8%8D%E8%83%BD%E5%81%9A%E7%9A%84-%E4%B8%A4%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%B0%9D%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p>Compared to two years ago at my previous company, I now use AI much more frequently. If the limitation back then was the convenience of the tools themselves, the current limitation seems to be my own knowledge and technical skills rather than AI.</p><span id="more"></span><p>Last weekend I made two attempts. The first was trying to use Aider and Openhands to help me modify Theia’s remote module. According to AI’s explanation, Theia’s design is completely frontend-backend separated - the frontend only displays while the backend handles all requests. If this is correct, developing a remote version that works in the browser version of Theia should be feasible. With this, I could permanently solve my pain point when using VSCode on Fydetab Duo - insufficient graphics performance causing VSCode to lag.</p><p>However, although both agents could provide some guidance, without basic knowledge of Node.js&#x2F;Electron, I couldn’t determine whether the code written by the agents was reliable just based on their responses. Since I also didn’t know how to debug a large Node.js project like Theia, I couldn’t identify the issues from error messages. In the end, with my current knowledge and skills, I still couldn’t complete the development under AI’s guidance.</p><p>The second attempt was to solve the same problem but use a different method. Since I couldn’t build my desired IDE, could I improve the graphics performance of Fydetab Duo? Specifically, by updating the kernel to enable Vulkan support on FydeOS running on Duo. With Vulkan, VSCode’s performance might improve significantly.</p><p>This attempt also failed. While AI guided me to find the new kernel source code that might work with RK3588, I couldn’t fully understand the descriptions about modifying&#x2F;replacing content during compilation. So I tried the most brute-force approach - directly replacing the kernel project repo in overlay, forcibly using 6.12 as 6.1. I thought at worst some features wouldn’t work? I underestimated it - it bricked my engineering version Duo…</p><p>Again, the same problem - with my knowledge and skills, I didn’t know whether what I was doing was correct, and it was hard to get effective improvement information from the results. I only knew it didn’t work, but how to make it work? Based on two years of experience, blindly trying AI’s suggestions one by one isn’t reliable, as there might be many solutions that professionals would immediately recognize as wrong. Without any foundation, after endless trials, I couldn’t get any positive feedback.</p><p>Therefore, I think the AI I can currently use is truly just a Copilot. I shouldn’t expect it to implement anything from scratch that I have no concept of. Only after establishing basic knowledge and being able to get effective feedback (at least being able to test and understand error messages) can I maximize its value as a Copilot.</p><p>That is, going from 0 to 1 is still difficult, but after getting started, going from 1 to 10 should be easier than before. As for 10 to 100… I’ve never reached 100, so I really don’t know… But I think… these might be limited by context length.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Script </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> aider </tag>
+            
+            <tag> openfyde </tag>
+            
+            <tag> theia </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Trying to compile openfyde again (Part 2)</title>
       <link href="/en/2025/06/19/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8B/"/>
       <url>/en/2025/06/19/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8B/</url>
@@ -20,9 +51,9 @@
       
         <tags>
             
-            <tag> fydeos </tag>
-            
             <tag> openfyde </tag>
+            
+            <tag> fydeos </tag>
             
         </tags>
       
@@ -274,11 +305,11 @@
       
         <tags>
             
+            <tag> openfyde </tag>
+            
             <tag> chromeos </tag>
             
             <tag> fydeos </tag>
-            
-            <tag> openfyde </tag>
             
         </tags>
       
@@ -554,9 +585,9 @@
       
         <tags>
             
-            <tag> chatGPT </tag>
-            
             <tag> AI </tag>
+            
+            <tag> chatGPT </tag>
             
         </tags>
       
