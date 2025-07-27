@@ -37,7 +37,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>使用singularity部署Rstudio并指定conda环境下的R - SylensHub</title>
-  <meta name="keywords" content="conda,rstudio,singularity,null">
+  <meta name="keywords" content="conda,容器技术,singularity,Rstudio部署,conda环境,rstudio-server,null">
   <meta desc name="description" content="今天需要部署个Rstudio给别人用, 记录一下部署的步骤以及要点
  - Sylens Wong - SylensHub">
   
@@ -49,11 +49,14 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-07-26T08:13:50.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.033Z">
+<meta property="article:modified_time" content="2025-07-17T08:51:10.246Z">
 <meta property="article:author" content="Sylens Wong">
 <meta property="article:tag" content="conda">
-<meta property="article:tag" content="rstudio">
+<meta property="article:tag" content="容器技术">
 <meta property="article:tag" content="singularity">
+<meta property="article:tag" content="Rstudio部署">
+<meta property="article:tag" content="conda环境">
+<meta property="article:tag" content="rstudio-server">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1635,7 +1638,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1752513233613),
+    lastupdate: new Date(1753613879919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2553,10 +2556,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-17T16:51:10+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月17日</p>
   </a>
 </div>
 
@@ -2565,8 +2568,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/conda/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>conda</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rstudio/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>rstudio</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/singularity/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>singularity</p></a></div>
-  <span hidden itemprop="keywords">conda rstudio singularity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/conda/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>conda</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>容器技术</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/singularity/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>singularity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Rstudio%E9%83%A8%E7%BD%B2/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Rstudio部署</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/conda%E7%8E%AF%E5%A2%83/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>conda环境</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rstudio-server/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>rstudio-server</p></a></div>
+  <span hidden itemprop="keywords">conda 容器技术 singularity Rstudio部署 conda环境 rstudio-server</span>
 
 
         
@@ -3264,7 +3267,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2023/07/26/使用singularity部署Rstudio并指定conda环境下的R/","name":"使用singularity部署Rstudio并指定conda环境下的R"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用singularity部署Rstudio并指定conda环境下的R","description":"今天需要部署个Rstudio给别人用, 记录一下部署的步骤以及要点\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2023/07/26/%E4%BD%BF%E7%94%A8singularity%E9%83%A8%E7%BD%B2Rstudio%E5%B9%B6%E6%8C%87%E5%AE%9Aconda%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84R/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2023/07/26/%E4%BD%BF%E7%94%A8singularity%E9%83%A8%E7%BD%B2Rstudio%E5%B9%B6%E6%8C%87%E5%AE%9Aconda%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84R/","wordCount":34,"datePublished":"2023-07-26T08:13:50.000Z","dateModified":"2024-11-17T14:11:49.033Z","articleSection":"Bioinfomatic","keywords":"conda,rstudio,singularity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2023/07/26/使用singularity部署Rstudio并指定conda环境下的R/","name":"使用singularity部署Rstudio并指定conda环境下的R"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用singularity部署Rstudio并指定conda环境下的R","description":"今天需要部署个Rstudio给别人用, 记录一下部署的步骤以及要点\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2023/07/26/%E4%BD%BF%E7%94%A8singularity%E9%83%A8%E7%BD%B2Rstudio%E5%B9%B6%E6%8C%87%E5%AE%9Aconda%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84R/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2023/07/26/%E4%BD%BF%E7%94%A8singularity%E9%83%A8%E7%BD%B2Rstudio%E5%B9%B6%E6%8C%87%E5%AE%9Aconda%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84R/","wordCount":34,"datePublished":"2023-07-26T08:13:50.000Z","dateModified":"2025-07-17T08:51:10.246Z","articleSection":"Bioinfomatic","keywords":"conda,容器技术,singularity,Rstudio部署,conda环境,rstudio-server","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

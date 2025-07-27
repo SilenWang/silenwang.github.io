@@ -37,7 +37,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>在Jupyter中注册新的Python或R内核 - SylensHub</title>
-  <meta name="keywords" content="jupyter,null">
+  <meta name="keywords" content="Python,R,conda,Jupyter,内核注册,技术教程,null">
   <meta desc name="description" content="进行测试时经常要新建一个conda环境, 然后将环境装上jupyter内核后用notebook进行测试. 每次注册新内核都要重查, 所以还是做个记录好了…
  - Sylens Wong - SylensHub">
   
@@ -49,9 +49,14 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-17T04:53:40.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.034Z">
+<meta property="article:modified_time" content="2025-07-17T09:06:11.479Z">
 <meta property="article:author" content="Sylens Wong">
-<meta property="article:tag" content="jupyter">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="conda">
+<meta property="article:tag" content="Jupyter">
+<meta property="article:tag" content="内核注册">
+<meta property="article:tag" content="技术教程">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1633,7 +1638,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1752513233613),
+    lastupdate: new Date(1753613879919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2525,6 +2530,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate YOUR_ENV</span><br><span class="line">conda install jupyter r-irkernel</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IRkernel<span class="operator">::</span>installspec<span class="punctuation">(</span>name <span class="operator">=</span> <span class="string">&#x27;REG_NAME&#x27;</span><span class="punctuation">,</span> displayname <span class="operator">=</span> <span class="string">&#x27;ENV_NAME&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
   </div>
   
   
@@ -2548,10 +2554,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-17T17:06:11+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月17日</p>
   </a>
 </div>
 
@@ -2560,8 +2566,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/jupyter/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>jupyter</p></a></div>
-  <span hidden itemprop="keywords">jupyter</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/R/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>R</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/conda/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>conda</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Jupyter/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Jupyter</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%86%85%E6%A0%B8%E6%B3%A8%E5%86%8C/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>内核注册</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>技术教程</p></a></div>
+  <span hidden itemprop="keywords">Python R conda Jupyter 内核注册 技术教程</span>
 
 
         
@@ -3259,7 +3265,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Script/","name":"Script"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2023/01/17/在Jupyter中注册新的Python或R内核/","name":"在Jupyter中注册新的Python或R内核"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"在Jupyter中注册新的Python或R内核","description":"进行测试时经常要新建一个conda环境, 然后将环境装上jupyter内核后用notebook进行测试. 每次注册新内核都要重查, 所以还是做个记录好了…\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2023/01/17/%E5%9C%A8Jupyter%E4%B8%AD%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84Python%E6%88%96R%E5%86%85%E6%A0%B8/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2023/01/17/%E5%9C%A8Jupyter%E4%B8%AD%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84Python%E6%88%96R%E5%86%85%E6%A0%B8/","wordCount":78,"datePublished":"2023-01-17T04:53:40.000Z","dateModified":"2024-11-17T14:11:49.034Z","articleSection":"Script","keywords":"jupyter","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Script/","name":"Script"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2023/01/17/在Jupyter中注册新的Python或R内核/","name":"在Jupyter中注册新的Python或R内核"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"在Jupyter中注册新的Python或R内核","description":"进行测试时经常要新建一个conda环境, 然后将环境装上jupyter内核后用notebook进行测试. 每次注册新内核都要重查, 所以还是做个记录好了…\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2023/01/17/%E5%9C%A8Jupyter%E4%B8%AD%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84Python%E6%88%96R%E5%86%85%E6%A0%B8/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2023/01/17/%E5%9C%A8Jupyter%E4%B8%AD%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84Python%E6%88%96R%E5%86%85%E6%A0%B8/","wordCount":78,"datePublished":"2023-01-17T04:53:40.000Z","dateModified":"2025-07-17T09:06:11.479Z","articleSection":"Script","keywords":"Python,R,conda,Jupyter,内核注册,技术教程","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

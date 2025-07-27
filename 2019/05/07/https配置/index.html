@@ -37,7 +37,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>使用Caddy设置https - SylensHub</title>
-  <meta name="keywords" content="caddy,https,null">
+  <meta name="keywords" content="HTTPS,SSL证书,Caddy,反向代理,域名,null">
   <meta desc name="description" content="之前自建了一个gogs, 但是并没有弄https, 直接用的http, 上次自己试了一下发现截密码太容易了…所以思考了一下…还是弄个域名然后上了https…
  - Sylens Wong - SylensHub">
   
@@ -49,10 +49,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2019-05-07T13:59:51.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.028Z">
+<meta property="article:modified_time" content="2025-07-17T09:33:58.442Z">
 <meta property="article:author" content="Sylens Wong">
-<meta property="article:tag" content="caddy">
-<meta property="article:tag" content="https">
+<meta property="article:tag" content="HTTPS">
+<meta property="article:tag" content="SSL证书">
+<meta property="article:tag" content="Caddy">
+<meta property="article:tag" content="反向代理">
+<meta property="article:tag" content="域名">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1634,7 +1637,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1752513233613),
+    lastupdate: new Date(1753613879919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2524,6 +2527,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>上面文件中配置了两个容器, gogs只暴露22端口用于ssh服务, http的端口不暴露, Caddy可以在配置文件里直接设置访问(虽然我不知道怎么做到的).<br>Caddy的容器则注意设置<code>ACME_AGREE=true</code>这个环境变量的设置, 不然acme会提示不能使用… 再就是要指定Caddy的配置文件<code>Caddyfile</code>和上面生成的证书和密钥了. Caddy容器的端口暴露这里设置的有问题…之后再看怎么改.</p>
 <p>Caddyfile的具体内容如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">your.domain &#123;</span><br><span class="line">    proxy / gogs:3000 &#123;</span><br><span class="line">        header_upstream Host &#123;host&#125;</span><br><span class="line">        header_upstream X-Real-IP &#123;remote&#125;</span><br><span class="line">        header_upstream X-Forwarded-For &#123;remote&#125;</span><br><span class="line">        header_upstream X-Forwarded-Proto &#123;scheme&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    log /var/log/caddy.log</span><br><span class="line">    gzip</span><br><span class="line">    tls /root/fullchain.cer /root/your.domain.key</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
   </div>
   
   
@@ -2547,10 +2551,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-17T17:33:58+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月17日</p>
   </a>
 </div>
 
@@ -2559,8 +2563,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/caddy/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>caddy</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/https/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>https</p></a></div>
-  <span hidden itemprop="keywords">caddy https</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/HTTPS/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>HTTPS</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SSL%E8%AF%81%E4%B9%A6/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>SSL证书</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Caddy/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Caddy</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>反向代理</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9F%9F%E5%90%8D/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>域名</p></a></div>
+  <span hidden itemprop="keywords">HTTPS SSL证书 Caddy 反向代理 域名</span>
 
 
         
@@ -3248,7 +3252,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Others/","name":"Others"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/05/07/https配置/","name":"使用Caddy设置https"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用Caddy设置https","description":"之前自建了一个gogs, 但是并没有弄https, 直接用的http, 上次自己试了一下发现截密码太容易了…所以思考了一下…还是弄个域名然后上了https…\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/05/07/https%E9%85%8D%E7%BD%AE/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/05/07/https%E9%85%8D%E7%BD%AE/","wordCount":79,"datePublished":"2019-05-07T13:59:51.000Z","dateModified":"2024-11-17T14:11:49.028Z","articleSection":"Others","keywords":"caddy,https","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Others/","name":"Others"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/05/07/https配置/","name":"使用Caddy设置https"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用Caddy设置https","description":"之前自建了一个gogs, 但是并没有弄https, 直接用的http, 上次自己试了一下发现截密码太容易了…所以思考了一下…还是弄个域名然后上了https…\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/05/07/https%E9%85%8D%E7%BD%AE/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/05/07/https%E9%85%8D%E7%BD%AE/","wordCount":79,"datePublished":"2019-05-07T13:59:51.000Z","dateModified":"2025-07-17T09:33:58.442Z","articleSection":"Others","keywords":"HTTPS,SSL证书,Caddy,反向代理,域名","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

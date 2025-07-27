@@ -20,13 +20,19 @@
       
         <tags>
             
-            <tag> AI </tag>
+            <tag> AI辅助开发 </tag>
+            
+            <tag> 技术尝试 </tag>
+            
+            <tag> Theia </tag>
+            
+            <tag> FydeOS </tag>
+            
+            <tag> 内核 </tag>
             
             <tag> aider </tag>
             
             <tag> openfyde </tag>
-            
-            <tag> theia </tag>
             
         </tags>
       
@@ -55,6 +61,14 @@
             
             <tag> fydeos </tag>
             
+            <tag> 硬件兼容 </tag>
+            
+            <tag> 编译 </tag>
+            
+            <tag> 镜像生成 </tag>
+            
+            <tag> Rockchip </tag>
+            
         </tags>
       
     </entry>
@@ -78,9 +92,17 @@
       
         <tags>
             
-            <tag> theia </tag>
+            <tag> FydeOS </tag>
             
-            <tag> github </tag>
+            <tag> ChromeOS </tag>
+            
+            <tag> ARM </tag>
+            
+            <tag> GitHub Actions </tag>
+            
+            <tag> Codespaces </tag>
+            
+            <tag> theia-ide </tag>
             
         </tags>
       
@@ -109,6 +131,14 @@
             
             <tag> fydeos </tag>
             
+            <tag> 系统编译 </tag>
+            
+            <tag> Linux系统 </tag>
+            
+            <tag> 补丁修复 </tag>
+            
+            <tag> chroot环境 </tag>
+            
         </tags>
       
     </entry>
@@ -132,11 +162,15 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> 自动化测试 </tag>
+            
+            <tag> 浏览器测试 </tag>
+            
+            <tag> playwright </tag>
             
             <tag> pytest </tag>
             
-            <tag> playwright </tag>
+            <tag> python </tag>
             
         </tags>
       
@@ -161,9 +195,15 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> 自动化测试 </tag>
             
             <tag> pytest </tag>
+            
+            <tag> python </tag>
+            
+            <tag> 测试 </tag>
+            
+            <tag> API测试 </tag>
             
         </tags>
       
@@ -188,7 +228,25 @@
       
         <tags>
             
+            <tag> Linux安全 </tag>
+            
+            <tag> 服务器安全 </tag>
+            
+            <tag> 恶意程序 </tag>
+            
+            <tag> 挖矿病毒 </tag>
+            
+            <tag> 系统工具 </tag>
+            
             <tag> linux </tag>
+            
+            <tag> security </tag>
+            
+            <tag> malware </tag>
+            
+            <tag> mining-virus </tag>
+            
+            <tag> system-tools </tag>
             
         </tags>
       
@@ -213,9 +271,21 @@
       
         <tags>
             
-            <tag> AI </tag>
-            
             <tag> aider </tag>
+            
+            <tag> 自动化 </tag>
+            
+            <tag> automation </tag>
+            
+            <tag> 命令行工具 </tag>
+            
+            <tag> AI编程 </tag>
+            
+            <tag> 批量处理 </tag>
+            
+            <tag> AI-assisted programming </tag>
+            
+            <tag> command-line tool </tag>
             
         </tags>
       
@@ -240,9 +310,21 @@
       
         <tags>
             
-            <tag> github </tag>
+            <tag> workflow </tag>
+            
+            <tag> 持续集成 </tag>
+            
+            <tag> 自动化 </tag>
+            
+            <tag> 工作流 </tag>
             
             <tag> github actions </tag>
+            
+            <tag> ci </tag>
+            
+            <tag> cd </tag>
+            
+            <tag> automation </tag>
             
         </tags>
       
@@ -267,9 +349,19 @@
       
         <tags>
             
+            <tag> R语言 </tag>
+            
+            <tag> 面向对象 </tag>
+            
             <tag> rlang </tag>
             
-            <tag> object </tag>
+            <tag> R6 </tag>
+            
+            <tag> S3 </tag>
+            
+            <tag> S4 </tag>
+            
+            <tag> object-oriented </tag>
             
         </tags>
       
@@ -294,9 +386,17 @@
       
         <tags>
             
-            <tag> box </tag>
+            <tag> R语言 </tag>
+            
+            <tag> 模块化开发 </tag>
+            
+            <tag> box包 </tag>
+            
+            <tag> 代码管理 </tag>
             
             <tag> rlang </tag>
+            
+            <tag> box </tag>
             
         </tags>
       
@@ -323,9 +423,19 @@
             
             <tag> openfyde </tag>
             
+            <tag> Linux </tag>
+            
             <tag> chromeos </tag>
             
             <tag> fydeos </tag>
+            
+            <tag> 编译 </tag>
+            
+            <tag> Fydetab duo </tag>
+            
+            <tag> Chromium OS </tag>
+            
+            <tag> 开发环境 </tag>
             
         </tags>
       
@@ -350,9 +460,15 @@
       
         <tags>
             
-            <tag> fydeos </tag>
+            <tag> FydeOS </tag>
             
             <tag> pixi </tag>
+            
+            <tag> FydeTab Duo </tag>
+            
+            <tag> Linux子系统 </tag>
+            
+            <tag> Chromebook </tag>
             
         </tags>
       
@@ -377,13 +493,17 @@
       
         <tags>
             
-            <tag> fydeos </tag>
+            <tag> FydeOS </tag>
+            
+            <tag> arm </tag>
+            
+            <tag> Fydetab Duo </tag>
+            
+            <tag> Linux环境配置 </tag>
             
             <tag> hexo </tag>
             
             <tag> pixi </tag>
-            
-            <tag> fydetab duo </tag>
             
         </tags>
       
@@ -410,11 +530,13 @@
             
             <tag> jupyter </tag>
             
+            <tag> 单细胞分析 </tag>
+            
+            <tag> 拟时间分析 </tag>
+            
             <tag> monocle3 </tag>
             
-            <tag> singlecell </tag>
-            
-            <tag> xeus </tag>
+            <tag> xeus-r </tag>
             
         </tags>
       
@@ -441,7 +563,15 @@
             
             <tag> conda </tag>
             
+            <tag> 依赖管理 </tag>
+            
             <tag> pixi </tag>
+            
+            <tag> 生物信息 </tag>
+            
+            <tag> 环境配置 </tag>
+            
+            <tag> mamba </tag>
             
         </tags>
       
@@ -466,7 +596,21 @@
       
         <tags>
             
-            <tag> 发牢骚 </tag>
+            <tag> 技术博客 </tag>
+            
+            <tag> 写作困境 </tag>
+            
+            <tag> 时间管理 </tag>
+            
+            <tag> 焦虑 </tag>
+            
+            <tag> 持续记录 </tag>
+            
+            <tag> tech-blog </tag>
+            
+            <tag> writing </tag>
+            
+            <tag> time-management </tag>
             
         </tags>
       
@@ -491,9 +635,17 @@
       
         <tags>
             
+            <tag> chromebook </tag>
+            
+            <tag> 二合一设备 </tag>
+            
+            <tag> 安卓应用兼容性 </tag>
+            
             <tag> chromeos </tag>
             
-            <tag> chromebook </tag>
+            <tag> fydeos </tag>
+            
+            <tag> arm </tag>
             
         </tags>
       
@@ -518,9 +670,17 @@
       
         <tags>
             
-            <tag> sinularity </tag>
+            <tag> 容器技术 </tag>
             
-            <tag> container </tag>
+            <tag> singularity </tag>
+            
+            <tag> ChatGLM2 </tag>
+            
+            <tag> chatglm.cpp </tag>
+            
+            <tag> 容器构建 </tag>
+            
+            <tag> HPC </tag>
             
         </tags>
       
@@ -547,9 +707,15 @@
             
             <tag> conda </tag>
             
-            <tag> rstudio </tag>
+            <tag> 容器技术 </tag>
             
             <tag> singularity </tag>
+            
+            <tag> Rstudio部署 </tag>
+            
+            <tag> conda环境 </tag>
+            
+            <tag> rstudio-server </tag>
             
         </tags>
       
@@ -574,9 +740,15 @@
       
         <tags>
             
-            <tag> github </tag>
+            <tag> Hexo </tag>
             
-            <tag> codespace </tag>
+            <tag> 云端开发 </tag>
+            
+            <tag> 博客写作 </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> Codespace </tag>
             
         </tags>
       
@@ -601,9 +773,19 @@
       
         <tags>
             
-            <tag> AI </tag>
+            <tag> Python </tag>
             
-            <tag> chatGPT </tag>
+            <tag> ChatGPT </tag>
+            
+            <tag> API开发 </tag>
+            
+            <tag> 文献解析 </tag>
+            
+            <tag> 独立开发 </tag>
+            
+            <tag> Gradio </tag>
+            
+            <tag> HuggingFace </tag>
             
         </tags>
       
@@ -628,11 +810,15 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
             <tag> chatGPT </tag>
             
-            <tag> flask </tag>
+            <tag> 编程辅助 </tag>
+            
+            <tag> 静态网站 </tag>
             
         </tags>
       
@@ -661,6 +847,12 @@
             
             <tag> 钉钉 </tag>
             
+            <tag> 中文输入 </tag>
+            
+            <tag> 界面缩放 </tag>
+            
+            <tag> 会议功能 </tag>
+            
         </tags>
       
     </entry>
@@ -684,7 +876,21 @@
       
         <tags>
             
-            <tag> 日常 </tag>
+            <tag> Daily </tag>
+            
+            <tag> 生活 </tag>
+            
+            <tag> 新年 </tag>
+            
+            <tag> 期望 </tag>
+            
+            <tag> 沮丧 </tag>
+            
+            <tag> New Year </tag>
+            
+            <tag> Expectation </tag>
+            
+            <tag> Frustration </tag>
             
         </tags>
       
@@ -711,6 +917,16 @@
             
             <tag> Github </tag>
             
+            <tag> 个人主页 </tag>
+            
+            <tag> 美化 </tag>
+            
+            <tag> Github Stats </tag>
+            
+            <tag> Shields.io </tag>
+            
+            <tag> README </tag>
+            
         </tags>
       
     </entry>
@@ -734,7 +950,19 @@
       
         <tags>
             
-            <tag> hexo </tag>
+            <tag> 博客升级 </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Volantis主题 </tag>
+            
+            <tag> 插件配置 </tag>
+            
+            <tag> utterances </tag>
+            
+            <tag> B站卡片 </tag>
+            
+            <tag> Github卡片 </tag>
             
         </tags>
       
@@ -759,7 +987,23 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏 </tag>
+            
+            <tag> 3DS </tag>
+            
+            <tag> 主机游戏 </tag>
+            
+            <tag> 游戏回顾 </tag>
+            
+            <tag> 游戏平台 </tag>
+            
+            <tag> PSV </tag>
+            
+            <tag> NS </tag>
+            
+            <tag> PC </tag>
+            
+            <tag> Quest2 </tag>
             
         </tags>
       
@@ -784,7 +1028,17 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏评测 </tag>
+            
+            <tag> 女神异闻录 </tag>
+            
+            <tag> P4G </tag>
+            
+            <tag> P5R </tag>
+            
+            <tag> JRPG </tag>
+            
+            <tag> Persona </tag>
             
         </tags>
       
@@ -809,7 +1063,17 @@
       
         <tags>
             
-            <tag> jupyter </tag>
+            <tag> Python </tag>
+            
+            <tag> R </tag>
+            
+            <tag> conda </tag>
+            
+            <tag> Jupyter </tag>
+            
+            <tag> 内核注册 </tag>
+            
+            <tag> 技术教程 </tag>
             
         </tags>
       
@@ -834,9 +1098,15 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Linux </tag>
             
-            <tag> qq </tag>
+            <tag> 腾讯 </tag>
+            
+            <tag> QQ </tag>
+            
+            <tag> Electron </tag>
+            
+            <tag> Tencent </tag>
             
         </tags>
       
@@ -862,6 +1132,10 @@
         <tags>
             
             <tag> Python </tag>
+            
+            <tag> 数据处理 </tag>
+            
+            <tag> 数据清洗 </tag>
             
             <tag> Pandas </tag>
             
@@ -890,9 +1164,21 @@
       
         <tags>
             
+            <tag> 内网穿透 </tag>
+            
+            <tag> VPN </tag>
+            
+            <tag> socks5代理 </tag>
+            
+            <tag> 远程办公 </tag>
+            
+            <tag> 流量代理 </tag>
+            
             <tag> nps </tag>
             
             <tag> clash </tag>
+            
+            <tag> socks5 </tag>
             
         </tags>
       
@@ -917,7 +1203,17 @@
       
         <tags>
             
+            <tag> 生活感悟 </tag>
+            
+            <tag> 年度总结 </tag>
+            
+            <tag> 负面情绪 </tag>
+            
             <tag> 2023 </tag>
+            
+            <tag> life-reflection </tag>
+            
+            <tag> year-summary </tag>
             
         </tags>
       
@@ -942,11 +1238,17 @@
       
         <tags>
             
-            <tag> chromeos </tag>
+            <tag> FydeOS </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> ChromeOS </tag>
+            
+            <tag> 云办公 </tag>
             
             <tag> chromebook </tag>
             
-            <tag> fydeos </tag>
+            <tag> 远程开发 </tag>
             
         </tags>
       
@@ -971,13 +1273,19 @@
       
         <tags>
             
-            <tag> https </tag>
+            <tag> nps </tag>
             
             <tag> jupyter </tag>
             
-            <tag> 云 </tag>
+            <tag> 云端开发 </tag>
             
-            <tag> 防火墙 </tag>
+            <tag> 远程工作 </tag>
+            
+            <tag> 自部署服务 </tag>
+            
+            <tag> code-server </tag>
+            
+            <tag> https </tag>
             
             <tag> iptables </tag>
             
@@ -1006,6 +1314,14 @@
             
             <tag> 图数据库 </tag>
             
+            <tag> 数据库设计 </tag>
+            
+            <tag> 关系型数据库 </tag>
+            
+            <tag> Neo4j </tag>
+            
+            <tag> Graph Database </tag>
+            
         </tags>
       
     </entry>
@@ -1033,6 +1349,12 @@
             
             <tag> Marp </tag>
             
+            <tag> VSCode </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> 演示文档 </tag>
+            
         </tags>
       
     </entry>
@@ -1056,9 +1378,21 @@
       
         <tags>
             
+            <tag> 生物信息学 </tag>
+            
             <tag> 论文 </tag>
             
+            <tag> 免疫学 </tag>
+            
+            <tag> 肿瘤研究 </tag>
+            
+            <tag> 文献管理 </tag>
+            
             <tag> zotero </tag>
+            
+            <tag> rispy </tag>
+            
+            <tag> wordcloud </tag>
             
         </tags>
       
@@ -1083,13 +1417,19 @@
       
         <tags>
             
-            <tag> R </tag>
+            <tag> 数据可视化 </tag>
             
-            <tag> ggplot </tag>
+            <tag> R语言 </tag>
+            
+            <tag> ggplot2 </tag>
             
             <tag> ggpubr </tag>
             
             <tag> survminer </tag>
+            
+            <tag> 显著性检验 </tag>
+            
+            <tag> 生存分析 </tag>
             
         </tags>
       
@@ -1114,11 +1454,15 @@
       
         <tags>
             
-            <tag> ploty </tag>
+            <tag> Python </tag>
             
-            <tag> dash </tag>
+            <tag> 数据可视化 </tag>
             
-            <tag> python </tag>
+            <tag> 交互式分析 </tag>
+            
+            <tag> Dash </tag>
+            
+            <tag> Plotly </tag>
             
         </tags>
       
@@ -1143,9 +1487,15 @@
       
         <tags>
             
-            <tag> Scrapy </tag>
+            <tag> Python </tag>
             
             <tag> 爬虫 </tag>
+            
+            <tag> 框架 </tag>
+            
+            <tag> 数据采集 </tag>
+            
+            <tag> Scrapy </tag>
             
         </tags>
       
@@ -1170,7 +1520,15 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> 钉钉 </tag>
+            
+            <tag> AUR </tag>
+            
+            <tag> Arch Linux </tag>
+            
+            <tag> 办公软件 </tag>
             
         </tags>
       
@@ -1194,6 +1552,10 @@
       
       
         <tags>
+            
+            <tag> 流程图 </tag>
+            
+            <tag> 图表工具 </tag>
             
             <tag> graphviz </tag>
             
@@ -1222,7 +1584,17 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 密特罗德 </tag>
+            
+            <tag> 银河城 </tag>
+            
+            <tag> 恶魔城 </tag>
+            
+            <tag> 3DS </tag>
+            
+            <tag> Metroid </tag>
+            
+            <tag> Samus </tag>
             
         </tags>
       
@@ -1247,7 +1619,15 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 大逆转裁判 </tag>
+            
+            <tag> 成步堂三部曲 </tag>
+            
+            <tag> 游戏评论 </tag>
+            
+            <tag> 医学伦理 </tag>
+            
+            <tag> 科研困境 </tag>
             
         </tags>
       
@@ -1278,6 +1658,12 @@
             
             <tag> manjaro </tag>
             
+            <tag> rsa加密 </tag>
+            
+            <tag> ssh配置 </tag>
+            
+            <tag> 密钥认证 </tag>
+            
         </tags>
       
     </entry>
@@ -1301,15 +1687,21 @@
       
         <tags>
             
-            <tag> dash </tag>
+            <tag> 生物信息学 </tag>
+            
+            <tag> snakemake </tag>
             
             <tag> python </tag>
             
+            <tag> 任务监控 </tag>
+            
+            <tag> Web应用 </tag>
+            
             <tag> flask </tag>
             
-            <tag> mongoDB </tag>
+            <tag> dash </tag>
             
-            <tag> pymongo </tag>
+            <tag> mongoDB </tag>
             
             <tag> flasgger </tag>
             
@@ -1336,13 +1728,21 @@
       
         <tags>
             
+            <tag> 安卓 </tag>
+            
             <tag> android </tag>
             
             <tag> 手机 </tag>
             
+            <tag> 刷机 </tag>
+            
             <tag> 魔趣 </tag>
             
+            <tag> 坚果Pro </tag>
+            
             <tag> Mokee </tag>
+            
+            <tag> custom ROM </tag>
             
         </tags>
       
@@ -1369,6 +1769,14 @@
             
             <tag> hexo </tag>
             
+            <tag> 主题升级 </tag>
+            
+            <tag> volantis </tag>
+            
+            <tag> npm </tag>
+            
+            <tag> 配置文件 </tag>
+            
         </tags>
       
     </entry>
@@ -1392,7 +1800,17 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
+            <tag> 生物信息学 </tag>
+            
+            <tag> 微卫星不稳定性 </tag>
+            
+            <tag> MSI </tag>
+            
             <tag> mSINGS </tag>
+            
+            <tag> samtools </tag>
             
         </tags>
       
@@ -1421,6 +1839,12 @@
             
             <tag> Python </tag>
             
+            <tag> Web开发 </tag>
+            
+            <tag> 后端 </tag>
+            
+            <tag> API </tag>
+            
         </tags>
       
     </entry>
@@ -1444,9 +1868,15 @@
       
         <tags>
             
+            <tag> github </tag>
+            
             <tag> hexo </tag>
             
+            <tag> 博客部署 </tag>
+            
             <tag> gitee </tag>
+            
+            <tag> git代理 </tag>
             
         </tags>
       
@@ -1473,7 +1903,11 @@
             
             <tag> Python </tag>
             
+            <tag> 数据处理 </tag>
+            
             <tag> Pandas </tag>
+            
+            <tag> 缺失值处理 </tag>
             
         </tags>
       
@@ -1498,7 +1932,15 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏 </tag>
+            
+            <tag> 怪物猎人 </tag>
+            
+            <tag> 冰原DLC </tag>
+            
+            <tag> Monster Hunter World </tag>
+            
+            <tag> Iceborne </tag>
             
         </tags>
       
@@ -1523,9 +1965,21 @@
       
         <tags>
             
+            <tag> adb </tag>
+            
+            <tag> APK破解 </tag>
+            
+            <tag> 反编译 </tag>
+            
+            <tag> Android逆向 </tag>
+            
             <tag> Apktools </tag>
             
-            <tag> crack </tag>
+            <tag> enjarify </tag>
+            
+            <tag> jd-gui </tag>
+            
+            <tag> uber-apk-signer </tag>
             
         </tags>
       
@@ -1550,9 +2004,19 @@
       
         <tags>
             
+            <tag> 数据可视化 </tag>
+            
+            <tag> R语言 </tag>
+            
             <tag> R </tag>
             
             <tag> ggplot </tag>
+            
+            <tag> ggplot2 </tag>
+            
+            <tag> 箱线图 </tag>
+            
+            <tag> 离群值处理 </tag>
             
         </tags>
       
@@ -1585,6 +2049,10 @@
             
             <tag> selenium </tag>
             
+            <tag> 网页抓取 </tag>
+            
+            <tag> Web自动化 </tag>
+            
         </tags>
       
     </entry>
@@ -1609,6 +2077,12 @@
         <tags>
             
             <tag> Python </tag>
+            
+            <tag> 魔术方法 </tag>
+            
+            <tag> 面向对象 </tag>
+            
+            <tag> 特殊方法 </tag>
             
         </tags>
       
@@ -1635,7 +2109,17 @@
             
             <tag> Python </tag>
             
+            <tag> 生物信息学 </tag>
+            
+            <tag> 并行计算 </tag>
+            
             <tag> snakemake </tag>
+            
+            <tag> 工作流管理 </tag>
+            
+            <tag> checkpoint </tag>
+            
+            <tag> DAG </tag>
             
         </tags>
       
@@ -1662,6 +2146,16 @@
             
             <tag> Python </tag>
             
+            <tag> 魔术方法 </tag>
+            
+            <tag> 上下文管理器 </tag>
+            
+            <tag> with语句 </tag>
+            
+            <tag> __enter__ </tag>
+            
+            <tag> __exit__ </tag>
+            
         </tags>
       
     </entry>
@@ -1685,7 +2179,17 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏 </tag>
+            
+            <tag> Monster Hunter World </tag>
+            
+            <tag> 怪物猎人世界 </tag>
+            
+            <tag> 历战爆鳞龙 </tag>
+            
+            <tag> 狩猎 </tag>
+            
+            <tag> Bazelgeuse </tag>
             
         </tags>
       
@@ -1710,7 +2214,19 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏 </tag>
+            
+            <tag> 怪物猎人世界 </tag>
+            
+            <tag> 樱火龙 </tag>
+            
+            <tag> 视频录制 </tag>
+            
+            <tag> looking-glass </tag>
+            
+            <tag> scream </tag>
+            
+            <tag> OBS </tag>
             
         </tags>
       
@@ -1735,7 +2251,19 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏评测 </tag>
+            
+            <tag> 大逆转裁判 </tag>
+            
+            <tag> 推理游戏 </tag>
+            
+            <tag> 成步堂三部曲 </tag>
+            
+            <tag> game-review </tag>
+            
+            <tag> ace-attorney </tag>
+            
+            <tag> the-great-ace-attorney </tag>
             
         </tags>
       
@@ -1760,9 +2288,15 @@
       
         <tags>
             
-            <tag> docker </tag>
+            <tag> Docker </tag>
             
-            <tag> dockerfile </tag>
+            <tag> R语言 </tag>
+            
+            <tag> Dockerfile </tag>
+            
+            <tag> 容器化 </tag>
+            
+            <tag> 镜像构建 </tag>
             
         </tags>
       
@@ -1787,7 +2321,15 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> systemd </tag>
+            
+            <tag> 服务管理 </tag>
+            
+            <tag> 自定义服务 </tag>
+            
+            <tag> service </tag>
             
         </tags>
       
@@ -1812,11 +2354,21 @@
       
         <tags>
             
-            <tag> GPU Passthrough </tag>
-            
             <tag> Manjaro </tag>
             
-            <tag> kvm </tag>
+            <tag> 显卡直通 </tag>
+            
+            <tag> KVM </tag>
+            
+            <tag> QEMU </tag>
+            
+            <tag> 虚拟化 </tag>
+            
+            <tag> AMD显卡 </tag>
+            
+            <tag> Windows虚拟机 </tag>
+            
+            <tag> 音频设备 </tag>
             
         </tags>
       
@@ -1829,7 +2381,7 @@
       <link href="/2019/09/02/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92_1/"/>
       <url>/2019/09/02/%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%BD%AE%E5%A4%87%E8%AE%A1%E5%88%92_1/</url>
       
-        <content type="html"><![CDATA[<p>本年年初的时候, 本来存了2000块, 准备用来买个二手服务器, 用来在测试软件之余顺便打打游戏. 但是看来看去, 感觉服务器还是太麻烦了…耗电大, 噪音也大, 如果要加装显卡还得改造…毕竟我在硬件方面毫无经验…所以最后还是改为了买个够用且够便宜的台式机. 本来我618都要下手了…可是碰上工作变动, 没有时间精力折腾, 于是作罢…前端时间看上的主板又在京东打特价, 终于没忍住剁了手…可是一查才发现…看中的CPU全网都很难买到全新了…(怕不是618全清完了), 几经周折, 最后好不容易把所有东西买全, 组起了我人生第一台自主组装的台式机~</p><!-- 摘要部分 --><span id="more"></span><h2 id="配件列表"><a href="#配件列表" class="headerlink" title="配件列表"></a>配件列表</h2><p>我的配置思路有点特别, 因为我对这台机器的预期有些特别. 我希望用它来满足一下所有需求:</p><ol><li>个人生信计算测试(多核心+大内存+linux)</li><li>个人基本游戏需要(入门显卡+win)</li><li>一机虚拟化为多机, 和女票一起打游戏(入门显卡x2+linux+显卡直通+win虚拟机)</li><li>机箱不要太大, 尽量小而美观</li></ol><p>综上, 我最后选了一个4内存插槽, 2显卡插槽的M-ATX的主板, 为的就是日后能上32G甚至64G内存(一些研究机构开发的原型软件内存开销巨大), 并且能上双显卡以虚拟化出两台Win机器. CPU方面就比较糟心, 因为宿主机需要, 集成显卡是必须的, 我又想支持AMD…所以本质上没得选, 现阶段只有2400G一个型号能用…</p><p>完整配件清单如下:</p><table><thead><tr><th>组件</th><th>型号</th><th>平台</th><th>价格</th><th>备注</th></tr></thead><tbody><tr><td>处理器</td><td>AMD Ryzen 2400G</td><td>淘宝</td><td>760</td><td>二手散片</td></tr><tr><td>显卡</td><td>迪兰恒进 RX560d 4G</td><td>淘宝</td><td>245</td><td>二手矿卡</td></tr><tr><td>主板</td><td>技嘉 B450M DS3H</td><td>京东</td><td>499</td><td>买完又降了50…</td></tr><tr><td>内存</td><td>十铨 火神DDR4 3000 8G x 2</td><td>京东</td><td>498</td><td></td></tr><tr><td>机箱</td><td>Thermaltake 启航者S3</td><td>京东</td><td>129</td><td></td></tr><tr><td>电源</td><td>Thermaltake Smart RGB 600W</td><td>京东</td><td>278</td><td>没看清…买了非模组化…</td></tr><tr><td>散热器</td><td>Thermaltake 彩虹D400P</td><td>京东</td><td>85</td><td>没看清…65W的CPU上了150W的散热器…</td></tr><tr><td>总计</td><td></td><td></td><td>2494</td><td>确实挺便宜的…</td></tr></tbody></table><p>买台式配件真的是比买笔记本复杂很多…我买的过程中就碰到了:</p><ul><li>CPU没货只好买二手散片, 结果二手散片也全网缺货, 来回找了三家才买到, 还从第一家那赚了30块的申诉赔偿(没货却不下架)…</li><li>显卡虽然知道是矿卡…但是没注意我买的这块是单DVI接口的…无奈后续补了个转换器</li><li>主板虽然有双显卡槽, 但是没法直接插俩显卡, 因为下面的显卡插槽会挡住PIN线和USB3.0的线, 需要额外转接头</li><li>看中的电源没货, 买替代的时候没注意替代的是非模组化电源…后续理线头疼</li><li>散热器的尺寸超出我想象…还好机箱买的比较大…</li><li>机箱比想象大好多…没想到跟散热歪打正着…</li></ul><p>买配件就够复杂了…后续装机坑也是一个接一个:</p><ul><li>散热器风扇装反, 重装卡歪了…以后有点难取下来…</li><li>非模组电源理线糟心</li><li>硬盘架装反, 差点拔不出来</li><li>没注意看风散热器说明书, 散热器装了两个半小时</li></ul><p>在前前后后折腾了将近两个星期后, 终于是把一切弄好了…作为缓冲, 先装了win10测试玩猛汉王. 比较惊喜的是原来2400G已经可以720p低画质流畅游戏了…而且我用的房东的电视…720p和1080p在这个电视上其实没有特别明显的差别…也就是说如果我只是买一台机器玩猛汉王, 砍掉8G内存(250), CPU直接买2200G加A320M的套装(1000以诶), 电源用100多块机箱送的300W电源, 甚至1500左右都可以玩猛汉王了…如此依赖…猛汉王真是亲民…</p><p>以上微制备计划的硬件篇, 回头更新更糟心的软件篇~</p>]]></content>
+        <content type="html"><![CDATA[<p>本年年初的时候, 本来存了2000块, 准备用来买个二手服务器, 用来在测试软件之余顺便打打游戏. 但是看来看去, 感觉服务器还是太麻烦了…耗电大, 噪音也大, 如果要加装显卡还得改造…毕竟我在硬件方面毫无经验…所以最后还是改为了买个够用且够便宜的台式机. 本来我618都要下手了…可是碰上工作变动, 没有时间精力折腾, 于是作罢…前端时间看上的主板又在京东打特价, 终于没忍住剁了手…可是一查才发现…看中的CPU全网都很难买到全新了…(怕不是618全清完了), 几经周折, 最后好不容易把所有东西买全, 组起了我人生第一台自主组装的台式机~</p><!-- 摘要部分 --><span id="more"></span><h2 id="配件列表"><a href="#配件列表" class="headerlink" title="配件列表"></a>配件列表</h2><p>我的配置思路有点特别, 因为我对这台机器的预期有些特别. 我希望用它来满足一下所有需求:</p><ol><li>个人生信计算测试(多核心+大内存+linux)</li><li>个人基本游戏需要(入门显卡+win)</li><li>一机虚拟化为多机, 和女票一起打游戏(入门显卡x2+linux+显卡直通+win虚拟机)</li><li>机箱不要太大, 尽量小而美观</li></ol><p>综上, 我最后选了一个4内存插槽, 2显卡插槽的M-ATX的主板, 为的就是日后能上32G甚至64G内存(一些研究机构开发的原型软件内存开销巨大), 并且能上双显卡以虚拟化出两台Win机器. CPU方面就比较糟心, 因为宿主机需要, 集成显卡是必须的, 我又想支持AMD…所以本质上没得选, 现阶段只有2400G一个型号能用…</p><p>完整配件清单如下:</p><table><thead><tr><th>组件</th><th>型号</th><th>平台</th><th>价格</th><th>备注</th></tr></thead><tbody><tr><td>处理器</td><td>AMD Ryzen 2400G</td><td>淘宝</td><td>760</td><td>二手散片</td></tr><tr><td>显卡</td><td>迪兰恒进 RX560d 4G</td><td>淘宝</td><td>245</td><td>二手矿卡</td></tr><tr><td>主板</td><td>技嘉 B450M DS3H</td><td>京东</td><td>499</td><td>买完又降了50…</td></tr><tr><td>内存</td><td>十铨 火神DDR4 3000 8G x 2</td><td>京东</td><td>498</td><td></td></tr><tr><td>机箱</td><td>Thermaltake 启航者S3</td><td>京东</td><td>129</td><td></td></tr><tr><td>电源</td><td>Thermaltake Smart RGB 600W</td><td>京东</td><td>278</td><td>没看清…买了非模组化…</td></tr><tr><td>散热器</td><td>Thermaltake 彩虹D400P</td><td>京东</td><td>85</td><td>没看清…65W的CPU上了150W的散热器…</td></tr><tr><td>总计</td><td></td><td></td><td>2494</td><td>(760+245+499+498+129+278+85&#x3D;2494) <br>确实挺便宜的…</td></tr></tbody></table><p>买台式配件真的是比买笔记本复杂很多…我买的过程中就碰到了:</p><ul><li>CPU没货只好买二手散片, 结果二手散片也全网缺货, 来回找了三家才买到, 还从第一家那赚了30块的申诉赔偿(没货却不下架)…</li><li>显卡虽然知道是矿卡…但是没注意我买的这块是单DVI接口的…无奈后续补了个转换器</li><li>主板虽然有双显卡槽, 但是没法直接插俩显卡, 因为下面的显卡插槽会挡住PIN线和USB3.0的线, 需要额外转接头</li><li>看中的电源没货, 买替代的时候没注意替代的是非模组化电源…后续理线头疼</li><li>散热器的尺寸超出我想象…还好机箱买的比较大…</li><li>机箱比想象大好多…没想到跟散热歪打正着…</li></ul><p>买配件就够复杂了…后续装机坑也是一个接一个:</p><ul><li>散热器风扇装反, 重装卡歪了…以后有点难取下来…</li><li>非模组电源理线糟心</li><li>硬盘架装反, 差点拔不出来</li><li>没注意看风散热器说明书, 散热器装了两个半小时</li></ul><p>在前前后后折腾了将近两个星期后, 终于是把一切弄好了…作为缓冲, 先装了win10测试玩猛汉王. 比较惊喜的是原来2400G已经可以720p低画质流畅游戏了…而且我用的房东的电视…720p和1080p在这个电视上其实没有特别明显的差别…也就是说如果我只是买一台机器玩猛汉王, 砍掉8G内存(250), CPU直接买2200G加A320M的套装(1000以诶), 电源用100多块机箱送的300W电源, 甚至1500左右都可以玩猛汉王了…如此依赖…猛汉王真是亲民…</p><p>以上微制备计划的硬件篇, 回头更新更糟心的软件篇~</p>]]></content>
       
       
       <categories>
@@ -1838,6 +2390,28 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 台式机 </tag>
+            
+            <tag> 硬件配置 </tag>
+            
+            <tag> 装机经验 </tag>
+            
+            <tag> AMD处理器 </tag>
+            
+            <tag> 二手配件 </tag>
+            
+            <tag> PC-building </tag>
+            
+            <tag> hardware-configuration </tag>
+            
+            <tag> AMD-Ryzen </tag>
+            
+            <tag> used-parts </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1860,7 +2434,15 @@
       
         <tags>
             
+            <tag> 文件同步 </tag>
+            
+            <tag> 跨设备同步 </tag>
+            
             <tag> Syncthing </tag>
+            
+            <tag> systemd </tag>
+            
+            <tag> 开源工具 </tag>
             
         </tags>
       
@@ -1885,9 +2467,17 @@
       
         <tags>
             
+            <tag> Git钩子 </tag>
+            
+            <tag> 自动化部署 </tag>
+            
+            <tag> 博客管理 </tag>
+            
             <tag> git </tag>
             
             <tag> githook </tag>
+            
+            <tag> post-commit </tag>
             
         </tags>
       
@@ -1916,6 +2506,10 @@
             
             <tag> 装饰器 </tag>
             
+            <tag> 函数式编程 </tag>
+            
+            <tag> 闭包 </tag>
+            
         </tags>
       
     </entry>
@@ -1937,6 +2531,26 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Daily </tag>
+            
+            <tag> 博客迁移 </tag>
+            
+            <tag> 内容搬运 </tag>
+            
+            <tag> 个人博客 </tag>
+            
+            <tag> 黑历史 </tag>
+            
+            <tag> 网易LOFTER </tag>
+            
+            <tag> 蚂蚁笔记 </tag>
+            
+            <tag> gitpage </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1955,6 +2569,22 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> NGS </tag>
+            
+            <tag> 质控工具 </tag>
+            
+            <tag> 生物信息学 </tag>
+            
+            <tag> 数据分析 </tag>
+            
+            <tag> MultiQC </tag>
+            
+            <tag> fastqc </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1977,7 +2607,43 @@
       
         <tags>
             
+            <tag> 逻辑回归 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> logistic regression </tag>
+            
             <tag> machine learning </tag>
+            
+            <tag> 算法比较 </tag>
+            
+            <tag> 决策树 </tag>
+            
+            <tag> 随机森林 </tag>
+            
+            <tag> 支持向量机 </tag>
+            
+            <tag> KNN </tag>
+            
+            <tag> 朴素贝叶斯 </tag>
+            
+            <tag> K均值 </tag>
+            
+            <tag> Adaboost </tag>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> algorithm comparison </tag>
+            
+            <tag> decision tree </tag>
+            
+            <tag> random forest </tag>
+            
+            <tag> SVM </tag>
+            
+            <tag> naive bayes </tag>
+            
+            <tag> K-means </tag>
             
         </tags>
       
@@ -2002,11 +2668,15 @@
       
         <tags>
             
-            <tag> 文档 </tag>
+            <tag> 文档工具 </tag>
+            
+            <tag> 技术写作 </tag>
             
             <tag> gitbook </tag>
             
             <tag> mkdocs </tag>
+            
+            <tag> markdown </tag>
             
         </tags>
       
@@ -2031,9 +2701,15 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Linux </tag>
             
-            <tag> bash </tag>
+            <tag> Bash </tag>
+            
+            <tag> 命令行 </tag>
+            
+            <tag> 输入输出重定向 </tag>
+            
+            <tag> 进程替换 </tag>
             
         </tags>
       
@@ -2058,7 +2734,19 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
+            <tag> 性能优化 </tag>
+            
+            <tag> Go语言 </tag>
+            
+            <tag> 编程语言对比 </tag>
+            
+            <tag> 项目重构 </tag>
+            
             <tag> golang </tag>
+            
+            <tag> programming </tag>
             
         </tags>
       
@@ -2083,9 +2771,15 @@
       
         <tags>
             
-            <tag> caddy </tag>
+            <tag> HTTPS </tag>
             
-            <tag> https </tag>
+            <tag> SSL证书 </tag>
+            
+            <tag> Caddy </tag>
+            
+            <tag> 反向代理 </tag>
+            
+            <tag> 域名 </tag>
             
         </tags>
       
@@ -2103,14 +2797,20 @@
       
       <categories>
           
-          <category> Others </category>
+          <category> 技术文档 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> graphviz </tag>
+            <tag> 流程图 </tag>
+            
+            <tag> Graphviz </tag>
+            
+            <tag> 可视化工具 </tag>
+            
+            <tag> 软件开发 </tag>
             
         </tags>
       
@@ -2135,7 +2835,31 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Linux </tag>
+            
+            <tag> Steam </tag>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> Deepin </tag>
+            
+            <tag> Manjaro </tag>
+            
+            <tag> 中文支持 </tag>
+            
+            <tag> 软件生态 </tag>
+            
+            <tag> 跨平台 </tag>
+            
+            <tag> Windows对比 </tag>
+            
+            <tag> MEGA </tag>
+            
+            <tag> WPS </tag>
+            
+            <tag> R语言 </tag>
+            
+            <tag> Ugene </tag>
             
         </tags>
       
@@ -2160,9 +2884,15 @@
       
         <tags>
             
+            <tag> 并行计算 </tag>
+            
             <tag> bash </tag>
             
-            <tag> 并行计算 </tag>
+            <tag> GNU Parallel </tag>
+            
+            <tag> 命令行工具 </tag>
+            
+            <tag> 性能优化 </tag>
             
         </tags>
       
@@ -2189,6 +2919,18 @@
             
             <tag> 结构变异 </tag>
             
+            <tag> 算法解读 </tag>
+            
+            <tag> NGS数据分析 </tag>
+            
+            <tag> RP证据 </tag>
+            
+            <tag> SR证据 </tag>
+            
+            <tag> Bioinformatics </tag>
+            
+            <tag> SV检测 </tag>
+            
         </tags>
       
     </entry>
@@ -2214,6 +2956,20 @@
             
             <tag> 结构变异 </tag>
             
+            <tag> 拷贝数变异 </tag>
+            
+            <tag> 基因融合 </tag>
+            
+            <tag> NGS检测 </tag>
+            
+            <tag> Split-Reads </tag>
+            
+            <tag> Discordant Read Pairs </tag>
+            
+            <tag> Read Depth </tag>
+            
+            <tag> de novo Assembly </tag>
+            
         </tags>
       
     </entry>
@@ -2237,7 +2993,17 @@
       
         <tags>
             
-            <tag> R </tag>
+            <tag> R语言 </tag>
+            
+            <tag> 逻辑回归 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 统计分析 </tag>
+            
+            <tag> logistic regression </tag>
+            
+            <tag> machine learning </tag>
             
         </tags>
       
@@ -2263,6 +3029,14 @@
         <tags>
             
             <tag> hexo </tag>
+            
+            <tag> 博客搭建 </tag>
+            
+            <tag> 主题更换 </tag>
+            
+            <tag> Node.js </tag>
+            
+            <tag> git备份 </tag>
             
         </tags>
       
@@ -2291,6 +3065,18 @@
             
             <tag> snakemake </tag>
             
+            <tag> 工作流管理 </tag>
+            
+            <tag> 资源控制 </tag>
+            
+            <tag> 任务分组 </tag>
+            
+            <tag> workflow </tag>
+            
+            <tag> resource management </tag>
+            
+            <tag> task grouping </tag>
+            
         </tags>
       
     </entry>
@@ -2316,7 +3102,17 @@
             
             <tag> Python </tag>
             
+            <tag> 迭代器 </tag>
+            
+            <tag> 生成器 </tag>
+            
             <tag> itertools </tag>
+            
+            <tag> groupby </tag>
+            
+            <tag> tee </tag>
+            
+            <tag> chain </tag>
             
         </tags>
       
@@ -2347,6 +3143,10 @@
             
             <tag> 多进程 </tag>
             
+            <tag> multiprocessing </tag>
+            
+            <tag> Pool </tag>
+            
         </tags>
       
     </entry>
@@ -2370,9 +3170,19 @@
       
         <tags>
             
+            <tag> 数据可视化 </tag>
+            
+            <tag> R语言 </tag>
+            
             <tag> R </tag>
             
             <tag> 并行计算 </tag>
+            
+            <tag> ggplot </tag>
+            
+            <tag> parallel </tag>
+            
+            <tag> performance </tag>
             
         </tags>
       
@@ -2397,9 +3207,19 @@
       
         <tags>
             
-            <tag> ssh </tag>
+            <tag> Linux </tag>
             
-            <tag> teamviewer </tag>
+            <tag> VPN </tag>
+            
+            <tag> SSH跳转 </tag>
+            
+            <tag> TeamViewer </tag>
+            
+            <tag> VirtualBox </tag>
+            
+            <tag> Cygwin </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -2425,6 +3245,14 @@
         <tags>
             
             <tag> snakemake </tag>
+            
+            <tag> workflow </tag>
+            
+            <tag> 流程控制 </tag>
+            
+            <tag> 任务管理 </tag>
+            
+            <tag> 脚本生成 </tag>
             
         </tags>
       
@@ -2453,6 +3281,14 @@
             
             <tag> snakemake </tag>
             
+            <tag> conda </tag>
+            
+            <tag> 生物信息 </tag>
+            
+            <tag> 流程管理 </tag>
+            
+            <tag> singularity </tag>
+            
         </tags>
       
     </entry>
@@ -2475,6 +3311,8 @@
       
       
         <tags>
+            
+            <tag> 命令行 </tag>
             
             <tag> bash </tag>
             
@@ -2505,9 +3343,11 @@
             
             <tag> Python </tag>
             
+            <tag> 命令行解析 </tag>
+            
             <tag> argparse </tag>
             
-            <tag> 参数解析 </tag>
+            <tag> 子命令 </tag>
             
         </tags>
       
@@ -2534,6 +3374,12 @@
             
             <tag> Python </tag>
             
+            <tag> 编程 </tag>
+            
+            <tag> 命令行程序 </tag>
+            
+            <tag> scSeq </tag>
+            
         </tags>
       
     </entry>
@@ -2557,7 +3403,15 @@
       
         <tags>
             
+            <tag> R </tag>
+            
             <tag> conda </tag>
+            
+            <tag> sscClust </tag>
+            
+            <tag> Bioconductor </tag>
+            
+            <tag> 安装问题 </tag>
             
         </tags>
       
@@ -2582,9 +3436,21 @@
       
         <tags>
             
+            <tag> 生物信息学 </tag>
+            
+            <tag> R </tag>
+            
             <tag> conda </tag>
             
+            <tag> sscClust </tag>
+            
             <tag> docker </tag>
+            
+            <tag> 容器 </tag>
+            
+            <tag> 软件安装 </tag>
+            
+            <tag> 依赖管理 </tag>
             
         </tags>
       
@@ -2609,7 +3475,21 @@
       
         <tags>
             
+            <tag> 生物信息学 </tag>
+            
+            <tag> 单细胞测序 </tag>
+            
+            <tag> 转录组 </tag>
+            
+            <tag> 10X Genomics </tag>
+            
+            <tag> cellranger </tag>
+            
             <tag> single cell </tag>
+            
+            <tag> RNA-seq </tag>
+            
+            <tag> scRNA-seq </tag>
             
         </tags>
       
@@ -2634,7 +3514,17 @@
       
         <tags>
             
-            <tag> git </tag>
+            <tag> 命令行 </tag>
+            
+            <tag> Git </tag>
+            
+            <tag> 版本控制 </tag>
+            
+            <tag> 分支管理 </tag>
+            
+            <tag> 远程仓库 </tag>
+            
+            <tag> 代码同步 </tag>
             
         </tags>
       
@@ -2659,9 +3549,21 @@
       
         <tags>
             
+            <tag> Gogs部署 </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> Git托管 </tag>
+            
+            <tag> SSH配置 </tag>
+            
+            <tag> VPS </tag>
+            
             <tag> gogs </tag>
             
-            <tag> vps </tag>
+            <tag> docker-compose </tag>
+            
+            <tag> ssh </tag>
             
         </tags>
       
@@ -2686,9 +3588,17 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Linux </tag>
             
-            <tag> steam </tag>
+            <tag> 游戏 </tag>
+            
+            <tag> Steam </tag>
+            
+            <tag> Wine </tag>
+            
+            <tag> Proton </tag>
+            
+            <tag> 仙剑4 </tag>
             
         </tags>
       
@@ -2713,7 +3623,21 @@
       
         <tags>
             
+            <tag> R语言 </tag>
+            
             <tag> R </tag>
+            
+            <tag> 数据操作 </tag>
+            
+            <tag> 数据框 </tag>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> dataframe </tag>
+            
+            <tag> data structure </tag>
+            
+            <tag> data manipulation </tag>
             
         </tags>
       
@@ -2740,7 +3664,7 @@
             
             <tag> hexo </tag>
             
-            <tag> syntax </tag>
+            <tag> 代码高亮 </tag>
             
         </tags>
       
@@ -2767,6 +3691,16 @@
             
             <tag> R </tag>
             
+            <tag> github </tag>
+            
+            <tag> 包安装 </tag>
+            
+            <tag> timeout </tag>
+            
+            <tag> curl </tag>
+            
+            <tag> 手动安装 </tag>
+            
         </tags>
       
     </entry>
@@ -2790,7 +3724,17 @@
       
         <tags>
             
+            <tag> R语言 </tag>
+            
+            <tag> sscClust </tag>
+            
             <tag> docker </tag>
+            
+            <tag> 容器技术 </tag>
+            
+            <tag> 镜像配置 </tag>
+            
+            <tag> CentOS </tag>
             
         </tags>
       
@@ -2814,6 +3758,16 @@
       
       
         <tags>
+            
+            <tag> SGE </tag>
+            
+            <tag> 网格引擎 </tag>
+            
+            <tag> qsub </tag>
+            
+            <tag> qlogin </tag>
+            
+            <tag> 集群计算 </tag>
             
             <tag> sge </tag>
             
@@ -2842,6 +3796,10 @@
             
             <tag> Python </tag>
             
+            <tag> 数据分析 </tag>
+            
+            <tag> 数据处理 </tag>
+            
             <tag> Pandas </tag>
             
         </tags>
@@ -2867,11 +3825,21 @@
       
         <tags>
             
+            <tag> R语言 </tag>
+            
             <tag> R </tag>
             
             <tag> conda </tag>
             
             <tag> jupyter </tag>
+            
+            <tag> 包管理 </tag>
+            
+            <tag> 环境配置 </tag>
+            
+            <tag> 远程访问 </tag>
+            
+            <tag> jupyter notebook </tag>
             
         </tags>
       
@@ -2896,11 +3864,15 @@
       
         <tags>
             
-            <tag> android </tag>
+            <tag> 安卓 </tag>
+            
+            <tag> 截图 </tag>
+            
+            <tag> minicap </tag>
             
             <tag> adb </tag>
             
-            <tag> minicap </tag>
+            <tag> android </tag>
             
         </tags>
       
@@ -2927,6 +3899,10 @@
             
             <tag> Python </tag>
             
+            <tag> 数据库 </tag>
+            
+            <tag> SQLite3 </tag>
+            
             <tag> sqlite </tag>
             
         </tags>
@@ -2952,11 +3928,17 @@
       
         <tags>
             
-            <tag> manjaro </tag>
+            <tag> Linux </tag>
             
-            <tag> deepin </tag>
+            <tag> Deepin </tag>
             
-            <tag> de </tag>
+            <tag> Manjaro </tag>
+            
+            <tag> 桌面环境 </tag>
+            
+            <tag> DDE </tag>
+            
+            <tag> 触控板手势 </tag>
             
         </tags>
       
@@ -2974,10 +3956,30 @@
       
       <categories>
           
-          <category> Others </category>
+          <category> 工作经历 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 工作变动 </tag>
+            
+            <tag> 生物信息工程师 </tag>
+            
+            <tag> 诺禾致源 </tag>
+            
+            <tag> 瑞普基因 </tag>
+            
+            <tag> 职业发展 </tag>
+            
+            <tag> job-change </tag>
+            
+            <tag> bioinformatics-engineer </tag>
+            
+            <tag> career-development </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3000,13 +4002,15 @@
       
         <tags>
             
-            <tag> Python </tag>
+            <tag> 正则表达式 </tag>
             
-            <tag> 正则 </tag>
+            <tag> 正则语法 </tag>
             
-            <tag> Perl </tag>
+            <tag> 正则符号 </tag>
             
-            <tag> Bash </tag>
+            <tag> 正则匹配 </tag>
+            
+            <tag> regex </tag>
             
         </tags>
       
@@ -3031,13 +4035,39 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Ubuntu </tag>
+            
+            <tag> Manjaro </tag>
             
             <tag> manjaro </tag>
+            
+            <tag> Linux系统 </tag>
+            
+            <tag> 桌面环境 </tag>
+            
+            <tag> linux </tag>
+            
+            <tag> 系统迁移 </tag>
+            
+            <tag> Mint </tag>
+            
+            <tag> 双系统 </tag>
+            
+            <tag> 显卡驱动 </tag>
+            
+            <tag> 输入法 </tag>
             
             <tag> linuxmint </tag>
             
             <tag> ubuntu </tag>
+            
+            <tag> desktop-environment </tag>
+            
+            <tag> dual-boot </tag>
+            
+            <tag> graphics-driver </tag>
+            
+            <tag> input-method </tag>
             
         </tags>
       
@@ -3062,7 +4092,17 @@
       
         <tags>
             
-            <tag> R </tag>
+            <tag> R语言 </tag>
+            
+            <tag> ggplot2 </tag>
+            
+            <tag> 地图绘制 </tag>
+            
+            <tag> 流行病学数据 </tag>
+            
+            <tag> 热图 </tag>
+            
+            <tag> shapefile </tag>
             
         </tags>
       
@@ -3087,7 +4127,21 @@
       
         <tags>
             
+            <tag> R语言 </tag>
+            
+            <tag> 数据分析 </tag>
+            
             <tag> R </tag>
+            
+            <tag> 统计绘图 </tag>
+            
+            <tag> 数据操作 </tag>
+            
+            <tag> 培训笔记 </tag>
+            
+            <tag> data analysis </tag>
+            
+            <tag> statistics </tag>
             
         </tags>
       
@@ -3112,11 +4166,15 @@
       
         <tags>
             
-            <tag> 闲来打游戏 </tag>
-            
-            <tag> 黑历史计划 </tag>
+            <tag> 游戏评测 </tag>
             
             <tag> 宿命传说2 </tag>
+            
+            <tag> 童年回忆 </tag>
+            
+            <tag> 游戏系统 </tag>
+            
+            <tag> Tales of Destiny 2 </tag>
             
         </tags>
       
@@ -3143,13 +4201,15 @@
             
             <tag> 音游 </tag>
             
-            <tag> 旋律逃脱 </tag>
+            <tag> 音乐游戏 </tag>
             
-            <tag> Melody&#39;s Escape </tag>
+            <tag> 节奏游戏 </tag>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 游戏体验 </tag>
             
-            <tag> 黑历史计划 </tag>
+            <tag> 游戏推荐 </tag>
+            
+            <tag> 独立游戏 </tag>
             
         </tags>
       
@@ -3174,13 +4234,21 @@
       
         <tags>
             
-            <tag> 哔哩哔哩周边 </tag>
+            <tag> 哔哩哔哩 </tag>
             
             <tag> 小电视 </tag>
             
-            <tag> 机械之心桌垫 </tag>
+            <tag> 鼠标垫 </tag>
             
-            <tag> 败家 </tag>
+            <tag> 周边 </tag>
+            
+            <tag> 开箱 </tag>
+            
+            <tag> Daily </tag>
+            
+            <tag> Bilibili </tag>
+            
+            <tag> Mousepad </tag>
             
         </tags>
       
@@ -3205,13 +4273,17 @@
       
         <tags>
             
-            <tag> steam </tag>
+            <tag> 独立游戏 </tag>
             
-            <tag> 闲来打游戏 </tag>
+            <tag> 策略游戏 </tag>
             
             <tag> 晶体管 </tag>
             
+            <tag> ARPG </tag>
+            
             <tag> Transistor </tag>
+            
+            <tag> Supergiant-Games </tag>
             
         </tags>
       

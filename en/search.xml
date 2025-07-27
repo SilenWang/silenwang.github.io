@@ -2607,9 +2607,9 @@
       
         <tags>
             
-            <tag> conda </tag>
-            
             <tag> docker </tag>
+            
+            <tag> conda </tag>
             
         </tags>
       

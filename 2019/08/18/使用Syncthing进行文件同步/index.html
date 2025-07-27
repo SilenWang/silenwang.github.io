@@ -37,7 +37,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>使用Syncthing进行文件同步 - SylensHub</title>
-  <meta name="keywords" content="Syncthing,null">
+  <meta name="keywords" content="文件同步,跨设备同步,Syncthing,systemd,开源工具,null">
   <meta desc name="description" content="只要使用多台设备进行工作, 就一定会涉及到不同设备之前互相同步的问题. 现在已经不是七八年前云服务刚兴起, 便宜又大碗的时代了. 一个实惠好用又不会突然跑路或改用户协议的服务商怕是并不存在, 所以还是要靠自己来搭了…
  - Sylens Wong - SylensHub">
   
@@ -49,9 +49,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2019-08-17T16:03:33.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.033Z">
+<meta property="article:modified_time" content="2025-07-17T08:51:54.238Z">
 <meta property="article:author" content="Sylens Wong">
+<meta property="article:tag" content="文件同步">
+<meta property="article:tag" content="跨设备同步">
 <meta property="article:tag" content="Syncthing">
+<meta property="article:tag" content="systemd">
+<meta property="article:tag" content="开源工具">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1633,7 +1637,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1752513233613),
+    lastupdate: new Date(1753613879919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2546,10 +2550,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-17T16:51:54+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月17日</p>
   </a>
 </div>
 
@@ -2558,8 +2562,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Syncthing/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Syncthing</p></a></div>
-  <span hidden itemprop="keywords">Syncthing</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>文件同步</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B7%A8%E8%AE%BE%E5%A4%87%E5%90%8C%E6%AD%A5/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>跨设备同步</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Syncthing/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Syncthing</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/systemd/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>systemd</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>开源工具</p></a></div>
+  <span hidden itemprop="keywords">文件同步 跨设备同步 Syncthing systemd 开源工具</span>
 
 
         
@@ -3250,7 +3254,7 @@ Hook, 直译就是钩子, 指的是预先定义好的一系列脚本....</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Others/","name":"Others"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/08/18/使用Syncthing进行文件同步/","name":"使用Syncthing进行文件同步"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用Syncthing进行文件同步","description":"只要使用多台设备进行工作, 就一定会涉及到不同设备之前互相同步的问题. 现在已经不是七八年前云服务刚兴起, 便宜又大碗的时代了. 一个实惠好用又不会突然跑路或改用户协议的服务商怕是并不存在, 所以还是要靠自己来搭了…\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/08/18/%E4%BD%BF%E7%94%A8Syncthing%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/08/18/%E4%BD%BF%E7%94%A8Syncthing%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/","wordCount":109,"datePublished":"2019-08-17T16:03:33.000Z","dateModified":"2024-11-17T14:11:49.033Z","articleSection":"Others","keywords":"Syncthing","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Others/","name":"Others"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/08/18/使用Syncthing进行文件同步/","name":"使用Syncthing进行文件同步"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用Syncthing进行文件同步","description":"只要使用多台设备进行工作, 就一定会涉及到不同设备之前互相同步的问题. 现在已经不是七八年前云服务刚兴起, 便宜又大碗的时代了. 一个实惠好用又不会突然跑路或改用户协议的服务商怕是并不存在, 所以还是要靠自己来搭了…\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/08/18/%E4%BD%BF%E7%94%A8Syncthing%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/08/18/%E4%BD%BF%E7%94%A8Syncthing%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/","wordCount":109,"datePublished":"2019-08-17T16:03:33.000Z","dateModified":"2025-07-17T08:51:54.238Z","articleSection":"Others","keywords":"文件同步,跨设备同步,Syncthing,systemd,开源工具","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

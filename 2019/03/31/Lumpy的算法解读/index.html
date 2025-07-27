@@ -37,7 +37,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Lumpy的算法解读 - SylensHub</title>
-  <meta name="keywords" content="结构变异,null">
+  <meta name="keywords" content="结构变异,算法解读,NGS数据分析,RP证据,SR证据,Bioinformatics,SV检测,null">
   <meta desc name="description" content="Lumpy作者对这个项目的定位与其说是做一个好用的工具, 不如说是构建一个通用的结构变异信号生成方案, 然后顺便对这个方案做了一个基本的实现. 与其他工具相比, lumpy的文章中花了更多的篇幅去阐述这个方案中设定的证据概念, 及获取信息的方案. 解读这个工具让我更加了解如何从NGS测序数据中获取结构变异的信号.
  - Sylens Wong - SylensHub">
   
@@ -49,9 +49,15 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2019-03-31T14:10:20.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.025Z">
+<meta property="article:modified_time" content="2025-07-17T09:33:47.844Z">
 <meta property="article:author" content="Sylens Wong">
 <meta property="article:tag" content="结构变异">
+<meta property="article:tag" content="算法解读">
+<meta property="article:tag" content="NGS数据分析">
+<meta property="article:tag" content="RP证据">
+<meta property="article:tag" content="SR证据">
+<meta property="article:tag" content="Bioinformatics">
+<meta property="article:tag" content="SV检测">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1633,7 +1639,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1752513233613),
+    lastupdate: new Date(1753613879919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2623,10 +2629,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-17T17:33:47+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月17日</p>
   </a>
 </div>
 
@@ -2635,8 +2641,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BB%93%E6%9E%84%E5%8F%98%E5%BC%82/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>结构变异</p></a></div>
-  <span hidden itemprop="keywords">结构变异</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BB%93%E6%9E%84%E5%8F%98%E5%BC%82/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>结构变异</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>算法解读</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NGS%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>NGS数据分析</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/RP%E8%AF%81%E6%8D%AE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>RP证据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SR%E8%AF%81%E6%8D%AE/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>SR证据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Bioinformatics/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Bioinformatics</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SV%E6%A3%80%E6%B5%8B/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>SV检测</p></a></div>
+  <span hidden itemprop="keywords">结构变异 算法解读 NGS数据分析 RP证据 SR证据 Bioinformatics SV检测</span>
 
 
         
@@ -3338,7 +3344,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/03/31/Lumpy的算法解读/","name":"Lumpy的算法解读"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Lumpy的算法解读","description":"Lumpy作者对这个项目的定位与其说是做一个好用的工具, 不如说是构建一个通用的结构变异信号生成方案, 然后顺便对这个方案做了一个基本的实现. 与其他工具相比, lumpy的文章中花了更多的篇幅去阐述这个方案中设定的证据概念, 及获取信息的方案. 解读这个工具让我更加了解如何从NGS测序数据中获取结构变异的信号.\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/03/31/Lumpy%E7%9A%84%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/03/31/Lumpy%E7%9A%84%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/","wordCount":158,"datePublished":"2019-03-31T14:10:20.000Z","dateModified":"2024-11-17T14:11:49.025Z","articleSection":"Bioinfomatic","keywords":"结构变异","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Bioinfomatic/","name":"Bioinfomatic"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/03/31/Lumpy的算法解读/","name":"Lumpy的算法解读"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Lumpy的算法解读","description":"Lumpy作者对这个项目的定位与其说是做一个好用的工具, 不如说是构建一个通用的结构变异信号生成方案, 然后顺便对这个方案做了一个基本的实现. 与其他工具相比, lumpy的文章中花了更多的篇幅去阐述这个方案中设定的证据概念, 及获取信息的方案. 解读这个工具让我更加了解如何从NGS测序数据中获取结构变异的信号.\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/03/31/Lumpy%E7%9A%84%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/03/31/Lumpy%E7%9A%84%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/","wordCount":158,"datePublished":"2019-03-31T14:10:20.000Z","dateModified":"2025-07-17T09:33:47.844Z","articleSection":"Bioinfomatic","keywords":"结构变异,算法解读,NGS数据分析,RP证据,SR证据,Bioinformatics,SV检测","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

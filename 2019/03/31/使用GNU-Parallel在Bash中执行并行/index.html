@@ -37,7 +37,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>使用GNU Parallel在Bash中执行并行 - SylensHub</title>
-  <meta name="keywords" content="bash,并行计算,null">
+  <meta name="keywords" content="并行计算,bash,GNU Parallel,命令行工具,性能优化,null">
   <meta desc name="description" content="之前已经在R和Python中都使用过并行了, 我是最近才知道原来Bash下面也有简单好用的并行程序: GNU Parallel[^1]. 这是一个Perl实现的程序, 可以方便的将Bash中各种命令并行执行.
  - Sylens Wong - SylensHub">
   
@@ -49,10 +49,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2019-03-31T15:07:26.000Z">
-<meta property="article:modified_time" content="2024-11-17T14:11:49.032Z">
+<meta property="article:modified_time" content="2025-07-17T08:48:16.869Z">
 <meta property="article:author" content="Sylens Wong">
-<meta property="article:tag" content="bash">
 <meta property="article:tag" content="并行计算">
+<meta property="article:tag" content="bash">
+<meta property="article:tag" content="GNU Parallel">
+<meta property="article:tag" content="命令行工具">
+<meta property="article:tag" content="性能优化">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1634,7 +1637,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1752513233613),
+    lastupdate: new Date(1753613879919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2550,10 +2553,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-17T22:11:49+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-17T16:48:16+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月17日</p>
+    <p>更新于：2025年7月17日</p>
   </a>
 </div>
 
@@ -2562,8 +2565,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/bash/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>bash</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>并行计算</p></a></div>
-  <span hidden itemprop="keywords">bash 并行计算</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>并行计算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/bash/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>bash</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GNU-Parallel/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>GNU Parallel</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>命令行工具</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>性能优化</p></a></div>
+  <span hidden itemprop="keywords">并行计算 bash GNU Parallel 命令行工具 性能优化</span>
 
 
         
@@ -3255,7 +3258,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Script/","name":"Script"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/03/31/使用GNU-Parallel在Bash中执行并行/","name":"使用GNU Parallel在Bash中执行并行"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用GNU Parallel在Bash中执行并行","description":"之前已经在R和Python中都使用过并行了, 我是最近才知道原来Bash下面也有简单好用的并行程序: GNU Parallel[^1]. 这是一个Perl实现的程序, 可以方便的将Bash中各种命令并行执行.\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/03/31/%E4%BD%BF%E7%94%A8GNU-Parallel%E5%9C%A8Bash%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%B9%B6%E8%A1%8C/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/03/31/%E4%BD%BF%E7%94%A8GNU-Parallel%E5%9C%A8Bash%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%B9%B6%E8%A1%8C/","wordCount":105,"datePublished":"2019-03-31T15:07:26.000Z","dateModified":"2024-11-17T14:11:49.032Z","articleSection":"Script","keywords":"bash,并行计算","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","sameAs":["https://github.com/volantis-x"],"description":"Sylens Wong 的小博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/categories/Script/","name":"Script"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/2019/03/31/使用GNU-Parallel在Bash中执行并行/","name":"使用GNU Parallel在Bash中执行并行"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/","keywords":null,"description":"Sylens Wong 的小博客","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/","description":"Sylens Wong 的小博客"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用GNU Parallel在Bash中执行并行","description":"之前已经在R和Python中都使用过并行了, 我是最近才知道原来Bash下面也有简单好用的并行程序: GNU Parallel[^1]. 这是一个Perl实现的程序, 可以方便的将Bash中各种命令并行执行.\n","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/2019/03/31/%E4%BD%BF%E7%94%A8GNU-Parallel%E5%9C%A8Bash%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%B9%B6%E8%A1%8C/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/2019/03/31/%E4%BD%BF%E7%94%A8GNU-Parallel%E5%9C%A8Bash%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%B9%B6%E8%A1%8C/","wordCount":105,"datePublished":"2019-03-31T15:07:26.000Z","dateModified":"2025-07-17T08:48:16.869Z","articleSection":"Script","keywords":"并行计算,bash,GNU Parallel,命令行工具,性能优化","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
