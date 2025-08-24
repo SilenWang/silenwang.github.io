@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>SteamOS is Indeed Maturing</title>
+      <link href="/en/2025/08/25/SteamOS%E7%A1%AE%E5%AE%9E%E6%97%A5%E8%B6%8B%E6%88%90%E7%86%9F/"/>
+      <url>/en/2025/08/25/SteamOS%E7%A1%AE%E5%AE%9E%E6%97%A5%E8%B6%8B%E6%88%90%E7%86%9F/</url>
+      
+        <content type="html"><![CDATA[<p>From last year to this year, I played two PC games: Black Myth and WuChang, both downloaded and played on their release days. This would have been hard to imagine five years ago. Back then, I had just finished Monster Hunter: World’s main story using a Windows KVM virtual machine with GPU passthrough. When the Iceborne expansion was released, Proton could already support quite a few older games, but the latest games were difficult to support at launch. I remember it took two to three months after Iceborne’s official PC release before the game could be launched, and there were still some bugs. Moreover, whenever Proton was updated, the game might become unplayable again…<span id="more"></span></p><p>Later, I recall when Cyberpunk 2077 was released, it still couldn’t run on launch day. It took a few weeks before 2077 could run on the Proton compatibility layer. By then, I had upgraded my graphics card and tested it out. There were no major issues getting in, but Chinese fonts and some in-game videos had problems. This was quite acceptable… I just wasn’t that interested in Cyberpunk 2077’s theme, so I didn’t actually play it.</p><p>For several years after that, I didn’t play PC games anymore. My computer was mainly used for analytical testing, and there wasn’t enough hard drive space for games. I mostly played on my Switch.</p><p>Then came the release of Black Myth in 2024. Coincidentally, I had changed jobs and didn’t need to use my computer for work anymore, so I reinstalled the system and tried Bazzite, as it was the only SteamOS-like distribution that supported Nvidia cards at the time. Honestly, the performance exceeded my expectations—the game could be launched on release day. Although the smoothness wasn’t perfect, as someone who’s played as a “pixel hunter”… 540p at less than 30 FPS wasn’t unfamiliar to me. 1080p at 40-60 FPS was completely acceptable, and the game itself wasn’t too difficult, so I followed along with everyone and finished it.</p><p>This year’s WuChang surprised me even more. I didn’t keep the Bazzite system—I just installed Nvidia’s proprietary drivers on Ubuntu 22.04, and the game could be launched directly. The performance was similar to last year’s Black Myth, and I could even stream it to my iPad (to use my NS controller) without lag…</p><p>This means I should be able to try out domestically produced games as soon as they’re released from now on…</p><p>Thank you, Gabe. I wish you the best in eventually overtaking Windows…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Gaming </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SteamOS </tag>
+            
+            <tag> Bazzite </tag>
+            
+            <tag> Gaming </tag>
+            
+            <tag> Steam </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trying to Modify the Terminal App in ChromeOS (Part 1)</title>
+      <link href="/en/2025/08/21/%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9chromeos%E4%B8%AD%E7%9A%84%E7%BB%88%E7%AB%AFapp-%E4%B8%8A/"/>
+      <url>/en/2025/08/21/%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9chromeos%E4%B8%AD%E7%9A%84%E7%BB%88%E7%AB%AFapp-%E4%B8%8A/</url>
+      
+        <content type="html"><![CDATA[<p>I’ve been using FydeOS&#x2F;ChromeOS for about two years now. While the system provides a usable terminal app, it’s honestly not that great. For example, during development, I often need to forward multiple ports. Although I can achieve this by entering SSH commands for port forwarding, this requires manually inputting quite a few parameters. Additionally, during port forwarding, I need to keep the SSH login window open. For someone like me who’s particularly obsessive about minimizing the number of open windows, keeping three or four windows open that won’t be used in the foreground is really uncomfortable… So I thought, can I do it myself, with the help of AI, modify the system’s default terminal client, and add quick forwarding functionality like VSCode has?</p><span id="more"></span><h2 id="Cloning-the-Code"><a href="#Cloning-the-Code" class="headerlink" title="Cloning the Code"></a>Cloning the Code</h2><p>The first step is to find out if the project code can be obtained. DeepSeek, Kimi, and ChatGPT can all give me the correct answer: <code>https://chromium.googlesource.com/apps/libapps</code>. Just clone this project locally.</p><h2 id="Project-Compilation"><a href="#Project-Compilation" class="headerlink" title="Project Compilation"></a>Project Compilation</h2><p>Almost every directory in the project comes with documentation, some detailed and some brief. After reading through it and combining it with AI’s answers, the key folders are roughly as follows:</p><ul><li>hterm: A terminal emulator written in JS. All the content you see in the terminal after logging in is rendered by it</li><li>nassh: The terminal emulator extension in the Chrome Web Store, combining content from <code>hterm</code> and <code>ssh_client</code></li><li>ssh_client: The part that communicates with OpenSSH</li><li>terminal: The frontend of the terminal app we see</li></ul><h2 id="Trying-to-Run-Outside-ChromeOS"><a href="#Trying-to-Run-Outside-ChromeOS" class="headerlink" title="Trying to Run Outside ChromeOS"></a>Trying to Run Outside ChromeOS</h2><p>To develop&#x2F;modify an application, you first need to set up the corresponding development and debugging environment. This was the most challenging part for me. Although the project documentation is quite rich, it’s not rich enough for a beginner like me to easily learn how to build a test version of the app that can be debugged. So with the help of AI, I found at least a solution that can show the interface:</p><ul><li>Use pixi to create a virtual environment (On my machine, this is necessary, otherwise the next step will report file copy permission errors)<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[workspace]</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;Sylens Wong &lt;qiumin14@163.com&gt;&quot;</span>]</span><br><span class="line"><span class="attr">channels</span> = [<span class="string">&quot;conda-forge&quot;</span>]</span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;fydeos_dev&quot;</span></span><br><span class="line"><span class="attr">platforms</span> = [<span class="string">&quot;linux-64&quot;</span>]</span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[activation.env]</span></span><br><span class="line"><span class="attr">PATH</span> = <span class="string">&quot;$PIXI_PROJECT_ROOT/libapps/libdot/bin:$PATH&quot;</span></span><br></pre></td></tr></table></figure></li><li>Enter the virtual environment with <code>pixi shell</code>, then run the project’s built-in <code>kokoro/build</code> script to complete the build and testing of all sub-projects (Testing must be run completely, as the test part is directly written in)</li><li>Enter the <code>terminal</code> directory, then copy some files needed by this frontend that aren’t in this project<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ../node_modules/xterm/css/xterm.css css/ <span class="comment"># Missing CSS</span></span><br><span class="line"><span class="built_in">cp</span> ../nassh/js/* js/ <span class="comment"># Missing JS scripts</span></span><br><span class="line"><span class="built_in">cp</span> -r ../nassh/_locales ../ <span class="comment"># Missing international language files</span></span><br></pre></td></tr></table></figure></li><li>Run <code>npm run start</code> in the project root directory to start the HTTP service, then enter the following addresses in the browser to see the terminal’s frontend page:<ul><li><code>http://localhost:8080/terminal/html/terminal.html</code>: Main page</li><li><code>http://localhost:8080/terminal/html/terminal_settings.html</code>: Settings page</li></ul></li></ul><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/08/upgit_20250821_1755708797.png" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/08/upgit_20250821_1755708797.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="terminal"></p><p>Although some content on the page is usable, such as adding SSH configurations, the core functionality like actually making SSH connections doesn’t work because this is just the frontend of the app. The actual connection&#x2F;terminal rendering and other content aren’t here.</p><p>However, this is at least a small step forward~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> chromeos </tag>
+            
+            <tag> terminal </tag>
+            
+            <tag> libapp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Am I Some Kind of Jinx?</title>
       <link href="/en/2025/07/27/%E6%88%91%E6%98%AF%E4%BB%80%E4%B9%88%E5%A4%A9%E7%85%9E%E5%AD%A4%E6%98%9F%E4%BD%93%E8%B4%A8%E4%B9%88/"/>
       <url>/en/2025/07/27/%E6%88%91%E6%98%AF%E4%BB%80%E4%B9%88%E5%A4%A9%E7%85%9E%E5%AD%A4%E6%98%9F%E4%BD%93%E8%B4%A8%E4%B9%88/</url>
@@ -13,7 +73,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -44,7 +104,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -75,7 +135,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -97,7 +157,7 @@
       <link href="/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"/>
       <url>/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/</url>
       
-        <content type="html"><![CDATA[<hr><p>title: Compiling ARM version of Theia-IDE using GitHub Actions<br>categories: Script<br>date: 2025-06-16 23:20:58<br>tags: [‘github’, ‘theia’]</p><p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p><span id="more"></span><p>This combines what I mentioned before about <a href="/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="Using Codespace for Free to Write Hexo Blogs">[Using Codespace to write blogs]</a> and <a href="/en/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Basic Usage of GitHub Actions">[Using GitHub Actions]</a>.</p><p>First, create a new project on GitHub, then click <code>Code</code> in the upper right corner to create a Codespace for this project, which allows you to use VSCode directly in the browser for coding and saving.<br>I directly referenced my previous <a href="https://github.com/SilenWang/certimate_win7">certimate_win7</a> project to create a GitHub workflow, making sure to use GitHub’s Arm Runner.</p><p><a href="https://github.com/eclipse-theia/theia-ide">The original Theia-IDE project</a> doesn’t have official releases yet, so we can’t download pre-built releases by tags. Instead, we need to use checkout to get specific code versions.</p><p>Then follow the instructions in the project’s <a href="https://github.com/eclipse-theia/theia-ide/blob/master/browser.Dockerfile">browser.Dockerfile</a> to set up the compilation steps. After that, package the entire code directory and upload it to my project’s <a href="https://github.com/SilenWang/theia-ide-browser-build/releases">Releases</a>.</p><p>After downloading the compiled files, install system-level dependencies as per the official instructions, then run <code>yarn browser start</code> to launch it.</p><p>Since I’m using FydeOS, I compiled the browser version directly. If you need the desktop version, just follow the official instructions to generate the ARM version.</p>]]></content>
+        <content type="html"><![CDATA[<hr><p>title: Compiling ARM version of Theia-IDE using GitHub Actions<br>categories: Others<br>date: 2025-06-16 23:20:58<br>tags: [‘github’, ‘theia’]</p><p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p><span id="more"></span><p>This combines what I mentioned before about <a href="/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="Using Codespace for Free to Write Hexo Blogs">[Using Codespace to write blogs]</a> and <a href="/en/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Basic Usage of GitHub Actions">[Using GitHub Actions]</a>.</p><p>First, create a new project on GitHub, then click <code>Code</code> in the upper right corner to create a Codespace for this project, which allows you to use VSCode directly in the browser for coding and saving.<br>I directly referenced my previous <a href="https://github.com/SilenWang/certimate_win7">certimate_win7</a> project to create a GitHub workflow, making sure to use GitHub’s Arm Runner.</p><p><a href="https://github.com/eclipse-theia/theia-ide">The original Theia-IDE project</a> doesn’t have official releases yet, so we can’t download pre-built releases by tags. Instead, we need to use checkout to get specific code versions.</p><p>Then follow the instructions in the project’s <a href="https://github.com/eclipse-theia/theia-ide/blob/master/browser.Dockerfile">browser.Dockerfile</a> to set up the compilation steps. After that, package the entire code directory and upload it to my project’s <a href="https://github.com/SilenWang/theia-ide-browser-build/releases">Releases</a>.</p><p>After downloading the compiled files, install system-level dependencies as per the official instructions, then run <code>yarn browser start</code> to launch it.</p><p>Since I’m using FydeOS, I compiled the browser version directly. If you need the desktop version, just follow the official instructions to generate the ARM version.</p>]]></content>
       
       
       
@@ -115,7 +175,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -169,7 +229,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -221,7 +281,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -275,7 +335,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -302,7 +362,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -358,7 +418,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -385,7 +445,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -474,7 +534,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -499,7 +559,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -526,7 +586,7 @@
       
       <categories>
           
-          <category> Bioinformatics </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -553,7 +613,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -582,7 +642,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -609,7 +669,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -636,7 +696,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -665,16 +725,16 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> DingTalk </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> DingTalk </tag>
             
         </tags>
       
@@ -692,7 +752,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -717,7 +777,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -742,7 +802,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -767,7 +827,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -792,7 +852,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -817,7 +877,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -869,7 +929,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -898,7 +958,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -925,7 +985,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -979,7 +1039,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1037,7 +1097,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1064,7 +1124,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1091,7 +1151,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1122,7 +1182,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1178,7 +1238,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1203,7 +1263,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1230,7 +1290,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -1255,7 +1315,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -1309,7 +1369,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1344,7 +1404,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1373,7 +1433,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1402,7 +1462,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1427,7 +1487,7 @@
       
       <categories>
           
-          <category> Bioinformatics </category>
+          <category> Bioinformatic </category>
           
       </categories>
       
@@ -1452,7 +1512,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1506,7 +1566,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1533,7 +1593,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -1541,6 +1601,8 @@
         <tags>
             
             <tag> Gaming </tag>
+            
+            <tag> Monster Hunter </tag>
             
         </tags>
       
@@ -1558,7 +1620,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1585,7 +1647,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1643,7 +1705,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1668,7 +1730,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Bioinfomatic </category>
           
       </categories>
       
@@ -1695,7 +1757,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1720,14 +1782,16 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Game Addiction </tag>
+            <tag> Gaming </tag>
+            
+            <tag> Monster Hunter </tag>
             
         </tags>
       
@@ -1745,14 +1809,16 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Idle Gaming </tag>
+            <tag> Gaming </tag>
+            
+            <tag> Monster Hunter </tag>
             
         </tags>
       
@@ -1770,7 +1836,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -1847,7 +1913,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1876,7 +1942,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1926,7 +1992,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1953,7 +2019,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -1980,7 +2046,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1999,7 +2065,7 @@
       
       <categories>
           
-          <category> Bioinformatics </category>
+          <category> Bioinformatic </category>
           
       </categories>
       
@@ -2080,7 +2146,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2107,7 +2173,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2209,7 +2275,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2236,7 +2302,7 @@
       
       <categories>
           
-          <category> Bioinformatics </category>
+          <category> Bioinformatic </category>
           
       </categories>
       
@@ -2286,7 +2352,7 @@
       
       <categories>
           
-          <category> Others </category>
+          <category> Statistic </category>
           
       </categories>
       
@@ -2336,7 +2402,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2363,7 +2429,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2390,7 +2456,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2419,7 +2485,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2446,7 +2512,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2473,7 +2539,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2525,7 +2591,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Others </category>
           
       </categories>
       
@@ -2552,7 +2618,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2606,7 +2672,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Bioinfomatics </category>
           
       </categories>
       
@@ -2631,7 +2697,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2735,7 +2801,7 @@
       
       <categories>
           
-          <category> Others </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -2762,7 +2828,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2814,7 +2880,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2864,7 +2930,7 @@
       
       <categories>
           
-          <category> Bioinformatics </category>
+          <category> Bioinformatic </category>
           
       </categories>
       
@@ -2889,7 +2955,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -2974,7 +3040,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -3049,7 +3115,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -3111,7 +3177,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -3136,7 +3202,7 @@
       
       <categories>
           
-          <category> Script </category>
+          <category> Coding </category>
           
       </categories>
       
@@ -3152,36 +3218,7 @@
     
     
     <entry>
-      <title>Fate/Stay Night 2</title>
-      <link href="/en/2016/07/22/%E5%91%BD%E8%BF%90%E4%BC%A0%E8%AF%B42/"/>
-      <url>/en/2016/07/22/%E5%91%BD%E8%BF%90%E4%BC%A0%E8%AF%B42/</url>
-      
-        <content type="html"><![CDATA[<p>I was sick with allergies… I stayed in bed for two and a half days without doing any important work, and finally got to play Fate&#x2F;Stay Night 2 (PSP version)… playing games is really more motivating than anything else…</p><p>When I was in elementary school, I knew about this game. Back then, there were quite a few TV programs introducing video games, and you could buy various game guide magazines at the newspaper stand. I remember watching two TV shows and three magazines where they all gave very good reviews of this game…</p><p>However, since I wasn’t an emulator player (back then it was impossible because it was too expensive…), I could only watch my hands itch… but thanks to technological progress, 14 years later I finally had the opportunity to play this game.</p><p>But maybe it’s because expectations are higher that disappointment is greater… there are really many annoying things about this game…</p><p>Firstly, the art style… should I say the characters have become too fast? When I watched the opening animation back then, I thought it was quite good. But now when I look at it again, I feel uncomfortable with these character portraits… huge eyes… extremely thin bodies and limbs… especially the protagonist’s clothes… they are really too… cough…</p><p>Then there is the character design… mainly for the protagonist… just like most people’s feelings… it’s a typical middle-aged punk kid… ah… I guess I can’t face my past self after growing up &#x3D; &#x3D;|||</p><p>Next, the maps and some puzzles… especially the world map. Honestly, at first I thought the game did a pretty good job of guiding you, marking target locations on the mini-map. However, I found that except for the Langen Ruins which can be walked straight to, almost all other locations require you to go around! And from the mini-map, you simply cannot see how to get there!!! So every time I went to a new location, I had to run through all the places I could walk to in order to reach it. Then while running around, I had to kill countless monsters… for puzzles… some trigger points were really too obvious! That’s why I had to run around and kill countless monsters before I figured out how to do it…</p><p>Finally, the battles… at first, I thought this battle system was quite interesting… but as the enemies got stronger, they became more annoying. The front row enemies are difficult to knock back, and the rear row elemental songs are too fast, so if you throw a superior elemental song, you might have to kneel for one or two turns… trying to use the controlled character to directly break through to the rear row, that person probably jumps in and can’t get out… in the end, I could only avoid fighting against annoying combinations…</p><p>Overall, from the game system… personally, I feel like this is a game that’s really tiring to play… the plot aspect because the protagonist is too middle-aged punk kid, repeated time travel with unreasonable logic, antagonist’s IQ hard fault, and the forced happy ending at the end, etc., can’t bring any points to this game. So for me, finishing this game can only be considered eliminating my residual resentment, and recommending it again or playing it once more is out of the question…</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Daily </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Playing games </tag>
-            
-            <tag> Fate/Stay Night 2 </tag>
-            
-            <tag> Black History Plan </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Destiny 2</title>
+      <title>Talse of Destiny 2</title>
       <link href="/en/2016/07/22/%E5%AE%BF%E5%91%BD%E4%BC%A0%E8%AF%B42/"/>
       <url>/en/2016/07/22/%E5%AE%BF%E5%91%BD%E4%BC%A0%E8%AF%B42/</url>
       
@@ -3190,18 +3227,16 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> Talse of Destiny 2 </tag>
+            
             <tag> Black History Plan </tag>
-            
-            <tag> Idle Gaming </tag>
-            
-            <tag> Destiny 2 </tag>
             
         </tags>
       
@@ -3219,7 +3254,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -3241,7 +3276,7 @@
     
     
     <entry>
-      <title>Bilibili - ( ゜- ゜)つロ 乾杯~</title>
+      <title>Bilibili - ( ゜- ゜)つロ Cheers~</title>
       <link href="/en/2016/02/21/%E5%B0%8F%E7%94%B5%E8%A7%86%E9%BC%A0%E6%A0%87%E5%9E%AB/"/>
       <url>/en/2016/02/21/%E5%B0%8F%E7%94%B5%E8%A7%86%E9%BC%A0%E6%A0%87%E5%9E%AB/</url>
       
@@ -3250,7 +3285,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Others </category>
           
       </categories>
       
@@ -3281,7 +3316,7 @@
       
       <categories>
           
-          <category> Daily </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -3290,11 +3325,11 @@
             
             <tag> steam </tag>
             
+            <tag> Gaming </tag>
+            
             <tag> Transistor </tag>
             
             <tag> transistor </tag>
-            
-            <tag> gaming </tag>
             
         </tags>
       

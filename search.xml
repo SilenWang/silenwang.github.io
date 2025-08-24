@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>SteamOS确实日趋成熟</title>
+      <link href="/2025/08/25/SteamOS%E7%A1%AE%E5%AE%9E%E6%97%A5%E8%B6%8B%E6%88%90%E7%86%9F/"/>
+      <url>/2025/08/25/SteamOS%E7%A1%AE%E5%AE%9E%E6%97%A5%E8%B6%8B%E6%88%90%E7%86%9F/</url>
+      
+        <content type="html"><![CDATA[<p>去年到今年，我玩了两个PC游戏，黑神话和明末，都是首发日就下载开玩的。这在5年前，真的是很难想象的一件事。那时候我刚打完猛汉王的本体，使用的是Windows KVM虚拟机加显卡直通。等到冰原资料片发售的时候，Proton就已经能支持相当多的旧游戏了，但是最新的游戏，首发很难支持，冰原我记得PC正式发售后两三个月，才能进入游戏，同时还存在一些bug，且Proton一旦升级，游戏可能就进不去了…</p><span id="more"></span><p>再后来我记得是2077发售的时候，依然没能赶上首发日，大概等了几个星期，2077才能运行在Proton兼容层上，当时我已经换了显卡，我还测试了一下，进去没有大问题，但是中文字体和部分内置视频播片有问题。这都挺能接受的了… 只是我对2077题材并不那么感兴趣，就没有真的玩。</p><p>之后好几年，我都没有再用PC玩游戏过，因为电脑主要用来做一些分析的测试，硬盘不够，装不了游戏，一直都是玩的Switch。</p><p>然后就到了黑神话发售的24年，刚好我换了工作，电脑不需要继续用，我就索性重装了系统，试了试Bazzite，因为这是当时唯一支持N卡的类SteamOS发行版了。说实话，运行效果超出我的预期，居然发售首日就能进游戏，虽然流畅度欠佳，但是作为马赛克猎人的我…540p，30帧不到也不是没玩过，1080p 40~60的效果，我完全能接受，游戏本身也不难，就跟着大伙一起通关了。</p><p>今年的明末则更出乎我的意料，我并没有保留Bazzite系统，只是Ubuntu 22.04装了N卡的闭源驱动，居然也直接能进游戏，运行效果接近去年黑猴，甚至我iPad串流玩(为了用NS的手柄)都不会卡…</p><p>这样一来，之后发售的国产游戏，我应该都能第一时间尝试上了…</p><p>感谢G胖，祝早日干翻Windows…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Gaming </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Steam </tag>
+            
+            <tag> SteamOS </tag>
+            
+            <tag> Bazzite </tag>
+            
+            <tag> Gaming </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>尝试修改chromeos中的终端app(上)</title>
       <link href="/2025/08/21/%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9chromeos%E4%B8%AD%E7%9A%84%E7%BB%88%E7%AB%AFapp-%E4%B8%8A/"/>
       <url>/2025/08/21/%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9chromeos%E4%B8%AD%E7%9A%84%E7%BB%88%E7%AB%AFapp-%E4%B8%8A/</url>
@@ -633,9 +664,9 @@
             
             <tag> conda </tag>
             
-            <tag> pixi </tag>
-            
             <tag> 依赖管理 </tag>
+            
+            <tag> pixi </tag>
             
             <tag> 生物信息 </tag>
             
@@ -880,9 +911,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
             <tag> chatGPT </tag>
             
@@ -1408,7 +1439,7 @@
       
       <categories>
           
-          <category> Other </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1524,8 +1555,6 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 数据可视化 </tag>
             
             <tag> 交互式分析 </tag>
@@ -1533,6 +1562,8 @@
             <tag> Dash </tag>
             
             <tag> Plotly </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -1905,9 +1936,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
             <tag> Web开发 </tag>
             
@@ -2358,9 +2389,9 @@
       
         <tags>
             
-            <tag> R语言 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> R语言 </tag>
             
             <tag> Dockerfile </tag>
             
@@ -2862,7 +2893,7 @@
       <link href="/2019/04/25/Graphviz%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>/2019/04/25/Graphviz%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<p>进行软件开发时, 不论是为了展示或者是自己梳理需要都会要用到流程图, 如果自己开个绘图板或者word来画呢也不是不可以, 但是如果图一单复杂了, 或者图是不是会需要更改的话, 就很花时间了, 因此一个类似markdown这样可以让人专注与内容而不是形式的工具就非常重要了.</p><!-- 摘要部分 --><span id="more"></span><p>Graphviz是一个脚本化做图的工具, 其可以制作的图形很多, 我目前只使用了流程图. 作流程图需要编写一个<code>.dot</code>格式的文件, 这个文件的形式如下:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">digraph workflow&#123;</span><br><span class="line">    // 图形的总定义部分</span><br><span class="line">    label = &quot;Workflow For Mutation Call&quot;</span><br><span class="line">    node[shape = box]</span><br><span class="line"></span><br><span class="line">    // 流程图元素的定义部分</span><br><span class="line">    raw [label=&quot;Raw Bam&quot;];</span><br><span class="line">    clean [label=&quot;UMI Dedup Bam&quot;];</span><br><span class="line">    align [label=&quot;Split Bam&quot;];</span><br><span class="line">    vcf [label=&quot;Disc Bam(Prototype)&quot;];</span><br><span class="line"></span><br><span class="line">    // 流程图关系部分</span><br><span class="line">    raw -&gt; clean [label=&quot;fastp&quot;];</span><br><span class="line">    clean -&gt; align [label=&quot;bwa&quot;];</span><br><span class="line">    align -&gt; vcf [label=&quot;GATK Mutect2&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码我分成了三个部分:</p><ul><li>第一部分是图形中元素的默认设定, 比如<code>label</code>是图形的标题, <code>node</code>是流程图的各个节点, 我把默认的节点图形设定为方框(默认是圆)</li><li>第二部分是图形中节点的设定, 即定义有哪些节点, 然后在后面的<code>[]</code>中对节点进行自定义, 比如<code>label</code>就可以指定显示的文字</li><li>第三部分是流程图的顺序关系, 比如<code>raw -&gt; clean</code>就从<code>raw</code>到<code>clean</code>画了一个箭头, 同样后面可以用<code>[]</code>自定义</li></ul><p>完成上面代码编写后, 就可以调用<code>graphviz</code>的<code>dot</code>命令生成图片了:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dot -Tpng workflow.dot &gt; workflow.png</span><br></pre></td></tr></table></figure><ul><li><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/workflow.png" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/workflow.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="完成图形"></li></ul><p>vscode下有相应的插件, Linux上安装插件后就可以边写边预览流程图, 非常方便.</p>]]></content>
+        <content type="html"><![CDATA[<p>进行软件开发时, 不论是为了展示或者是自己梳理需要都会要用到流程图, 如果自己开个绘图板或者word来画呢也不是不可以, 但是如果图一单复杂了, 或者图是不是会需要更改的话, 就很花时间了, 因此一个类似markdown这样可以让人专注与内容而不是形式的工具就非常重要了.</p><span id="more"></span><p>Graphviz是一个脚本化做图的工具, 其可以制作的图形很多, 我目前只使用了流程图. 作流程图需要编写一个<code>.dot</code>格式的文件, 这个文件的形式如下:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">digraph workflow&#123;</span><br><span class="line">    // 图形的总定义部分</span><br><span class="line">    label = &quot;Workflow For Mutation Call&quot;</span><br><span class="line">    node[shape = box]</span><br><span class="line"></span><br><span class="line">    // 流程图元素的定义部分</span><br><span class="line">    raw [label=&quot;Raw Bam&quot;];</span><br><span class="line">    clean [label=&quot;UMI Dedup Bam&quot;];</span><br><span class="line">    align [label=&quot;Split Bam&quot;];</span><br><span class="line">    vcf [label=&quot;Disc Bam(Prototype)&quot;];</span><br><span class="line"></span><br><span class="line">    // 流程图关系部分</span><br><span class="line">    raw -&gt; clean [label=&quot;fastp&quot;];</span><br><span class="line">    clean -&gt; align [label=&quot;bwa&quot;];</span><br><span class="line">    align -&gt; vcf [label=&quot;GATK Mutect2&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码我分成了三个部分:</p><ul><li>第一部分是图形中元素的默认设定, 比如<code>label</code>是图形的标题, <code>node</code>是流程图的各个节点, 我把默认的节点图形设定为方框(默认是圆)</li><li>第二部分是图形中节点的设定, 即定义有哪些节点, 然后在后面的<code>[]</code>中对节点进行自定义, 比如<code>label</code>就可以指定显示的文字</li><li>第三部分是流程图的顺序关系, 比如<code>raw -&gt; clean</code>就从<code>raw</code>到<code>clean</code>画了一个箭头, 同样后面可以用<code>[]</code>自定义</li></ul><p>完成上面代码编写后, 就可以调用<code>graphviz</code>的<code>dot</code>命令生成图片了:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dot -Tpng workflow.dot &gt; workflow.png</span><br></pre></td></tr></table></figure><ul><li><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/workflow.png" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/workflow.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="完成图形"></li></ul><p>vscode下有相应的插件, Linux上安装插件后就可以边写边预览流程图, 非常方便.</p>]]></content>
       
       
       <categories>
@@ -3466,7 +3497,7 @@
       
       <categories>
           
-          <category> Others </category>
+          <category> Bioinfomatics </category>
           
       </categories>
       
@@ -3651,7 +3682,7 @@
       
       <categories>
           
-          <category> Others </category>
+          <category> Gaming </category>
           
       </categories>
       
@@ -3697,11 +3728,11 @@
             
             <tag> R </tag>
             
+            <tag> 数据操作 </tag>
+            
             <tag> 数据框 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 数据操作 </tag>
             
             <tag> dataframe </tag>
             
@@ -4203,9 +4234,9 @@
             
             <tag> R </tag>
             
-            <tag> 数据操作 </tag>
-            
             <tag> 统计绘图 </tag>
+            
+            <tag> 数据操作 </tag>
             
             <tag> 培训笔记 </tag>
             
