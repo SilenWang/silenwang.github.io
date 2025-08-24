@@ -1627,7 +1627,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/en/js/app.js","parallax":"/en/js/plugins/parallax.js","rightMenu":"/en/js/plugins/rightMenu.js","rightMenus":"/en/js/plugins/rightMenus.js","sites":"/en/js/plugins/tags/sites.js","friends":"/en/js/plugins/tags/friends.js","contributors":"/en/js/plugins/tags/contributors.js","search":"/en/js/search/hexo.js"},"css":{"style":"/en/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1756055729864),
+    lastupdate: new Date(1756056274093),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2423,9 +2423,461 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2024/06/23/使用新的R语言jupyter内核解决monocle3无法在notebook上选发育起始点的问题/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2024/06/23/%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84R%E8%AF%AD%E8%A8%80jupyter%E5%86%85%E6%A0%B8%E8%A7%A3%E5%86%B3monocle3%E6%97%A0%E6%B3%95%E5%9C%A8notebook%E4%B8%8A%E9%80%89%E5%8F%91%E8%82%B2%E8%B5%B7%E5%A7%8B%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98/"  itemprop="url">
+        Using a new R Jupyter kernel to solve the issue of monocle3 not being able to select developmental starting points in notebooks
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>Looking at the creation time of this draft, it was actually June 2024… Now it’s June 2025, and I suddenly understand why so many content creators become “pigeons” (procrastinators). Starting projects is fun, but finishing them is painful… This is one of my few pure bioinformatics posts…</p>
+<p>The problem originated last year when I needed to run monocle3 for pseudotime analysis, but encountered an annoying issue at the final stage. In monocle3, the starting point for pseudotime trajectory needs to be manually specified by the analyst. During R code execution, it automatically opens a browser where users need to specify the starting point on a temporary webpage, then close the page for the analysis to continue.</p>
+<p>However, Jupyter’s <code>irkernel</code> doesn’t support this feature. This means I couldn’t complete the analysis directly in Jupyter notebook. This issue was <a target="_blank" rel="noopener" href="https://github.com/cole-trapnell-lab/monocle3/issues/179">first reported in 2019</a>, but even by 2024 when I needed to do the analysis - five years later - there was still no solution…</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-06-23T01:47:03+08:00">2024-06-23</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2024/06/23/%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84R%E8%AF%AD%E8%A8%80jupyter%E5%86%85%E6%A0%B8%E8%A7%A3%E5%86%B3monocle3%E6%97%A0%E6%B3%95%E5%9C%A8notebook%E4%B8%8A%E9%80%89%E5%8F%91%E8%82%B2%E8%B5%B7%E5%A7%8B%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2024/06/22/新工具解决老问题-使用pixi进行生物信息环境配置/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"  itemprop="url">
+        New Tools Solve Old Problems - Using Pixi for Bioinformatics Environment Configuration
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>Bioinformatics is an interdisciplinary field, and the toolkit or technology stack used in bioinformatics is also quite “interdisciplinary”. The level of fragmentation is, in my opinion, absolutely not less than that of Linux distributions… This also brings us a common challenge: the deployment of bioinformatics analysis environments.</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-06-22T01:26:08+08:00">2024-06-22</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2024/06/22/%E6%96%B0%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E8%80%81%E9%97%AE%E9%A2%98-%E4%BD%BF%E7%94%A8pixi%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2020/09/06/mSINGS的安装和使用/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2020/09/06/mSINGS%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/"  itemprop="url">
+        Installation and Usage of mSINGS
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>mSINGS is a software tool used to detect MSI (Microsatellite Instability). Its advantage seems to be that it can be used for tumor-only samples.</p>
+<!-- Abstract section -->
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2020-09-06T16:46:00+08:00">2020-09-06</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2020/09/06/mSINGS%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2019/11/24/Snakemake的动态解析特性/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2019/11/24/Snakemake%E7%9A%84%E5%8A%A8%E6%80%81%E8%A7%A3%E6%9E%90%E7%89%B9%E6%80%A7/"  itemprop="url">
+        Snakemake's Dynamic Parsing Feature
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>Damn, I finally successfully used this feature… I’m really stupid…</p>
+<!-- Abstract part -->
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2019-11-24T23:00:31+08:00">2019-11-24</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2019/11/24/Snakemake%E7%9A%84%E5%8A%A8%E6%80%81%E8%A7%A3%E6%9E%90%E7%89%B9%E6%80%A7/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2019/07/27/MultiQC使用/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2019/07/27/MultiQC%E4%BD%BF%E7%94%A8/"  itemprop="url">
+        MultiQC Simple Usage
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>MultiQC is a tool for NGS data quality control. Unlike many other tools, it does not directly obtain and calculate metrics; instead, it reads results files from various common quality control tools and provides comprehensive reporting.</p>
+<!-- Abstract section -->
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2019-07-27T21:02:16+08:00">2019-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2019/07/27/MultiQC%E4%BD%BF%E7%94%A8/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2019/03/31/Lumpy的算法解读/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2019/03/31/Lumpy%E7%9A%84%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/"  itemprop="url">
+        Lumpy's Algorithm Interpretation
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>Lumpy’s author positioned this project more as building a general structural variant signal generation scheme rather than creating an excellent tool. It was implemented as a basic version of the scheme. Compared to other tools, Lumpy spent more time in its article explaining the evidence concepts and methods for obtaining information. Interpreting this tool has made me understand better how to obtain structural variant signals from NGS sequencing data.</p>
+<!-- Abstract section -->
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2019-03-31T22:10:20+08:00">2019-03-31</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2019/03/31/Lumpy%E7%9A%84%E7%AE%97%E6%B3%95%E8%A7%A3%E8%AF%BB/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2019/03/16/结构变异检测基本/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2019/03/16/%E7%BB%93%E6%9E%84%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B%E5%9F%BA%E6%9C%AC/"  itemprop="url">
+        Basic Concepts in Structural Variation Detection Using NGS
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>“I know a lot about structural variation information,” but the content of this blog post is too much, and it’s not convenient for me to look back. So I decided to split it into smaller parts and write a comprehensive one using GitBook later.</p>
+<!-- Summary -->
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2019-03-16T20:04:36+08:00">2019-03-16</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2019/03/16/%E7%BB%93%E6%9E%84%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B%E5%9F%BA%E6%9C%AC/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2488,9 +2940,146 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           </div>
         
       
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2018/10/09/conda安装sscClust/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2018/10/09/conda%E5%AE%89%E8%A3%85sscClust/"  itemprop="url">
+        conda Install sscClust
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>It seems I hit a bug again…</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2018-10-09T08:19:01+08:00">2018-10-09</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2018/10/09/conda%E5%AE%89%E8%A3%85sscClust/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2018/09/28/单细胞相关记录/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SylensHub">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SylensHub">
+    <meta itemprop="description" content="Blog from Sylens Wong">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/en/2018/09/28/%E5%8D%95%E7%BB%86%E8%83%9E%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95/"  itemprop="url">
+        Single Cell Related Notes
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>Because of my work, I had to learn some basic concepts and methods for single-cell research. I wrote this note to record it.</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2018-09-28T21:35:18+08:00">2018-09-28</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/en/categories/Bioinformatics/">Bioinformatics</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/en/categories/Bioinformatics/" itemprop="url"><span itemprop="name">Bioinformatics</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/en/2018/09/28/%E5%8D%95%E7%BB%86%E8%83%9E%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
     
   </section>
   
+    
+      <br>
+      <div class="prev-next">
+        
+        <p class="current">
+          1 / 2
+        </p>
+        
+          <a class="next" rel="next" href="/en/categories/Bioinformatics/page/2/">
+            <section class="post next white-box shadow floatable blur">
+              &nbsp;Next&nbsp;<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
+        
+      </div>
     
   
 
@@ -2562,24 +3151,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <ul class="entry navigation">
         
           <li><a class="flat-box"
-            title="/en/categories/Bioinfomatic/" href="/en/categories/Bioinfomatic/"
-            active-action="action-encategoriesBioinfomatic"
-            ><div class='name'>Bioinfomatic</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/en/categories/Bioinfomatics/" href="/en/categories/Bioinfomatics/"
-            active-action="action-encategoriesBioinfomatics"
-            ><div class='name'>Bioinfomatics</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/en/categories/Bioinformatic/" href="/en/categories/Bioinformatic/"
-            active-action="action-encategoriesBioinformatic"
-            ><div class='name'>Bioinformatic</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
             title="/en/categories/Bioinformatics/" href="/en/categories/Bioinformatics/"
             active-action="action-encategoriesBioinformatics"
-            ><div class='name'>Bioinformatics</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>Bioinformatics</div><div class='badge'>(11)</div></a></li>
         
           <li><a class="flat-box"
             title="/en/categories/Coding/" href="/en/categories/Coding/"

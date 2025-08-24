@@ -622,7 +622,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -655,7 +655,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -799,7 +799,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -911,9 +911,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
             <tag> chatGPT </tag>
             
@@ -1555,6 +1555,8 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 数据可视化 </tag>
             
             <tag> 交互式分析 </tag>
@@ -1562,8 +1564,6 @@
             <tag> Dash </tag>
             
             <tag> Plotly </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -1894,7 +1894,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -1936,9 +1936,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
             <tag> Web开发 </tag>
             
@@ -2201,7 +2201,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -2666,7 +2666,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -3011,7 +3011,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -3048,7 +3048,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -3371,7 +3371,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -3497,7 +3497,7 @@
       
       <categories>
           
-          <category> Bioinfomatics </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -3569,7 +3569,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
@@ -3853,7 +3853,7 @@
       
       <categories>
           
-          <category> Bioinfomatic </category>
+          <category> Bioinformatics </category>
           
       </categories>
       
