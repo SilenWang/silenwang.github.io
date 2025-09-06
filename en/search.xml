@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Attempting to Modify the Terminal App in ChromeOS (Part 2)</title>
+      <link href="/en/2025/09/05/%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9chromeos%E4%B8%AD%E7%9A%84%E7%BB%88%E7%AB%AFapp-%E4%B8%AD/"/>
+      <url>/en/2025/09/05/%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9chromeos%E4%B8%AD%E7%9A%84%E7%BB%88%E7%AB%AFapp-%E4%B8%AD/</url>
+      
+        <content type="html"><![CDATA[<p>Picking up from where we left off, after successfully compiling the code in the libapp project, the next steps are: modifying the libapp code and applying the changes to the image.</p><span id="more"></span><h2 id="How-the-Terminal-App-Works"><a href="#How-the-Terminal-App-Works" class="headerlink" title="How the Terminal App Works"></a>How the Terminal App Works</h2><p>I’ve successfully seen the <code>terminal app</code> in the browser. To modify the code, I first need to understand how this application works.</p><p>After some experimentation, my understanding of the terminal application is as follows:</p><ol><li>The terminal app consists of several pages. The outermost interface is actually the <code>terminal.html</code> page, which calls and loads a series of JS scripts within the project to render the page content</li><li>When establishing an SSH connection, the application actually calls special chrome native APIs (similar to Electron?) available only in ChromeOS, opens a new window, and displays the <code>terminal_ssh.html</code> page. This page calls JS scripts in the nassh directory to perform the actual terminal rendering</li><li>Starting an SSH connection actually passes SSH parameters to the <code>terminal_ssh.html</code> page, where scripts within the page construct the SSH command and hand it off to downstream APIs to establish the SSH connection</li><li>Settings are also on a separate page, corresponding to <code>terminal_settings.html</code></li></ol><h2 id="Modifying-the-libapp-Code"><a href="#Modifying-the-libapp-Code" class="headerlink" title="Modifying the libapp Code"></a>Modifying the libapp Code</h2><p>After understanding how the application works, the next step is to try modifying the code. Although I haven’t specifically studied HTML&#x2F;JS&#x2F;CSS web technology stacks and can roughly understand the code logic, I don’t plan to design and write code from scratch. I mainly refer to existing code and combine it to implement the functionality I need.</p><p>From my own usage experience, the existing SFTP mount to local functionality is somewhat similar to the quick port forwarding feature I want:</p><ol><li>SFTP mounting requires setting up SSH details like port, user information, etc.</li><li>Based on existing login entries, SFTP mounting is performed. Clicking mount opens a new page similar to SSH login, but it’s not interactive—it only displays mount information, and the mount automatically ends when the window is closed</li></ol><p>The functionality I want follows this logic:</p><ol><li>Port forwarding requires setting up SSH details like port, user information, etc.</li><li>Based on existing login entries, port forwarding is performed. Clicking forward opens a window to set which port to forward</li><li>Similar to SSH login, a new page opens but is not interactive—it only displays the forwarded port, and forwarding automatically ends when the window is closed</li></ol><p><a href="https://github.com/SilenWang/libapps/tree/feat/add-port-forward-button">The actual modified files</a> are mainly JavaScript files in the terminal and nassh directories, primarily adding a forward button, and then referencing the SFTP functionality implementation to create a function that can perform port forwarding</p><h2 id="Applying-Modifications-to-the-Image"><a href="#Applying-Modifications-to-the-Image" class="headerlink" title="Applying Modifications to the Image"></a>Applying Modifications to the Image</h2><p>In the ChromeOS source code, libapp is not the package name. After searching the project, I found that the compilation of these contents is actually in <code>crosh-extention.ebuild</code>. I found the directory for this ebuild, used git to generate a patch, and placed it in this directory</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff COMMIT_HASH_1 COMMIT_HASH_2 &gt; patchfile.patch</span><br></pre></td></tr></table></figure><p>I also needed to further modify the ebuild file by adding the following content. During the build, the patch will be automatically applied to modify the code</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PATCHES=(</span><br><span class="line">    &quot;$&#123;FILESDIR&#125;&quot;/0001-forward.patch</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h2 id="Recompiling-Packages-and-Images"><a href="#Recompiling-Packages-and-Images" class="headerlink" title="Recompiling Packages and Images"></a>Recompiling Packages and Images</h2><p>Here I encountered a pitfall: if you only modify files and compile directly using the previous method, the changes won’t actually be applied.</p><p>According to <a href="https://www.jianshu.com/p/6d8523b1f771">this content I found</a>, you need to use the <code>cros_workon</code> command in <code>cros_sdk</code> to mark specific packages for modification. This ensures that the compilation uses my modified ebuild file instead of fetching source code from a specific version.</p><p>The compilation process can <a href="/en/2025/01/04/%E7%BC%96%E8%AF%91openfyde/" title="Compile openfyde">[refer to previous steps]</a>. When executing <code>build-packages</code>, the tool automatically identifies changed packages, rebuilds them, and places the updated packages into the chroot environment.</p><h2 id="Flashing-and-Booting"><a href="#Flashing-and-Booting" class="headerlink" title="Flashing and Booting"></a>Flashing and Booting</h2><a href="/en/2025/06/19/%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95%E7%BC%96%E8%AF%91openfyde-%E4%B8%8B/" title="Trying to compile openfyde again (Part 2)">[Flashing hasn&#39;t changed much either]</a>. However, after randomly modifying the kernel last time, my test device (the Duo) was bricked. So I referred to the [Fydetab Duo wiki instructions](https://wiki.fydetabduo.com/unbrick_the_fydetab_duo) to enter maskrom mode for flashing.<h2 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging?"></a>Debugging?</h2><p>This actually leaves a question: no matter what development you do, you should theoretically complete testing in a test or virtual environment before conducting real device testing and debugging. Otherwise, you’ll waste a lot of time compiling and flashing back and forth. I think this is also the significance of various SDK and Studio suites.</p><p>However, I currently don’t know… How should I debug such modifications before flashing? According to <a href="https://www.owalle.com/2020/06/03/crosvm-chromevm/">a blog I found</a>, it seems possible to use the virtual machine functionality of cros_sdk, calling QEMU’s KVM virtual machine, which seems to allow debugging of compiled images.</p><p>Next time, I’ll debug the functionality properly and show the results! For now, here’s a preview of the interface changes after flashing!</p><p><img src="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/09/upgit_20250907_1757177833.png" class="lazyload" data-srcset="https://raw.githubusercontent.com/SilenWang/Gallary/master/2025/09/upgit_20250907_1757177833.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="terminal_in_openfyde.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> chromeos </tag>
+            
+            <tag> terminal </tag>
+            
+            <tag> libapp </tag>
+            
+            <tag> terminal app </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SteamOS is Indeed Maturing</title>
       <link href="/en/2025/08/25/SteamOS%E7%A1%AE%E5%AE%9E%E6%97%A5%E8%B6%8B%E6%88%90%E7%86%9F/"/>
       <url>/en/2025/08/25/SteamOS%E7%A1%AE%E5%AE%9E%E6%97%A5%E8%B6%8B%E6%88%90%E7%86%9F/</url>
@@ -2704,9 +2735,9 @@
       
         <tags>
             
-            <tag> conda </tag>
-            
             <tag> docker </tag>
+            
+            <tag> conda </tag>
             
         </tags>
       
