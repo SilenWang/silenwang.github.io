@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://silenwang.github.io/en/2025/06/17/使用github-action编译arm版的theia-ide/"/>
+  <link rel="canonical" href="https://silenwang.github.io/en/2025/06/16/使用github-action编译arm版的theia-ide/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -36,22 +36,22 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>SylensHub</title>
-  <meta name="keywords" content="null">
-  <meta desc name="description" content="
-title: Compiling ARM version of Theia-IDE using GitHub Actionscategories: Othersdate: 2025-06-16 23:20:58tags: [‘github’, ‘theia’]
-Since my first encounter ... - Sylens Wong - SylensHub">
+  <title>Compiling ARM version of Theia-IDE using GitHub Actions - SylensHub</title>
+  <meta name="keywords" content="theia,github,null">
+  <meta desc name="description" content="Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its ups... - Sylens Wong - SylensHub">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="SylensHub">
-<meta property="og:url" content="https://silenwang.github.io/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/index.html">
+<meta property="og:title" content="Compiling ARM version of Theia-IDE using GitHub Actions">
+<meta property="og:url" content="https://silenwang.github.io/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/index.html">
 <meta property="og:site_name" content="SylensHub">
-<meta property="og:description" content="title: Compiling ARM version of Theia-IDE using GitHub Actionscategories: Othersdate: 2025-06-16 23:20:58tags: [‘github’, ‘theia’] Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying">
+<meta property="og:description" content="Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering ag">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2025-06-16T16:49:21.847Z">
-<meta property="article:modified_time" content="2025-08-24T16:43:19.294Z">
+<meta property="article:published_time" content="2025-06-16T15:20:58.000Z">
+<meta property="article:modified_time" content="2025-10-13T15:04:49.054Z">
 <meta property="article:author" content="Sylens Wong">
+<meta property="article:tag" content="theia">
+<meta property="article:tag" content="github">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1633,7 +1633,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/en/js/app.js","parallax":"/en/js/plugins/parallax.js","rightMenu":"/en/js/plugins/rightMenu.js","rightMenus":"/en/js/plugins/rightMenus.js","sites":"/en/js/plugins/tags/sites.js","friends":"/en/js/plugins/tags/friends.js","contributors":"/en/js/plugins/tags/contributors.js","search":"/en/js/search/hexo.js"},"css":{"style":"/en/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1760120852909),
+    lastupdate: new Date(1760367951896),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2420,7 +2420,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2025/06/17/使用github-action编译arm版的theia-ide/">
+  <link itemprop="mainEntityOfPage" href="https://silenwang.github.io/en/2025/06/16/使用github-action编译arm版的theia-ide/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SylensHub">
   </span>
@@ -2440,18 +2440,77 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
     
-      <span hidden itemprop="name headline">
+      <h1 class="title" itemprop="name headline">
+        Compiling ARM version of Theia-IDE using GitHub Actions
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://avatars.githubusercontent.com/u/12797055?s=60&v=4" class="lazyload" data-srcset="https://avatars.githubusercontent.com/u/12797055?s=60&v=4" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">Sylens Wong</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/en/categories/Others/">Others</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/en/categories/Others/" itemprop="url"><span itemprop="name">Others</span></a>
       </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-06-16T23:20:58+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 16, 2025</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="busuanzi_value_page_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
     
   </div>
 
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <hr>
-<p>title: Compiling ARM version of Theia-IDE using GitHub Actions<br>categories: Others<br>date: 2025-06-16 23:20:58<br>tags: [‘github’, ‘theia’]</p>
-<p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p>
+    <p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p>
 <span id="more"></span>
 
 <p>This combines what I mentioned before about <a href="/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="Using Codespace for Free to Write Hexo Blogs">[Using Codespace to write blogs]</a> and <a href="/en/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Basic Usage of GitHub Actions">[Using GitHub Actions]</a>.</p>
@@ -2484,10 +2543,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-08-25T00:43:19+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-10-13T23:04:49+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 25, 2025</p>
+    <p>更新于：Oct 13, 2025</p>
   </a>
 </div>
 
@@ -2495,6 +2554,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/theia/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>theia</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/en/tags/github/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>github</p></a></div>
+  <span hidden itemprop="keywords">theia github</span>
+
 
         
       
@@ -2506,9 +2569,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/&title= - SylensHub&summary=
-title: Compiling ARM version of Theia-IDE using GitHub Actionscategories: Othersdate: 2025-06-16 23:20:58tags: [‘github’, ‘theia’]
-Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again."
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/&title=Compiling ARM version of Theia-IDE using GitHub Actions - SylensHub&summary=Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again."
           
           >
           
@@ -2520,9 +2581,7 @@ Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various V
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/&title= - SylensHub&summary=
-title: Compiling ARM version of Theia-IDE using GitHub Actionscategories: Othersdate: 2025-06-16 23:20:58tags: [‘github’, ‘theia’]
-Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again."
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/&title=Compiling ARM version of Theia-IDE using GitHub Actions - SylensHub&summary=Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again."
           
           >
           
@@ -2534,9 +2593,7 @@ Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various V
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/&title= - SylensHub&summary=
-title: Compiling ARM version of Theia-IDE using GitHub Actionscategories: Othersdate: 2025-06-16 23:20:58tags: [‘github’, ‘theia’]
-Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again."
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/&title=Compiling ARM version of Theia-IDE using GitHub Actions - SylensHub&summary=Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again."
           
           >
           
@@ -2593,7 +2650,7 @@ Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various V
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/index.html#comments">
+      <meta itemprop="discussionUrl" content="/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/index.html#comments">
     </span>
     <p ct><i class='fas fa-comments'></i> Comments</p>
     
@@ -2683,7 +2740,7 @@ Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various V
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3184,7 +3241,7 @@ Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various V
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","sameAs":["https://github.com/volantis-x"],"description":"Blog from Sylens Wong"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/en/en/","name":"SylensHub"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/en/en/2025/06/17/使用github-action编译arm版的theia-ide/"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/en/en/","keywords":null,"description":"Blog from Sylens Wong","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","description":"Blog from Sylens Wong"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io/en?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"\ntitle: Compiling ARM version of Theia-IDE using GitHub Actionscategories: Othersdate: 2025-06-16 23:20:58tags: [‘github’, ‘theia’]\nSince my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/","wordCount":616,"datePublished":"2025-06-16T16:49:21.847Z","dateModified":"2025-08-24T16:43:19.294Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","sameAs":["https://github.com/volantis-x"],"description":"Blog from Sylens Wong"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/en/en/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/en/en/categories/Others/","name":"Others"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/en/en/2025/06/16/使用github-action编译arm版的theia-ide/","name":"Compiling ARM version of Theia-IDE using GitHub Actions"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/en/en/","keywords":null,"description":"Blog from Sylens Wong","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","description":"Blog from Sylens Wong"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io/en?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Compiling ARM version of Theia-IDE using GitHub Actions","description":"Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/","wordCount":484,"datePublished":"2025-06-16T15:20:58.000Z","dateModified":"2025-10-13T15:04:49.054Z","articleSection":"Others","keywords":"theia,github","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

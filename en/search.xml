@@ -302,13 +302,27 @@
     
     
     <entry>
-      <title></title>
-      <link href="/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"/>
-      <url>/en/2025/06/17/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/</url>
+      <title>Compiling ARM version of Theia-IDE using GitHub Actions</title>
+      <link href="/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/"/>
+      <url>/en/2025/06/16/%E4%BD%BF%E7%94%A8github-action%E7%BC%96%E8%AF%91arm%E7%89%88%E7%9A%84theia-ide/</url>
       
-        <content type="html"><![CDATA[<hr><p>title: Compiling ARM version of Theia-IDE using GitHub Actions<br>categories: Others<br>date: 2025-06-16 23:20:58<br>tags: [‘github’, ‘theia’]</p><p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p><span id="more"></span><p>This combines what I mentioned before about <a href="/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="Using Codespace for Free to Write Hexo Blogs">[Using Codespace to write blogs]</a> and <a href="/en/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Basic Usage of GitHub Actions">[Using GitHub Actions]</a>.</p><p>First, create a new project on GitHub, then click <code>Code</code> in the upper right corner to create a Codespace for this project, which allows you to use VSCode directly in the browser for coding and saving.<br>I directly referenced my previous <a href="https://github.com/SilenWang/certimate_win7">certimate_win7</a> project to create a GitHub workflow, making sure to use GitHub’s Arm Runner.</p><p><a href="https://github.com/eclipse-theia/theia-ide">The original Theia-IDE project</a> doesn’t have official releases yet, so we can’t download pre-built releases by tags. Instead, we need to use checkout to get specific code versions.</p><p>Then follow the instructions in the project’s <a href="https://github.com/eclipse-theia/theia-ide/blob/master/browser.Dockerfile">browser.Dockerfile</a> to set up the compilation steps. After that, package the entire code directory and upload it to my project’s <a href="https://github.com/SilenWang/theia-ide-browser-build/releases">Releases</a>.</p><p>After downloading the compiled files, install system-level dependencies as per the official instructions, then run <code>yarn browser start</code> to launch it.</p><p>Since I’m using FydeOS, I compiled the browser version directly. If you need the desktop version, just follow the official instructions to generate the ARM version.</p>]]></content>
+        <content type="html"><![CDATA[<p>Since my first encounter with ChromeOS&#x2F;FydeOS, I’ve been trying various VSCode-like editors. Recently, after learning about Huawei’s CodeArt and its upstream project Theia, I started tinkering again.<br>Unfortunately, my current device is an 8GB FydeOS, not the 16GB Manjaro or PixelBook 2017 I used before. The available memory in the Linux container is very limited - I can’t even compile an ARM version of Theia-IDE browser edition… So… I had to “borrow” GitHub’s resources again.</p><span id="more"></span><p>This combines what I mentioned before about <a href="/en/2023/07/23/%E7%99%BD%E5%AB%96codespace%E7%94%A8%E6%9D%A5%E5%86%99hexo%E5%8D%9A%E5%AE%A2/" title="Using Codespace for Free to Write Hexo Blogs">[Using Codespace to write blogs]</a> and <a href="/en/2025/04/13/github-actions%E4%BD%BF%E7%94%A8/" title="Basic Usage of GitHub Actions">[Using GitHub Actions]</a>.</p><p>First, create a new project on GitHub, then click <code>Code</code> in the upper right corner to create a Codespace for this project, which allows you to use VSCode directly in the browser for coding and saving.<br>I directly referenced my previous <a href="https://github.com/SilenWang/certimate_win7">certimate_win7</a> project to create a GitHub workflow, making sure to use GitHub’s Arm Runner.</p><p><a href="https://github.com/eclipse-theia/theia-ide">The original Theia-IDE project</a> doesn’t have official releases yet, so we can’t download pre-built releases by tags. Instead, we need to use checkout to get specific code versions.</p><p>Then follow the instructions in the project’s <a href="https://github.com/eclipse-theia/theia-ide/blob/master/browser.Dockerfile">browser.Dockerfile</a> to set up the compilation steps. After that, package the entire code directory and upload it to my project’s <a href="https://github.com/SilenWang/theia-ide-browser-build/releases">Releases</a>.</p><p>After downloading the compiled files, install system-level dependencies as per the official instructions, then run <code>yarn browser start</code> to launch it.</p><p>Since I’m using FydeOS, I compiled the browser version directly. If you need the desktop version, just follow the official instructions to generate the ARM version.</p>]]></content>
       
       
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> theia </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
       
     </entry>
     
@@ -881,9 +895,9 @@
       
         <tags>
             
-            <tag> DingTalk </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> DingTalk </tag>
             
         </tags>
       
@@ -2957,9 +2971,9 @@
       
         <tags>
             
-            <tag> steam </tag>
-            
             <tag> linux </tag>
+            
+            <tag> steam </tag>
             
         </tags>
       

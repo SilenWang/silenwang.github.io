@@ -813,9 +813,9 @@
             
             <tag> conda </tag>
             
-            <tag> 依赖管理 </tag>
-            
             <tag> pixi </tag>
+            
+            <tag> 依赖管理 </tag>
             
             <tag> 生物信息 </tag>
             
@@ -1492,11 +1492,11 @@
             
             <tag> Linux </tag>
             
+            <tag> chromebook </tag>
+            
             <tag> ChromeOS </tag>
             
             <tag> 云办公 </tag>
-            
-            <tag> chromebook </tag>
             
             <tag> 远程开发 </tag>
             
@@ -2184,11 +2184,11 @@
             
             <tag> 游戏 </tag>
             
+            <tag> Monster Hunter World </tag>
+            
             <tag> 怪物猎人 </tag>
             
             <tag> 冰原DLC </tag>
-            
-            <tag> Monster Hunter World </tag>
             
             <tag> Iceborne </tag>
             
@@ -2431,13 +2431,13 @@
             
             <tag> 游戏 </tag>
             
-            <tag> Monster Hunter World </tag>
-            
             <tag> 怪物猎人世界 </tag>
             
             <tag> 历战爆鳞龙 </tag>
             
             <tag> 狩猎 </tag>
+            
+            <tag> Monster Hunter World </tag>
             
             <tag> Bazelgeuse </tag>
             
