@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Fixing the Issue of Lost obs and var Index When Reading/Writing Loom Files with scanpy</title>
+      <link href="/en/2025/10/28/%E8%A7%A3%E5%86%B3scanpy%E8%AF%BB%E5%86%99loom%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E4%B8%A2%E5%A4%B1obs%E5%92%8Cvar%E7%9A%84index%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/en/2025/10/28/%E8%A7%A3%E5%86%B3scanpy%E8%AF%BB%E5%86%99loom%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E4%B8%A2%E5%A4%B1obs%E5%92%8Cvar%E7%9A%84index%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>In our current single-cell analysis pipeline based on scanpy, there’s a step that requires saving AnnData objects in loom format. However, unlike saving to h5ad format, when we write an AnnData object to a loom file without any special handling and then read it back, we find that the index information of <code>obs</code> and <code>var</code> (typically cell barcodes and gene names) is lost, and these indices become ordinary numeric identifiers.</p><span id="more"></span><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Based on actual testing and the documentation of the <a href="https://anndata.readthedocs.io/en/latest/generated/anndata.AnnData.write_loom.html">write_loom method</a>, it can be inferred that during actual read&#x2F;write operations, <code>write_loom</code> does not save the index portions of the obs and var tables by default. Even when specifying the parameter <code>write_obsm_varm=True</code>, the writing process only creates two new columns with fixed names (obs_names and var_names).</p><p>According to the <a href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.read_loom.html">read_loom method documentation</a>, when reading, <code>read_loom</code> looks for a column named <code>CellID</code> in obs and a column named <code>Gene</code> in var to use as indices for the respective tables.</p><p>This creates a mismatch: by default, indices aren’t saved, and even if they are saved, what <code>write_loom</code> writes and what <code>read_loom</code> reads don’t align - it’s like two departments failing to coordinate properly, resulting in the loss of critical information…</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>My goal is to make minimal changes to the original pipeline code, so directly generating loom files that the original pipeline can read is the best approach:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Save index information to columns in obs and var</span></span><br><span class="line">adata.obs[<span class="string">&#x27;CellID&#x27;</span>] = adata.obs.index.tolist()</span><br><span class="line">adata.var[<span class="string">&#x27;Gene&#x27;</span>] = adata.var.index.tolist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write to loom file (including obsm and varm information)</span></span><br><span class="line">merge_adata.write_loom(<span class="string">&#x27;/path/to/raw.loom&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read the loom file - since CellID and Gene exist,</span></span><br><span class="line"><span class="comment"># the read adata successfully preserves the index information of both tables</span></span><br><span class="line">adata = sc.read_loom(<span class="string">&#x27;/path/to/raw.loom&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bioinformatics </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> scanpy </tag>
+            
+            <tag> loom </tag>
+            
+            <tag> adata </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Comparing Milo Implementations in R and Python</title>
       <link href="/en/2025/10/28/%E5%9C%A8R%E5%92%8CPython%E4%B8%8B%E8%BF%90%E8%A1%8Cmilo%E7%9A%84%E5%AF%B9%E6%AF%94/"/>
       <url>/en/2025/10/28/%E5%9C%A8R%E5%92%8CPython%E4%B8%8B%E8%BF%90%E8%A1%8Cmilo%E7%9A%84%E5%AF%B9%E6%AF%94/</url>
