@@ -855,9 +855,9 @@
       
         <tags>
             
-            <tag> openfyde </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> openfyde </tag>
             
             <tag> chromeos </tag>
             
@@ -1244,9 +1244,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
             <tag> chatGPT </tag>
             
@@ -1672,9 +1672,9 @@
       
         <tags>
             
-            <tag> FydeOS </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> FydeOS </tag>
             
             <tag> ChromeOS </tag>
             
@@ -1888,8 +1888,6 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 数据可视化 </tag>
             
             <tag> 交互式分析 </tag>
@@ -1897,6 +1895,8 @@
             <tag> Dash </tag>
             
             <tag> Plotly </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -2269,9 +2269,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
             <tag> Web开发 </tag>
             
@@ -2368,11 +2368,11 @@
             
             <tag> 游戏 </tag>
             
+            <tag> Monster Hunter World </tag>
+            
             <tag> 怪物猎人 </tag>
             
             <tag> 冰原DLC </tag>
-            
-            <tag> Monster Hunter World </tag>
             
             <tag> Iceborne </tag>
             
@@ -2615,13 +2615,13 @@
             
             <tag> 游戏 </tag>
             
-            <tag> Monster Hunter World </tag>
-            
             <tag> 怪物猎人世界 </tag>
             
             <tag> 历战爆鳞龙 </tag>
             
             <tag> 狩猎 </tag>
+            
+            <tag> Monster Hunter World </tag>
             
             <tag> Bazelgeuse </tag>
             
