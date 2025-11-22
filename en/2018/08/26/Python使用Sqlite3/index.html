@@ -36,19 +36,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>Python使用Sqlite3 - SylensHub</title>
+  <title>Use Sqlite3 in Python - SylensHub</title>
   <meta name="keywords" content="Python,sqlite,null">
   <meta desc name="description" content="To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed conveni... - Sylens Wong - SylensHub">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python使用Sqlite3">
+<meta property="og:title" content="Use Sqlite3 in Python">
 <meta property="og:url" content="https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/index.html">
 <meta property="og:site_name" content="SylensHub">
 <meta property="og:description" content="To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL stat">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2018-08-26T15:54:24.000Z">
-<meta property="article:modified_time" content="2025-08-24T16:27:39.237Z">
+<meta property="article:modified_time" content="2025-11-22T13:30:45.664Z">
 <meta property="article:author" content="Sylens Wong">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="sqlite">
@@ -1633,7 +1633,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/en/js/plugins/parallax.js","rightMenu":"/en/js/plugins/rightMenu.js","rightMenus":"/en/js/plugins/rightMenus.js","sites":"/en/js/plugins/tags/sites.js","friends":"/en/js/plugins/tags/friends.js","contributors":"/en/js/plugins/tags/contributors.js","search":"/en/js/search/hexo.js"},"css":{"style":"/en/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1763814179800),
+    lastupdate: new Date(1763818858093),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2441,7 +2441,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        Python使用Sqlite3
+        Use Sqlite3 in Python
       </h1>
       <div class='new-meta-box'>
         
@@ -2513,7 +2513,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <p>To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…</p>
 <span id="more"></span>
 
-<h2 id="Simple-Usage"><a href="#Simple-Usage" class="headerlink" title="Simple Usage:"></a>Simple Usage:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3   <span class="comment"># Import the module</span></span><br><span class="line">conn = sqlite3.connect(<span class="string">&#x27;test.db&#x27;</span>)   <span class="comment"># Connect to the database (it will be created if it doesn&#x27;t exist)</span></span><br><span class="line">cursor = conn.cursor()    <span class="comment"># Create a pointer from the database object</span></span><br><span class="line">cursor.execute(<span class="string">&#x27;sql cmd&#x27;</span>)   <span class="comment"># Pass SQL statements to the database, note that operations are not immediately saved/synchronized to the database</span></span><br><span class="line">cursor.close()   <span class="comment"># Close the pointer</span></span><br><span class="line">conn.commit()   <span class="comment"># Confirm changes</span></span><br><span class="line">conn.close()   <span class="comment"># Close the connection</span></span><br></pre></td></tr></table></figure>
+<h2 id="Simple-Usage"><a href="#Simple-Usage" class="headerlink" title="Simple Usage"></a>Simple Usage</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3   <span class="comment"># Import the module</span></span><br><span class="line">conn = sqlite3.connect(<span class="string">&#x27;test.db&#x27;</span>)   <span class="comment"># Connect to the database (it will be created if it doesn&#x27;t exist)</span></span><br><span class="line">cursor = conn.cursor()    <span class="comment"># Create a pointer from the database object</span></span><br><span class="line">cursor.execute(<span class="string">&#x27;sql cmd&#x27;</span>)   <span class="comment"># Pass SQL statements to the database, note that operations are not immediately saved/synchronized to the database</span></span><br><span class="line">cursor.close()   <span class="comment"># Close the pointer</span></span><br><span class="line">conn.commit()   <span class="comment"># Confirm changes</span></span><br><span class="line">conn.close()   <span class="comment"># Close the connection</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Usage Notes:<ul>
@@ -2552,10 +2552,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-08-25T00:27:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-11-22T21:30:45+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>Updated on: Aug 25, 2025</p>
+    <p>Updated on: Nov 22, 2025</p>
   </a>
 </div>
 
@@ -2578,7 +2578,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/&title=Python使用Sqlite3 - SylensHub&summary=To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/&title=Use Sqlite3 in Python - SylensHub&summary=To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…"
           
           >
           
@@ -2590,7 +2590,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/&title=Python使用Sqlite3 - SylensHub&summary=To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/&title=Use Sqlite3 in Python - SylensHub&summary=To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…"
           
           >
           
@@ -2602,7 +2602,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/&title=Python使用Sqlite3 - SylensHub&summary=To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/&title=Use Sqlite3 in Python - SylensHub&summary=To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…"
           
           >
           
@@ -2703,7 +2703,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-Usage"><span class="toc-text">Simple Usage:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calling-Shell-Commands"><span class="toc-text">Calling Shell Commands</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-Usage"><span class="toc-text">Simple Usage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calling-Shell-Commands"><span class="toc-text">Calling Shell Commands</span></a></li></ol>
     </div>
   </section>
 
@@ -3259,7 +3259,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","sameAs":["https://github.com/volantis-x"],"description":"Blog from Sylens Wong"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/en/en/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/en/en/categories/Coding/","name":"Coding"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/en/en/2018/08/26/Python使用Sqlite3/","name":"Python使用Sqlite3"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/en/en/","keywords":null,"description":"Blog from Sylens Wong","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","description":"Blog from Sylens Wong"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io/en?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Python使用Sqlite3","description":"To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/","wordCount":320,"datePublished":"2018-08-26T15:54:24.000Z","dateModified":"2025-08-24T16:27:39.237Z","articleSection":"Coding","keywords":"Python,sqlite","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","sameAs":["https://github.com/volantis-x"],"description":"Blog from Sylens Wong"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://silenwang.github.io/en/en/","name":"SylensHub"}},{"@type":"ListItem","position":2,"item":{"@id":"https://silenwang.github.io/en/en/categories/Coding/","name":"Coding"}},{"@type":"ListItem","position":3,"item":{"@id":"https://silenwang.github.io/en/en/2018/08/26/Python使用Sqlite3/","name":"Use Sqlite3 in Python"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SylensHub","url":"https://silenwang.github.io/en/en/","keywords":null,"description":"Blog from Sylens Wong","author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/","description":"Blog from Sylens Wong"},"publisher":{"@type":"Organization","name":"SylensHub","url":"https://silenwang.github.io/en/en/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://silenwang.github.io/en?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Use Sqlite3 in Python","description":"To prepare for future operations using Sqlite3, I recently tried using it to operate on databases at work. I decided to use sqlite3 because it seemed convenient. However, I found that not all SQL statements are supported by sqlite3, and its free-form shell commands cannot be called directly by the Python sqlite module…","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/"},"author":{"@type":"Person","name":"Sylens Wong","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://silenwang.github.io/en/en/"},"publisher":{"@type":"Organization","name":"SylensHub","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://silenwang.github.io/en/2018/08/26/Python%E4%BD%BF%E7%94%A8Sqlite3/","wordCount":320,"datePublished":"2018-08-26T15:54:24.000Z","dateModified":"2025-11-22T13:30:45.664Z","articleSection":"Coding","keywords":"Python,sqlite","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
