@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>对发现bug的R函数进行热修复</title>
+      <link href="/2025/11/26/%E5%AF%B9%E5%8F%91%E7%8E%B0bug%E7%9A%84R%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+      <url>/2025/11/26/%E5%AF%B9%E5%8F%91%E7%8E%B0bug%E7%9A%84R%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E7%83%AD%E4%BF%AE%E5%A4%8D/</url>
+      
+        <content type="html"><![CDATA[<p>短时间内，我碰到两次需要修复R函数Bug的情况了，也顺便学习了一下如何进行热替换…</p><span id="more"></span><h2 id="为什么需要热修复？"><a href="#为什么需要热修复？" class="headerlink" title="为什么需要热修复？"></a>为什么需要热修复？</h2><p>在数据分析项目中，时间往往是关键因素。如果依赖的R包函数存在bug，可能会阻塞整个分析流程。虽然说向包维护者报告bug并帮助修复是最能回馈开源社区的方式，但是… 其实你总不可能跟老板说，我已经跟作者反馈Bug了，猴年马月之后，我们就能等到正确结果啦！</p><p>所以自己找到问题，并进行热修复更实际一些。</p><h2 id="最基本的修复–替换"><a href="#最基本的修复–替换" class="headerlink" title="最基本的修复–替换"></a>最基本的修复–替换</h2><p>据我这些年的使用经验，R虽然支持对象，但是真这么用的并不多，至少大多数生物信息的包还是函数式的，因此，最简单的思路，哪个函数出问题，用修改后的函数替换就是。</p><p>首先，我们可以定位到要修复的函数，然后<code>print(YOUR_FUNCTION)</code>，这样就能得到你目前工作环境中，对应函数的代码了。</p><p>当然，有些时候我们要修复的函数并不是包内导出的给用户使用的函数，可能是包的内部函数，这时需要用包名+<code>:::</code>+函数名来获得代码。</p><p>在对函数做了修改之后，直接<code>&lt;-</code>盖掉原来的函数，就能完成修改了。比如我给<code>Azimuth</code>那个问题的方案，就是直接改函数这么替换。</p><h2 id="修改函数后，进行命名空间设置"><a href="#修改函数后，进行命名空间设置" class="headerlink" title="修改函数后，进行命名空间设置"></a>修改函数后，进行命名空间设置</h2><p>当然大部分函数并不能真像上面那样那么简单就完成修复，因为大多数函数不是孤立的，它可能要在原包内调用其他函数，也可能它是一个不导出的内置函数，这样子在当前命名空间下完成替换，并不能起效，还要替换对应包命名空间下的原函数，步骤如下：</p><p>R提供了<code>assignInNamespace</code>函数，允许我们替换包命名空间中的对象。</p><ol><li>用<code>assignInNamespace</code>设置函数的环境为包的命名空间</li><li>将修改后的函数赋值回包的命名空间</li></ol><p>实际操作起来很简单：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写好修改的函数</span></span><br><span class="line">createOncoMatrix <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span></span><br><span class="line">    print<span class="punctuation">(</span><span class="string">&#x27;Mod！&#x27;</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置函数环境为包的命名空间</span></span><br><span class="line">environment<span class="punctuation">(</span>createOncoMatrix<span class="punctuation">)</span> <span class="operator">&lt;-</span> asNamespace<span class="punctuation">(</span><span class="string">&quot;maftools&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将修改后的函数替换回包的命名空间</span></span><br><span class="line">assignInNamespace<span class="punctuation">(</span><span class="string">&quot;createOncoMatrix&quot;</span><span class="punctuation">,</span> createOncoMatrix<span class="punctuation">,</span> ns <span class="operator">=</span> <span class="string">&quot;maftools&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>虽然记录了热修复方案，单我还是更希望，不要再让我遇上这种问题了… 30分钟的分析变成一下午的Debug…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bioinformatics </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> R </tag>
+            
+            <tag> Debug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>为了复现结果，需要一并复现bug</title>
+      <link href="/2025/11/26/%E4%B8%BA%E4%BA%86%E5%A4%8D%E7%8E%B0%E7%BB%93%E6%9E%9C%E4%B8%80%E5%B9%B6%E5%A4%8D%E7%8E%B0bug/"/>
+      <url>/2025/11/26/%E4%B8%BA%E4%BA%86%E5%A4%8D%E7%8E%B0%E7%BB%93%E6%9E%9C%E4%B8%80%E5%B9%B6%E5%A4%8D%E7%8E%B0bug/</url>
+      
+        <content type="html"><![CDATA[<p>只要活的够久，就会见到足够多的囧事情。</p><span id="more"></span><p>跟客户合作的一篇文章需要小修，我们需要根据审稿人的意见补充一些展示WES状况的图，由于之前负责的同事已经离职了，这项工作自然交给我了…</p><p>但是就像大部分半路接收的工作一样，拿到数据，一跑，结果不出所料的，跟文章里的图不一样。</p><p>需要绘制的是<code>maftools</code>产生的<code>oncoplot</code>，大概选择了20+个基因来展示配对样本的突变一致性，然而同样的文件，我画出来的突变类型跟前同事提供的基本都对不上。相比前同事的版本，我的图里<code>Splice_Site</code>消失了，同时虽然都检出突变，但是我的版本显示出大量的<code>MultiHit</code>，但是前同事的版本却基本都是每个基因单突变类型。</p><p>遂查看了原始文件，发现原始文件中确实有<code>Splice_Site</code>，所以判断是我的版本有问题，再次开始翻Github的Issue，经过一段折腾，没想到，涉及了2个bug，一个是我版本里的，另一个，是前同事的…</p><h2 id="背景补充"><a href="#背景补充" class="headerlink" title="背景补充"></a>背景补充</h2><p>首先补充一下，软件版本的差异。</p><p>前同事是使用个人电脑分析的，自行装的R和Rstudio，版本反正不可考了。我这边入职的是有已经购置了服务器，所以一直是使用服务器分析。然后因为我按照Pixi的原设计逻辑，一项目一配置，且我跨项目不保留<code>pixi.lock</code>，<code>pixi.toml</code>中除非有兼容性问题，并不限定版本，所以我用的包都会是依赖满足范围内，<code>bioconda</code>上有的最新版本。目前<code>maftools</code>在上面更新到<code>2.22</code>。</p><p>再然后是输入文件的情况，现在的单位使用的是ANNOVAR（跳槽了一圈又回到ANNOVAR了）</p><h2 id="Splice-Site解析问题"><a href="#Splice-Site解析问题" class="headerlink" title="Splice_Site解析问题"></a><code>Splice_Site</code>解析问题</h2><p>追溯我的版本中，<code>Splice_Site</code>的丢失情况，可以发现，是将ANNOVAR结果中的突变类型，映射成MAF对应的类型时出的问题，具体见下：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ann<span class="punctuation">[</span><span class="punctuation">,</span> `:=`<span class="punctuation">(</span>Hugo_Symbol<span class="punctuation">,</span> unlist<span class="punctuation">(</span>data.table<span class="operator">::</span>tstrsplit<span class="punctuation">(</span>Gene.refGene<span class="punctuation">,</span> </span><br><span class="line">    split <span class="operator">=</span> <span class="string">&quot;;&quot;</span><span class="punctuation">,</span> keep <span class="operator">=</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">annovar_values <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span>exonic <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">,</span> splicing <span class="operator">=</span> <span class="string">&quot;Splice_Site&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    UTR5 <span class="operator">=</span> <span class="string">&quot;5&#x27;UTR&quot;</span><span class="punctuation">,</span> UTR3 <span class="operator">=</span> <span class="string">&quot;3&#x27;UTR&quot;</span><span class="punctuation">,</span> intronic <span class="operator">=</span> <span class="string">&quot;Intron&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    upstream <span class="operator">=</span> <span class="string">&quot;5&#x27;Flank&quot;</span><span class="punctuation">,</span> downstream <span class="operator">=</span> <span class="string">&quot;3&#x27;Flank&quot;</span><span class="punctuation">,</span> intergenic <span class="operator">=</span> <span class="string">&quot;IGR&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    `frameshift insertion` <span class="operator">=</span> <span class="string">&quot;Frame_Shift_Ins&quot;</span><span class="punctuation">,</span> `frameshift deletion` <span class="operator">=</span> <span class="string">&quot;Frame_Shift_Del&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    `frameshift block substitution` <span class="operator">=</span> <span class="string">&quot;Frameshift_INDEL&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    `frameshift substitution` <span class="operator">=</span> <span class="string">&quot;Frameshift_INDEL&quot;</span><span class="punctuation">,</span> stopgain <span class="operator">=</span> <span class="string">&quot;Nonsense_Mutation&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    stoploss <span class="operator">=</span> <span class="string">&quot;Nonstop_Mutation&quot;</span><span class="punctuation">,</span> startloss <span class="operator">=</span> <span class="string">&quot;Translation_Start_Site&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    startgain <span class="operator">=</span> <span class="string">&quot;Unknown&quot;</span><span class="punctuation">,</span> `nonframeshift insertion` <span class="operator">=</span> <span class="string">&quot;In_Frame_Ins&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    `nonframeshift deletion` <span class="operator">=</span> <span class="string">&quot;In_Frame_Del&quot;</span><span class="punctuation">,</span> `nonframeshift block substitution` <span class="operator">=</span> <span class="string">&quot;Inframe_INDEL&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    `nonframeshift substitution` <span class="operator">=</span> <span class="string">&quot;Inframe_INDEL&quot;</span><span class="punctuation">,</span> `nonsynonymous SNV` <span class="operator">=</span> <span class="string">&quot;`Missense`_Mutation&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    `synonymous SNV` <span class="operator">=</span> <span class="string">&quot;Silent&quot;</span><span class="punctuation">,</span> unknown <span class="operator">=</span> <span class="string">&quot;Unknown&quot;</span><span class="punctuation">,</span> ncRNA_exonic <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    ncRNA_intronic <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">,</span> ncRNA_UTR3 <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">,</span> ncRNA_UTR5 <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    ncRNA <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">,</span> ncRNA_splicing <span class="operator">=</span> <span class="string">&quot;RNA&quot;</span><span class="punctuation">)</span></span><br><span class="line">ann<span class="punctuation">[</span><span class="punctuation">,</span> `:=`<span class="punctuation">(</span>Func.refGene<span class="punctuation">,</span> unlist<span class="punctuation">(</span>data.table<span class="operator">::</span>tstrsplit<span class="punctuation">(</span>x <span class="operator">=</span> <span class="built_in">as.character</span><span class="punctuation">(</span>Func.refGene<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">    split <span class="operator">=</span> <span class="string">&quot;;&quot;</span><span class="punctuation">,</span> keep <span class="operator">=</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">ann<span class="punctuation">[</span><span class="punctuation">,</span> `:=`<span class="punctuation">(</span>ExonicFunc.refGene<span class="punctuation">,</span> unlist<span class="punctuation">(</span>data.table<span class="operator">::</span>tstrsplit<span class="punctuation">(</span>x <span class="operator">=</span> <span class="built_in">as.character</span><span class="punctuation">(</span>ExonicFunc.refGene<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">    split <span class="operator">=</span> <span class="string">&quot;;&quot;</span><span class="punctuation">,</span> keep <span class="operator">=</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">ann<span class="operator">$</span>Variant_Classification <span class="operator">=</span> ifelse<span class="punctuation">(</span></span><br><span class="line">    <span class="comment"># 出问题的地方在这里，这里的逻辑是：</span></span><br><span class="line">    <span class="comment"># 当ExonicFunc.refGene不存在数值时，使用Func.refGene数值带入命名向量以进行映射，</span></span><br><span class="line">    <span class="comment"># 否则使用ExonicFunc.refGene带入映射。但是，根据ANNOVAR的文档，进行注释时一般都会</span></span><br><span class="line">    <span class="comment"># 加上 `-nasting .`，即用点号表示缺失，因此ExonicFunc.refGene根本不会缺失</span></span><br><span class="line">    <span class="built_in">is.na</span><span class="punctuation">(</span>ann<span class="operator">$</span>ExonicFunc.refGene<span class="punctuation">)</span><span class="punctuation">,</span>  </span><br><span class="line">    annovar_values<span class="punctuation">[</span>ann<span class="operator">$</span>Func.refGene<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    annovar_values<span class="punctuation">[</span>ann<span class="operator">$</span>ExonicFunc.refGene<span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">)</span></span><br></pre></td></tr></table></figure><p>经过上面描述的问题，由于ExonicFunc.refGene根本不会缺失，所有<code>ExonicFunc.refGene</code>为缺失的变异，其实也就是外显子区域以外的变异，都会因为<code>Variant_Classification</code>映射出缺失值被过滤掉，体现出来的效果就是，这些突变解析后全部不见了。</p><p>所以修复也很简单，额外判断一下<code>.</code>，或者前面<code>fread</code>读取的时候指定<code>.</code>是缺失就行了。</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ann<span class="operator">$</span>Variant_Classification <span class="operator">=</span> ifelse<span class="punctuation">(</span></span><br><span class="line">    <span class="comment"># 我选择直接改判断</span></span><br><span class="line">    <span class="built_in">is.na</span><span class="punctuation">(</span>ann<span class="operator">$</span>ExonicFunc.refGene<span class="punctuation">)</span> <span class="operator">|</span> ann<span class="operator">$</span>ExonicFunc.refGene <span class="operator">==</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    annovar_values<span class="punctuation">[</span>ann<span class="operator">$</span>Func.refGene<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    annovar_values<span class="punctuation">[</span>ann<span class="operator">$</span>ExonicFunc.refGene<span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">)</span></span><br></pre></td></tr></table></figure><p>这个问题追溯起来，其实不一定是maftools的原因，我往前倒了好多个版本，没见这个地方有修改，说不定是<code>fread</code>改了默认的<code>nastring</code>参数…反正我的问题解决了，我也不继续追了…</p><h2 id="MultiHit解析问题"><a href="#MultiHit解析问题" class="headerlink" title="MultiHit解析问题"></a><code>MultiHit</code>解析问题</h2><p>这个问题是源自一个有<a href="https://github.com/PoisonAlien/maftools/issues/347">Issue</a>的问题了。简单来说就是，maftools的老版本中，<code>MultiHit</code>的逻辑有问题。<code>MultiHit</code>想展示的，是一个基因发生两个不同的改变氨基酸的突变（<code>Missense</code> + <code>Missense</code> &#x3D; MultiHit）。但是老版本中，实际上同一个基因发生不同类型的突变才会是<code>MultiHit</code>，如果都是<code>Missense</code>突变，则会直接显示<code>Missense</code>。</p><p>在我使用的最新版本中，这个问题已经被修复，因此我的结果中出现了大量的<code>MultiHit</code>…</p><p>那…能怎么办呢，对着Issue的修改，把Bug复现出来呗…</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>前两天才吐槽过，<code>Azimuth</code>的Bug，我真没想到这么快，用过好多次的<code>maftools</code>也会有问题。</p><p>只能说敝人不只是天煞孤星，还是特么是扫把星…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bioinformatics </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> R </tag>
+            
+            <tag> maftools </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>出身豪门也还是会坑--Azimuth也是Bug成堆</title>
       <link href="/2025/11/22/%E5%87%BA%E8%BA%AB%E8%B1%AA%E9%97%A8%E4%B9%9F%E8%BF%98%E6%98%AF%E4%BC%9A%E5%9D%91/"/>
       <url>/2025/11/22/%E5%87%BA%E8%BA%AB%E8%B1%AA%E9%97%A8%E4%B9%9F%E8%BF%98%E6%98%AF%E4%BC%9A%E5%9D%91/</url>
@@ -1271,9 +1325,9 @@
             
             <tag> 云端开发 </tag>
             
-            <tag> Github </tag>
-            
             <tag> 博客写作 </tag>
+            
+            <tag> Github </tag>
             
             <tag> Codespace </tag>
             
@@ -1337,9 +1391,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
             <tag> chatGPT </tag>
             
@@ -1662,9 +1716,9 @@
             
             <tag> 数据处理 </tag>
             
-            <tag> Pandas </tag>
-            
             <tag> 数据清洗 </tag>
+            
+            <tag> Pandas </tag>
             
             <tag> R </tag>
             
@@ -1981,6 +2035,8 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 数据可视化 </tag>
             
             <tag> 交互式分析 </tag>
@@ -1988,8 +2044,6 @@
             <tag> Dash </tag>
             
             <tag> Plotly </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -2146,15 +2200,15 @@
       
         <tags>
             
-            <tag> 大逆转裁判 </tag>
-            
-            <tag> 成步堂三部曲 </tag>
-            
             <tag> 游戏评论 </tag>
             
             <tag> 医学伦理 </tag>
             
             <tag> 科研困境 </tag>
+            
+            <tag> 大逆转裁判 </tag>
+            
+            <tag> 成步堂三部曲 </tag>
             
         </tags>
       
@@ -2362,9 +2416,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
             <tag> Web开发 </tag>
             
@@ -2778,13 +2832,13 @@
       
         <tags>
             
-            <tag> 游戏评测 </tag>
-            
             <tag> 大逆转裁判 </tag>
             
-            <tag> 推理游戏 </tag>
-            
             <tag> 成步堂三部曲 </tag>
+            
+            <tag> 游戏评测 </tag>
+            
+            <tag> 推理游戏 </tag>
             
             <tag> game-review </tag>
             
@@ -2815,9 +2869,9 @@
       
         <tags>
             
-            <tag> R语言 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> R语言 </tag>
             
             <tag> Dockerfile </tag>
             
@@ -3099,13 +3153,13 @@
       
         <tags>
             
-            <tag> 数据分析 </tag>
-            
             <tag> NGS </tag>
             
             <tag> 质控工具 </tag>
             
             <tag> 生物信息学 </tag>
+            
+            <tag> 数据分析 </tag>
             
             <tag> MultiQC </tag>
             
@@ -4154,11 +4208,11 @@
             
             <tag> R </tag>
             
+            <tag> 数据操作 </tag>
+            
             <tag> 数据框 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 数据操作 </tag>
             
             <tag> dataframe </tag>
             
@@ -4323,11 +4377,11 @@
             
             <tag> Python </tag>
             
+            <tag> 数据分析 </tag>
+            
             <tag> 数据处理 </tag>
             
             <tag> Pandas </tag>
-            
-            <tag> 数据分析 </tag>
             
         </tags>
       
@@ -4660,9 +4714,9 @@
             
             <tag> R </tag>
             
-            <tag> 数据操作 </tag>
-            
             <tag> 统计绘图 </tag>
+            
+            <tag> 数据操作 </tag>
             
             <tag> 培训笔记 </tag>
             
