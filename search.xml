@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>大家的想法还真是一样的--读devpod代码有感</title>
+      <link href="/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/"/>
+      <url>/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/</url>
+      
+        <content type="html"><![CDATA[<p>在使用<a href="https://github.com/loft-sh/devpod">devpod</a>一小段时间后, 我确定, 我还是需要一个能不依赖容器, 直接通过ssh在宿主机上自动安装vscode, 然后把端口转发回来的工具. 于是我开始白嫖Copilot来给我解释devpod的代码…</p><span id="more"></span><p>然后, 在拷问Copilot一段时间后, 我开始和我的<a href="https://github.com/KaikePing">前室友</a>一样, 被AI气的不轻, 给的解释很少有对的, 然后给的运行示例更是一个也运行不了… 最后回到了最基础的, 给一个文件, 一点点给我解释里头有哪些对象, 有什么方法, 我能怎么用(只是少了我自己复制代码到对话框这一步)…</p><p>在一点点的看了几个周末后, 再次发现, 果然是想法人人有, 就看谁有能力执行…</p><p>之前没有找到devpod, 我想自己从头写一个程序来快速安装vscode的时候, 我编写边总结出来需要实现的内容有:</p><ol><li>程序通过ssh登录远程机器, 检测远程机器是否安装过vscode, 没有则机器上下载vscode</li><li>由于通过ssh执行命令完成前1点很麻烦, 所以将上述功能写到主程序里, 然后给主程序设置一个上传自己的功能, 将程序本身复制到远程机器, 然后校验md5</li><li>由于远程机器的架构可能是x86可能是arm, 项目编译的时候需要一次性编译出所有架构的可执行文件, 方便直接从本地传到远程去</li><li>程序需要能转发远程机器端口到本地, 使用宿主机的ssh程序可能存在不兼容, 需要用golang下的ssh实现来完成</li></ol><p>然后我发现, 我想到的这些, devpod都干了…</p><ol><li>vscode安装支持: devpod不只支持openvscode, 还支持安装所有常用的web ide, 其中甚至有rstudio</li><li>上传自己到远程: devpod在远程宿主机和容器workspace中都会放一份自己的可执行文件, 接收客户端发送的子命令, 并通过 <code>agent</code> 子命令来完成要执行的各种子命令</li><li>远程机器的多种架构支持: 这个倒是没有在本地放不同架构的可执行文件, 但是会检测远程主机的架构, 下载对应架构的 <code>devpod</code></li><li>使用golang的ssh实现: 端口转发部分使用了<code>golang.org/x/crypto/ssh</code></li></ol><p>当然, 即使devpod已经有这么多现成的接口和示例了, 我要基于它做二次开发也不是一件简单的事情…</p><p>首要的障碍就是, golang作为静态语言, 对我来说还是有很多习惯上的不适应的, 毕竟我常用的无一例外都是弱类型的偏脚本语言, 很多golang的东西, 真是不太能理解…</p><p>另外就是, 它的语法, 跟我熟悉的语言还是很不一样的… 甚至我觉得比C#与python的差异都更大, 许多内容不能靠猜, 在AI也经常不给力的情况下, 理解内容还是相当慢的…(甚至应该伴随着挺多理解错误的)</p><p>希望我能坚持到, 弄出一个基本的demo, 祝我好运… </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> devpod </tag>
+            
+            <tag> golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>对发现bug的R函数进行热修复</title>
       <link href="/2025/11/26/%E5%AF%B9%E5%8F%91%E7%8E%B0bug%E7%9A%84R%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
       <url>/2025/11/26/%E5%AF%B9%E5%8F%91%E7%8E%B0bug%E7%9A%84R%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E7%83%AD%E4%BF%AE%E5%A4%8D/</url>
@@ -743,15 +770,15 @@
       
         <tags>
             
+            <tag> pytest </tag>
+            
+            <tag> python </tag>
+            
             <tag> 自动化测试 </tag>
             
             <tag> 浏览器测试 </tag>
             
             <tag> playwright </tag>
-            
-            <tag> pytest </tag>
-            
-            <tag> python </tag>
             
         </tags>
       
@@ -776,15 +803,15 @@
       
         <tags>
             
-            <tag> 自动化测试 </tag>
+            <tag> 测试 </tag>
+            
+            <tag> API测试 </tag>
             
             <tag> pytest </tag>
             
             <tag> python </tag>
             
-            <tag> 测试 </tag>
-            
-            <tag> API测试 </tag>
+            <tag> 自动化测试 </tag>
             
         </tags>
       
@@ -1391,9 +1418,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
             <tag> chatGPT </tag>
             
@@ -2035,8 +2062,6 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 数据可视化 </tag>
             
             <tag> 交互式分析 </tag>
@@ -2044,6 +2069,8 @@
             <tag> Dash </tag>
             
             <tag> Plotly </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -2200,15 +2227,15 @@
       
         <tags>
             
+            <tag> 大逆转裁判 </tag>
+            
+            <tag> 成步堂三部曲 </tag>
+            
             <tag> 游戏评论 </tag>
             
             <tag> 医学伦理 </tag>
             
             <tag> 科研困境 </tag>
-            
-            <tag> 大逆转裁判 </tag>
-            
-            <tag> 成步堂三部曲 </tag>
             
         </tags>
       
@@ -2416,9 +2443,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
             <tag> Web开发 </tag>
             
@@ -2832,13 +2859,13 @@
       
         <tags>
             
-            <tag> 大逆转裁判 </tag>
-            
-            <tag> 成步堂三部曲 </tag>
-            
             <tag> 游戏评测 </tag>
             
+            <tag> 大逆转裁判 </tag>
+            
             <tag> 推理游戏 </tag>
+            
+            <tag> 成步堂三部曲 </tag>
             
             <tag> game-review </tag>
             
@@ -3319,13 +3346,13 @@
             
             <tag> 性能优化 </tag>
             
+            <tag> golang </tag>
+            
             <tag> Go语言 </tag>
             
             <tag> 编程语言对比 </tag>
             
             <tag> 项目重构 </tag>
-            
-            <tag> golang </tag>
             
             <tag> programming </tag>
             

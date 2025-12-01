@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Everyone&#39;s Ideas Are Surprisingly Similar – Thoughts After Reading devpod Code</title>
+      <link href="/en/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/"/>
+      <url>/en/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/</url>
+      
+        <content type="html"><![CDATA[<p>After using <a href="https://github.com/loft-sh/devpod">devpod</a> for a short while, I realized that I still needed a tool that could automatically install VS Code on a remote host via SSH without relying on containers, and then forward the port back to my local machine. So I started using Copilot to help me understand devpod’s code…</p><span id="more"></span><p>After interrogating Copilot for a while, I began to feel as frustrated as my <a href="https://github.com/KaikePing">former roommate</a> – the explanations it gave were rarely correct, and the runnable examples it provided didn’t work at all… Eventually, I went back to the basics: giving it a file and having it explain bit by bit what objects were inside, what methods were available, and how I could use them (just without me copying the code into the chat box myself)…</p><p>After spending several weekends reading through the code, I once again realized that indeed everyone has ideas; it just depends on who has the ability to execute them…</p><p>Before I found devpod, when I wanted to write a program from scratch to quickly install VS Code, I outlined the features I needed to implement:</p><ol><li>The program should log in to a remote machine via SSH, check whether VS Code is already installed, and download it if not.</li><li>Since executing commands via SSH to accomplish step 1 is cumbersome, I planned to write those functions into the main program and give the program the ability to upload itself to the remote machine, then verify the MD5 checksum.</li><li>Because remote machines could be x86 or ARM, the project would need to compile executable files for all architectures at once, making it easy to transfer them from local to remote.</li><li>The program should be able to forward remote machine ports to the local side. Using the host’s SSH program might cause compatibility issues, so I would need to use Golang’s SSH implementation.</li></ol><p>Then I discovered that devpod had already done everything I thought of…</p><ol><li>VS Code installation support: devpod not only supports open‑vscode but also all common web IDEs, including RStudio.</li><li>Self‑upload to remote: devpod places a copy of its own executable on the remote host and inside container workspaces, receives sub‑commands from the client, and executes various tasks through the <code>agent</code> sub‑command.</li><li>Multi‑architecture support for remote machines: It doesn’t keep different architecture executables locally, but instead detects the remote host’s architecture and downloads the corresponding <code>devpod</code> binary.</li><li>Using Golang’s SSH implementation: The port‑forwarding part uses <code>golang.org/x/crypto/ssh</code>.</li></ol><p>Of course, even though devpod already provides so many ready‑made interfaces and examples, building on top of it for secondary development is not a simple task for me…</p><p>The biggest obstacle is that Go, as a statically‑typed language, still feels quite unfamiliar to me. After all, the languages I use daily are all weakly‑typed, script‑oriented languages, and many Go concepts are really hard for me to grasp…</p><p>Moreover, its syntax is quite different from the languages I’m used to… I even feel the gap is larger than between C# and Python. Much of it can’t be guessed, and with AI often being unhelpful, understanding the code is still quite slow… (and probably accompanied by many misunderstandings).</p><p>I hope I can persist until I have a basic demo. Wish me luck… </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> devpod </tag>
+            
+            <tag> golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hot-fixing R Functions When Discovering Bugs</title>
       <link href="/en/2025/11/26/%E5%AF%B9%E5%8F%91%E7%8E%B0bug%E7%9A%84R%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
       <url>/en/2025/11/26/%E5%AF%B9%E5%8F%91%E7%8E%B0bug%E7%9A%84R%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E7%83%AD%E4%BF%AE%E5%A4%8D/</url>
@@ -3198,9 +3225,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> conda </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
