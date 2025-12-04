@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>又踩坑了--plotly的scattermap不能对大部分marker图标设置颜色</title>
+      <link href="/2025/12/02/%E5%8F%88%E8%B8%A9%E5%9D%91%E4%BA%86-plotly%E7%9A%84scattermap%E4%B8%8D%E8%83%BD%E5%AF%B9%E5%A4%A7%E9%83%A8%E5%88%86marker%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/"/>
+      <url>/2025/12/02/%E5%8F%88%E8%B8%A9%E5%9D%91%E4%BA%86-plotly%E7%9A%84scattermap%E4%B8%8D%E8%83%BD%E5%AF%B9%E5%A4%A7%E9%83%A8%E5%88%86marker%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/</url>
+      
+        <content type="html"><![CDATA[<p>啊, 没想到plotly这么多年了, 还是稍微一用就能触到它的能力边界, 之前是画不了时间轴图, 这次又发现地图的Marker自定义程度不够…</p><span id="more"></span><p>我需要用plotly带的<code>Scattermap</code>对象绘制一个地图, 地图上需要设置一些标点. 然后需求方看了第一版, 觉得想用地图上常见的反水滴形图标来代替默认的圆形. 正好<code>Scattermap</code>支持, 于是我这么写:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">map_fig = (</span><br><span class="line">    go.Figure()</span><br><span class="line">    .add_trace(</span><br><span class="line">        go.Scattermap(</span><br><span class="line">            lat = Lat,</span><br><span class="line">            lon = Lon,</span><br><span class="line">            mode = <span class="string">&#x27;markers&#x27;</span>,</span><br><span class="line">            marker = <span class="built_in">dict</span>(</span><br><span class="line">                size = <span class="number">12</span>,</span><br><span class="line">                color = AIMINGMED_COLOR[<span class="string">&#x27;AIMING_RED&#x27;</span>],</span><br><span class="line">                opacity = <span class="number">0.5</span>,</span><br><span class="line">                symbol = <span class="string">&#x27;marker&#x27;</span>,</span><br><span class="line">                allowoverlap = <span class="literal">True</span></span><br><span class="line">            ),</span><br><span class="line">            hoverinfo = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>结果发现, 图标虽然能自定义, 但是并不能变色… 于是又是一番查找, 最后又发现了一个去年的<a href="https://github.com/plotly/plotly.py/issues/5153">Issue</a>, 这里面给了很绝望的答案, <code>plotly</code>到目前为止就是不支持这个改变, 因为它调用的是<code>maki-icons</code>, 这里面的图标是固定黑色的, 也没有提供通过请求改颜色的接口. </p><p>这个问题的等级是P3, 也就是… 排上日程, 但是最不重要的那一级别… 又是个猴年马月的东西了…</p><p>但是我可不能等, 我又折磨了Copilot一上午, 最后得到的了一个更绝望的答案, <code>plotly.py</code>只是<code>plotly.js</code>的一个包装, 只负责将数据和参数按照要求整理好, 实际的绘制完全由<code>plotly.js</code>实现, 也就是说, 如果我要修复这个问题, 我又要看JS代码, 并且不是修改了就好, 我还要把JS部分的接口写出来, 然后再跟Python的部分对接上… 这… 不是不行, 但是我时间不够…</p><p>于是我又一排脑门想邪门办法了, 根据观察, <code>plotly.js</code>实际上会通过https请求图标的svg文件, 然后用这个文件进行绘图, 那… 有没有可能, 我靠油猴脚本, 拦截这个请求, 塞我准备好的svg文件给他呢?</p><p>这次是chatGPT救我狗命了, deepseek完败… chatGPT确实给我了我一个能够拦截并替换svg文件的脚本:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         Intercept Mapbox Maki Icon via Image.src</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      1.0</span></span><br><span class="line"><span class="comment">// @description  拦截 Mapbox 图标请求并替换成自定义 SVG</span></span><br><span class="line"><span class="comment">// @match        *://*/*</span></span><br><span class="line"><span class="comment">// @run-at       document-start</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">TARGET_PREFIX</span> = <span class="string">&quot;https://unpkg.com/maki@2.1.0/icons/&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">CUSTOM_SVG_CONTENT</span> = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;svg version=&quot;1.1&quot;</span></span><br><span class="line"><span class="string"> id=&quot;svg4619&quot; inkscape:version=&quot;0.91 r13725&quot; sodipodi:docname=&quot;marker-15.svg&quot; xmlns:cc=&quot;http://creativecommons.org/ns#&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:inkscape=&quot;http://www.inkscape.org/namespaces/inkscape&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:sodipodi=&quot;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;</span></span><br><span class="line"><span class="string"> xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;15px&quot; height=&quot;15px&quot;</span></span><br><span class="line"><span class="string"> viewBox=&quot;0 0 15 15&quot; style=&quot;enable-background:new 0 0 15 15;&quot; xml:space=&quot;preserve&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;path id=&quot;path4133&quot; inkscape:connector-curvature=&quot;0&quot; d=&quot;M7.5,0C5.0676,0,2.2297,1.4865,2.2297,5.2703</span></span><br><span class="line"><span class="string">C2.2297,7.8378,6.2838,13.5135,7.5,15c1.0811-1.4865,5.2703-7.027,5.2703-9.7297C12.7703,1.4865,9.9324,0,7.5,0z&quot; fill=&quot;#E72410&quot;/&gt;</span></span><br><span class="line"><span class="string">&lt;/svg&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">CUSTOM_SVG_URL</span> =</span><br><span class="line">        <span class="string">&quot;data:image/svg+xml;base64,&quot;</span> + <span class="title function_">btoa</span>(<span class="variable constant_">CUSTOM_SVG_CONTENT</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 劫持 Image.src</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Image</span>.<span class="property"><span class="keyword">prototype</span></span>, <span class="string">&quot;src&quot;</span>, &#123;</span><br><span class="line">        <span class="title function_">set</span>(<span class="params">url</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> url === <span class="string">&quot;string&quot;</span> &amp;&amp; url.<span class="title function_">startsWith</span>(<span class="variable constant_">TARGET_PREFIX</span>)) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;[Tampermonkey] 拦截 Mapbox 图标: &quot;</span>, url);</span><br><span class="line">                url = <span class="variable constant_">CUSTOM_SVG_URL</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">setAttribute</span>(<span class="string">&quot;src&quot;</span>, url);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&quot;src&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p>总算是… 先实现了, 之后的问题, 之后再说吧哎, 继续加班了…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> taipy </tag>
+            
+            <tag> scattermap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大家的想法还真是一样的--读devpod代码有感</title>
       <link href="/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/"/>
       <url>/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/</url>
@@ -770,15 +797,15 @@
       
         <tags>
             
-            <tag> pytest </tag>
-            
-            <tag> python </tag>
-            
             <tag> 自动化测试 </tag>
             
             <tag> 浏览器测试 </tag>
             
             <tag> playwright </tag>
+            
+            <tag> pytest </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -803,15 +830,15 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
-            <tag> API测试 </tag>
+            <tag> 自动化测试 </tag>
             
             <tag> pytest </tag>
             
             <tag> python </tag>
             
-            <tag> 自动化测试 </tag>
+            <tag> 测试 </tag>
+            
+            <tag> API测试 </tag>
             
         </tags>
       
@@ -1636,13 +1663,13 @@
       
         <tags>
             
-            <tag> 游戏评测 </tag>
-            
             <tag> 女神异闻录 </tag>
             
             <tag> P4G </tag>
             
             <tag> P5R </tag>
+            
+            <tag> 游戏评测 </tag>
             
             <tag> JRPG </tag>
             
@@ -3309,11 +3336,11 @@
       
         <tags>
             
+            <tag> 命令行 </tag>
+            
             <tag> Linux </tag>
             
             <tag> Bash </tag>
-            
-            <tag> 命令行 </tag>
             
             <tag> 输入输出重定向 </tag>
             
@@ -3445,8 +3472,6 @@
             
             <tag> Linux </tag>
             
-            <tag> Steam </tag>
-            
             <tag> Ubuntu </tag>
             
             <tag> Deepin </tag>
@@ -3468,6 +3493,8 @@
             <tag> R语言 </tag>
             
             <tag> Ugene </tag>
+            
+            <tag> Steam </tag>
             
         </tags>
       
@@ -4044,9 +4071,9 @@
       
         <tags>
             
-            <tag> 生物信息学 </tag>
-            
             <tag> R </tag>
+            
+            <tag> 生物信息学 </tag>
             
             <tag> conda </tag>
             
@@ -4122,11 +4149,11 @@
       
         <tags>
             
-            <tag> 命令行 </tag>
-            
             <tag> Git </tag>
             
             <tag> 版本控制 </tag>
+            
+            <tag> 命令行 </tag>
             
             <tag> 分支管理 </tag>
             
@@ -4198,9 +4225,9 @@
             
             <tag> Linux </tag>
             
-            <tag> 游戏 </tag>
-            
             <tag> Steam </tag>
+            
+            <tag> 游戏 </tag>
             
             <tag> Wine </tag>
             
@@ -4235,11 +4262,11 @@
             
             <tag> R </tag>
             
-            <tag> 数据操作 </tag>
-            
             <tag> 数据框 </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 数据操作 </tag>
             
             <tag> dataframe </tag>
             
@@ -4404,11 +4431,11 @@
             
             <tag> Python </tag>
             
-            <tag> 数据分析 </tag>
-            
             <tag> 数据处理 </tag>
             
             <tag> Pandas </tag>
+            
+            <tag> 数据分析 </tag>
             
         </tags>
       
@@ -4737,13 +4764,13 @@
             
             <tag> R语言 </tag>
             
-            <tag> 数据分析 </tag>
-            
             <tag> R </tag>
             
-            <tag> 统计绘图 </tag>
+            <tag> 数据分析 </tag>
             
             <tag> 数据操作 </tag>
+            
+            <tag> 统计绘图 </tag>
             
             <tag> 培训笔记 </tag>
             

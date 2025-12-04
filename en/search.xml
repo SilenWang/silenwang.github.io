@@ -101,9 +101,9 @@
       
         <tags>
             
-            <tag> Single-cell </tag>
-            
             <tag> Bioinformatics </tag>
+            
+            <tag> Single-cell </tag>
             
             <tag> Open-source Software </tag>
             
@@ -283,13 +283,13 @@
       
         <tags>
             
-            <tag> Bioinformatics </tag>
-            
             <tag> Single-cell analysis </tag>
             
             <tag> Differential abundance analysis </tag>
             
             <tag> Milo </tag>
+            
+            <tag> Bioinformatics </tag>
             
         </tags>
       
