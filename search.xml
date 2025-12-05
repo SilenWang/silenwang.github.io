@@ -1663,13 +1663,13 @@
       
         <tags>
             
+            <tag> 游戏评测 </tag>
+            
             <tag> 女神异闻录 </tag>
             
             <tag> P4G </tag>
             
             <tag> P5R </tag>
-            
-            <tag> 游戏评测 </tag>
             
             <tag> JRPG </tag>
             
@@ -2748,9 +2748,9 @@
             
             <tag> 并行计算 </tag>
             
-            <tag> snakemake </tag>
-            
             <tag> 工作流管理 </tag>
+            
+            <tag> snakemake </tag>
             
             <tag> checkpoint </tag>
             
@@ -3336,11 +3336,11 @@
       
         <tags>
             
-            <tag> 命令行 </tag>
-            
             <tag> Linux </tag>
             
             <tag> Bash </tag>
+            
+            <tag> 命令行 </tag>
             
             <tag> 输入输出重定向 </tag>
             
@@ -3472,6 +3472,8 @@
             
             <tag> Linux </tag>
             
+            <tag> Steam </tag>
+            
             <tag> Ubuntu </tag>
             
             <tag> Deepin </tag>
@@ -3493,8 +3495,6 @@
             <tag> R语言 </tag>
             
             <tag> Ugene </tag>
-            
-            <tag> Steam </tag>
             
         </tags>
       
@@ -3698,9 +3698,9 @@
             
             <tag> Python </tag>
             
-            <tag> snakemake </tag>
-            
             <tag> 工作流管理 </tag>
+            
+            <tag> snakemake </tag>
             
             <tag> 资源控制 </tag>
             
@@ -4071,9 +4071,9 @@
       
         <tags>
             
-            <tag> R </tag>
-            
             <tag> 生物信息学 </tag>
+            
+            <tag> R </tag>
             
             <tag> conda </tag>
             
@@ -4149,11 +4149,11 @@
       
         <tags>
             
+            <tag> 命令行 </tag>
+            
             <tag> Git </tag>
             
             <tag> 版本控制 </tag>
-            
-            <tag> 命令行 </tag>
             
             <tag> 分支管理 </tag>
             
@@ -4225,9 +4225,9 @@
             
             <tag> Linux </tag>
             
-            <tag> Steam </tag>
-            
             <tag> 游戏 </tag>
+            
+            <tag> Steam </tag>
             
             <tag> Wine </tag>
             
@@ -4262,11 +4262,11 @@
             
             <tag> R </tag>
             
+            <tag> 数据操作 </tag>
+            
             <tag> 数据框 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 数据操作 </tag>
             
             <tag> dataframe </tag>
             
@@ -4431,11 +4431,11 @@
             
             <tag> Python </tag>
             
+            <tag> 数据分析 </tag>
+            
             <tag> 数据处理 </tag>
             
             <tag> Pandas </tag>
-            
-            <tag> 数据分析 </tag>
             
         </tags>
       
@@ -4764,13 +4764,13 @@
             
             <tag> R语言 </tag>
             
-            <tag> R </tag>
-            
             <tag> 数据分析 </tag>
             
-            <tag> 数据操作 </tag>
+            <tag> R </tag>
             
             <tag> 统计绘图 </tag>
+            
+            <tag> 数据操作 </tag>
             
             <tag> 培训笔记 </tag>
             

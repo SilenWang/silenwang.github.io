@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Another Pitfall, Plotly&#39;s Scattermap Cannot Set Colors for Most Marker Icons</title>
+      <link href="/en/2025/12/02/%E5%8F%88%E8%B8%A9%E5%9D%91%E4%BA%86-plotly%E7%9A%84scattermap%E4%B8%8D%E8%83%BD%E5%AF%B9%E5%A4%A7%E9%83%A8%E5%88%86marker%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/"/>
+      <url>/en/2025/12/02/%E5%8F%88%E8%B8%A9%E5%9D%91%E4%BA%86-plotly%E7%9A%84scattermap%E4%B8%8D%E8%83%BD%E5%AF%B9%E5%A4%A7%E9%83%A8%E5%88%86marker%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/</url>
+      
+        <content type="html"><![CDATA[<p>Ah, I didn’t expect that after so many years, Plotly still hits its limits with just a little use. Previously it couldn’t draw timeline charts, and this time I found that the customization of map markers is insufficient…</p><span id="more"></span><p>I needed to use Plotly’s <code>Scattermap</code> object to draw a map with some markers on it. After seeing the first version, the client wanted to use the common inverted‑teardrop icon (like a map pin) instead of the default circle. Fortunately <code>Scattermap</code> supports that, so I wrote:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">map_fig = (</span><br><span class="line">    go.Figure()</span><br><span class="line">    .add_trace(</span><br><span class="line">        go.Scattermap(</span><br><span class="line">            lat = Lat,</span><br><span class="line">            lon = Lon,</span><br><span class="line">            mode = <span class="string">&#x27;markers&#x27;</span>,</span><br><span class="line">            marker = <span class="built_in">dict</span>(</span><br><span class="line">                size = <span class="number">12</span>,</span><br><span class="line">                color = AIMINGMED_COLOR[<span class="string">&#x27;AIMING_RED&#x27;</span>],</span><br><span class="line">                opacity = <span class="number">0.5</span>,</span><br><span class="line">                symbol = <span class="string">&#x27;marker&#x27;</span>,</span><br><span class="line">                allowoverlap = <span class="literal">True</span></span><br><span class="line">            ),</span><br><span class="line">            hoverinfo = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>It turned out that although the icon could be customized, its color couldn’t be changed… After some searching, I found a <a href="https://github.com/plotly/plotly.py/issues/5153">last‑year’s issue</a> that gave a rather hopeless answer: up to now, <code>plotly</code> simply does not support this change because it uses <code>maki‑icons</code>, where the icons are fixed black and there is no interface to change the color via requests.</p><p>The issue is labeled P3, meaning… it’s on the schedule, but at the lowest priority… something that will be done who‑knows‑when…</p><p>But I couldn’t wait. I tortured Copilot for another morning and got an even more desperate answer: <code>plotly.py</code> is just a wrapper for <code>plotly.js</code>; it only organizes the data and parameters as required, while the actual drawing is completely handled by <code>plotly.js</code>. In other words, if I wanted to fix this problem, I would have to look at the JS code, and not just modify it—I would also need to expose the interface on the JS side and then connect it with the Python part… That… isn’t impossible, but I didn’t have enough time…</p><p>So I slapped my forehead and thought of a hack. From observation, <code>plotly.js</code> actually fetches the icon’s SVG file via an HTTPS request and uses that file for drawing. Well… is it possible to intercept that request with a userscript (like Tampermonkey) and feed it my prepared SVG file?</p><p>This time ChatGPT saved my ass, Deepseek completely failed… ChatGPT indeed gave me a script that could intercept and replace the SVG file:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         Intercept Mapbox Maki Icon via Image.src</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      1.0</span></span><br><span class="line"><span class="comment">// @description  Intercept Mapbox icon requests and replace with custom SVG</span></span><br><span class="line"><span class="comment">// @match        *://*/*</span></span><br><span class="line"><span class="comment">// @run-at       document-start</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">TARGET_PREFIX</span> = <span class="string">&quot;https://unpkg.com/maki@2.1.0/icons/&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">CUSTOM_SVG_CONTENT</span> = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;svg version=&quot;1.1&quot;</span></span><br><span class="line"><span class="string"> id=&quot;svg4619&quot; inkscape:version=&quot;0.91 r13725&quot; sodipodi:docname=&quot;marker-15.svg&quot; xmlns:cc=&quot;http://creativecommons.org/ns#&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:inkscape=&quot;http://www.inkscape.org/namespaces/inkscape&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:sodipodi=&quot;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;</span></span><br><span class="line"><span class="string"> xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;15px&quot; height=&quot;15px&quot;</span></span><br><span class="line"><span class="string"> viewBox=&quot;0 0 15 15&quot; style=&quot;enable-background:new 0 0 15 15;&quot; xml:space=&quot;preserve&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;path id=&quot;path4133&quot; inkscape:connector-curvature=&quot;0&quot; d=&quot;M7.5,0C5.0676,0,2.2297,1.4865,2.2297,5.2703</span></span><br><span class="line"><span class="string">C2.2297,7.8378,6.2838,13.5135,7.5,15c1.0811-1.4865,5.2703-7.027,5.2703-9.7297C12.7703,1.4865,9.9324,0,7.5,0z&quot; fill=&quot;#E72410&quot;/&gt;</span></span><br><span class="line"><span class="string">&lt;/svg&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">CUSTOM_SVG_URL</span> =</span><br><span class="line">        <span class="string">&quot;data:image/svg+xml;base64,&quot;</span> + <span class="title function_">btoa</span>(<span class="variable constant_">CUSTOM_SVG_CONTENT</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hijack Image.src</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Image</span>.<span class="property"><span class="keyword">prototype</span></span>, <span class="string">&quot;src&quot;</span>, &#123;</span><br><span class="line">        <span class="title function_">set</span>(<span class="params">url</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> url === <span class="string">&quot;string&quot;</span> &amp;&amp; url.<span class="title function_">startsWith</span>(<span class="variable constant_">TARGET_PREFIX</span>)) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;[Tampermonkey] Intercepted Mapbox icon: &quot;</span>, url);</span><br><span class="line">                url = <span class="variable constant_">CUSTOM_SVG_URL</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">setAttribute</span>(<span class="string">&quot;src&quot;</span>, url);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&quot;src&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p>Finally… I got it working for now. The remaining problems can be dealt with later… Sigh, back to overtime work…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> taipy </tag>
+            
+            <tag> scattermap </tag>
+            
+            <tag> Tampermonkey </tag>
+            
+            <tag> script </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Everyone&#39;s Ideas Are Surprisingly Similar – Thoughts After Reading devpod Code</title>
       <link href="/en/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/"/>
       <url>/en/2025/12/01/%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%83%B3%E6%B3%95%E8%BF%98%E7%9C%9F%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84/</url>
@@ -101,9 +132,9 @@
       
         <tags>
             
-            <tag> Bioinformatics </tag>
-            
             <tag> Single-cell </tag>
+            
+            <tag> Bioinformatics </tag>
             
             <tag> Open-source Software </tag>
             
@@ -283,13 +314,13 @@
       
         <tags>
             
+            <tag> Bioinformatics </tag>
+            
             <tag> Single-cell analysis </tag>
             
             <tag> Differential abundance analysis </tag>
             
             <tag> Milo </tag>
-            
-            <tag> Bioinformatics </tag>
             
         </tags>
       
