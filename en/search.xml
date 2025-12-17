@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>Still Confused_Why Taipy&#39;s on_action Fails Without Wrapping</title>
+      <link href="/en/2025/12/17/%E8%BF%98%E6%98%AF%E6%90%9E%E4%B8%8D%E6%87%82-%E4%B8%BA%E4%BB%80%E4%B9%88taipy%E7%9A%84on-action%E4%B8%8D%E5%B5%8C%E5%A5%97%E4%B8%80%E4%B8%8B%E5%B0%B1%E6%8A%A5%E9%94%99/"/>
+      <url>/en/2025/12/17/%E8%BF%98%E6%98%AF%E6%90%9E%E4%B8%8D%E6%87%82-%E4%B8%BA%E4%BB%80%E4%B9%88taipy%E7%9A%84on-action%E4%B8%8D%E5%B5%8C%E5%A5%97%E4%B8%80%E4%B8%8B%E5%B0%B1%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p>I have experience with several rapid application development frameworks in python, all of which uniformly bind element actions to Python functions to trigger updates or changes. So I should be fairly experienced in this area. However, Taipy genuinely puzzles me———it occasionally throws errors for no apparent reason…</p><span id="more"></span><p>In Taipy, when we pass a function object directly to the <code>on_action</code> (or <code>on_change</code>) property, we may randomly encounter errors like “function not valid”. For example, the following code snippet might fail:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tgb.table(</span><br><span class="line">    ...</span><br><span class="line">    on_action=update_prod_link,  <span class="comment"># Passing the function name directly</span></span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>But if we use an anonymous function instead, the aforementioned problem disappears and everything works fine:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tgb.table(</span><br><span class="line">    ...</span><br><span class="line">    on_action=<span class="keyword">lambda</span> s, v, p: update_prod_link(s, v, p),</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>Since the official examples are relatively simple and always use anonymous functions, and I haven’t seen similar feedback in the issue tracker, for now I can only resort to this redundant workaround…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> taipy </tag>
+            
+            <tag> callback </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Extending Taipy with Standalone HTML Components</title>
+      <link href="/en/2025/12/17/taipy%E4%B8%AD%E5%88%A9%E7%94%A8%E7%8B%AC%E7%AB%8B%E7%9A%84html%E6%89%A9%E5%B1%95%E5%87%BA%E6%96%B0%E7%9A%84%E7%BB%84%E4%BB%B6/"/>
+      <url>/en/2025/12/17/taipy%E4%B8%AD%E5%88%A9%E7%94%A8%E7%8B%AC%E7%AB%8B%E7%9A%84html%E6%89%A9%E5%B1%95%E5%87%BA%E6%96%B0%E7%9A%84%E7%BB%84%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<p>I’ve been wondering: Taipy seems to be actively maintained, and it appears to have quite a few users (judging by the number of issues raised). Yet its component library isn’t particularly rich, and even some basic features come with minor bugs (like the light&#x2F;dark toggle button bug I discovered earlier). Then I accidentally came across the official tutorial on embedding third‑party content, and it suddenly clicked: even though its built‑in components are limited, you can always “stitch” in whatever you need!</p><span id="more"></span><h2 id="Why-Embed-Third‑Party-Components"><a href="#Why-Embed-Third‑Party-Components" class="headerlink" title="Why Embed Third‑Party Components?"></a>Why Embed Third‑Party Components?</h2><p>Taipy, as a Python‑centric web‑application framework, provides a set of built‑in visual elements that already cover many common interaction scenarios. However, in real‑world projects, it’s all too easy to receive requirements from clients that fall just outside what the existing components can do. In those situations, we have to find a way to “stitch” those extra pieces into Taipy’s pages.</p><p>Taipy does offer documentation on extending its Python components, but for a small, throw‑away project, it hardly makes sense to write HTML&#x2F;JS first, prepare the interface bindings for Taipy, then test, compile, and reinstall everything… If I really had to go through all that, I’d probably be fired before finishing the component!</p><p>Fortunately, Taipy provides another “stitching” mechanism that allows us to render any page written in HTML + CSS + JS directly inside a Taipy page (essentially by wrapping it in an iframe). The core of this mechanism is the <code>Gui.register_content_provider()</code> function.</p><h2 id="Core-Mechanism-register-content-provider"><a href="#Core-Mechanism-register-content-provider" class="headerlink" title="Core Mechanism: register_content_provider"></a>Core Mechanism: register_content_provider</h2><p><code>Gui.register_content_provider(type, provider_func)</code> accepts two arguments:</p><ul><li><code>type</code>: must be a Python type (e.g., <code>folium.folium.Map</code>)</li><li><code>provider_func</code>: a callback function that receives an object of that type and returns a <strong>bytes</strong> object, which should be the HTML content corresponding to that object.</li></ul><p>When Taipy encounters a variable of that type in a page, and that variable is placed in the <code>content</code> attribute of a <code>part</code> component, Taipy automatically calls the registered <code>provider_func</code> and embeds the returned HTML into the page via an iframe.</p><p>This way, as long as you can ultimately obtain the content of an HTML file, Taipy can render it and display it on the page.</p><p>The official example uses a <a href="https://docs.taipy.io/en/latest/tutorials/articles/3rd_party_components/">Folium map object</a>. Like Plotly, Folium wraps various JavaScript mapping libraries and provides a Python API. After drawing the map, it can directly output an HTML page, so the generated HTML can be seamlessly embedded into Taipy.</p><h2 id="AI-Brings-Greater-Extensibility"><a href="#AI-Brings-Greater-Extensibility" class="headerlink" title="AI Brings Greater Extensibility"></a>AI Brings Greater Extensibility</h2><p>Two years ago, Taipy’s approach might have felt somewhat limited, because extending functionality still required you to write the whole web stack—defeating the purpose of rapid Python‑based development. But with the rise of LLMs, the situation has changed dramatically. Nowadays, various LLMs can generate a usable web widget in a very short time. Then, with just a little learning of <a href="https://docs.jinkan.org/docs/jinja2/">Jinja2 templates</a>, you can quickly connect data to the web widget and extend Taipy’s capabilities. While this may not be suitable for extremely complex requirements, it’s absolutely sufficient for prototyping.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> taipy </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hands on Writing an Automated Deployment GitHub Action</title>
       <link href="/en/2025/12/17/%E5%AE%9E%E6%93%8D%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E7%9A%84github-action/"/>
       <url>/en/2025/12/17/%E5%AE%9E%E6%93%8D%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E7%9A%84github-action/</url>
@@ -78,9 +132,9 @@
       
         <tags>
             
-            <tag> github action </tag>
-            
             <tag> pixi </tag>
+            
+            <tag> github action </tag>
             
         </tags>
       
@@ -217,9 +271,9 @@
       
         <tags>
             
-            <tag> Bioinformatics </tag>
-            
             <tag> Single-cell </tag>
+            
+            <tag> Bioinformatics </tag>
             
             <tag> Open-source Software </tag>
             
@@ -399,13 +453,13 @@
       
         <tags>
             
+            <tag> Bioinformatics </tag>
+            
             <tag> Single-cell analysis </tag>
             
             <tag> Differential abundance analysis </tag>
             
             <tag> Milo </tag>
-            
-            <tag> Bioinformatics </tag>
             
         </tags>
       

@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>还是搞不懂_为什么taipy的on_action不嵌套一下就报错</title>
+      <link href="/2025/12/17/%E8%BF%98%E6%98%AF%E6%90%9E%E4%B8%8D%E6%87%82-%E4%B8%BA%E4%BB%80%E4%B9%88taipy%E7%9A%84on-action%E4%B8%8D%E5%B5%8C%E5%A5%97%E4%B8%80%E4%B8%8B%E5%B0%B1%E6%8A%A5%E9%94%99/"/>
+      <url>/2025/12/17/%E8%BF%98%E6%98%AF%E6%90%9E%E4%B8%8D%E6%87%82-%E4%B8%BA%E4%BB%80%E4%B9%88taipy%E7%9A%84on-action%E4%B8%8D%E5%B5%8C%E5%A5%97%E4%B8%80%E4%B8%8B%E5%B0%B1%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p>我使用过的所有应用快速开发框架，清一色的都是将元素动作绑定到某个Python函数，从而触发信息的更新或者改变，所以应该还算比较有经验。但是Taipy这个的属实让我有点摸不着头脑，时不时的就会报错…</p><span id="more"></span><p>在 Taipy 中，当我们为 <code>on_action</code>（或 <code>on_change</code>）属性直接传递一个函数对象时，会很随机的遇到类似“函数不合法（function not valid）”的错误。例如，以下写法可能会报错：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tgb.table(</span><br><span class="line">    ...</span><br><span class="line">    on_action=update_prod_link,  <span class="comment"># 直接传递函数名</span></span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>但是如果用匿名函数，就不会出现前述的问题，一切正常：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tgb.table(</span><br><span class="line">    ...</span><br><span class="line">    on_action=<span class="keyword">lambda</span> s, v, p: update_prod_link(s, v, p),</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>由于官方的例子都比较简单，都是写的匿名函数，Issue区也没有看到类似的问题反馈，目前阶段我也就只能这么脱裤子放屁了…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> taipy </tag>
+            
+            <tag> callback </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>taipy中利用独立的html扩展出新的组件</title>
+      <link href="/2025/12/17/taipy%E4%B8%AD%E5%88%A9%E7%94%A8%E7%8B%AC%E7%AB%8B%E7%9A%84html%E6%89%A9%E5%B1%95%E5%87%BA%E6%96%B0%E7%9A%84%E7%BB%84%E4%BB%B6/"/>
+      <url>/2025/12/17/taipy%E4%B8%AD%E5%88%A9%E7%94%A8%E7%8B%AC%E7%AB%8B%E7%9A%84html%E6%89%A9%E5%B1%95%E5%87%BA%E6%96%B0%E7%9A%84%E7%BB%84%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<p>我之前就在疑惑，Taipy看上去是在活跃维护的，用户看上去应该也不少（一堆用户提的Issue），但是它的组件库并不能算多么丰富，甚至有些基本的功能都小bug一堆（比如我之前发现的明暗切换按钮bug）。然后我无意间看到了官网上嵌入第三方内容的教程，我突然理解了，虽然它组组件少，但是他可以缝啊！</p><span id="more"></span><h2 id="为什么需要嵌入第三方组件"><a href="#为什么需要嵌入第三方组件" class="headerlink" title="为什么需要嵌入第三方组件"></a>为什么需要嵌入第三方组件</h2><p>Taipy 作为一个以 Python 为中心的 Web 应用框架，其内置的视觉元素（Visual Elements）已经能够覆盖很多常见的交互场景。但在实际项目中，总能轻松的从甲方那收到刚好在现有组件外的要求，这时候，我们只能自己想办法将这些内容“缝”进 Taipy 的页面里。</p><p>Taipy固然提供扩展当前Python组件的说明，但是为了一个用过即丢的小项目，实在没必要先写html&#x2F;js，然后准备好接口绑定到Taipy，然后再做测试、编译、重新安装… 如果真这么干，感觉完成组件前我就被老板开了… </p><p>幸运的是，Taipy 还提供了另外一种“缝”的机制，允许我们将任意 HTML + css + js 编写的页面直接在页面中渲染（其实就是弄了个iframe 套进去）。这个机制的核心就是 <code>Gui.register_content_provider()</code> 函数。</p><h2 id="核心机制：register-content-provider"><a href="#核心机制：register-content-provider" class="headerlink" title="核心机制：register_content_provider"></a>核心机制：register_content_provider</h2><p><code>Gui.register_content_provider(type, provider_func)</code> 接受两个参数：</p><ul><li><code>type</code>：需要是一个Python类型（例如 <code>folium.folium.Map</code>）</li><li><code>provider_func</code>：一个回调函数，它接收一个该类型的对象，并返回一个 <strong>bytes</strong> 对象，这个 bytes 对象应当是该对象对应的 HTML 内容。</li></ul><p>当 Taipy 在页面中遇到一个属于该类型的变量，并且这个变量被放在 <code>part</code> 组件的 <code>content</code> 属性中时，Taipy 就会自动调用你注册的 <code>provider_func</code>，将返回的 HTML 以 iframe 的方式嵌入页面中。</p><p>这样一来，只要能最终得到 HTML 文件 的内容 Taipy 就能进行渲染，显示在页面上。</p><p>官方给的例子是<a href="https://docs.taipy.io/en/latest/tutorials/articles/3rd_party_components/">Folium地图对象</a>，这个库与plotly类似，也是将多种地图的js库进行封装后，提供python api，完成绘制后，可以直接输出html页面，因此可以将生成的html内容直接嵌入到taipy中。</p><h2 id="AI-带来了更强的扩展性"><a href="#AI-带来了更强的扩展性" class="headerlink" title="AI 带来了更强的扩展性"></a>AI 带来了更强的扩展性</h2><p>如果是在两年前，Taipy的方案其实多少有些鸡肋，因为扩展功能最终还是要老老实实的编写Web那一套，违背通过Python快速开发的初衷。但是 LLM 当道，情况发生了极大的改变，现在各种 LLM 可以在极短的时间内生成一个可用的 Web 小组件，然后只需要稍微学习 <a href="https://docs.jinkan.org/docs/jinja2/">Jinja2模板</a> ,就能快速的将数据和Web小组件连接起来，扩展Taipy的功能。虽然这不适用于要求功能特别复杂的情况，但是开发个原型程序绝对够用了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> taipy </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>实操写一个自动部署的github_action</title>
       <link href="/2025/12/17/%E5%AE%9E%E6%93%8D%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E7%9A%84github-action/"/>
       <url>/2025/12/17/%E5%AE%9E%E6%93%8D%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E7%9A%84github-action/</url>
